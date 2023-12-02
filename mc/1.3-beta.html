@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Minecraft</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-64TQKQ7TWQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-64TQKQ7TWQ');
+</script>
+<script>	
+function loadExternalScriptInline(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onprogress = function(event) {
+      let megabytesDownloaded = (event.loaded / (1024 * 1024)).toFixed(2);
+      let megabytesToDownload = (event.total / (1024 * 1024)).toFixed(2);
+      let percentComplete = Math.round((megabytesDownloaded / 4.4) * 100);
+      let progressDiv = document.getElementById("progress");
+      launchCountdownProgressElement = document.getElementById("launchCountdownProgress");
+      launchCountdownProgressElement.style.width = "" + percentComplete + "%";;
+      progressDiv.innerText = `Downloading: ${megabytesDownloaded} MB / ${percentComplete}%`;
+  };
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.innerHTML = xhr.responseText;
+      document.head.appendChild(script);
+    }
+  };
+  xhr.onerror = function() {
+    document.querySelector("#panel > div > div").remove();
+    document.querySelector("#panel > div > h2").style.width = "100vh";
+    document.querySelector("#panel > div > h2").innerText = "An error has occurred while downloading game files. Please copy the error inside the Developer Console (Ctrl + Shift + I) and paste it in the #client-help channel in our Discord: https://discord.gg/m6N88rfc7D";
+  };
+  xhr.onload = function() {
+    document.querySelector("#progress").remove();
+    document.querySelector("#panel").remove();
+    main();
+  }
+  xhr.send();
+}
+
+loadExternalScriptInline('https://cf-ipfs.com/ipfs/bafybeidr5rbxue6fuuqaciqu2k6x6mzyh4gttl32sf33tfmntz4m4k4gn4');
+
+</script>
+<link type="image/png" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACtUlEQVRYw82XTUhUURTHf+N8OF85GAlSZBQmTEZEuQihRQW2KWpbG6MCg5aBWBG0kKRWBeKmTbVqUYSLIiRrkWkgQyAV6CJJ0kRtdNRxdN58tDhzwCtvzASZdzeXd9+993/P/57/Oee6fkzM5AHGJuMAJBZTbGWLhAMA1FRvB6CMEjfP6Pg0AHuqtgFwpLYaALfb/V8bZTIZ2dDjsf2fzWYBmIrPA6C4pWfgz9wCAPW7KwEIBOSOXC7Xugvz+TwAS0tLAFij/QD4oydtGdT5Yb/MV9zSM2BZlnHCtX0xy1MpUUuq9wEAuVg3AL62AWHC7193veI6gYGs4aXaF2vJZBKA5fdiOQPPASi/FQNg4VuPjNc3AeD1em3VoLilZyCdsTbEgOo8+bFLBj48kb5tUNTQ0y4WDb4Sn7g7ZLuffiuuA3wgnTYs1L4YA7x5CECoY0QYuVlnzAsUxv+1j+I6QQUZ426KnVx1S2UVAPG4ZE9fYX15x7AxT9WiuSEYDK5RQcYxKrD3Ae0TiYSxwHVJvNzbKTE/daJZVDA7K4z4fAB0PH0LwI6IWH713HHx/sLdK64DGCicKJfL2frCjUcvjewWCoqFiystsu6TxPaKodcANET3AnDnyhkArt17BsDj7j4ALpw6bDDhHBUU84HO1osAxIbHJJthZsmVtEY6qR8O1e4EYLbgE16Pe9XfVXHAMSqw0pbt3WtFpN8v3knMn19cNixSPirCkv+PHagR3+kStUT3CSOXzzYaqlLc0jOgFqp+NXJprafM3G4+vaENtVJqbxEVRCIRsbSszPB+xXVOPaCW6933ff8FwMjPKQB+z8xtCuD+9fMGA4rjnHogHJJ3wNiEvFSi+0MANDXUGf1m29oXk+IobskZcPV+/pIH6I99BWB8cnpLAXdVSz3RePSgMxj4C+16ZtJxzyu+AAAAAElFTkSuQmCC">
+</head>
+<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+<div style="margin:0px;width:100%;height:100%;font-family:sans-serif;display:flex;align-items:center;user-select:none;" id="panel">
+<div style="margin:auto;text-align:center;">
+<h2><span id="progress">Downloading: 0.00MB / 0%</span></h2>
+<div style="border:2px solid black;width:50vw;height:15px;padding:1px;margin-bottom:20vh;"><div id="launchCountdownProgress" style="background-color:#AA0000;width:0%;height:100%;"></div></div>
+</div>
+</div>
+</body></html>

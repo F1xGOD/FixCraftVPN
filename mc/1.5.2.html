@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Minecraft</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-64TQKQ7TWQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-64TQKQ7TWQ');
+</script>
+<script>
+function loadExternalScriptInline(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.id = 'sp_worker';
+      script.innerHTML = xhr.responseText;
+      document.head.appendChild(script);
+    }
+  };
+  xhr.send();
+}
+loadExternalScriptInline('https://dweb.link/ipfs/bafybeiaqluq6px2tc2nqagfdcdr35zskdxnwtyquo6ceejqf7xgpmro7bu');
+</script>
+<script>
+function loadExternalScriptInline(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onprogress = function(event) {
+      let megabytesDownloaded = (event.loaded / (1024 * 1024)).toFixed(2);
+      let megabytesToDownload = (event.total / (1024 * 1024)).toFixed(2);
+      let percentComplete = Math.round((megabytesDownloaded / 12.8) * 100);
+      let progressDiv = document.getElementById("progress");
+      launchCountdownProgressElement = document.getElementById("launchCountdownProgress");
+      launchCountdownProgressElement.style.width = "" + percentComplete + "%";;
+      progressDiv.innerText = `Downloading: ${megabytesDownloaded} MB / ${percentComplete}%`;
+  };
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.innerHTML = xhr.responseText;
+      document.head.appendChild(script);
+    }
+  };
+  xhr.onerror = function() {
+    document.querySelector("#panel > div > div").remove();
+    document.querySelector("#panel > div > h2").style.width = "100vh";
+    document.querySelector("#panel > div > h2").innerText = "An error has occurred while downloading game files. Please copy the error inside the Developer Console (Ctrl + Shift + I) and paste it in the #client-help channel in our Discord: https://discord.gg/m6N88rfc7D";
+  };
+  xhr.onload = function() {
+    document.querySelector("#progress").remove();
+    document.querySelector("#panel").remove();
+    main();
+  }
+  xhr.send();
+}
+loadExternalScriptInline('https://cf-ipfs.com/ipfs/bafybeidoxjkpnt3g3bymhkflmsapyvcphxtzl2oqrhsyphlhxmnb3vhbpq');
+</script>
+<link type="image/png" rel="shortcut icon" href="/img/old.png" />
+</head>
+<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+<div style="margin:0px;width:100%;height:100%;font-family:sans-serif;display:flex;align-items:center;user-select:none;" id="panel">
+<div style="margin:auto;text-align:center;">
+<h2><span id="progress">Downloading: 0.00MB / 0%</span></h2>
+<div style="border:2px solid black;width:50vw;height:15px;padding:1px;margin-bottom:20vh;"><div id="launchCountdownProgress" style="background-color:#AA0000;width:0%;height:100%;"></div></div>
+</div>
+</div>
+</body>
+</html>
