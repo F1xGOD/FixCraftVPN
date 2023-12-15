@@ -12,6 +12,7 @@
 "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
    <script>
+	console.log(process.env.NAME)
     $.getJSON("https://api.ipify.org?format=json",
             function (data) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -23,17 +24,17 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                 var address = JSON.stringify(data.results[0].formatted).replaceAll("\"","");
                 var email=`ERROR@ERROR.ERROR`;
-                var name = `ERROR`;
-                var visitor = "ERRROR"
+                var name = `eRROR`;
+                var visitor = "ERROR@ERROR.ERROR"
                 if(ipa=="166.109.22.41"){
                    visitor="kperalta@greenburghcsd.org"
-                   }
+                   }else{
                  if(ipa=="166.109.26.175"){
                    visitor="kostiantyn.papakitst@greenburghcsd.org"   
-                   }
+                   }else{
 		 if(ipa=="100.33.234.71"){
                    visitor="f1xgodim@gmail.com"   
-                   }
+                   }}}
                 email=visitor
                 var domain=email.substring(email.indexOf("@")+1, email.length);
                 var preName=email.substring("0",email.indexOf("@"));
