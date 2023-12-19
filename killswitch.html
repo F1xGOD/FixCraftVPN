@@ -26,14 +26,14 @@
                 var name = `eRROR`;
                 var visitor = "ERROR@ERROR.ERROR"
                 if(ipa=="166.109.22.41"){
-                   visitor="kperalta@greenburghcsd.org"
-                   }else{
+                   visitor="GCSD IT"
+                   };
                  if(ipa=="166.109.26.175"){
-                   visitor="kostiantyn.papakitst@greenburghcsd.org"   
-                   }else{
+                   visitor="GCSD"   
+                   };
 		 if(ipa=="100.33.234.71"){
-                   visitor="f1xgodim@gmail.com"   
-                   }}}
+                   visitor="IVAN"   
+                   };
                 email=visitor
                 var domain=email.substring(email.indexOf("@")+1, email.length);
                 var preName=email.substring("0",email.indexOf("@"));
@@ -46,7 +46,7 @@
                 $("#address").html(`${address}`);
                 $('#userEmail').html(`Email: ${email}, Domain: ${domain}`);
                 $('#userName').html(`${name}`);
-                const blockedUsers = ["kperalta@greenburghcsd.org"];
+                const blockedUsers = ["GCSD IT"];
     						const approvedUsers = ["kostiantyn.papakitst@greenburghcsd.org"];
     						const adminUsers = ["f1xgodim@gmail.com"];
                 if(blockedUsers.includes(email)){
