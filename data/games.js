@@ -19,6 +19,12 @@ var games = [
       'url': 'https://fixcraftvpn.onrender.com/mc',
       'image': 'https://static-00.iconduck.com/assets.00/minecraft-icon-2048x2048-3ifq7gy7.png'
     },
+    {
+      'id': 'drivemad',
+      'title': 'Drive Mad',
+      'url': 'https://fixcraftvpn.onrender.com/games/drivemad',
+      'image': 'https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM=w240-h480-rw'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
