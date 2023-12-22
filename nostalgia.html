@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Nostalgia</title>
-    <link rel="stylesheet" href="nostalgia.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
@@ -19,18 +19,22 @@
           $('.click').css("display", "none");
           var audio = new Audio('https://trim-audio-online.com/uploads/j34MAy9YTuaposUVhqyUqzYawIyORqA2VQaECiyi/nostalgiamp3_QbEdHyfy.mp3');
           audio.play();
+          var element = document.getElementById("empty");
+          document.getElementById("body").style.background = "linear-gradient(90deg,#000000,#000000)";
+          element.requestFullscreen();
         });
       });
 
     </script>
 
   </head>
-  <body>
+  <body id="body">
     <a href="#" class="click">Proceed</a>
     <div class="popup_box">
       <i class="fas fa-exclamation"></i>
       <h1>This is going to be VERY nostalgic!</h1>
       <label>Are you sure to proceed?</label>
+      <a href="#" id="empty"></a>
       <div class="btns">
         <a href="#" class="btn1">Go Back</a>
         <a href="#" class="btn2">Proceed</a>
