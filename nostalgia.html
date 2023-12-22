@@ -16,7 +16,9 @@
         });
         $('.btn2').click(function(){
           $('.popup_box').css("display", "none");
-          alert("Account Permanently Deleted.");
+          $('.click').css("display", "none");
+          var audio = new Audio('https://trim-audio-online.com/uploads/j34MAy9YTuaposUVhqyUqzYawIyORqA2VQaECiyi/nostalgiamp3_QbEdHyfy.mp3');
+          audio.play();
         });
       });
 
@@ -24,14 +26,14 @@
 
   </head>
   <body>
-    <a href="#" class="click">Delete Account</a>
+    <a href="#" class="click">Proceed</a>
     <div class="popup_box">
       <i class="fas fa-exclamation"></i>
-      <h1>Your account will be deleted Permanently!</h1>
+      <h1>This is going to be VERY nostalgic!</h1>
       <label>Are you sure to proceed?</label>
       <div class="btns">
-        <a href="#" class="btn1">Cancel Process</a>
-        <a href="#" class="btn2">Delete Account</a>
+        <a href="#" class="btn1">Go Back</a>
+        <a href="#" class="btn2">Proceed</a>
       </div>
     </div>
   </body>
