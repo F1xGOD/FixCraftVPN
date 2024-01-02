@@ -1,5 +1,22 @@
 console.log("STARTED")
 import * as $ from './jquery.js';
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+if(getCookie("passwordstate")!=="pass"){
   var password = prompt("Please enter the password.");
   $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
@@ -11,4 +28,4 @@ import * as $ from './jquery.js';
             }else{
               console.log("FAIL!")
               window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-            };})
+            };})}
