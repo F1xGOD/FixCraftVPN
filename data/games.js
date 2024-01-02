@@ -25,12 +25,6 @@ var games = [
       'url': 'https://fixcraftvpn.onrender.com/games/drivemad',
       'image': 'https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM=w240-h480-rw'
     },
-    {
-      'id': 'thehub',
-      'title': 'The Hub',
-      'url': 'https://fixcraftvpn.onrender.com/games/thehub',
-      'image': 'https://x0.at/0YAg.jpeg'
-    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
