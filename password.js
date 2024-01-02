@@ -16,9 +16,9 @@ function getCookie(cname) {
   return "";
 }
 
-if(getCookie("state")!="pass")
-var password = prompt("Please enter the password.");
-$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
+if(getCookie("state")!="pass"){
+  var password = prompt("Please enter the password.");
+  $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
             if(dec==="MjQxMjE5ODg="){
@@ -28,4 +28,4 @@ $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
             }else{
               console.log("FAIL!")
               window.location.replace('https://exploits.static.domains/forbidden')
-            };})
+            };})}
