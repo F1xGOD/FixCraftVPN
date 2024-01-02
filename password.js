@@ -16,14 +16,14 @@ function getCookie(cname) {
   return "";
 }
 
-if(getCookie("state")!=="pass"){
+if(getCookie("passwordstate")!=="pass"){
   var password = prompt("Please enter the password.");
   $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
             if(dec==="MjQxMjE5ODg="){
               console.log("PASS!")
-              document.cookie = "state=passed";
+              document.cookie = "passwordstate=passed";
               location.reload;
             }else{
               console.log("FAIL!")
