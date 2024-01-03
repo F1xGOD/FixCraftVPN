@@ -80,8 +80,7 @@ function checkCookie() {
                 checkCookie();
               }
       }else{
-          
-  		var dec = data.encoded;
+
             if(decoded==="MjQxMjE5ODg="){
               console.log("PASS!")
               setCookie("passwordstate","passed",14)
