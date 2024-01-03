@@ -1,10 +1,4 @@
 console.log("STARTED")
-var decoded = ""
-$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
-        function (data) {
-            var dec = data.encoded;
-            decoded = dec;
-
         const currentUrl = window.location.href;
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
@@ -41,60 +35,9 @@ $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
           if (pass === "passed") {
             console.log("Session Login")    
           } else {
-            if(tries===6){
-              var password = prompt("Please Enter the Password.");
-              if (password === ""){
-                  tries=tries-1
-                  console.log("Tries Decreased!")
-                  if(tries===0){
-                        window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-                      }else{
-                        checkCookie();
-                      }
-              }else{
-            
-                    if(decoded==="MjQxMjE5ODg="){
-                      console.log("PASS!")
-                      setCookie("passwordstate","passed",14)
-                      location.reload;
-                    }else{
-                      tries=tries-1
-                      console.log("Tries Decreased!")
-                      if(tries===0){
-                        window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-                      }else{
-                        checkCookie();
-                      }
-                    };
-              }
-            }else{
-              var password = prompt(`Please Enter the Password. (${tries} Attemts Left)`);
-              if (password === ""){
-                  tries=tries-1
-                  console.log("Tries Decreased!")
-                  if(tries===0){
-                        window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-                      }else{
-                        checkCookie();
-                      }
-              }else{
-
-                    if(decoded==="MjQxMjE5ODg="){
-                      console.log("PASS!")
-                      setCookie("passwordstate","passed",14)
-                      location.reload;
-                    }else{
-                      tries=tries-1
-                      console.log("Tries Decreased!")
-                      if(tries===0){
-                        window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-                      }else{
-                        checkCookie();
-                      }
-            };})
+            window.location.replace('https://fixcraftvpn.onrender.com/login')             
       }
     }
-     }
+     
   
 checkCookie();
-})
