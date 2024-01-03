@@ -1,4 +1,8 @@
 console.log("STARTED")
+$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
+        function (data) {
+            var dec = data.encoded;
+            )
 const currentUrl = window.location.href;
 //window.history.pushState("Forbidden", "403 Forbidden", "/");
 var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
@@ -47,9 +51,6 @@ function checkCookie() {
                 checkCookie();
               }
       }else{
-          
-  		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
-        function (data) {
             var dec = data.encoded;
             if(dec==="MjQxMjE5ODg="){
               console.log("PASS!")
@@ -63,7 +64,7 @@ function checkCookie() {
               }else{
                 checkCookie();
               }
-            };})
+            };
       }
     }else{
       var password = prompt(`Please Enter the Password. (${tries} Attemts Left)`);
@@ -77,9 +78,7 @@ function checkCookie() {
               }
       }else{
           
-  		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
-        function (data) {
-            var dec = data.encoded;
+  		var dec = data.encoded;
             if(dec==="MjQxMjE5ODg="){
               console.log("PASS!")
               setCookie("passwordstate","passed",14)
@@ -92,7 +91,7 @@ function checkCookie() {
               }else{
                 checkCookie();
               }
-            };})
+            };
       }
     }
      }
