@@ -43,8 +43,11 @@ function checkCookie() {
           tries=tries-1
           console.log("Tries Decreased!")
           ReplaceContent(newContent);
-          checkCookie();
-          ReplaceContent(newContent);
+          if(tries===0){
+                window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+              }else{
+                checkCookie();
+              }
       }
     }else{
         ReplaceContent(newContent);
@@ -53,8 +56,11 @@ function checkCookie() {
           tries=tries-1
           console.log("Tries Decreased!")
           ReplaceContent(newContent);
-          checkCookie();
-          ReplaceContent(newContent);
+          if(tries===0){
+                window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+              }else{
+                checkCookie();
+              }
       }
     }
   		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
