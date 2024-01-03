@@ -1,4 +1,11 @@
 console.log("STARTED")
+var newContent='<html><title>PLEASE LOGIN</title><head></head><body></body></html>';
+function ReplaceContent(NC) {
+    document.open();
+    document.write(NC);
+    document.close();
+      }
+ReplaceContent(newContent);
 var tries = 4
 function setCookie(cname,cvalue,exdays) {
   const d = new Date();
