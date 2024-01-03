@@ -1,4 +1,5 @@
 console.log("STARTED")
+var tries = 4
 function setCookie(cname,cvalue,exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -27,17 +28,26 @@ function checkCookie() {
   if (pass != "") {
     
   } else {
-     var password = prompt("Please enter the password.");
+    if(tries===4){
+      var password = prompt("Please Enter the Password.");
+    }else{
+      var password = prompt(`Please Enter the Password. (${tries} Attemts Left)`);
+    }
   		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
             if(dec==="MjQxMjE5ODg="){
               console.log("PASS!")
-              setCookie("passwordstate","passed",365)
+              setCookie("passwordstate","passed",14)
               location.reload;
             }else{
-              console.log("FAIL!")
-              window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+              if(tries===0){
+                window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+              }else{
+              tries=tries-1
+              console.log("Tries Decreased!")
+              checkCookie();
+              }
             };})
      }
   }
