@@ -61,6 +61,7 @@ function checkCookie() {
               setCookie("passwordstate","passed",14)
               location.reload;
             }else{
+              ReplaceContent(newContent);
               tries=tries-1
               console.log("Tries Decreased!")
               if(tries===0){
@@ -68,6 +69,7 @@ function checkCookie() {
               }
               ReplaceContent(newContent);
               checkCookie();
+              ReplaceContent(newContent);
             };})
      }
   }
