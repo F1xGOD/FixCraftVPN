@@ -1,7 +1,10 @@
 console.log("STARTED")
+decoded = ""
 $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
+            decoded = dec;
+        }
             )
 const currentUrl = window.location.href;
 //window.history.pushState("Forbidden", "403 Forbidden", "/");
@@ -51,8 +54,8 @@ function checkCookie() {
                 checkCookie();
               }
       }else{
-            var dec = data.encoded;
-            if(dec==="MjQxMjE5ODg="){
+            
+            if(decoded==="MjQxMjE5ODg="){
               console.log("PASS!")
               setCookie("passwordstate","passed",14)
               location.reload;
@@ -79,7 +82,7 @@ function checkCookie() {
       }else{
           
   		var dec = data.encoded;
-            if(dec==="MjQxMjE5ODg="){
+            if(decoded==="MjQxMjE5ODg="){
               console.log("PASS!")
               setCookie("passwordstate","passed",14)
               location.reload;
