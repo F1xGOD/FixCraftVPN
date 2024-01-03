@@ -1,7 +1,6 @@
 console.log("STARTED")
 const currentUrl = window.location.href;
-window.location.href = "https://fixcraftvpn.onrender.com/blank";
-window.history.pushState("Forbidden", "403 Forbidden", "/");
+//window.history.pushState("Forbidden", "403 Forbidden", "/");
 var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
 function ReplaceContent(NC) {
     document.open();
