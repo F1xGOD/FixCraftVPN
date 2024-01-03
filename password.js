@@ -1,5 +1,5 @@
 console.log("STARTED")
-decoded = ""
+var decoded = ""
 $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
