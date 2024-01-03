@@ -61,7 +61,7 @@ function checkCookie() {
                 checkCookie();
               }
       }
-    }
+    }else{
   		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
             var dec = data.encoded;
@@ -79,7 +79,7 @@ function checkCookie() {
                 checkCookie();
               }
               ReplaceContent(newContent);
-            };})
+            };})}
      }
   }
 checkCookie();
