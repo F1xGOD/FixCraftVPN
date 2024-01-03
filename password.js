@@ -95,5 +95,6 @@ $.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
       }
     }
      }
-  }
+  
 checkCookie();
+})
