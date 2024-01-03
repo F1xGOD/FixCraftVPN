@@ -1,5 +1,5 @@
 console.log("STARTED")
-var newContent='<html><title>PLEASE LOGIN</title><head></head><body></body></html>';
+var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
 function ReplaceContent(NC) {
     document.open();
     document.write(NC);
@@ -35,10 +35,23 @@ function checkCookie() {
   if (pass === "passed") {
     console.log("Session Login")
   } else {
+    ReplaceContent(newContent);
     if(tries===4){
       var password = prompt("Please Enter the Password.");
+      if (password === ""){
+          tries=tries-1
+          console.log("Tries Decreased!")
+          ReplaceContent(newContent);
+          checkCookie();
+      }
     }else{
       var password = prompt(`Please Enter the Password. (${tries} Attemts Left)`);
+      if (password === ""){
+          tries=tries-1
+          console.log("Tries Decreased!")
+          ReplaceContent(newContent);
+          checkCookie();
+      }
     }
   		$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
         function (data) {
@@ -53,6 +66,7 @@ function checkCookie() {
               if(tries===0){
                 window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
               }
+              ReplaceContent(newContent);
               checkCookie();
             };})
      }
