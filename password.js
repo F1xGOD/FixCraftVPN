@@ -26,7 +26,7 @@ function getCookie(cname) {
 function checkCookie() {
   let pass = getCookie("passwordstate");
   if (pass != "") {
-    
+    console.log("Session Login")
   } else {
     if(tries===4){
       var password = prompt("Please Enter the Password.");
@@ -41,13 +41,12 @@ function checkCookie() {
               setCookie("passwordstate","passed",14)
               location.reload;
             }else{
-              if(tries===0){
-                window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
-              }else{
               tries=tries-1
               console.log("Tries Decreased!")
-              checkCookie();
+              if(tries===0){
+                window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
               }
+              checkCookie();
             };})
      }
   }
