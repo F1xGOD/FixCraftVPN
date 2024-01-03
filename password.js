@@ -5,7 +5,6 @@ function ReplaceContent(NC) {
     document.write(NC);
     document.close();
       }
-ReplaceContent(newContent);
 var tries = 4
 function setCookie(cname,cvalue,exdays) {
   const d = new Date();
@@ -33,7 +32,7 @@ function getCookie(cname) {
 function checkCookie() {
   let pass = getCookie("passwordstate");
   if (pass === "passed") {
-    console.log("Session Login")
+    console.log("Session Login")    
   } else {
     ReplaceContent(newContent);
     if(tries===4){
