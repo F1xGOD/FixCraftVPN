@@ -32,7 +32,7 @@ function getCookie(cname) {
 
 function checkCookie() {
   let pass = getCookie("passwordstate");
-  if (pass != "") {
+  if (pass === "passed") {
     console.log("Session Login")
   } else {
     if(tries===4){
