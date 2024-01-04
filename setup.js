@@ -1,2 +1,2 @@
-import data3 from '/setup.json' assert { type: 'json' };
-console.log(data3);
+import adata from '/setup.json' assert { type: 'json' };
+var data3 = adata;
