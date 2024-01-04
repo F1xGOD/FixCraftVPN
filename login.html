@@ -10,7 +10,7 @@
 <body>
 	<script src="snackbar.js"></script>
 	<script src="jquery.js"></script>
-	<script type="module" src="/setup.js"></script>
+	<script type="module" src="/mainsetup.js"></script>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="#">
@@ -80,12 +80,7 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				var actdata=data3.accounts;
-				let i = 0;
-				while (i < actdata.length) {
-    					console.log(actdata[i]);
-    					i++;
-					}
+				
 					var enc = data.encoded
 					var enc2 = data2.encoded
 					var accounts = data3.accounts
