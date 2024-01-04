@@ -15,7 +15,7 @@
 		<div class="form-container log-in-container">
 			<form action="#">
 				<h1>Login</h1>
-				<input type="email" id="email" placeholder="Email" />
+				<input type="email" id="username" placeholder="Username" />
 				<input type="password" id="password" placeholder="Password" />
 				<a href="/nah">Forgot your password?</a>
 				<button type="button" onclick="checkSuccess();">Log In</button>
@@ -67,16 +67,33 @@
                             status: "success"
                         });
                     };
+	var snackbar_Fail = function () {
+                        SnackBar({
+                            message: "Login Failed!",
+                            status: "danger"
+                        });
+                    };
 	function checkSuccess(){
 		var text = document.getElementById("password").value
+		var text2 = document.getElementById("username").value
 		$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
             	function (data) {
-			var dec = data.encoded
-			console.log(dec)
-			if(dec==="MjQxMjE5ODg="){
-				snackbar_Success();
-			}    
-		})}
+			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
+            		function (data2) {
+				$.getJSON(`https://fixcraftvpn.onrender.com/setup.js`,
+            			function (data3) {
+					var enc = data.encoded
+					var enc2 = data2.encoded
+					var accounts = data3.accounts
+					console.log(enc)
+					console.log(enc2)
+					console.log(acconunts)
+					if(enc===""&&enc2===""){
+						snackbar_Success();
+					}else{
+						snackbar_Fail();
+					}    
+  })})})}
 	</script>	
 </body>
 </html>
