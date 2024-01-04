@@ -10,7 +10,27 @@
 <body>
 	<script src="snackbar.js"></script>
 	<script src="jquery.js"></script>
-	<script>
+	
+	<div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form action="#">
+				<h1>Login</h1>
+				<input type="email" id="email" placeholder="Email" />
+				<input type="password" id="password" placeholder="Password" />
+				<a href="/nah">Forgot your password?</a>
+				<button type="button" onclick="checkSuccess();">Log In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Login In FixCraft</h1>
+					<p>Keep In mind that shairing passwords is illegal</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
 	 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -38,7 +58,7 @@
           if (pass === "passed") {
             console.log("Session Login")    
           } else {
-            window.location.replace('https://fixcraftvpn.onrender.com/login')             
+            window.location.replace('https://fixcraftvpn.onrender.com/')             
       }
     }
 	var snackbar_Success = function () {
@@ -48,36 +68,15 @@
                         });
                     };
 	function checkSuccess(){
-	var element = document.getElementById('password');
-	var text = element.innerText || element.textContent;
-	$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64&decode=true`,
-            function (data) {
-		var dec = data.encoded
-		if(dec==="MjQxMjE5ODg="){
-			snackbar_Success();
-		}    
-	})}
-	</script>
-	
-	<div class="container" id="container">
-		<div class="form-container log-in-container">
-			<form action="#">
-				<h1>Login</h1>
-				<input type="email" id="email" placeholder="Email" />
-				<input type="password" id="password" placeholder="Password" />
-				<a href="/nah">Forgot your password?</a>
-				<button type="button" onclick="checkSuccess();">Log In</button>
-			</form>
-		</div>
-		<div class="overlay-container">
-			<div class="overlay">
-				<div class="overlay-panel overlay-right">
-					<h1>Login In FixCraft</h1>
-					<p>Keep In mind that shairing passwords is illegal</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+		var text = document.getElementById("password").value
+		$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
+            	function (data) {
+			var dec = data.encoded
+			console.log(dec)
+			if(dec==="MjQxMjE5ODg="){
+				snackbar_Success();
+			}    
+		})}
+	</script>	
 </body>
 </html>
