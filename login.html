@@ -3,10 +3,20 @@
 <head>
 	<link rel="stylesheet" href="password.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	 <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678129-lock-512.png">
+	<link rel="icon" href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678129-lock-512.png">
+	<link rel="stylesheet" href="js-snackbar.css">
+	<script src="https://fixcraft.onrender.com/js-snackbar.js">
+	</script>
 	<title>Login to FixCraft</title>
 </head>
 <body>
+	var snackbar_Success = function () {
+                        SnackBar({
+                            message: "Snackbar created successfully!",
+                            status: "success"
+                        });
+                    };
+
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="#">
@@ -14,7 +24,7 @@
 				<input type="email" placeholder="Email" />
 				<input type="password" placeholder="Password" />
 				<a href="/nah">Forgot your password?</a>
-				<button>Log In</button>
+				<button onclick="snackbar_Success()">Log In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
