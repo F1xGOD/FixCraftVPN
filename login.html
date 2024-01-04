@@ -10,7 +10,7 @@
 <body>
 	<script src="snackbar.js"></script>
 	<script src="jquery.js"></script>
-	
+	<script type="module" src="/setup.js"></script>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="#">
@@ -31,7 +31,6 @@
 		</div>
 	</div>
 <script>
-import data3 from '/setup.json';
 	 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
