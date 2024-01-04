@@ -5,11 +5,16 @@
 <body>
 <video id="video" controls>
 <source src="https://x0.at/khAT.mp4" type="video/mp4">
+<button type="button" onclick="start();">START</button>
 </video>
 <script>
-const video = document. getElementById("video");
-video.requestFullscreen();
-video.play();
+const video = document.getElementById("video");
+video.style.display = 'none';
+function start(){
+  video.style.display = 'block';
+  video.requestFullscreen();
+  video.play();
+}
 </script>
 </body>
 </html>
