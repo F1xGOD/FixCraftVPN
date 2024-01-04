@@ -31,6 +31,7 @@
 		</div>
 	</div>
 <script>
+import data3 from '/setup.json';
 	 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -80,7 +81,6 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				import data3 from '/setup.json';
 				console.log(data3);
 					var enc = data.encoded
 					var enc2 = data2.encoded
