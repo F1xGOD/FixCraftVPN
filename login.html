@@ -80,8 +80,8 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				$.getJSON(`https://fixcraftvpn.onrender.com/setup.js`,
-            			function (data3) {
+				import data3 from '/setup.json';
+				console.log(data3);
 					var enc = data.encoded
 					var enc2 = data2.encoded
 					var accounts = data3.accounts
@@ -93,7 +93,7 @@
 					}else{
 						snackbar_Fail();
 					}    
-  })})})}
+  })})}
 	</script>	
 </body>
 </html>
