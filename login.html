@@ -80,7 +80,12 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				console.log(data3);
+				var actdata=data3.accounts;
+				let i = 0;
+				while (i < actdata.length) {
+    					console.log(actdata[i]);
+    					i++;
+					}
 					var enc = data.encoded
 					var enc2 = data2.encoded
 					var accounts = data3.accounts
