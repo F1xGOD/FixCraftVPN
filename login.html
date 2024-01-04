@@ -17,7 +17,7 @@
 				<h1>Login</h1>
 				<input type="email" id="username" placeholder="Username" />
 				<input type="password" id="password" placeholder="Password" />
-				<a href="/nah">Forgot your password?</a>
+				<a href="/unknown">Forgot Your Password?</a>
 				<button type="button" onclick="checkSuccess();">Log In</button>
 			</form>
 		</div>
@@ -31,6 +31,7 @@
 		</div>
 	</div>
 <script>
+import {data3} from "setup.js"
 	 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
