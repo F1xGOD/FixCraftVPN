@@ -7,7 +7,7 @@
 	</script>
 	<title>Login to FixCraft</title>
 </head>
-<body>
+<body onload="checkCookie();">
 	<script src="snackbar.js"></script>
 	<script src="jquery.js"></script>
 	<script src="setup.js"></script>
@@ -71,12 +71,12 @@
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
-	      			if(accountsm[i].username==data4,accountsm[i].password==data5){
+	      			if(accountsm[i].username==data4&&accountsm[i].password==data5){
 					success2 = true;
 				};
 				i++;
 		  }
-                  if(success==true){
+                  if(success2==true){
 			console.log("Session Login")
 	    		window.location.replace('https://fixcraftvpn.onrender.com/')  
 		  }else{
@@ -129,7 +129,7 @@
 	 				Object.freeze(enc2);
 					let i2 = 0;
 					while (i2 < accounts.length) {
-						if(accounts[i2].username==enc2,accounts[i2].password==enc){
+						if(accounts[i2].username===enc2&&accounts[i2].password===enc){
 							success = true;
 						};
 						i2++;
@@ -144,7 +144,7 @@
 						console.log("LOGIN FAILED!")
 					}}    
   )})}}
-	checkCookie();
+	
 	</script>	
 </body>
 </html>
