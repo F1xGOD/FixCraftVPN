@@ -31,7 +31,7 @@
 		</div>
 	</div>
 <script>
-	
+	 Object.freeze(actdata)
 	 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -55,13 +55,34 @@
           return "";
         }
         function checkCookie() {
-          let pass = getCookie("passwordstate");
-          if (pass === "passed") {
-            console.log("Session Login")    
-          } else {
-            window.location.replace('https://fixcraftvpn.onrender.com/')             
+          let password = getCookie("passwordcred");
+	  let username = getCookie("usernamecred");
+	  Object.freeze(password);
+	  Object.freeze(username);
+	  if(username == "" && password == ""){}else{
+	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
+            	function (data4) {
+			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
+            		function (data5) {
+				Object.freeze(data4);
+				Object.freeze(data5);
+				var success2 = false
+		  		let i = 0;
+	    	  		var accountsm = actdata.accounts
+		  		Object.freeze(accountsm)
+	    	  		while (i < accountsm.length) {
+	      			if(accountsm[i].username==data4,accountsm[i].password==data5){
+					success2 = true;
+				};
+				i++;
+		  }
+                  if(success==true){
+			console.log("Session Login")
+	    		window.location.replace('https://fixcraftvpn.onrender.com/')  
+		  }else{ } 
+			})})}      
       }
-    }
+    
 	var snackbar_Success = function () {
                         SnackBar({
                             message: "Logged In Successfully!",
@@ -83,7 +104,7 @@
 	function checkSuccess(){
 		var text = document.getElementById("password").value
 		var text2 = document.getElementById("username").value
-		if(text==""||text2==""){snackbar_Fail2();}else{
+		if(text==""||text2==""){snackbar_Fail2();console.log("LOGIN FAILED!");}else{
 		$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
@@ -92,23 +113,23 @@
 				        var accounts = actdata.accounts
 					var enc = data.encoded
 					var enc2 = data2.encoded
-					console.log(enc)
-					console.log(enc2)
-					console.log(accounts)
-					let i = 0;
-					while (i < accounts.length) {
-					console.log(accounts[i]);
-						if(accounts[i].username==enc2,accounts[i].password==enc){
+					Object.freeze(enc);
+	 				Object.freeze(enc2);
+					let i2 = 0;
+					while (i2 < accounts.length) {
+						if(accounts[i2].username==enc2,accounts[i2].password==enc){
 							success = true;
-							console.log(accounts[i].username)
-							console.log(accounts[i].password)
 						};
-						i++;
+						i2++;
 					}
 					if(success==true){
 						snackbar_Success();
+						console.log("LOGIN SUCCEED!")
+						setCookie("passwordcred",enc,14)
+						setCookie("usernamecred",enc2,14)
 					}else {
 						snackbar_Fail();
+						console.log("LOGIN FAILED!")
 					}}    
   )})}}
 	</script>	
