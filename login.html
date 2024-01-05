@@ -71,10 +71,10 @@
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
-	      			if(accountsm[i].username==data4&&accountsm[i].password==data5){
-					success2 = true;
-				};
-				i++;
+	      				if(accountsm[i].username==data4&&accountsm[i].password==data5){
+						success2 = true;
+					};
+					i++;
 		  }
                   if(success2==true){
 			console.log("Session Login")
@@ -136,9 +136,10 @@
 					}
 					if(success==true){
 						snackbar_Success();
-						console.log("LOGIN SUCCEED!")
-						setCookie("passwordcred",enc,14)
-						setCookie("usernamecred",enc2,14)
+						console.log("LOGIN SUCCEED!");
+						setCookie("passwordcred",text,14);
+						setCookie("usernamecred",text2,14);
+						init();
 					}else {
 						snackbar_Fail();
 						console.log("LOGIN FAILED!")
