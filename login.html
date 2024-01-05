@@ -96,14 +96,16 @@
 					console.log(enc2)
 					console.log(accounts)
 					let i = 0;
-					while (i < actdata.length) {
-					console.log(actdata[i]);
-						if(actdata[i].username==enc2,actdata[i].password==enc){
-						success = true;
+					while (i < accounts.length) {
+					console.log(accounts[i]);
+						if(accounts[i].username==enc2,accounts[i].password==enc){
+							success = true;
+							console.log(accounts[i].username)
+							console.log(accounts[i].password)
 						};
 						i++;
 					}
-					if(success===true){
+					if(success==true){
 						snackbar_Success();
 					}else {
 						snackbar_Fail();
