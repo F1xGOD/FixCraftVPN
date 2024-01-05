@@ -73,26 +73,32 @@
                             status: "danger"
                         });
                     };
+	var snackbar_Fail2 = function () {
+                        SnackBar({
+                            message: "Please Enter Credentials!",
+                            status: "danger"
+                        });
+                    };
 	function checkSuccess(){
 		var text = document.getElementById("password").value
 		var text2 = document.getElementById("username").value
+		if(text==""||text2==""){snackbar_Fail2();}else{
 		$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				
+				        
 					var enc = data.encoded
 					var enc2 = data2.encoded
-					var accounts = data3.accounts
 					console.log(enc)
 					console.log(enc2)
 					console.log(acconunts)
-					if(enc===""&&enc2===""){
+					if(enc&&enc2){
 						snackbar_Success();
-					}else{
+					}else {
 						snackbar_Fail();
-					}    
-  })})}
+					}}    
+  )})}}
 	</script>	
 </body>
 </html>
