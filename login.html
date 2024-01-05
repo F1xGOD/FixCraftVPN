@@ -57,6 +57,8 @@
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
+	  console.log(password)
+	  console.log(username)
 	  Object.freeze(password);
 	  Object.freeze(username);
 	  if(username == "" && password == ""){}else{
@@ -66,12 +68,16 @@
             		function (data5) {
 				Object.freeze(data4);
 				Object.freeze(data5);
+				console.log(data5)
+				console.log(data4)
 				var success2 = false
 		  		let i = 0;
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
 	      				if(accountsm[i].username==data4&&accountsm[i].password==data5){
+						console.log(accountsm[i].username)
+						console.log(accountsm[i].password)
 						success2 = true;
 					};
 					i++;
@@ -110,8 +116,10 @@
                         });
                     };
 	async function init(){
-		await delay(2000);
-		window.location.replace('https://fixcraftvpn.onrender.com/')
+		setTimeout(function(){
+    			window.location.replace('https://fixcraftvpn.onrender.com/')
+		}, 1000);
+		
 	}
 	function checkSuccess(){
 		var text = document.getElementById("password").value
