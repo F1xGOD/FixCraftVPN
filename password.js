@@ -33,8 +33,6 @@ console.log("STARTED")
         function checkCookie() {
            let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
-	  console.log(password)
-	  console.log(username)
 	  Object.freeze(password);
 	  Object.freeze(username);
 	  if(username == "" && password == ""){window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
