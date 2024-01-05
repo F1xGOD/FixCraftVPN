@@ -10,7 +10,7 @@
 <body>
 	<script src="snackbar.js"></script>
 	<script src="jquery.js"></script>
-	<script src="/setup.js"></script>
+	<script src="setup.js"></script>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="#">
@@ -88,12 +88,12 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				        
+				        var accounts = actdata.accounts
 					var enc = data.encoded
 					var enc2 = data2.encoded
 					console.log(enc)
 					console.log(enc2)
-					console.log(acconunts)
+					console.log(accounts)
 					if(enc&&enc2){
 						snackbar_Success();
 					}else {
