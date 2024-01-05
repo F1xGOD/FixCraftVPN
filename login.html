@@ -79,7 +79,9 @@
                   if(success==true){
 			console.log("Session Login")
 	    		window.location.replace('https://fixcraftvpn.onrender.com/')  
-		  }else{ } 
+		  }else{
+			snackbar_Fail3();  
+		  } 
 			})})}      
       }
     
@@ -98,6 +100,12 @@
 	var snackbar_Fail2 = function () {
                         SnackBar({
                             message: "Please Enter Credentials!",
+                            status: "danger"
+                        });
+                    };
+	var snackbar_Fail3 = function () {
+                        SnackBar({
+                            message: "Password Was Changed!",
                             status: "danger"
                         });
                     };
@@ -132,6 +140,7 @@
 						console.log("LOGIN FAILED!")
 					}}    
   )})}}
+	checkCookie();
 	</script>	
 </body>
 </html>
