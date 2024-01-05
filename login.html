@@ -57,8 +57,6 @@
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
-	  console.log(password)
-	  console.log(username)
 	  Object.freeze(password);
 	  Object.freeze(username);
 	  if(username == "" && password == ""){}else{
