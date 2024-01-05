@@ -68,16 +68,12 @@
             		function (data5) {
 				Object.freeze(data4);
 				Object.freeze(data5);
-				console.log(data5)
-				console.log(data4)
 				var success2 = false
 		  		let i = 0;
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
-	      				if(accountsm[i].username==data4&&accountsm[i].password==data5){
-						console.log(accountsm[i].username)
-						console.log(accountsm[i].password)
+	      				if(accountsm[i].username==data4.encoded&&accountsm[i].password==data5.encoded){
 						success2 = true;
 					};
 					i++;
