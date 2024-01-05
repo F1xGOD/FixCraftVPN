@@ -31,12 +31,35 @@ console.log("STARTED")
           return "";
         }
         function checkCookie() {
-          let pass = getCookie("passwordstate");
-          if (pass === "passed") {
-            console.log("Session Login")    
-          } else {
-            window.location.replace('https://fixcraftvpn.onrender.com/login')             
-      }
+           let password = getCookie("passwordcred");
+	  let username = getCookie("usernamecred");
+	  console.log(password)
+	  console.log(username)
+	  Object.freeze(password);
+	  Object.freeze(username);
+	  if(username == "" && password == ""){window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
+	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
+            	function (data4) {
+			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
+            		function (data5) {
+				Object.freeze(data4);
+				Object.freeze(data5);
+				var success2 = false
+		  		let i = 0;
+	    	  		var accountsm = actdata.accounts
+		  		Object.freeze(accountsm)
+	    	  		while (i < accountsm.length) {
+	      				if(accountsm[i].username==data4.encoded&&accountsm[i].password==data5.encoded){
+						success2 = true;
+					};
+					i++;
+		  }
+                  if(success2==true){
+			console.log("Session Login")
+		  }else{
+			window.location.replace('https://fixcraftvpn.onrender.com/login')
+		  } 
+			})})}
     }
      
   
