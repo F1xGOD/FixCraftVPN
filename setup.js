@@ -1,2 +1,1 @@
-import adata from '/setup.json' assert { type: 'json' };
-export var data3 = adata;
+var actdata = {"status":"secure","tries":"6","accounts":[{"username":"RjF4R09E","password":"RzU2Ji56SElR"},{"username":"SXZhbg==","password":"U2lnbWFyaXp6MjAyNA=="},{"username":"SmFtZXM=","password":"T2hpb3JpenoyMDIw"}]}
