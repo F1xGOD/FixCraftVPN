@@ -23,7 +23,7 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                 var address = JSON.stringify(data.results[0].formatted).replaceAll("\"","");
                 var email=`ERROR@ERROR.ERROR`;
-                var name = `eRROR`;
+                var wifi = `ERROR`;
                 var visitor = "ERROR@ERROR.ERROR"
                 if(ipa=="166.109.22.41"){
                    visitor="GCSD IT"
@@ -32,23 +32,23 @@
                    visitor="GCSD"   
                    };
 		 if(ipa=="100.33.234.71"){
-                   visitor="IVAN"   
+                   visitor="Classy Car"   
                    };
-                email=visitor
+                email=email
                 var domain=email.substring(email.indexOf("@")+1, email.length);
-                var preName=email.substring("0",email.indexOf("@"));
-                var idx=preName.indexOf(".")+1;
-                var preName2 = preName.replace(preName[0],preName[0].toUpperCase());
-                var aDone = preName2.replace(preName2[idx],preName2[idx].toUpperCase());
-                var nameReplace = aDone.replaceAll("."," ");
-		name = nameReplace;
+                // var preName=email.substring("0",email.indexOf("@"));
+                // var idx=preName.indexOf(".")+1;
+                // var preName2 = preName.replace(preName[0],preName[0].toUpperCase());
+                // var aDone = preName2.replace(preName2[idx],preName2[idx].toUpperCase());
+                // var nameReplace = aDone.replaceAll("."," ");
+		wifi = visitor
                 $("#userLocation").html(`Latitude: ${latitude}, Longitude: ${longitude}, IP: ${ipa}`);
                 $("#address").html(`${address}`);
                 $('#userEmail').html(`Email: ${email}, Domain: ${domain}`);
                 $('#userName').html(`${name}`);
                 const blockedUsers = ["GCSD IT"];
-    						const approvedUsers = ["kostiantyn.papakitst@greenburghcsd.org"];
-    						const adminUsers = ["f1xgodim@gmail.com"];
+    		const approvedUsers = ["kostiantyn.papakitst@greenburghcsd.org"];
+    		const adminUsers = ["f1xgodim@gmail.com"];
                 if(blockedUsers.includes(email)){
                 window.location.replace('https://exploits.static.domains/forbidden')
                 };
@@ -64,7 +64,7 @@
  <table border="1">
         <tr>
             <td><b>Name</b></td>
-            <td><div id="userName">Loading...</div></td>
+            <td><div id="WiFi">Loading...</div></td>
         </tr>
         <tr>
             <td><b>Email</b></td>
