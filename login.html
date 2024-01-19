@@ -57,7 +57,7 @@
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
-	  let tries = getCookie("tries");
+	  let tries = parseInt(getCookie("tries"))
 	  Object.freeze(tries);
 	  Object.freeze(password);
 	  Object.freeze(username);
