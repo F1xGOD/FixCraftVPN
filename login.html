@@ -57,8 +57,13 @@
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
+	  let tries = getCookie("tries");
+	  Object.freeze(tries);
 	  Object.freeze(password);
 	  Object.freeze(username);
+	  if(tries>0){}else{
+		  window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+	  }
 	  if(username == "" && password == ""){}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
             	function (data4) {
@@ -116,6 +121,8 @@
 		
 	}
 	function checkSuccess(){
+		let tries = getCookie("tries");
+	  	Object.freeze(tries);
 		var text = document.getElementById("password").value
 		var text2 = document.getElementById("username").value
 		if(text==""||text2==""){snackbar_Fail2();console.log("LOGIN FAILED!");}else{
@@ -144,7 +151,12 @@
 						init();
 					}else {
 						snackbar_Fail();
+						tries=tries-1
+						setCookie("tries",tries,365)
 						console.log("LOGIN FAILED!")
+						if(tries>0){}else{
+							window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+						}
 					}}    
   )})}}
 	
