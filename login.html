@@ -150,8 +150,8 @@
 						setCookie("usernamecred",text2,14);
 						init();
 					}else {
-						snackbar_Fail(tries);
 						tries=tries-1
+						snackbar_Fail(tries);
 						setCookie("tries",tries,365)
 						console.log("LOGIN FAILED!")
 						if(tries>0){}else{
