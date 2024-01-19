@@ -96,9 +96,9 @@
                             status: "success"
                         });
                     };
-	var snackbar_Fail = function () {
+	function snackbar_Fail(passedvar) {
                         SnackBar({
-                            message: "Login Failed!",
+                            message: `Login Failed! (${passedvar} Attempts Left)`,
                             status: "danger"
                         });
                     };
@@ -150,7 +150,7 @@
 						setCookie("usernamecred",text2,14);
 						init();
 					}else {
-						snackbar_Fail();
+						snackbar_Fail(tries);
 						tries=tries-1
 						setCookie("tries",tries,365)
 						console.log("LOGIN FAILED!")
