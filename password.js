@@ -1,4 +1,5 @@
 console.log("STARTED")
+if(actdata.status!="secure"){window.location.replace('https://fixcraftvpn.onrender.com/forbidden')}
         const currentUrl = window.location.href;
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
