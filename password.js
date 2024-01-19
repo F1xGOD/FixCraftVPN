@@ -31,10 +31,19 @@ console.log("STARTED")
           return "";
         }
         function checkCookie() {
-           let password = getCookie("passwordcred");
+          let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
+	  let tries = getCookie("tries");
+	  Object.freeze(tries);
 	  Object.freeze(password);
 	  Object.freeze(username);
+	  if (tries==""){
+		  setCookie("tries",6,365)
+	  }else{
+		if (tries>0){
+			window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+		}
+	  }
 	  if(username == "" && password == ""){window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
             	function (data4) {
