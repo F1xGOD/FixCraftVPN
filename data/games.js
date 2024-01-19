@@ -25,6 +25,12 @@ var games = [
       'url': 'https://fixcraftvpn.onrender.com/games/drivemad',
       'image': 'https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM=w240-h480-rw'
     },
+    {
+      'id': 'backrooms',
+      'title': 'Backrooms',
+      'url': 'https://fixcraftvpn.onrender.com/games/backrooms',
+      'image': 'https://play-lh.googleusercontent.com/iBBy7mU2acyOA32No0LcXbhALC8blVX2IRP4LQnkET3GOv8rdK0uLhkbNG8a-9B3wg'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
