@@ -64,9 +64,9 @@ console.log("STARTED")
                   if(success2==true){
 			console.log("Session Login")
 		  }else{
-			let tries = getCookie("tries");
-	  		Object.freeze(tries);
-			  if(tries>0){
+			let triess = getCookie("tries");
+	  		Object.freeze(triess);
+			  if(triess>0){
 				window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
 				  window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
 				}
