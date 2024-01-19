@@ -6,3 +6,4 @@ function setCookie(cname,cvalue,exdays) {
         }
 setCookie("passwordcred","",999999);
 setCookie("usernamecred","",999999);
+setCookie("tries",6,999999);
