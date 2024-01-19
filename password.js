@@ -7,7 +7,7 @@ console.log("STARTED")
             document.write(NC);
             document.close();
               }
-        var tries = 6
+
         function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -38,7 +38,7 @@ console.log("STARTED")
 	  Object.freeze(password);
 	  Object.freeze(username);
 	  if (tries==""){
-		  setCookie("tries",6,365)
+		  setCookie("tries",actdata.tries,365)
 	  }else{
 		if (tries>0){
 			window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
@@ -64,7 +64,12 @@ console.log("STARTED")
                   if(success2==true){
 			console.log("Session Login")
 		  }else{
-			window.location.replace('https://fixcraftvpn.onrender.com/login')
+			let tries = getCookie("tries");
+	  		Object.freeze(tries);
+			  if(tries>0){
+				window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
+				  window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+				}
 		  } 
 			})})}
     }
