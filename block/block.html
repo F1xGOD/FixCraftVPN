@@ -16,8 +16,8 @@
 <script>
 var url = window.location.href
 if (url.includes("?spoof=")){
-  url = url.split("?spoof=")
-  url = url.split("fixcraftvpn.onrender.com")
+  url = url.split("?spoof=")[1]
+  url = url.split("fixcraftvpn.onrender.com")[1]
   window.history.pushState(url)
 }
 </script>
