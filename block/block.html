@@ -15,7 +15,7 @@
 <link rel="stylesheet" id="cf_styles-css" href="main.css" />
 <script>
 var url = window.location.href
-if url.includes("?spoof="){
+if (url.includes("?spoof=")){
   url = url.split("?spoof=")
   url = url.split("fixcraftvpn.onrender.com")
   window.history.pushState(url)
