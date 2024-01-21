@@ -1,6 +1,6 @@
 console.log("STARTED")
-if(actdata.status != "secure"){window.location.replace('https://fixcraftvpn.onrender.com/forbidden')}
-        const currentUrl = window.location.href;
+const currentUrl = window.location.href;
+if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.replace(`https://fixcraftvpn.onrender.com/block/block?spoof=${currentUrl}`)}}
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
         function ReplaceContent(NC) {
