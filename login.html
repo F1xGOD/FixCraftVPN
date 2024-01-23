@@ -6,11 +6,12 @@
 	<link rel="stylesheet" href="snackbar.css">
 	</script>
 	<title>Login to FixCraft</title>
+	  <script src="/host.js"></script>
+  	  <script src="/jquery.js"></script>
+  	  <script src="/setup.js"></script>
+  	  <script src="/password.js"></script>
 </head>
-<body onload="checkCookie();">
-	<script src="snackbar.js"></script>
-	<script src="jquery.js"></script>
-	<script src="setup.js"></script>
+<body>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="#">
@@ -62,7 +63,7 @@
 	  Object.freeze(password);
 	  Object.freeze(username);
 	  if(tries>0){}else{
-		  window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+		  window.location.replace(`${host}/forbidden`)
 	  }
 	  if(username == "" && password == ""){}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
@@ -83,7 +84,7 @@
 		  }
                   if(success2==true){
 			console.log("Session Login")
-	    		window.location.replace('https://fixcraftvpn.onrender.com/')  
+	    		window.location.replace(host)  
 		  }else{
 			snackbar_Fail3();  
 		  } 
@@ -116,7 +117,7 @@
                     };
 	async function init(){
 		setTimeout(function(){
-    			window.location.replace('https://fixcraftvpn.onrender.com/')
+    			window.location.replace(host)
 		}, 1000);
 		
 	}
@@ -155,7 +156,7 @@
 						setCookie("tries",tries,365)
 						console.log("LOGIN FAILED!")
 						if(tries>0){}else{
-							window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+							window.location.replace(`${host}/forbidden`)
 						}
 					}}    
   )})}}
