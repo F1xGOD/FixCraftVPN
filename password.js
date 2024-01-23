@@ -76,6 +76,7 @@ if(currentUrl.split('/')[1] != "login"){
 		  } 
 			})})}
     }
-}
+
   
 checkCookie();
+}
