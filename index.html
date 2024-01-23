@@ -5,11 +5,15 @@
   <meta name="monetag" content="09f25ba735e2c6ee111a1cbfe7b706d4">
   <script src="settings.js" defer></script><!-- Posthog-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/host.js"></script>
+  <script src=`/jquery.js`></script>
+  <script src=`/setup.js`></script>
+  <script src=`/password.js`></script>
 <script>
 $.getJSON("https://api.ipify.org?format=json",
         function (data) {
 	if(data.ip=="166.109.22.41"){
-	window.location.replace('https://fixcraftvpn.onrender.com/killswitch')
+	window.location.replace(`${host}/killswitch`)
 }});
 </script>
   <script>
@@ -40,9 +44,6 @@ $.getJSON("https://api.ipify.org?format=json",
   <script src="js/cloak.js">
       document.title === (title);
   </script>
-  <script src="https://fixcraftvpn.onrender.com/jquery.js"></script>
-  <script src="https://fixcraftvpn.onrender.com/setup.js"></script>
-  <script src="https://fixcraftvpn.onrender.com/password.js"></script>
 </head>
 <body>
   <script src="data/splashtexts.js"></script>
