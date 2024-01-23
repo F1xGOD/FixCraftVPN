@@ -5,7 +5,7 @@ console.log(actdata.status == "hide" && actdata.status != "secure")
 const currentUrl = window.location.href;
 console.log(tablocation)
 if(actdata.status != "secure"){if (actdata.status == "hide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}
-if( != "login"){
+if(tablocation != "login"){
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
         function ReplaceContent(NC) {
