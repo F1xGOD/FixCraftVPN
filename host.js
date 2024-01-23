@@ -1,2 +1,3 @@
 var host = window.location.href
-host = host.substring(0, host.indexOf("/"));
+host = host.split('https://')[1]
+host = host.split('/')[0]
