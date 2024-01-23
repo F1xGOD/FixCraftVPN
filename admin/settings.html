@@ -2,9 +2,10 @@
 <html>
 <head>
 <title>ADMIN SETTINGS</title>
-<script src="https://fixcraftvpn.onrender.com/jquery.js"></script>
-<script src="https://fixcraftvpn.onrender.com/setup.js"></script>
-<script src="https://fixcraftvpn.onrender.com/password.js"></script>
+  <script src="/host.js"></script>
+  <script src=`/jquery.js`></script>
+  <script src=`/setup.js`></script>
+  <script src=`/password.js`></script>
 <link rel="icon" href="https://x0.at/CVDX.png">
 </head>
 <body>
@@ -13,7 +14,7 @@ var uname = getCookie("usernamecred")
 if(uname == "F1xGOD"){
   
 }else{
-  window.location.replace("https://fixcraftvpn.onrender.com/forbidden");
+  window.location.replace(`${host}/forbidden`);
 }
 </script>
 </body>
