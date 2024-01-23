@@ -1,5 +1,4 @@
 console.log("STARTED")
-import host in 'host.js'
 console.log(host)
 const currentUrl = window.location.href;
 if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}
