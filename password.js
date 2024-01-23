@@ -1,6 +1,8 @@
 console.log("STARTED")
+import host in 'host.js'
+console.log(host)
 const currentUrl = window.location.href;
-if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.replace(`https://fixcraftvpn.onrender.com/block/block?spoof=${currentUrl}`)}}
+if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
         function ReplaceContent(NC) {
@@ -42,10 +44,10 @@ if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.repl
 		  setCookie("tries",parseInt(actdata.tries),365)
 	  }else{
 		if (tries>0){}else{
-			window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+			window.location.replace(`${host}/forbidden`)
 		}
 	  }
-	  if(username == "" && password == ""){window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
+	  if(username == "" && password == ""){window.location.replace(`${host}/login`)}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
             	function (data4) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
@@ -68,8 +70,8 @@ if(actdata.status != "secure"){if (actdata.status =="hide"){window.location.repl
 			  let triess = getCookie("tries");
 	  		  Object.freeze(triess);
 			  if(triess>0){
-				window.location.replace('https://fixcraftvpn.onrender.com/login')}else{
-				  window.location.replace('https://fixcraftvpn.onrender.com/forbidden')
+				window.location.replace(`${host}/login`)}else{
+				  window.location.replace(`${host}/forbidden`)
 				}
 		  } 
 			})})}
