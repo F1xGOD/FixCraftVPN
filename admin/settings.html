@@ -14,6 +14,7 @@
 <script>
 var uname = getCookie("usernamecred")
 if(uname == "F1xGOD"){
+	document.getElementById('log').innerHTML += `ACCOUNTS: <br><br>`
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 for (var i = 0; i < accountsm.length; i++) {
@@ -24,6 +25,8 @@ for (var i = 0; i < accountsm.length; i++) {
       })});
     })(i);
 }
+document.getElementById('log').innerHTML += `STATUS: ${actdata.status}`
+document.getElementById('log').innerHTML += `LOGIN ATTEMPTS: ${actdata.tries}`
 }else{
   window.location.replace(`${host}/forbidden`);
 }
