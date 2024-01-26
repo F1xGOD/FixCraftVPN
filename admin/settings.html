@@ -3,16 +3,29 @@
 <head>
 <title>ADMIN SETTINGS</title>
   <script src="/host.js"></script>
-  <script src=`/jquery.js`></script>
-  <script src=`/setup.js`></script>
-  <script src=`/password.js`></script>
+  <script src="/jquery.js"></script>
+  <script src="/setup.js"></script>
+  <script src="/password.js"></script>
+  <script src="/setup.js"></script>  
 <link rel="icon" href="https://x0.at/CVDX.png">
 </head>
 <body>
+<div id="log"></div>
 <script>
 var uname = getCookie("usernamecred")
 if(uname == "F1xGOD"){
-  
+  let i = 0;
+	var accountsm = actdata.accounts
+	Object.freeze(accountsm)
+	while (i < accountsm.length) {
+           $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64`,
+            	function (username) {
+			          $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64`,
+            		  function (password) {
+                    document.getElementById('log').innerHTML += `<br>USERNAME: ${username}, PASSWORD: ${password}`;
+					            i++; 
+                  })})
+		  }
 }else{
   window.location.replace(`${host}/forbidden`);
 }
