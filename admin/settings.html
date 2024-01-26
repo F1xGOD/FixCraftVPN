@@ -14,19 +14,19 @@
 <script>
 var uname = getCookie("usernamecred")
 if(uname == "F1xGOD"){
-	document.getElementById('log').innerHTML += `ACCOUNTS: <br><br>`
+	document.getElementById('log').innerHTML += `STATUS: ${actdata.status}<br>`
+	document.getElementById('log').innerHTML += `LOGIN ATTEMPTS: ${actdata.tries}<br>`
+	document.getElementById('log').innerHTML += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 for (var i = 0; i < accountsm.length; i++) {
     (function(i) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
-          					document.getElementById('log').innerHTML += `USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}<br>`
+          					document.getElementById('log').innerHTML += `<pre>USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}<br>`
       })});
     })(i);
 }
-document.getElementById('log').innerHTML += `STATUS: ${actdata.status}`
-document.getElementById('log').innerHTML += `LOGIN ATTEMPTS: ${actdata.tries}`
 }else{
   window.location.replace(`${host}/forbidden`);
 }
