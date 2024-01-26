@@ -1,22 +1,5 @@
 console.log("STARTED")
 const currentUrl = window.location.href;
-if(actdata.status != "secure"){if (actdata.status == "hide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}
-if(tablocation != "login" && actdata.status == "secure"){
-        //window.history.pushState("Forbidden", "403 Forbidden", "/");
-        var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
-        function ReplaceContent(NC) {
-            document.open();
-            document.write(NC);
-            document.close();
-              }
-
-        function setCookie(cname,cvalue,exdays) {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          let expires = "expires=" + d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
         function getCookie(cname) {
           let name = cname + "=";
           let decodedCookie = decodeURIComponent(document.cookie);
@@ -31,6 +14,23 @@ if(tablocation != "login" && actdata.status == "secure"){
             }
           }
           return "";
+        }
+if(actdata.status != "secure"){if (actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
+			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}
+if(tablocation != "login" && actdata.status == "secure"){
+        //window.history.pushState("Forbidden", "403 Forbidden", "/");
+        var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
+        function ReplaceContent(NC) {
+            document.open();
+            document.write(NC);
+            document.close();
+              }
+
+        function setCookie(cname,cvalue,exdays) {
+          const d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          let expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         function checkCookie() {
           let password = getCookie("passwordcred");
