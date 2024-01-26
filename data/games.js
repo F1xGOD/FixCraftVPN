@@ -31,6 +31,12 @@ var games = [
       'url': 'https://fixcraft-vpn.onrender.com/games/backrooms',
       'image': 'https://play-lh.googleusercontent.com/iBBy7mU2acyOA32No0LcXbhALC8blVX2IRP4LQnkET3GOv8rdK0uLhkbNG8a-9B3wg'
     },
+    {
+      'id': 'discord',
+      'title': 'Discord',
+      'url': 'https://fixcraft-vpn.onrender.com/games/discord',
+      'image': 'https://x0.at/foTx.png'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
