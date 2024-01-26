@@ -15,8 +15,8 @@ const currentUrl = window.location.href;
           }
           return "";
         }
-if(actdata.status != "secure"){if (actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
-			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}
+if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
+			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
 if(tablocation != "login" && actdata.status == "secure"){
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
