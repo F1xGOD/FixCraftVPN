@@ -1,5 +1,7 @@
 // This file overwrites the stock UV config.js
 
+import Ultraviolet from '@titaniumnetwork-dev/ultraviolet';
+
 self.__uv$config = {
   prefix: "/uv/service/",
   bare: "/bare/",
