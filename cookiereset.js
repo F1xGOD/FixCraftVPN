@@ -4,7 +4,13 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
+function clearCache() {
+          localStorage.clear();
+          alert('Local Storage cache has been cleared.');
+          location.reload();
+        }
 setCookie("passwordcred","",999999);
 setCookie("usernamecred","",999999);
 setCookie("tries","",999999);
 setCookie("canlogintosite","",999999);
+clearCache()
