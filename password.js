@@ -17,7 +17,8 @@ const currentUrl = window.location.href;
         }
 if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
-if(tablocation != "login" && actdata.status == "secure"){
+if(tablocation != "login"){
+	if(actdata.status == "secure"||getCookie("canlogintosite")=="truesigma"){}
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
         var newContent='<html><head><title>PLEASE LOGIN</title></head><body></body></html>';
         function ReplaceContent(NC) {
