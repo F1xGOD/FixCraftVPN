@@ -37,6 +37,12 @@ var games = [
       'url': 'https://fixcraft-vpn.onrender.com/games/discord',
       'image': 'https://x0.at/foTx.png'
     },
+    {
+      'id': 'pixelgunsurvival',
+      'title': 'Pixel Gun Survival',
+      'url': 'https://fixcraft-vpn.onrender.com/games/pixelgunsurvival',
+      'image': 'https://scylla.wgplayer.com/f_webp/https://static.gogy.com/assets/games/imgs/thumbs/Pixel-Gun-Apocalypse-3.jpg'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
