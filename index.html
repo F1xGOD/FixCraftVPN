@@ -16,6 +16,12 @@ $.getJSON("https://api.ipify.org?format=json",
 	window.location.replace(`${host}/killswitch`)
 }});
 </script>
+<script>
+function untrack(){
+	setCookie("allowhh","true",1)
+	window.location.replace(`${host}/historyhide`)
+}
+</script>
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     posthog.init('phc_pm81y7KNu1904rnTdFuACZton2NsuS5J1NWBJ1MLOcM',{api_host:'/sf'})
@@ -78,7 +84,7 @@ $.getJSON("https://api.ipify.org?format=json",
     <div class="heading" style="position: absolute; text-align: center; top: 30%; width: 100%;">
       <h1 style="font-family:monospace;color:#eb5b34;font-size:70px;">FixCraft VPN</h1>
       <h3 style="font-family:monospace;color:wheat;font-size:20px;">Bro­wse The Int­ern­et Pri­vat­ely</h3><br>
-      <button onclick="window.location.href='/proxy.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Browsing</button> <button onclick="window.location.href='/games.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Gaming</button> <button class="glow-on-hover" id="blankbtn" onclick="blank()" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Open In UnTrackable</button> <button onclick="window.location.href='https://discord.gg/aluminum';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Join the Discord</button> 
+      <button onclick="window.location.href='/proxy.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Browsing</button> <button onclick="window.location.href='/games.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Gaming</button> <button class="glow-on-hover" id="blankbtn" onclick="untrack()" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Open In UnTrackable</button> <button onclick="window.location.href='https://discord.gg/aluminum';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Join the Discord</button> 
       <script>
 
 
