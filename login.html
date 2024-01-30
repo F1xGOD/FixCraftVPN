@@ -62,9 +62,12 @@
 	  Object.freeze(tries);
 	  Object.freeze(password);
 	  Object.freeze(username);
-	  if(tries>0){}else{
-		  window.location.replace(`${host}/forbidden`)
-	  }
+		if (tries==""){
+		  setCookie("tries",parseInt(actdata.tries),999999)
+	  }else{
+		if (tries>0){}else{
+			window.location.replace(`${host}/forbidden`)
+		}
 	  if(username == "" && password == ""){}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
             	function (data4) {
