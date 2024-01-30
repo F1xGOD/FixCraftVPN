@@ -49,6 +49,42 @@ var games = [
       'url': 'https://fixcraft-vpn.onrender.com/games/subwaysurfers',
       'image': 'https://img.tapimg.net/market/images/996c9a9dd4b2876b36b447a09181d0fa.png/appicon'
     },
+    {
+      'id': 'dogeminer',
+      'title': 'Dodge Miner',
+      'url': 'https://fixcraft-vpn.onrender.com/games/dodgecoinminer',
+      'image': 'https://play-lh.googleusercontent.com/r1Bu5QEtyXverGtzRRlQdzFgSXjJdFxQJFb4V3gqehlE_j24_YD--7fUFF1jTa_de1s'
+    },
+    {
+      'id': 'basketballstars',
+      'title': 'Basketball Stars',
+      'url': 'https://fixcraft-vpn.onrender.com/games/basketballstars',
+      'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Y8VtIClOt2T9-K5SfF27D8b8gCfBafN4XO_SJkD2MQ&s'
+    },
+    {
+      'id': 'bitlife',
+      'title': 'BitLife',
+      'url': 'https://fixcraft-vpn.onrender.com/games/bitlife',
+      'image': 'https://x0.at/XxRi.jpeg'
+    },
+    {
+      'id': 'motox3m',
+      'title': 'Moto X3M',
+      'url': 'https://fixcraft-vpn.onrender.com/games/moto-x3m',
+      'image': 'https://is1-ssl.mzstatic.com/image/thumb/Purple1/v4/b8/74/9f/b8749f28-9ff1-2fc2-b7f2-9428abd40fda/mzl.jiqtfguw.png/512x512bb.jpg'
+    },
+    {
+      'id': 'fridaynightfunkin',
+      'title': 'Friday Night Funkin',
+      'url': 'https://fixcraft-vpn.onrender.com/games/fridaynightfunkin',
+      'image': 'https://x0.at/6Lkr.png'
+    },
+    {
+      'id': 'bobtherobber2',
+      'title': 'Bob The Robber 2',
+      'url': 'https://fixcraft-vpn.onrender.com/games/bobtherobber2',
+      'image': 'https://x0.at/zuMb.webp'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
