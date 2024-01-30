@@ -20,18 +20,16 @@ if(uname == "F1xGOD" || uname=="Ivan"){
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
-for (var i = 0; i < accountsm.length || i == accountsm.length; i++) {
+for (var i = 0; i < accountsm.length; i++) {
     (function(i) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
           			final += `USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}, ROLE: ${accountsm[i].role},STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
-	      			if(i==accountsm.length){
-					final += `TOTAL ${accountsm.length} ACCOUNTS`
-					var display = document.getElementById('log').innerHTML = final
-				}
       })});
     })(i);
 }
+final += `TOTAL ${accountsm.length} ACCOUNTS`
+var display = document.getElementById('log').innerHTML = final
 }else{
   window.location.replace(`${host}/forbidden`);
 }
