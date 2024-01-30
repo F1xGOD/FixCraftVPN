@@ -84,7 +84,7 @@ checkCookie();
 let tries = getCookie("tries");
 Object.freeze(tries);
 if (tries==""){
-		  setCookie("tries",parseInt(actdata.tries),365)
+		  setCookie("tries",parseInt(actdata.tries),999999)
 	  }else{
 		if (tries>0){}else{
 			window.location.replace(`${host}/forbidden`)
