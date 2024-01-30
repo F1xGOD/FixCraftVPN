@@ -43,6 +43,12 @@ var games = [
       'url': 'https://fixcraft-vpn.onrender.com/games/pixelgunsurvival',
       'image': 'https://scylla.wgplayer.com/f_webp/https://static.gogy.com/assets/games/imgs/thumbs/Pixel-Gun-Apocalypse-3.jpg'
     },
+    {
+      'id': 'subwaysurfers',
+      'title': 'Subway Surfers',
+      'url': 'https://fixcraft-vpn.onrender.com/games/subwaysurfers',
+      'image': 'https://img.tapimg.net/market/images/996c9a9dd4b2876b36b447a09181d0fa.png/appicon'
+    },
   ]
   
   var customgames = JSON.parse(localStorage.getItem("customgames"))
