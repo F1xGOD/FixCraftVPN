@@ -76,10 +76,10 @@ if(tablocation != "login"){
 		  } 
 			})})}
     }
-
+	
   
 checkCookie();
-}}else{
+}else{}}else{
 	
 let triess = getCookie("tries");
 Object.freeze(triess);
@@ -89,4 +89,4 @@ if (tries==""){
 		if (tries>0){}else{
 			window.location.replace(`${host}/forbidden`)
 		}
-}
+}}
