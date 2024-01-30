@@ -6,8 +6,6 @@ function setCookie(cname,cvalue,exdays) {
         }
 function clearCache() {
           localStorage.clear();
-          alert('Local Storage cache has been cleared.');
-          location.reload();
         }
 setCookie("passwordcred","",999999);
 setCookie("usernamecred","",999999);
