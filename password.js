@@ -79,7 +79,7 @@ if(tablocation != "login"){
 	
   
 checkCookie();
-}else{}}else{
+}else{window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}else{
 	
 let triess = getCookie("tries");
 Object.freeze(triess);
