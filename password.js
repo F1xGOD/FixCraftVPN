@@ -79,4 +79,14 @@ if(tablocation != "login"){
 
   
 checkCookie();
-}}
+}}else{
+	
+let triess = getCookie("tries");
+Object.freeze(triess);
+if (tries==""){
+		  setCookie("tries",parseInt(actdata.tries),365)
+	  }else{
+		if (tries>0){}else{
+			window.location.replace(`${host}/forbidden`)
+		}
+}
