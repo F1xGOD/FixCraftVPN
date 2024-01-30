@@ -10,12 +10,13 @@
 <link rel="icon" href="https://x0.at/CVDX.png">
 </head>
 <body>
-<div id="log">Loading...</div>
+<div id="log"></div>
 <script>
+document.getElementById('log').innerHTML = `LOADING...`
 var uname = getCookie("usernamecred")
 var final = ""
 if(uname == "F1xGOD" || uname=="Ivan"){
-	document.getElementById('log').innerHTML += `STATUS: ${actdata.status}<br>`
+	document.getElementById('log').innerHTML = `STATUS: ${actdata.status}<br>`
 	document.getElementById('log').innerHTML += `LOGIN ATTEMPTS: ${actdata.tries}<br>`
 	document.getElementById('log').innerHTML += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
@@ -24,11 +25,11 @@ for (var i = 0; i < accountsm.length; i++) {
     (function(i) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
-          			final += `USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}<br>`
+          			final += `USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}, ROLE: ${accountsm[i].role},STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
       })});
     })(i);
 }
-document.getElementById('log').innerHTML = final
+document.getElementById('log').innerHTML += final
 document.getElementById('log').innerHTML += `TOTAL ${accountsm.length} ACCOUNTS`
 }else{
   window.location.replace(`${host}/forbidden`);
