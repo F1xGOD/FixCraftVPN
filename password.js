@@ -43,7 +43,7 @@ if(maintain[iii].location==tablocation){
 }
 iii=iii+1
 }
-DONE!
+console.log("DONE!")
 
 if(tablocation != "login"){
 	if(actdata.status == "secure"||getCookie("canlogintosite")=="truesigma"){
