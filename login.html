@@ -123,6 +123,12 @@
 						if(tries>0){}else{
 							window.location.replace(`${host}/forbidden`)
 						
+						}else{
+						snackbar_Success();
+						console.log("LOGIN SUCCEED!");
+						setCookie("passwordcred",text,14);
+						setCookie("usernamecred",text2,14);
+						init();
 						}
 					}
 				
