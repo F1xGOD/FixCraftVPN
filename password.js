@@ -81,12 +81,12 @@ if(tablocation != "login"){
 checkCookie();
 }else{window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}else{
 	
-let tries = getCookie("tries");
-Object.freeze(tries);
-if (tries==""){
+let tries2 = getCookie("tries");
+Object.freeze(tries2);
+if (tries2==""){
 		  setCookie("tries",parseInt(actdata.tries),999999)
 	  }else{
-		if (tries>0){}else{
+		if (tries2>0){}else{
 			window.location.replace(`${host}/forbidden`)
 		}
 }}
