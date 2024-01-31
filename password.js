@@ -28,7 +28,7 @@ if(tablocation.includes(".html")){
 if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
 var iii = 0
-maintain = actdata.undermaintenace
+var maintain = actdata.undermaintenace
 while (iii < maintain.length){
 console.log(maintain[iii].location)
 if(maintain[iii].location==tablocation){
