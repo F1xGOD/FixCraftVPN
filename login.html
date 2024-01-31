@@ -19,7 +19,7 @@
 				<input type="email" id="username" placeholder="Username" />
 				<input type="password" id="password" placeholder="Password" />
 				<a href="/unknown">Forgot Your Password?</a>
-				<button type="button" href="javascript:;" onclick="checkSuccess();">Log In</button>
+				<button type="button" href="javascript:checkSuccess();">Log In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
@@ -36,14 +36,14 @@
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
-	  let tries = parseInt(getCookie("tries"))
-	  Object.freeze(tries);
+	  let triess = getCookie("tries")
+	  Object.freeze(triess);
 	  Object.freeze(password);
 	  Object.freeze(username);
-		if (tries==""){
+		if (triess==""){
 		  setCookie("tries",parseInt(actdata.tries),999999)
 	  }else{
-		if (tries>0){}else{
+		if (triess>0){}else{
 			window.location.replace(`${host}/forbidden`)
 		}}
 	  if(username == "" && password == ""){}else{
