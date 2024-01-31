@@ -112,7 +112,6 @@
             	function (data) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
             		function (data2) {
-				        var success = false
 				        var accounts = actdata.accounts
 					var enc = data.encoded
 					var enc2 = data2.encoded
@@ -121,25 +120,31 @@
 					let i2 = 0;
 					while (i2 < accounts.length) {
 						if(accounts[i2].username===enc2&&accounts[i2].password===enc){
-							success = true;
+							snackbar_Success();
+							console.log("LOGIN SUCCEED!");
+							setCookie("passwordcred",text,14);
+							setCookie("usernamecred",text2,14);
+							init();
+							
+							break
+						}else{
+							if(i2=accounts.length-1){
+								tries=tries-1
+								snackbar_Fail(tries);
+								setCookie("tries",tries,365)
+								console.log("LOGIN FAILED!")
+								if(tries>0){}else{
+									window.location.replace(`${host}/forbidden`)
+						
+					}
+							}
 						};
 						i2++;
 					}
-					if(success==true){
-						snackbar_Success();
-						console.log("LOGIN SUCCEED!");
-						setCookie("passwordcred",text,14);
-						setCookie("usernamecred",text2,14);
-						init();
-					}else {
-						tries=tries-1
-						snackbar_Fail(tries);
-						setCookie("tries",tries,365)
-						console.log("LOGIN FAILED!")
-						if(tries>0){}else{
-							window.location.replace(`${host}/forbidden`)
-						}
-					}}    
+				
+						
+					 
+						}    
   )})}}
 	
 	</script>	
