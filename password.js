@@ -33,9 +33,9 @@ sleep(1000).then(() => {
 }
 if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
-var iii = 0
+
 var maintain = actdata.undermaintenance
-while (iii < maintain.length){
+for (let iii = 0; iii < maintain.length; iii++){
 console.log(actdata.undermaintenace[iii].location)
 if(actdata.undermaintenace[iii].location==tablocation){
 	console.log("UNDER MAINTENANCE!")
@@ -54,7 +54,6 @@ if(actdata.undermaintenace[iii].location==tablocation){
 	}
 	link.href = 'https://x0.at/KdHZ.png';
 }
-iii=iii+1
 }
 console.log("DONE!")
 
