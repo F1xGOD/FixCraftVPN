@@ -7,11 +7,6 @@ function ReplaceContent(NC) {
             document.write(NC);
             document.close();
               }
-
-ReplaceContent("<title>LOADING...</title>")
-$.ajax({ url: `${host}/${tablocation}`, success: function(data) {
-	pagecontent=data
-} });
         function getCookie(cname) {
           let name = cname + "=";
           let decodedCookie = decodeURIComponent(document.cookie);
@@ -35,7 +30,7 @@ function setCookie(cname,cvalue,exdays) {
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 var execute=false
-while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 1000)}
+while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 100)}
 setTimeout(function(){
 console.log("got data!")
 	if(tablocation.includes(".html")){
@@ -69,7 +64,6 @@ console.log("DONE!")
 if(tablocation != "login"){
 	if(actdata.status == "secure"||getCookie("canlogintosite")=="truesigma"){
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
-	ReplaceContent(pagecontent)
 
         function checkCookie() {
           let password = getCookie("passwordcred");
@@ -129,5 +123,5 @@ if (tries2==""){
 		}
 }}
 }	
-}, 2600);
+}, 80);
 
