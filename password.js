@@ -33,8 +33,9 @@ var execute=false
 function checkREADY(){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-  checkREADY()}, 100)
-}
+   console.log(actdata)
+  checkREADY()}, 200)
+}else{console.log("LOADED!")}
 }
 checkREADY()
 setTimeout(function(){
