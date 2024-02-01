@@ -29,8 +29,10 @@ setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
-if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
-			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
+if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){
+			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}}else{execute=true}
+			      if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
+			      }else{execute=true}
 if(execute==true){
 var maintain = actdata.undermaintenance
 for (let iii = 0; iii < maintain.length; iii++){
