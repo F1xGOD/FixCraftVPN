@@ -7,8 +7,8 @@ function ReplaceContent(NC) {
             document.write(NC);
             document.close();
               }
-var content = ``
-ReplaceContent(content)
+
+ReplaceContent("<title>LOADING...</title>")
 $.ajax({ url: `${host}/${tablocation}`, success: function(data) {
 	pagecontent=data
 } });
