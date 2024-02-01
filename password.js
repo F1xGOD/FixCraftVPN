@@ -7,7 +7,7 @@ function ReplaceContent(NC) {
             document.write(NC);
             document.close();
               }
-$.ajax({ url: `${host}${tablocation}`, success: function(data) {
+$.ajax({ url: `${host}/${tablocation}`, success: function(data) {
 	pagecontent=data
 } });
 var content = ``
