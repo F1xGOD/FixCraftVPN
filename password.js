@@ -26,7 +26,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-sleep(100).then(() => {
+sleep(1000).then(() => {
 
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
