@@ -22,13 +22,19 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
-if(tablocation.includes(".html")){
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+sleep(100).then(() => {
+
+	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
 if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}}}
 var iii = 0
-var maintain = actdata.undermaintenace
+var maintain = actdata.undermaintenance
 while (iii < maintain.length){
 console.log(actdata.undermaintenace[iii].location)
 if(actdata.undermaintenace[iii].location==tablocation){
@@ -114,3 +120,5 @@ if (tries2==""){
 			window.location.replace(`${host}/forbidden`)
 		}
 }}
+});
+
