@@ -1,7 +1,7 @@
 console.log("STARTED")
 
 const currentUrl = window.location.href;
-const pagecontent = ``
+var pagecontent = ``
 function ReplaceContent(NC) {
             document.open();
             document.write(NC);
