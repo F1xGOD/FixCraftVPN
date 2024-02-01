@@ -30,9 +30,9 @@ function setCookie(cname,cvalue,exdays) {
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 var execute=false
-while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 100)}
+while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 90)}
 setTimeout(function(){
-console.log("got data!")
+console.log(actdata)
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
