@@ -30,7 +30,7 @@ function setCookie(cname,cvalue,exdays) {
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 var execute=false
-while(JSON.stringify(actdata)=="{}"){}
+while(JSON.stringify(actdata)=="{}"){setTimeout(function(){console.log(actdata)}, 200)}
 setTimeout(function(){
 console.log(actdata)
 	if(tablocation.includes(".html")){
