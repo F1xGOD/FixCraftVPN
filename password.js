@@ -23,7 +23,7 @@ function setCookie(cname,cvalue,exdays) {
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 var execute=false
-while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 10)}
+while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 1000)}
 setTimeout(function(){
 console.log("got data!")
 	if(tablocation.includes(".html")){
@@ -121,5 +121,5 @@ if (tries2==""){
 		}
 }}
 }	
-}, 1000);
+}, 2600);
 
