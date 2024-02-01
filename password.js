@@ -23,9 +23,9 @@ function setCookie(cname,cvalue,exdays) {
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 var execute=false
-while(actdata=={}){setTimeout(function(){}, 50)}
+while(actdata=={}){setTimeout(function(){console.log("Waiting...")}, 50)}
 setTimeout(function(){
-
+console.log("got data!")
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
@@ -33,6 +33,7 @@ if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){
 			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}}else{execute=true}
 			      if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      }else{execute=true}
+console.log(execute)
 if(execute==true){
 var maintain = actdata.undermaintenance
 for (let iii = 0; iii < maintain.length; iii++){
