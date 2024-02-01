@@ -7,11 +7,11 @@ function ReplaceContent(NC) {
             document.write(NC);
             document.close();
               }
+var content = ``
+ReplaceContent(content)
 $.ajax({ url: `${host}/${tablocation}`, success: function(data) {
 	pagecontent=data
 } });
-var content = ``
-ReplaceContent(content)
         function getCookie(cname) {
           let name = cname + "=";
           let decodedCookie = decodeURIComponent(document.cookie);
