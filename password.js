@@ -22,7 +22,7 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
-
+while(actdata=={}){}
 setTimeout(function(){
 
 	if(tablocation.includes(".html")){
@@ -117,5 +117,5 @@ if (tries2==""){
 		}
 }}
 	
-}, 520);
+}, 80);
 
