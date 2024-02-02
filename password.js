@@ -35,10 +35,8 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
    console.log(actdata)
   checkREADY()}, 200)
-}else{console.log("LOADED!")}
-}
-checkREADY()
-setTimeout(function(){
+}else{console.log("LOADED!")
+     setTimeout(function(){
 console.log(actdata)
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
@@ -131,4 +129,9 @@ if (tries2==""){
 }}
 }	
 }, 80);
+     
+     
+     }
+}
+checkREADY()
 
