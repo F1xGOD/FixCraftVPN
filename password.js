@@ -7,6 +7,7 @@ function ReplaceContent(NC) {
             document.write(NC);
             document.close();
               }
+	ReplaceContent("<html><head><title>LOADING...</title></head><body></body></html>")
         function getCookie(cname) {
           let name = cname + "=";
           let decodedCookie = decodeURIComponent(document.cookie);
@@ -36,7 +37,14 @@ if(JSON.stringify(actdata)=="{}"){
    console.log(actdata)
   checkREADY()}, 200)
 }else{console.log("LOADED!")
-     setTimeout(function(){
+
+function checkREADY2(){
+if(pagecontent==""){
+  setTimeout(function(){
+   console.log(actdata)
+  checkREADY2()}, 200)}else{
+	ReplaceContent(pagecontent)
+	 setTimeout(function(){
 console.log(actdata)
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
@@ -129,6 +137,10 @@ if (tries2==""){
 }}
 }	
 }, 80);
+  }}
+      	$.ajax({ url: `${host}/${tablocation}`, success: function(data) { pagecontent = data; } });
+	checkREADY2()
+    
      
      
      }
