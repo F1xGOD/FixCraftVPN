@@ -72,6 +72,18 @@
                             status: "danger"
                         });
                     };
+	function snackbar_Faildela(passedvar) {
+                        SnackBar({
+                            message: `That Account Was Deleted! (Reason: ${passedvar})`,
+                            status: "danger"
+                        });
+                    };
+	function snackbar_Failunact(passedvar) {
+                        SnackBar({
+                            message: `That Account Was Deactivated! (Reason: ${passedvar})`,
+                            status: "danger"
+                        });
+                    };
 	var snackbar_Fail2 = function () {
                         SnackBar({
                             message: "Please Enter Credentials!",
@@ -107,8 +119,10 @@
 					Object.freeze(enc);
 	 				Object.freeze(enc2);
 					let i2 = 0;
+					let successid=0;
 					while (i2 < accounts.length) {
 						if(accounts[i2].username===enc2&&accounts[i2].password===enc){
+							successid=i2
 							succs=true
 						}else{
 							
@@ -116,19 +130,29 @@
 						i2++;
 					}
 					if (succs==false){
+						let i22 = 0;
+					while (i22 < deletedaccounts.length) {
+						if(deletedaccounts[i22].username===enc2&&deletedaccounts[i22].password===enc){
+							snackbar_Faildela(deletedaccounts[i22].reason)
+							console.log("LOGIN FAILED!")
+						}else{
 						tries=tries-1
 						snackbar_Fail(tries);
 						setCookie("tries",tries,365)
-						console.log("LOGIN FAILED!")
+						console.log("LOGIN FAILED!")} i22++;}
 						if(tries>0){}else{
 							window.location.replace(`${host}/forbidden`)
 						
 		     }}else{
+						if(accounts[successid].status!="active"){
+							snackbar_Failunact(accounts[successid].deactreason);
+							console.log("LOGIN FAILED!")
+						}else{
 							snackbar_Success();
 							console.log("LOGIN SUCCEED!");
 							setCookie("passwordcred",text,14);
 							setCookie("usernamecred",text2,14);
-							init();
+							init();}
 						}
 					}
 				
