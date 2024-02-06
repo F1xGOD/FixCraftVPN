@@ -21,7 +21,7 @@ document.getElementById('log').innerHTML = `INITIALIZING...`
 var uname = getCookie("usernamecred");
 var ii2i= 0;
 var role = ""
-$.getJSON(`https://networkcalc.com/api/encoder/${uname}?encoding=base64`, function (dataa) {uname=dataa
+$.getJSON(`https://networkcalc.com/api/encoder/${uname}?encoding=base64`, function (dataa) {uname=dataa.encoded
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname){
 		role=actdata.accounts[ii2i].role
