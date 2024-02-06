@@ -132,15 +132,20 @@
 					}
 					if (succs==false){
 						let i22 = 0;
+						let founddel=false;
 					while (i22 < deletedaccounts.length) {
 						if(deletedaccounts[i22].username===enc2&&deletedaccounts[i22].password===enc){
 							snackbar_Faildela(deletedaccounts[i22].reason)
 							console.log("LOGIN FAILED!")
-						}else{
+							founddel=true
+						}
+						i22++;}
+						if(founddel==false){
 						tries=tries-1
 						snackbar_Fail(tries);
 						setCookie("tries",tries,365)
-						console.log("LOGIN FAILED!")} i22++;}
+						console.log("LOGIN FAILED!") 
+						}
 						if(tries>0){}else{
 							window.location.replace(`${host}/forbidden`)
 						
