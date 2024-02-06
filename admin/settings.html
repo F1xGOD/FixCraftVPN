@@ -28,7 +28,9 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-if(role=="admin" || role=="moderator"){
+var accesslevel = 0
+if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
+if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 	var final = ``
@@ -37,11 +39,15 @@ if(role=="admin" || role=="moderator"){
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
+	var psw = ""	
 for (var i = 0; i < accountsm.length; i++) {
     (function(i) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
-        						final += `USERNAME: ${data.decoded}, PASSWORD: ${data2.decoded}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
+	      						var level = 0
+	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
+	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+        						final += `USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
                     if(i==accountsm.length-1){
 			    	final+=`TOTAL ${accountsm.length} ACCOUNTS`
         			document.getElementById('log').innerHTML = final
