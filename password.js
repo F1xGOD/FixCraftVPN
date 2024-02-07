@@ -105,12 +105,44 @@ if(tablocation != "login"){
 					i++;
 		  }
                   if(success2==true){
-			console.log("Session Login")
+			var ii2 = 0;
+			var uname = getCookie("usernamecred");
+			var sts = "";
+			$.getJSON(`https://networkcalc.com/api/encoder/${uname}?encoding=base64`, function (dataa) {uname=dataa.encoded
+			while (ii2 < actdata.accounts.length){
+			if(actdata.accounts[ii2].username==uname){
+			sts=actdata.accounts[ii2].status
+			}
+			ii2++
+			}})
+			if(sts=="active"){
+			console.log("Session Login")}else{
+				console.log("ACCOUNT DECATIVATED!")
+				setCookie("usernamecred","",999);
+				setCookie("passwordcred","",999);
+				setCookie("tries","",999);
+			}
 		  }else{
 			  let triess = getCookie("tries");
 	  		  Object.freeze(triess);
 			  if(triess>0){
+				  var iii1 = 0
+				  var fond = false
+				  while (iii1 < actdata.deletedaccounts.length){
+			if(actdata.deletedaccounts[iii1].username==data4.encoded&&actdata.deletedaccounts[iii1].password==data5.encoded){
+			fond = true
+			}
+			iii1++
+			}
+				  if(fond==false){
+					   conole.log("LOGIN!");
 				window.location.replace(`${host}/login`)}else{
+					   conole.log("ACCOUNT DELETED!")
+					   setCookie("usernamecred","",999);
+					setCookie("passwordcred","",999);
+					setCookie("tries","",999);
+					  window.location.replace(`${host}/login`)
+				}}else{
 				  window.location.replace(`${host}/forbidden`)
 				}
 		  } 
