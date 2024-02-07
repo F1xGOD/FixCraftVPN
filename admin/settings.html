@@ -14,7 +14,6 @@
 function checkREADY22(){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-   console.log(actdata)
   checkREADY22()}, 100)
 }else{console.log("LOADED!")
 document.getElementById('log').innerHTML = `INITIALIZING...`
@@ -38,6 +37,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	final += `LOGIN ATTEMPTS: ${actdata.tries}<br>`
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
+	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
 	var psw = ""	
 for (var i = 0; i < accountsm.length; i++) {
@@ -48,9 +48,24 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
         						final += `USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
-                    if(i==accountsm.length-1){
-			    	final+=`TOTAL ${accountsm.length} ACCOUNTS`
+                    if(i==accountsdel.length-1){
+			    	final+=`TOTAL ${accountsdel.length} ACCOUNTS`
+					var ii22 = 0
+					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
+    (function(i) { // protects i in an immediately called function
+      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].username}?encoding=base64&decode=true`, function (data) {
+      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].password}?encoding=base64&decode=true`, function (data2) {
+	      						var level2 = 0
+	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
+	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+        						final += `USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
+                    if(ii22==accountdel.length-1){
+			    	final+=`TOTAL ${accountsm.length} DELETED ACCOUNTS`
         			document.getElementById('log').innerHTML = final
+      }
+      })});
+    })(ii22);
+}
       }
       })});
     })(i);
