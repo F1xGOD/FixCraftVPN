@@ -34,7 +34,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var final = ``
 	final = `STATUS: ${actdata.status}<br>`
-	final += `LOGIN ATTEMPTS: ${actdata.tries}<br>`
+	final += `LOGIN ATTEMPTS: ${actdata.tries}<br><br>`
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
@@ -47,9 +47,10 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
-        						final += `USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
-                    if(i==accountsdel.length-1){
-			    	final+=`TOTAL ${accountsdel.length} ACCOUNTS`
+        						final += `&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
+                    if(i==accountsm.length-1){
+			    	final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
+					final+=`DELETED ACCOUNTS:<br>`
 					var ii22 = 0
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
@@ -58,9 +59,9 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
-        						final += `USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
+        						final += `&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
                     if(ii22==accountsdel.length-1){
-			    	final+=`TOTAL ${accountsm.length} DELETED ACCOUNTS`
+			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS`
         			document.getElementById('log').innerHTML = final
       }
       })});
