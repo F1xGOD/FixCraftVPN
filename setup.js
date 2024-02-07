@@ -157,10 +157,12 @@
 
 
 var actdata = {};
+var env = window._env_
 
 //I WILL FIND YOU....
 
-$.getJSON(`https://65c242abf7e6ea59682b0378.mockapi.io/data/data/0`,
+$.getJSON(`${env.datasource}`,
             	function (data) {
 actdata=data.json
+windows._env_.datasource = "FUCK YOU!"
 })
