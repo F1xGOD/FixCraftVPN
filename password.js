@@ -114,7 +114,7 @@ if(tablocation != "login"){
 			sts=actdata.accounts[ii2].status
 			}
 			ii2++
-			}})
+			}
 			if(sts=="active"){
 			console.log("Session Login")}else{
 				console.log("ACCOUNT DECATIVATED!")
@@ -122,7 +122,7 @@ if(tablocation != "login"){
 				setCookie("passwordcred","",999);
 				setCookie("tries","",999);
 				window.location.replace(`${host}/login`)
-			}
+			}})
 		  }else{
 			  let triess = getCookie("tries");
 	  		  Object.freeze(triess);
