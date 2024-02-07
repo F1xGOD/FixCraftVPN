@@ -106,7 +106,7 @@ if(tablocation != "login"){
 		  }
                   if(success2==true){
 			var ii2 = 0;
-			var uname = getCookie("usernamecred");
+			var uname = username;
 			var sts = "";
 			$.getJSON(`https://networkcalc.com/api/encoder/${uname}?encoding=base64`, function (dataa) {uname=dataa.encoded
 			while (ii2 < actdata.accounts.length){
@@ -121,6 +121,7 @@ if(tablocation != "login"){
 				setCookie("usernamecred","",999);
 				setCookie("passwordcred","",999);
 				setCookie("tries","",999);
+				window.location.replace(`${host}/login`)
 			}
 		  }else{
 			  let triess = getCookie("tries");
