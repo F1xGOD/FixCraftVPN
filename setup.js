@@ -166,7 +166,7 @@ $.getJSON(`${va}`,
             	function (data) {
 $.getJSON(`https://networkcalc.com/api/encoder/${data.json}?encoding=base64&decode=true`,
             	function (data3) {
-actdata=data3
+actdata=data3.decoded
 va = ""})
                                     
 })})
