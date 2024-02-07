@@ -107,7 +107,7 @@
 
 
 
-
+// I AM NOT JOKING...
 
 
 
@@ -153,7 +153,12 @@
 
 //IF YOU WILL TRY TO FIND THE SOURCE OF DATA I WILL FIND YOU!
 
+//NAH BRO LAST CHANCE
+
+
 var actdata = {};
+
+//I WILL FIND YOU....
 
 $.getJSON(`https://65c242abf7e6ea59682b0378.mockapi.io/data/data/0`,
             	function (data) {
