@@ -156,17 +156,9 @@
 //NAH BRO LAST CHANCE
 
 var actdata = {};
-var va = ""
 
 //I WILL FIND YOU....
-$.getJSON(`https://networkcalc.com/api/encoder/aHR0cHM6Ly82NWMyNDJhYmY3ZTZlYTU5NjgyYjAzNzgubW9ja2FwaS5pby9kYXRhL2RhdGEvMA==?encoding=base64&decode=true`,
-            	function (data2) {
-                     va=data2.decoded               
-$.getJSON(`${va}`,
+$.getJSON(`https://65c242abf7e6ea59682b0378.mockapi.io/data/data/0`,
             	function (data) {
-$.getJSON(`https://networkcalc.com/api/encoder/${data.json}?encoding=base64&decode=true`,
-            	function (data3) {
-actdata=JSON.parse(data3.decoded)
-va = ""})
-                                    
-})})
+                     actdata=data.json  
+})
