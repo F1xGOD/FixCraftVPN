@@ -52,14 +52,14 @@ for (var i = 0; i < accountsm.length; i++) {
 			    	final+=`TOTAL ${accountsdel.length} ACCOUNTS`
 					var ii22 = 0
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
-    (function(i) { // protects i in an immediately called function
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].username}?encoding=base64&decode=true`, function (data) {
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].password}?encoding=base64&decode=true`, function (data2) {
+    (function(ii22) { // protects i in an immediately called function
+      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].username}?encoding=base64&decode=true`, function (data3) {
+      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].password}?encoding=base64&decode=true`, function (data4) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
-	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
-        						final += `USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
-                    if(ii22==accountdel.length-1){
+	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
+        						final += `USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
+                    if(ii22==accountsdel.length-1){
 			    	final+=`TOTAL ${accountsm.length} DELETED ACCOUNTS`
         			document.getElementById('log').innerHTML = final
       }
