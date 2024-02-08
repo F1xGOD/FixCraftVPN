@@ -39,7 +39,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var final = ``
 	final = `STATUS: ${actdata.status}<br>`
-	final += `LOGIN ATTEMPTS: ${actdata.tries}<br><br>`
+	final += `LOGIN ATTEMPTS: ${actdata.tries.toUpperCase()}<br><br>`
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
@@ -52,7 +52,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
-        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, JOB: ${accountsm[i].job}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status}</span><br>`
+        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, JOB: ${accountsm[i].job}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
                     if(i==accountsm.length-1){
 			    	final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
 					final+=`DELETED ACCOUNTS:<br>`
