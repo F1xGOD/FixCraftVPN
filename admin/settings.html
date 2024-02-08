@@ -53,12 +53,11 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded} 
-        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
+        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
                     if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
 					final+=`DELETED ACCOUNTS:<br>`
-					var ii22 = 0
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].username}?encoding=base64&decode=true`, function (data3) {
@@ -66,10 +65,22 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
-        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`
+        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`
                     if(ii22==accountsdel.length-1){
-			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS`
-        			document.getElementById('log').innerHTML = final
+						setTimeout(function(){
+			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS<br><br>`
+					final+=`PAGES UNDER MAINTENANCE:<br>`
+					for (var ii2 = 0; ii2 < actdata.undermaintenance.length; ii2++) {
+    				(function(ii2) { 
+					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}<br>`
+                    if(ii2==actdata.undermaintenance.length-1){
+						setTimeout(function(){
+							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE`
+							document.getElementById('log').innerHTML = final
+						},140)
+        			}
+      })};
+	}, 140)
       }
       })});
     })(ii22);
