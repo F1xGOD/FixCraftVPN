@@ -38,8 +38,8 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 	var final = ``
-	final = `STATUS: ${actdata.status}<br>`
-	final += `LOGIN ATTEMPTS: ${actdata.tries.toUpperCase()}<br><br>`
+	final = `STATUS: ${actdata.status.toUpperCase()}<br>`
+	final += `LOGIN ATTEMPTS: ${actdata.tries}<br><br>`
 	final += `ACCOUNTS: <br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
