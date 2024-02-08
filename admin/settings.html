@@ -64,7 +64,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
-        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, <span class=\"${accountsdel[ii22].status}\">STATUS: ${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`
+        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`
                     if(ii22==accountsdel.length-1){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS`
         			document.getElementById('log').innerHTML = final
