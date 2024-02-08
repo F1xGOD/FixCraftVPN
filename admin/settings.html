@@ -52,7 +52,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
-        						final += `&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, STATUS: ${accountsm[i].status}, JOB: ${accountsm[i].job}<br>`
+        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role}, JOB: ${accountsm[i].job}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status}</span><br>`
                     if(i==accountsm.length-1){
 			    	final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
 					final+=`DELETED ACCOUNTS:<br>`
@@ -64,7 +64,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
-        						final += `&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
+        						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role}, STATUS: ${accountsdel[ii22].status}, JOB: ${accountsdel[ii22].job}, REASON: ${accountsdel[ii22].reason}<br>`
                     if(ii22==accountsdel.length-1){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS`
         			document.getElementById('log').innerHTML = final
