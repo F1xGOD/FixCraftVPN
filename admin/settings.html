@@ -52,10 +52,11 @@ for (var i = 0; i < accountsm.length; i++) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
-	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded} 
         						final += `&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
                     if(i==accountsm.length-1){
-			    	final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
+					setTimeout(function(){
+						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
 					final+=`DELETED ACCOUNTS:<br>`
 					var ii22 = 0
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
@@ -73,6 +74,7 @@ for (var i = 0; i < accountsm.length; i++) {
       })});
     })(ii22);
 }
+					}, 140)
       }
       })});
     })(i);
