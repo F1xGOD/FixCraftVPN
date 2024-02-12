@@ -170,7 +170,7 @@ if (tries2==""){
 		if (tries2>0){}else{
 			window.location.replace(`${host}/forbidden`)
 		}
-		if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}`)}
+		if(getCookie("usernamecred")!="" && getCookie("passwordcred")!=""){window.location.replace(`${host}`)}
 }}
 }	
 }, 80);
