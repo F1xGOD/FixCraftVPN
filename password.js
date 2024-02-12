@@ -4,15 +4,20 @@ console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
-warntheuser()
-const currentUrl = window.location.href;
-var pagecontent = ``
+warntheuser();
 function ReplaceContent(NC) {
-            document.open();
-            document.write(NC);
-            document.close();
-              }
+	document.open();
+	document.write(NC);
+	document.close();
+	  }
+if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
+	window.location.replace(`${host}/block/block?spoof=${currentUrl}`)
+}else{if(JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}") {
+	ReplaceContent("Not Found")
+}else{
 	
+const currentUrl = window.location.href;
+var pagecontent = ``	
         function getCookie(cname) {
           let name = cname + "=";
           let decodedCookie = decodeURIComponent(document.cookie);
@@ -176,4 +181,4 @@ if (tries2==""){
      }
 
 checkREADY()
-
+	}}

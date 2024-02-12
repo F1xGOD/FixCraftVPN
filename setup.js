@@ -158,7 +158,10 @@
 var actdata = {};
 
 //I WILL FIND YOU....
+if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}"){
+    console.log("ERROR 523!")
+}else{
 $.getJSON(`https://65c242abf7e6ea59682b0378.mockapi.io/data/data/0`,
             	function (data) {
                      actdata=data.json  
-})
+})}
