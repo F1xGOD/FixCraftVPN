@@ -51,21 +51,11 @@ for (var i = 0; i < accountsm.length; i++) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
 	      						var level = 0
-								var completeitemact = true
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
-	      						function checkcompleted1(){
-									if(completeitemact==false){
-										setTimeout(function(){
-										checkcompleted1()},10)
-									}else{
-										completeitemact=false
-								if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+								while(data==undefined||data2==undefined) {setTimeout(function(){}),10}
         						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
-									completeitemact=true
-									}
-								}
-								checkcompleted1()
-								if(i==accountsm.length-1){
+                    if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
 					final+=`DELETED ACCOUNTS:<br>`
