@@ -52,8 +52,9 @@ for (var i = 0; i < accountsm.length; i++) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
-	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded} 
-        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
+	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
+								setTimeout(function(){ 
+        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`},52)
                     if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
@@ -65,8 +66,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
-								setTimeout(function(){
-        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`}, 24)
+        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3.decoded}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span><br>`
 								if(ii22==accountsdel.length-1){
 						setTimeout(function(){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS<br><br>`
