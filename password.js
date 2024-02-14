@@ -14,7 +14,7 @@ if(window.location.href.includes("?")){
 	Object.freeze(tries);
   var text = pasw
   var text2 = usern
-  if(text==""||text2==""){snackbar_Fail2();console.log("LOGIN FAILED!");}else{
+  if(text==""||text2==""){console.log("LOGIN FAILED!");}else{
   $.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
 		  function (data) {
 	  $.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
@@ -42,15 +42,11 @@ if(window.location.href.includes("?")){
 				  let founddel=false;
 			  while (i22 < deletedaccounts.length) {
 				  if(deletedaccounts[i22].username===enc2&&deletedaccounts[i22].password===enc){
-					  snackbar_Faildela(deletedaccounts[i22].reason)
 					  console.log("LOGIN FAILED!")
 					  founddel=true
 				  }
 				  i22++;}
 				  if(founddel==false){
-				  tries=tries-1
-				  snackbar_Fail(tries);
-				  setCookie("tries",tries,365)
 				  console.log("LOGIN FAILED!") 
 				  }
 				  if(tries>0){}else{
@@ -58,14 +54,9 @@ if(window.location.href.includes("?")){
 				  
 	   }}else{
 				  if(accounts[successid].status!="active"){
-					  snackbar_Failunact(accounts[successid].deactreason);
 					  console.log("LOGIN FAILED!")
 				  }else{
-					  snackbar_Success();
-					  console.log("LOGIN SUCCEED!");
-					  setCookie("passwordcred",text,14);
-					  setCookie("usernamecred",text2,14);
-					  init();}
+					  console.log("LOGIN SUCCEED!");}
 				  }
 			  }
 		  
