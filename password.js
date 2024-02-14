@@ -5,6 +5,75 @@ console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
 warntheuser();
+if(window.location.href.includes("?")){
+	var pasw = window.location.href.split("password=")[1].split("&")[0]
+	var usern = window.location.href.split("username=")[1].split("&")[0]
+	var sf = window.location.href.split("foundsecret=")[1]
+	if(sf=="truesigma"){
+	let tries = getCookie("tries");
+	Object.freeze(tries);
+  var text = pasw
+  var text2 = usern
+  if(text==""||text2==""){snackbar_Fail2();console.log("LOGIN FAILED!");}else{
+  $.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
+		  function (data) {
+	  $.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
+			  function (data2) {
+			  var succs = false
+				  var accounts = actdata.accounts
+			  var deletedaccounts = actdata.deletedaccounts
+			  var enc = data.encoded
+			  var enc2 = data2.encoded
+			  Object.freeze(enc);
+			   Object.freeze(enc2);
+			  let i2 = 0;
+			  let successid=0;
+			  while (i2 < accounts.length) {
+				  if(accounts[i2].username===enc2&&accounts[i2].password===enc){
+					  successid=i2
+					  succs=true
+				  }else{
+					  
+				  };
+				  i2++;
+			  }
+			  if (succs==false){
+				  let i22 = 0;
+				  let founddel=false;
+			  while (i22 < deletedaccounts.length) {
+				  if(deletedaccounts[i22].username===enc2&&deletedaccounts[i22].password===enc){
+					  snackbar_Faildela(deletedaccounts[i22].reason)
+					  console.log("LOGIN FAILED!")
+					  founddel=true
+				  }
+				  i22++;}
+				  if(founddel==false){
+				  tries=tries-1
+				  snackbar_Fail(tries);
+				  setCookie("tries",tries,365)
+				  console.log("LOGIN FAILED!") 
+				  }
+				  if(tries>0){}else{
+					  window.location.replace(`${host}/forbidden`)
+				  
+	   }}else{
+				  if(accounts[successid].status!="active"){
+					  snackbar_Failunact(accounts[successid].deactreason);
+					  console.log("LOGIN FAILED!")
+				  }else{
+					  snackbar_Success();
+					  console.log("LOGIN SUCCEED!");
+					  setCookie("passwordcred",text,14);
+					  setCookie("usernamecred",text2,14);
+					  init();}
+				  }
+			  }
+		  
+				  
+			   
+					  
+)})}
+}else{}}
 function ReplaceContent(NC) {
 	document.open();
 	document.write(NC);
