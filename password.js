@@ -48,7 +48,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 
-
+var shd = false
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
 	var usern = window.location.href.split("username=")[1].split("%22")[1].split("%22")[0]
@@ -100,7 +100,9 @@ if(window.location.href.includes("?")){
 				  if(accounts[successid].status!="active"){
 					  console.log("LOGIN FAILED!")
 				  }else{
-					  console.log("LOGIN SUCCEED!");}
+					  console.log("LOGIN SUCCEED!");
+						shd = true
+					}
 				  }
 			  }
 		  
@@ -141,7 +143,7 @@ if(tablocation != "login"){
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
 
         function checkCookie() {
-          let password = getCookie("passwordcred");
+    	let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
 	  let tries = getCookie("tries");
 	  Object.freeze(tries);
@@ -154,7 +156,7 @@ if(tablocation != "login"){
 			window.location.replace(`${host}/forbidden`)
 		}
 	  }
-	  if(username == "" && password == ""){window.location.replace(`${host}/login`)}else{
+	  if(username == "" && password == ""){if(shd==true){window.location.replace(`${host}/login`)}}else{
 	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
             	function (data4) {
 			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
