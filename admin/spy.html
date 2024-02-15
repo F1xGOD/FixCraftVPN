@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ADMIN SETTINGS</title>
+<title>HISTORY SPY</title>
   <script src="/host.js"></script>
   <script src="/jquery.js"></script>
   <script src="/setup.js"></script>
@@ -9,6 +9,36 @@
 <link rel="icon" href="https://x0.at/CVDX.png">
 </head>
 <body>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import "https://www.gstatic.com/firebasejs/3.1.0/firebase.js"
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCIaKI8NU91GPW1I8KQgQFn8huPSCye6a4",
+    authDomain: "fixcraft-js-31fe7.firebaseapp.com",
+    databaseURL: "https://fixcraft-js-31fe7-default-rtdb.firebaseio.com",
+    projectId: "fixcraft-js-31fe7",
+    storageBucket: "fixcraft-js-31fe7.appspot.com",
+    messagingSenderId: "927037433288",
+    appId: "1:927037433288:web:cad64401c3eb54fa0e4cfd",
+    measurementId: "G-60X8MHT7MX"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+    
+    var ref = firebase.database().ref('data');
+ref.on('data', (snapshot) => {
+  const data = snapshot.val();
+  console.log(data)
+});
+    
+</script>
 </body>
 </html>
   
