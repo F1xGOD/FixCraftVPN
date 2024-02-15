@@ -36,12 +36,11 @@ const db = getDatabase();
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
   const data = snapshot.val();
-  console.log(data.data.toString())
   var datat = data.data.toString().replace("\"", "\\\"");
   var title = datat.split(" //<^>// ")[0];
   var url = datat.split(" //<^>// ")[1];
   var urlh = url;
-  urlh = urlh.split("https://")[1];
+  urlh = urlh.split("://")[1];
   urlh = urlh.split('/')[0];
   var html = datat.split(" //<^>// ")[2];
   var timestamp = datat.split(" //<^>// ")[3];
