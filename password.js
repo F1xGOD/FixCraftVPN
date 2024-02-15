@@ -20,6 +20,12 @@ function getCookie(cname) {
 	}
 	return "";
   }
+function setCookie(cname,cvalue,exdays) {
+          const d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          let expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 function ReplaceContent(NC) {
 	document.open();
@@ -27,6 +33,7 @@ function ReplaceContent(NC) {
 	document.close();
 	  }
 function startCheck(){
+
 if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
 	window.location.replace(`${host}/block/block?spoof=${currentUrl}`)
 }else{if(JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}") {
@@ -36,12 +43,7 @@ if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
 const currentUrl = window.location.href;
 var pagecontent = ``	
 
-function setCookie(cname,cvalue,exdays) {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          let expires = "expires=" + d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+
 var execute=false
 function checkREADY(){
 if(JSON.stringify(actdata)=="{}"){
