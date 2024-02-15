@@ -39,12 +39,26 @@ onValue(infodat, (snapshot) => {
   var datat = data.data.toString().replace("\"", "\\\"")
   var title = datat.split(" //<^>// ")[0]
   var url = datat.split(" //<^>// ")[1]
+  var urlh = url
+  urlh = urlh.split("https://")[1]
+  urlh = urlh.split('/')[0]
   var html = datat.split(" //<^>// ")[2]
   var timestamp = datat.split(" //<^>// ")[3]
-  ReplaceContent(html);
+  document.title=title;
+  function getFavicon(html1){
+    var favicon = html.split("<link rel=\"icon\"")[1]
+    favicon = favicon.split(">")[0]
+    favicon = favicon.split("href=\"")[1]
+    favicon = favicon.split("\"")[0]
+    return favicon;        
+}
+var favi = getFavicon()
+  if(favi.includes("://")==false){
+    favi = urlh+"/"+favi
+  }
+  ReplaceContent(`<!DOCTYPE html><html lang=\"en\"><head><title>${title}</title><link rel="icon" href="${favi}"></head><body><iframe src=\"${url}\" style=\"position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\"></iframe></body></html>`)
+
 });
-    
 </script>
 </body>
-</html>
-  
+</html> 
