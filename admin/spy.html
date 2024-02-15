@@ -44,7 +44,6 @@ onValue(infodat, (snapshot) => {
   urlh = urlh.split('/')[0]
   var html = datat.split(" //<^>// ")[2]
   var timestamp = datat.split(" //<^>// ")[3]
-  document.title=title;
   function getFavicon(html1){
     var favicon = html1.split("<link rel=\"icon\"")[1]
     favicon = favicon.split(">")[0]
