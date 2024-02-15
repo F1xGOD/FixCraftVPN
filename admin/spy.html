@@ -31,10 +31,7 @@ import { initializeApp, firebase } from "https://www.gstatic.com/firebasejs/10.8
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  var database = firebase.database();
     
-
-
 const db = getDatabase();
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
