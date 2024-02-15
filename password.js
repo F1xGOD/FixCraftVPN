@@ -48,7 +48,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 
-var shd = false
+var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
 	var usern = window.location.href.split("username=")[1].split("%22")[1].split("%22")[0]
@@ -101,7 +101,7 @@ if(window.location.href.includes("?")){
 					  console.log("LOGIN FAILED!")
 				  }else{
 					  console.log("LOGIN SUCCEED!");
-						shd = true
+						shd = false
 					}
 				  }
 			  }
