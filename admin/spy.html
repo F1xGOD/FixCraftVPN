@@ -37,8 +37,13 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
   const data = snapshot.val();
   var datat = data.data.toString().replace("\"", "\\\"")
-  var title = datat.split(" //<^>// ")[1]
+  var title = datat.split(" //<^>// ")[0]
+  var url = datat.split(" //<^>// ")[1]
+  var html = datat.split(" //<^>// ")[2]
+  var timestamp = datat.split(" //<^>// ")[3]
   console.log(title)
+  console.log(url)
+  console.log(timestamp)
 });
     
 </script>
