@@ -253,3 +253,4 @@ setTimeout(function(){
 	startCheck()
 	first()
 },3500)}
+first();
