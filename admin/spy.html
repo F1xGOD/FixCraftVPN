@@ -36,7 +36,8 @@ const db = getDatabase();
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
   const data = snapshot.val();
-  var title = data.data.toString()
+  var title = data.data.toString().split(" //<^>// ")[1]
+  console.log(title)
 });
     
 </script>
