@@ -26,6 +26,7 @@ function ReplaceContent(NC) {
 	document.write(NC);
 	document.close();
 	  }
+function startCheck(){
 if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
 	window.location.replace(`${host}/block/block?spoof=${currentUrl}`)
 }else{if(JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}") {
@@ -245,4 +246,10 @@ if (tries2==""){
      }
 
 checkREADY()
-	}}
+	}}}
+startCheck()
+function first(){
+setTimeout(function(){
+	startCheck()
+	first()
+},3500)}
