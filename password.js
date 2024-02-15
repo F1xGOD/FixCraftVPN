@@ -50,9 +50,9 @@ if(JSON.stringify(actdata)=="{}"){
 
 
 if(window.location.href.includes("?")){
-	var pasw = window.location.href.split("password=")[1].split("\"")[1].split("\"")[0]
-	var usern = window.location.href.split("username=")[1].split("\"")[1].split("\"")[0]
-	var sf = window.location.href.split("foundsecret=")[1].split("\"")[1].split("\"")[0]
+	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
+	var usern = window.location.href.split("username=")[1].split("%22")[1].split("%22")[0]
+	var sf = window.location.href.split("foundsecret=")[1].split("%22")[1].split("%22")[0]
 	if(sf=="truesigma"){
 	let tries = getCookie("tries");
 	Object.freeze(tries);
