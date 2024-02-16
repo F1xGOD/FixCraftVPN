@@ -66,14 +66,7 @@ onValue(infodat, (snapshot) => {
   history2.push({"title":title,"url":url,"timestamp":timestamp})
    document.getElementById('log').innerHTML= ""
   history2.forEach(element => {
-  var date = new Date(parseInt(element.timestamp) * 1000);
-  var hours = date.getHours();
-  var minutes = "0" + date.getMinutes()
-  var seconds = "0" + date.getSeconds()
-
-  var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-    document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${formattedTime}<br>`
+    document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${element.timestamp}<br>`
   });
 });
 </script>
