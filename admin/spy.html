@@ -65,7 +65,7 @@ onValue(infodat, (snapshot) => {
   
   history2.push({"title":title,"url":url,"timestamp":timestamp})
   history2.forEach(element => {
-    document.getElementById('log').innerHTML += element
+    document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${element.timestamp}`
   });
 });
 </script>
