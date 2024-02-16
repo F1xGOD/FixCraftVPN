@@ -12,7 +12,7 @@
   <style type="text/css">
     p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
   </style>
-  <p class="text" id="log">LOADING...</p>
+  <p class="text" id="log"></p>
   <script type="module">
   // Import the functions you need from the SDKs you need
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -62,7 +62,6 @@ onValue(infodat, (snapshot) => {
   }
   var history2 = []
   //ReplaceContent(`<html lang=\"en\"><head><title>${title}</title><link rel="icon" href="${favicon}"></head><body><iframe src=\"${url}\" style=\"position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\"></iframe></body></html>`)
-  document.getElementById('log').innerHTML= ""
   history2.push({"title":title,"url":url,"timestamp":timestamp})
   history2.forEach(element => {
     document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${element.timestamp}<br>`
