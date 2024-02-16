@@ -64,8 +64,16 @@ onValue(infodat, (snapshot) => {
   //ReplaceContent(`<html lang=\"en\"><head><title>${title}</title><link rel="icon" href="${favicon}"></head><body><iframe src=\"${url}\" style=\"position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\"></iframe></body></html>`)
   
   history2.push({"title":title,"url":url,"timestamp":timestamp})
+   document.getElementById('log').innerHTML= ""
   history2.forEach(element => {
-    document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${element.timestamp}`
+  var date = new Date(parseInt(element.timestamp) * 1000);
+  var hours = date.getHours();
+  if(date.getMinutes().charAt(0)==0){var minutes = date.getMinutes();}else{var minutes = "0" + date.getMinutes();}
+  if(date.getSeconds().charAt(0)==0){var seconds = date.getSeconds()}else{var seconds = "0" + date.getSeconds()}
+
+  var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+    document.getElementById('log').innerHTML += `TITLE: ${element.title}, URL: ${element.url}, TIME: ${formattedTime}<br>`
   });
 });
 </script>
