@@ -68,8 +68,8 @@ onValue(infodat, (snapshot) => {
   history2.forEach(element => {
   var date = new Date(parseInt(element.timestamp) * 1000);
   var hours = date.getHours();
-  if(date.getMinutes().charAt(0)==0){var minutes = date.getMinutes();}else{var minutes = "0" + date.getMinutes();}
-  if(date.getSeconds().charAt(0)==0){var seconds = date.getSeconds()}else{var seconds = "0" + date.getSeconds()}
+  var minutes = "0" + date.getMinutes()
+  var seconds = "0" + date.getSeconds()
 
   var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
