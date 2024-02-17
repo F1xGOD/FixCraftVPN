@@ -12,7 +12,7 @@
     span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
     span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
     span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
-	.btn { background-color: DodgerBlue; border: none; color: white; padding: 3px 3px; cursor: pointer; border-radius: 4px; }
+	.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -61,12 +61,9 @@ function writeUserData(data) {
   });
 }
 module.delac = function delac(actid) { 
-console.log(actdata.accounts[actid])
-console.log(actdata.deletedaccounts)
-console.log(actdata.accounts)
 actdata.deletedaccounts.push(actdata.accounts[actid]);
-actdata.accounts.splice(actid,1);
-writeUserData(actdata);
+console.log(actdata.accounts.splice(actid,1))
+
 };
 function ReplaceContent(NC) {
 	document.open();
