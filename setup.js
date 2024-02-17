@@ -159,7 +159,7 @@ import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebase
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 
-export var actdata = {};
+
 const db = getDatabase();
 const infodat = ref(db, 'data');
 
@@ -170,7 +170,7 @@ if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdata
     function startReadD(){
         onValue(infodat, (snapshot) => {
             const data = snapshot.val();
-              actdata=data
+              export var actdata=data
           })
 }
 startReadD()
