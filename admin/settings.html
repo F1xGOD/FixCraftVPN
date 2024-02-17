@@ -61,6 +61,8 @@ function writeUserData(data) {
   });
 }
 module.delac = function delac(actid) { 
+console.log(actdata.accounts[actid])
+console.log(actdata.deletedaccounts)
 actdata.deletedaccounts.push(actdata.accounts[actid]);
 actdata.accounts.splice(actid, 1);
 writeUserData(actdata);
