@@ -64,9 +64,8 @@ module.delac = function delac(actid) {
 actdata.deletedaccounts.push(actdata.accounts[actid]);
 var test = []
 for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
-    if (actdata.accounts[i24] !== actdata.accounts[0]) {
+    if (actdata.accounts[i24] !== actdata.accounts[actid]) {
         test.push(actdata.accounts[i24]);
-        actdata.accounts.shift();
     }
 }
 actdata.accounts=test;
