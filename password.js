@@ -1,5 +1,5 @@
 
-import actdata from "/setup.js";
+import {actdata} from "/setup.js";
 function warntheuser(){
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
