@@ -54,10 +54,10 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-function writeUserData(data) {
+module.writeus = function writeUserData() {
   const db = getDatabase();
   set(ref(db, 'data'), {
-    data: data
+    data: actdata
   });
 }
 
@@ -142,7 +142,8 @@ if(i==accountsm.length-1){
 					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}<br>`
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
-							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE`
+							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
+							final+=`<button onclick="module.writeus()" class="btn"><i class="fa fa-save"></i> Save</button>`
 							document.getElementById('log').innerHTML = final
 						},140)
         			}
