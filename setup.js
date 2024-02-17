@@ -162,17 +162,18 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase();
 const infodat = ref(db, 'data');
-var actdata = {}
+var actdatat = {}
 //I WILL FIND YOU....
-if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}"){
+if(JSON.stringify(actdatat)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdatat)=="{\"status\":\"NOTFOUND\"}"){
     console.log("ERROR 523!")
 }else{
     function startReadD(){
         onValue(infodat, (snapshot) => {
             const data = snapshot.val();
-              export var actdata=data
+              actdatat=data
           })
 }
+export var actdata = actdatat;
 startReadD()
 function continueRead(){
 setTimeout(function(){
