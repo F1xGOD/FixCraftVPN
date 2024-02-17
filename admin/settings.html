@@ -63,8 +63,9 @@ function writeUserData(data) {
 module.delac = function delac(actid) { 
 console.log(actdata.accounts[actid])
 console.log(actdata.deletedaccounts)
+console.lof(actdata.accounts)
 actdata.deletedaccounts.push(actdata.accounts[actid]);
-JSON.parse(actdata.accounts).splice(actid,1);
+actdata.accounts.splice(actid,1);
 writeUserData(actdata);
 };
 function ReplaceContent(NC) {
