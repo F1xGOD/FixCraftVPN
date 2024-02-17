@@ -166,20 +166,9 @@ var actdatat = {}
 //I WILL FIND YOU....
 if(JSON.stringify(actdatat)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdatat)=="{\"status\":\"NOTFOUND\"}"){
     console.log("ERROR 523!")
-}else{
-    function startReadD(){
-        onValue(infodat, (snapshot) => {
-            const data = snapshot.val();
-            console.log(data);
-              actdatat=data
-          })
-}
-startReadD()
-function continueRead(){
-setTimeout(function(){
-startReadD()
-continueRead()
-}, 5500)}
-continueRead()
-}
+}else{}
+onValue(infodat, (snapshot) => {
+    const data = snapshot.val();
+      actdatat=data.data
+  })
 export var actdata = actdatat;
