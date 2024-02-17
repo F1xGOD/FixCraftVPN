@@ -170,6 +170,7 @@ if(JSON.stringify(actdatat)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdat
     function startReadD(){
         onValue(infodat, (snapshot) => {
             const data = snapshot.val();
+            console.log(data);
               actdatat=data
           })
 }
