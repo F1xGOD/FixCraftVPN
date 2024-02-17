@@ -17,6 +17,9 @@
 </head>
 <body>
 <p class="text" id="log">LOADING...</p>
+<script>
+const module = {};
+</script>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
@@ -57,7 +60,7 @@ function writeUserData(data) {
     data: data
   });
 }
-function delact(actid) { 
+function delac(actid) { 
 actdata.deletedaccounts.push(actdata.accounts[actid]);
 actdata.accounts.splice(actid, 1);
 writeUserData(actdata);
