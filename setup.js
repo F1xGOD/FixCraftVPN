@@ -173,7 +173,6 @@ if(JSON.stringify(actdatat)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdat
               actdatat=data
           })
 }
-export var actdata = actdatat;
 startReadD()
 function continueRead(){
 setTimeout(function(){
@@ -182,3 +181,4 @@ continueRead()
 }, 5500)}
 continueRead()
 }
+export var actdata = actdatat;
