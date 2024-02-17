@@ -51,7 +51,17 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-
+function writeUserData(data) {
+  const db = getDatabase();
+  set(ref(db, 'data'), {
+    data: data
+  });
+}
+function delact(actid) { 
+actdata.deletedaccounts.push(actdata.accounts[actid]);
+actdata.accounts.splice(actid, 1);
+writeUserData(actdata);
+};
 function ReplaceContent(NC) {
 	document.open();
 	document.write(NC);
@@ -95,7 +105,7 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
 								while(accountsm.indexOf(accountsm[i])!=i){}
 	                                                           if(accountsm[i].status == "active"){
-	                                                  		final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"window.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><br>`}else{
+	                                                  		final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"delac(this.id)\"><i class=\"fa fa-trash\"></i></button><br>`}else{
 									   final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}</span><br>`
 									}
                     
