@@ -60,6 +60,17 @@ function writeUserData(data) {
     data: data
   });
 }
+
+function ReplaceContent(NC) {
+	document.open();
+	document.write(NC);
+	document.close();
+	  }
+function checkREADY22(){
+if(JSON.stringify(actdata)=="{}"){
+  setTimeout(function(){
+  checkREADY22()}, 100)
+}else{console.log("LOADED!");
 module.delac = function delac(actid) { 
 actdata.deletedaccounts.push(actdata.accounts[actid]);
 var test = []
@@ -70,19 +81,8 @@ for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
 }
 actdata.accounts=test;
 test=[];
-console.log(actdata.accounts)
-
+checkREADY22();
 };
-function ReplaceContent(NC) {
-	document.open();
-	document.write(NC);
-	document.close();
-	  }
-function checkREADY22(){
-if(JSON.stringify(actdata)=="{}"){
-  setTimeout(function(){
-  checkREADY22()}, 100)
-}else{console.log("LOADED!")
 document.getElementById('log').innerHTML = `INITIALIZING...`
 var uname = getCookie("usernamecred");
 var ii2i= 0;
