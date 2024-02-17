@@ -162,7 +162,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase();
 const infodat = ref(db, 'data');
-
+var actdata = {}
 //I WILL FIND YOU....
 if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdata)=="{\"status\":\"NOTFOUND\"}"){
     console.log("ERROR 523!")
