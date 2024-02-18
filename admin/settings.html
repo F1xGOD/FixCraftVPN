@@ -74,7 +74,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY22()}, 100)
 }else{console.log("LOADED!");
 module.delac = function delac(actid) { 
-actdata.deletedaccounts.push(actdata.accounts[actid]);
+actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
 var test = []
 for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
     if (actdata.accounts[i24] !== actdata.accounts[actid]) {
@@ -84,12 +84,12 @@ for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
 
 actdata.accounts=test;
 test=[];
-//actdata.deletedaccounts[actdata.deletedaccounts.length]=prompt("Please Enter A Reason.")
+actdata.deletedaccounts[actdata.deletedaccounts.length].reason="NOT SET YET."
 checkREADY22();
 };
 
 module.rest = function rest(actid) {
-//delete actdata.deletedaccounts[actid].reason;
+delete actdata.deletedaccounts[actid].reason;
 actdata.accounts=actdata.accounts.concat(actdata.deletedaccounts[actid]);
 var test2 = [];
 for (let i241 = 0; i241 < actdata.deletedaccounts.length; i241++) {
