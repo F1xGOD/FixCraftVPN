@@ -88,8 +88,8 @@ test=[];
 checkREADY22();
 };
 
-module.rest = function rest(actid) { 
-delete actdata.deletedaccounts[actid].reason;
+module.rest = function rest(actid) {
+//delete actdata.deletedaccounts[actid].reason;
 actdata.accounts.push(actdata.deletedaccounts[actid]);
 var test2 = [];
 for (let i241 = 0; i241 < actdata.deletedaccounts.length; i241++) {
