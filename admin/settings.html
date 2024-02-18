@@ -90,11 +90,11 @@ checkREADY22();
 
 module.rest = function rest(actid) {
 //delete actdata.deletedaccounts[actid].reason;
-actdata.accounts.push(actdata.deletedaccounts[actid]);
+actdata.accounts=actdata.accounts.concat(actdata.deletedaccounts[actid]);
 var test2 = [];
 for (let i241 = 0; i241 < actdata.deletedaccounts.length; i241++) {
     if (actdata.deletedaccounts[i241] !== actdata.deletedaccounts[actid]) {
-        test2.push(actdata.deletedaccounts[i241]);
+        test2=test2.concat(actdata.deletedaccounts[i241]);
     };
 }
 actdata.deletedaccounts=test2;
