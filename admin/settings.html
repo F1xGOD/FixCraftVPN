@@ -83,10 +83,12 @@ for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
 }
 actdata.accounts=test;
 test=[];
+actdata.deletedaccounts[-1].reason=prompt("Please Enter A Reason.")
 checkREADY22();
 };
 
 module.rest = function rest(actid) { 
+delete actdata.accounts[actid].reason
 actdata.accounts.push(actdata.deletedaccounts[actid]);
 var test2 = []
 for (let i241 = 0; i241 < actdata.deletedaccounts.length; i241++) {
@@ -101,6 +103,7 @@ checkREADY22();
 
 module.activ = function activ(actid) { 
 actdata.accounts[actid].status="active"
+delete actdata.accounts[actid].deactreason
 checkREADY22();
 };
 
