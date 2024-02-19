@@ -135,11 +135,11 @@ section.active .modal-box {
 <span class="overlay"></span>
 <p class="text" id="log">LOADING...</p>
 <div class="modal-box">
-	<h2>Add A New User</h2>
+	<h2 id="dilogttl">Add A New User</h2>
 	<form>
-	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" name="usrrn">
+	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
 	<div></div>
-	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" name="ppsw">
+	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="pssswrd" name="ppsw">
 			<div></div>
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Job:</h3>
 		  <select name="job" id="jobb" style="border-width: 2px;display:block; float:right; width:165px">
@@ -168,7 +168,7 @@ section.active .modal-box {
 	</form>
 	<div class="buttons">
 	  <button class="canc">Cancel</button>
-	  <button class="df">Add User</button>
+	  <button class="df" id="confrmbtn">Add User</button>
 	</div>
   </div>
 <script>
@@ -295,6 +295,13 @@ checkREADY22(false);
 
 module.editt = function activ(actid) { 
 snackbar_Loading(`Editing - ${atob(actdata.accounts[actid].username)}`);
+document.getElementById("dilogttl").value="Edit An Existing User"
+document.getElementById("confrmbtn").value="Apply"
+document.getElementById("rolee").value=actdata.accounts[actid].role;
+document.getElementById("job").value=actdata.accounts[actid].job;
+document.getElementById("stts").value=actdata.accounts[actid].status;
+document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
+document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
 section.classList.add("active")
 };
 
@@ -359,7 +366,7 @@ if(i==accountsm.length-1){
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4}
 	                                               
-        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span>/<span class=\"deactivated\">Deleted&nbsp;&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.rest(this.id)\"><i class=\"fa fa-undo\"></i></button><br>`
+        						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span>/<span class=\"deactivated\">Deleted&nbsp;&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.rest(this.id)\"><i class=\"fa fa-undo\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.editt(this.id)\"><i class="fa fa-edit"></i></button><br>`
 								if(ii22==accountsdel.length-1){
 						setTimeout(function(){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS<br><br>`
