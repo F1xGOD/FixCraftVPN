@@ -88,8 +88,8 @@ actdata.accounts=test;
 test=[];
 var reas="test1f"
 var positem =actdata.deletedaccounts[actdata.deletedaccounts.length];
-console.log(positem)
-actdata.deletedaccounts[actdata.deletedaccounts.length]=JSON.parse(String.parse(JSON.stringify(positem)).split("}")[0]+`,\"reason\":\"${reas}\"}`)
+console.log()
+actdata.deletedaccounts[actdata.deletedaccounts.length]=JSON.parse(JSON.stringify(positem).slice(0, -1)+`,\"reason\":\"${reas}\"}`)
 checkREADY22();
 };
 
