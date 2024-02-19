@@ -147,7 +147,7 @@ section.active .modal-box {
 	<option value="HR">HR</option>
 	<option value="debugger">Debugger</option>
 	<option value="idea">Idea</option>
-	<option value="user">User</option>
+	<option value="none">None</option>
   </select>
 				  <div></div>
 						  <h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Role:</h3>
@@ -156,7 +156,7 @@ section.active .modal-box {
 	<option value="moderator">Moderator</option>
 	<option value="debugger">Debugger</option>
 	<option value="helper">Helper</option>
-	<option value="none">None</option>
+	<option value="user">User</option>
   </select>
 				  <div></div>
 	<h3 style="display:inline-block; margin-right:10px">Status:</h3>
@@ -168,7 +168,12 @@ section.active .modal-box {
 	</form>
 	<div class="buttons">
 	  <button class="canc">Cancel</button>
-	  <button class="df" id="confrmbtn">Add User</button>
+	  <script>
+		function ttsts(){
+			console.log("FAIL")
+		}
+	  </script>
+	  <button class="df" id="confrmbtn" onclick="ttsts();">Add User</button>
 	</div>
   </div>
 <script>
@@ -295,13 +300,14 @@ checkREADY22(false);
 
 module.editt = function activ(actid) { 
 snackbar_Loading(`Editing - ${atob(actdata.accounts[actid].username)}`);
-document.getElementById("dilogttl").value="Edit An Existing User"
-document.getElementById("confrmbtn").value="Apply"
+document.getElementById("dilogttl").innerHTML="Edit An Existing User";
+document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("rolee").value=actdata.accounts[actid].role;
 document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
+document.getElementById("dilogttl").onclick=console.log(document.getElementById("rolee").value)
 section.classList.add("active")
 };
 
