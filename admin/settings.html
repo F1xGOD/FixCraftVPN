@@ -320,8 +320,9 @@ document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
+section.classList.add("active")
 cnfrm.addEventListener("click", () =>
-function(){
+{
 	actdata.accounts[actid].role=document.getElementById("rolee").value;
 	actdata.accounts[actid].job=document.getElementById("jobb").value;
 	actdata.accounts[actid].status=document.getElementById("stts").value;
@@ -332,7 +333,6 @@ function(){
 	checkREADY22(false);
 }
       );
-section.classList.add("active")
 };
 
 module.deactiv = function deactiv(actid) { 
