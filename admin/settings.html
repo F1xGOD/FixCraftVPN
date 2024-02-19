@@ -155,8 +155,8 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var psw = "";
 for (var i = 0; i < accountsm.length; i++) {
     (function(i) { // protects i in an immediately called function
-		var data2 = aotb(accountsm[i].password);
-		var data = aotb(accountsm[i].username);
+		var data2 = atob(accountsm[i].password);
+		var data = atob(accountsm[i].username);
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2}
@@ -170,8 +170,8 @@ if(i==accountsm.length-1){
 					final+=`DELETED ACCOUNTS:<br>`
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
-		var data4 = aotb(accountsdel[ii22].password);
-		var data3 = aotb(accountsdel[ii22].username);
+		var data4 = atob(accountsdel[ii22].password);
+		var data3 = atob(accountsdel[ii22].username);
     	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4}
