@@ -153,20 +153,16 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
 	var psw = ""	
-	var prevdone=true
 for (var i = 0; i < accountsm.length; i++) {
-	if(prevdone==true){prevdone=false; continue;}
     (function(i) { // protects i in an immediately called function
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
+		var data2 = accountsm[i].password;
+		var data = accountsm[i].username;
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
-								while(accountsm.indexOf(accountsm[i])!=i){}
 	                                                           if(accountsm[i].status == "active"){
 	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.susp(this.id)\"><i class="fa-solid fa-timer"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.deactiv(this.id)\"><i class="fa-solid fa-octagon-exclamation"></i></button><br>`}else{
 									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.activ(this.id)\"><i class=\"fa fa-toggle-on\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><br>`
-									prevdone=true
 								}              
 if(i==accountsm.length-1){
 					setTimeout(function(){
@@ -174,9 +170,9 @@ if(i==accountsm.length-1){
 					final+=`DELETED ACCOUNTS:<br>`
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].username}?encoding=base64&decode=true`, function (data3) {
-      $.getJSON(`https://networkcalc.com/api/encoder/${accountsdel[ii22].password}?encoding=base64&decode=true`, function (data4) {
-	      						var level2 = 0
+		var data4 = accountsm[ii22].password;
+		var data3 = accountsm[ii22].username;
+    	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"}else{psw = data4.decoded}
 	                                               
@@ -198,12 +194,11 @@ if(i==accountsm.length-1){
       })(ii2)};
 	}, 140)
       }
-      })});
     })(ii22);
 }
 					}, 140)
       }
-      })});
+
     })(i);
 }
 }else{
