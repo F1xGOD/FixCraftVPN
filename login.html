@@ -35,10 +35,8 @@
 			window.location.replace(`${host}/forbidden`)
 		}}
 	  if(username == "" && password == ""){}else{
-	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
-            	function (data4) {
-			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
-            		function (data5) {
+	  var data5 = btoa(password);
+	  var data4 = btoa(username);
 				Object.freeze(data4);
 				Object.freeze(data5);
 				var success2 = false
@@ -46,7 +44,7 @@
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
-	      				if(accountsm[i].username==data4.encoded&&accountsm[i].password==data5.encoded){
+	      				if(accountsm[i].username==data4&&accountsm[i].password==data5){
 						success2 = true;
 					};
 					i++;
@@ -57,7 +55,7 @@
 		  }else{
 			snackbar_Fail3();  
 		  } 
-			})})}      
+			}      
       }
     
 	var snackbar_Success = function () {
@@ -108,15 +106,11 @@
 		var text = document.getElementById("password").value
 		var text2 = document.getElementById("username").value
 		if(text==""||text2==""){snackbar_Fail2();console.log("LOGIN FAILED!");}else{
-		$.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
-            	function (data) {
-			$.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
-            		function (data2) {
 					var succs = false
 				        var accounts = actdata.accounts
 					var deletedaccounts = actdata.deletedaccounts
-					var enc = data.encoded
-					var enc2 = data2.encoded
+					var enc = btoa(text);
+					var enc2 = btoa(text2);
 					Object.freeze(enc);
 	 				Object.freeze(enc2);
 					let i2 = 0;
@@ -160,12 +154,7 @@
 							setCookie("usernamecred",text2,14);
 							init();}
 						}
-					}
-				
-						
-					 
-						    
-  )})}}
+}}
 	
 	</script>	
 
