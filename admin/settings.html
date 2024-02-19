@@ -230,6 +230,14 @@ function snackbar_Successs() {
                             status: "success"
                         });
                     };
+function snackbar_Successs2() {
+                        SnackBar({
+                            message: `Loaded Successfully!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
@@ -345,6 +353,10 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
+module.editlog = function editlog(actid) { 
+
+};
+
 module.edittdd = function edittdd(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
@@ -406,7 +418,14 @@ checkREADY22(false);
 
 module.delfvr = function delfvr(actid) { 
 snackbar_Loading(`Erasing - ${atob(actdata.deletedaccounts[actid].username)}`);
-delete actdata.deletedaccounts[actid]
+var test3 = [];
+for (let i2412 = 0; i2412 < actdata.deletedaccounts.length; i2412++) {
+    if (actdata.deletedaccounts[i2412] !== actdata.deletedaccounts[actid]) {
+        test3=test3.concat(actdata.deletedaccounts[i2412]);
+    };
+}
+actdata.deletedaccounts=test3;
+test3=[];
 checkREADY22(false);
 };
 
@@ -434,9 +453,9 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 	var final = ``
-	final = `STATUS: ${actdata.status.toUpperCase()}<br>`
-	final += `LOGIN ATTEMPTS: ${actdata.tries}<br><br>`
-	final += `ACCOUNTS: &nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
+	final = `STATUS: ${actdata.status.toUpperCase()}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(0)\"><i class="fa fa-edit"></i></button><br>`
+	final += `LOGIN ATTEMPTS: ${actdata.tries}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><br><br>`
+	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
@@ -475,7 +494,7 @@ if(i==accountsm.length-1){
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
-							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>`
+							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="snackbar_Successs2();checkREADY22(false)" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById('log').innerHTML = final
 						},40)
         			}
