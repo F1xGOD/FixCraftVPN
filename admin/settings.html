@@ -35,6 +35,22 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+function snackbar_Loading(passedvar) {
+                        SnackBar({
+                            message: `Loading... (${passedvar})`,
+							timeout:650,
+							dismissible:false,
+                            status: "warning"
+                        });
+                    };
+function snackbar_Successs() {
+                        SnackBar({
+                            message: `Saved Successfully!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
@@ -67,7 +83,7 @@ module.writeus = function writeUserData() {
   set(ref(db, 'data'), {
     data: actdata
   });
-
+  snackbar_Successs();
 }
 
 function ReplaceContent(NC) {
@@ -81,6 +97,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY22(true)}, 100)
 }else{console.log("LOADED!");
 module.delac = function delac(actid) { 
+snackbar_Loading(`Deleting - ${atob(actdata.accounts[actid].username)}`);
 actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
 var test = []
 for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
@@ -98,6 +115,7 @@ checkREADY22(false);
 };
 
 module.rest = function rest(actid) {
+snackbar_Loading(`Restoring - ${atob(actdata.deletedaccounts[actid].username)}`);
 delete actdata.deletedaccounts[actid].reason;
 actdata.accounts=actdata.accounts.concat(actdata.deletedaccounts[actid]);
 var test2 = [];
@@ -112,18 +130,21 @@ checkREADY22(false);
 };
 
 module.activ = function activ(actid) { 
+snackbar_Loading(`Activating - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="active"
 delete actdata.accounts[actid].deactreason
 checkREADY22(false);
 };
 
 module.deactiv = function deactiv(actid) { 
+snackbar_Loading(`Deactivating - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="deactivated"
 actdata.accounts[actid].deactreason="ttst"
 checkREADY22(false);
 };
 
-module.susp = function susp(actid) { 
+module.susp = function susp(actid) {
+snackbar_Loading(`Suspending - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="suspended"
 actdata.accounts[actid].deactreason="tys"
 checkREADY22(false);
@@ -189,14 +210,14 @@ if(i==accountsm.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>`
 							document.getElementById('log').innerHTML = final
-						},140)
+						},40)
         			}
       })(ii2)};
-	}, 140)
+	}, 40)
       }
     })(ii22);
 }
-					}, 140)
+					}, 40)
       }
 
     })(i);
