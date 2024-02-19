@@ -21,12 +21,168 @@
     span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
 	button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
 	button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+section {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+button.df {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #4070f4;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button.canc {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #CF142B;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button.df:hover {
+  background-color: #265df2;
+}
+button.canc:hover {
+  background-color: #e60019;
+}
+button.show-modal,
+.modal-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+section.active .show-modal {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+section.active .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+section.active .modal-box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-box i {
+  font-size: 70px;
+  color: #4070f4;
+}
+.modal-box h2 {
+  margin-top: 1px;
+  margin-bottom:10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  align-self: center;
+}
+.modal-box .buttons {
+  margin-top: 25px;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
 </style>
 </head>
 <body>
+<span class="overlay"></span>
 <p class="text" id="log">LOADING...</p>
+<div class="modal-box">
+	<h2>Add A New User</h2>
+	<form>
+	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" name="usrrn">
+	<div></div>
+	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" name="ppsw">
+			<div></div>
+	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Job:</h3>
+		  <select name="job" id="jobb" style="border-width: 2px;display:block; float:right; width:165px">
+	<option value="owner">Owner</option>
+	<option value="HR">HR</option>
+	<option value="debugger">Debugger</option>
+	<option value="idea">Idea</option>
+	<option value="user">User</option>
+  </select>
+				  <div></div>
+						  <h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Role:</h3>
+		  <select name="role" id="rolee" style="border-width: 2px;display:block; float:right; width:165px">
+	<option value="admin">Admin</option>
+	<option value="moderator">Moderator</option>
+	<option value="debugger">Debugger</option>
+	<option value="helper">Helper</option>
+	<option value="none">None</option>
+  </select>
+				  <div></div>
+	<h3 style="display:inline-block; margin-right:10px">Status:</h3>
+		  <select name="sttts" id="stts" style="border-width: 2px;display:block; float:right; width:165px">
+	<option value="active">Active</option>
+	<option value="deactivated">Deactivated</option>
+	<option value="suspended">Suspended</option>
+  </select>
+	</form>
+	<div class="buttons">
+	  <button class="canc">Cancel</button>
+	  <button class="df">Add User</button>
+	</div>
+  </div>
 <script>
 const module = {};
+const section = document.querySelector("section"),
+        overlay = document.querySelector(".overlay"),
+        closeBtn = document.querySelector(".canc");
+
+      overlay.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
+
+      closeBtn.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
 </script>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -134,6 +290,11 @@ snackbar_Loading(`Activating - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="active"
 delete actdata.accounts[actid].deactreason
 checkREADY22(false);
+};
+
+module.editt = function activ(actid) { 
+snackbar_Loading(`Editing - ${atob(actdata.accounts[actid].username)}`);
+section.classList.add("active")
 };
 
 module.deactiv = function deactiv(actid) { 
