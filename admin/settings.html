@@ -5,6 +5,8 @@
   <script src="/host.js"></script>
   <script src="/jquery.js"></script>
   <script src="/password.js" type="module"></script>
+  <link rel="stylesheet" href="snackbar.css">
+  <script src="/snackbar.js"></script>
 <link rel="icon" href="https://x0.at/CVDX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
@@ -84,7 +86,8 @@ for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
 
 actdata.accounts=test;
 test=[];
-actdata.deletedaccounts[actdata.deletedaccounts.length].reason="NOT SET YET."
+var reas="test1f"
+actdata.deletedaccounts[actdata.deletedaccounts.length]=JSON.parse(JSON.stringify(actdata.deletedaccounts[actdata.deletedaccounts.length]).split("}")[0]+`,\"reason\":\"${reas}\"}`)
 checkREADY22();
 };
 
