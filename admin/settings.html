@@ -326,7 +326,7 @@ cnfrm.addEventListener("click", () =>
 	actdata.accounts[actid].role=document.getElementById("rolee").value;
 	actdata.accounts[actid].job=document.getElementById("jobb").value;
 	actdata.accounts[actid].status=document.getElementById("stts").value;
-	actdata.accounts[actid].username=btoa(document.getElementById("usernam").value);
+	actdata.accounts[actid].username=btoa(document.getElementById("usrnam").value);
 	actdata.accounts[actid].password=btoa(document.getElementById("pssswrd").value);
 	section.classList.remove("active");
 	snackbar_Loading(`Saving - ${atob(actdata.accounts[actid].username)}`);
