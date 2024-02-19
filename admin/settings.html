@@ -75,10 +75,10 @@ function ReplaceContent(NC) {
 	document.write(NC);
 	document.close();
 	  }
-function checkREADY22(){
+function checkREADY22(fistt){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-  checkREADY22()}, 100)
+  checkREADY22(true)}, 100)
 }else{console.log("LOADED!");
 module.delac = function delac(actid) { 
 actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
@@ -94,7 +94,7 @@ test=[];
 var reas="test1f"
 var positem =actdata.deletedaccounts[actdata.deletedaccounts.length-1];
 actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).replace("}","")+`,\"reason\":\"${reas}\"}`)
-checkREADY22();
+checkREADY22(false);
 };
 
 module.rest = function rest(actid) {
@@ -108,28 +108,28 @@ for (let i241 = 0; i241 < actdata.deletedaccounts.length; i241++) {
 }
 actdata.deletedaccounts=test2;
 test2=[];
-checkREADY22();
+checkREADY22(false);
 };
 
 module.activ = function activ(actid) { 
 actdata.accounts[actid].status="active"
 delete actdata.accounts[actid].deactreason
-checkREADY22();
+checkREADY22(false);
 };
 
 module.deactiv = function deactiv(actid) { 
 actdata.accounts[actid].status="deactivated"
 actdata.accounts[actid].deactreason="ttst"
-checkREADY22();
+checkREADY22(false);
 };
 
 module.susp = function susp(actid) { 
 actdata.accounts[actid].status="suspended"
 actdata.accounts[actid].deactreason="tys"
-checkREADY22();
+checkREADY22(false);
 };
-
-document.getElementById('log').innerHTML = `INITIALIZING...`
+if(fistt==false){
+document.getElementById('log').innerHTML = `INITIALIZING...`}
 var uname = getCookie("usernamecred");
 var ii2i= 0;
 var role = ""
@@ -207,7 +207,7 @@ if(i==accountsm.length-1){
 }else{
   window.location.replace(`${host}/forbidden`);
 }})}}
-checkREADY22();
+checkREADY22(true);
 </script>
 </body>
 </html>
