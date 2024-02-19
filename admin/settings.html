@@ -371,6 +371,32 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
+module.addac = function addac() { 
+document.getElementById("dilogttl").innerHTML="Add A User";
+document.getElementById("confrmbtn").innerHTML="Add";
+document.getElementById("rolee").value="user";
+document.getElementById("jobb").value="none";
+document.getElementById("stts").value="active";
+document.getElementById("usrnam").value="Username";
+document.getElementById("pssswrd").value="Password";
+document.getElementById("reassss").style.display="none";
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+  var toaddac = {}
+	toaddac.role=document.getElementById("rolee").value;
+	toaddac.job=document.getElementById("jobb").value;
+	toaddac.status=document.getElementById("stts").value;
+	toaddac.username=btoa(document.getElementById("usrnam").value);
+	toaddac.password=btoa(document.getElementById("pssswrd").value);
+  actdata.accounts=actdata.accounts.concat(toaddac);
+	section.classList.remove("active");
+	snackbar_Loading(`Adding - ${atob(toaddac.username)}`);
+	checkREADY22(false);
+}
+      );
+};
+
 module.deactiv = function deactiv(actid) { 
 snackbar_Loading(`Deactivating - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="deactivated"
@@ -410,7 +436,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var final = ``
 	final = `STATUS: ${actdata.status.toUpperCase()}<br>`
 	final += `LOGIN ATTEMPTS: ${actdata.tries}<br><br>`
-	final += `ACCOUNTS: <br>`
+	final += `ACCOUNTS: &nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
