@@ -153,7 +153,9 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
 	var psw = ""	
+	var prevdone=true
 for (var i = 0; i < accountsm.length; i++) {
+	if(prevdone==true){prevdone=false; continue;}
     (function(i) { // protects i in an immediately called function
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].username}?encoding=base64&decode=true`, function (data) {
       $.getJSON(`https://networkcalc.com/api/encoder/${accountsm[i].password}?encoding=base64&decode=true`, function (data2) {
@@ -162,10 +164,10 @@ for (var i = 0; i < accountsm.length; i++) {
 	      						if(accesslevel<level){psw = "********"}else{psw = data2.decoded}
 								while(accountsm.indexOf(accountsm[i])!=i){}
 	                                                           if(accountsm[i].status == "active"){
-	                                                  		final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.susp(this.id)\"><i class="fa-solid fa-timer"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.deactiv(this.id)\"><i class="fa-solid fa-octagon-exclamation"></i></button><br>`}else{
-									   final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.activ(this.id)\"><i class=\"fa fa-toggle-on\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><br>`
-									}
-                    
+	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.susp(this.id)\"><i class="fa-solid fa-timer"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.deactiv(this.id)\"><i class="fa-solid fa-octagon-exclamation"></i></button><br>`}else{
+									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data.decoded}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.activ(this.id)\"><i class=\"fa fa-toggle-on\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><br>`
+									prevdone=true
+								}              
 if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
