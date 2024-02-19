@@ -335,6 +335,29 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
+module.edittdd = function edittdd(actid) { 
+document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
+document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("rolee").value=actdata.deletedaccounts[actid].role;
+document.getElementById("jobb").value=actdata.deletedaccounts[actid].job;
+document.getElementById("stts").value=actdata.deletedaccounts[actid].status;
+document.getElementById("usrnam").value=atob(actdata.deletedaccounts[actid].username);
+document.getElementById("pssswrd").value=atob(actdata.deletedaccounts[actid].password);
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+	actdata.deletedaccounts[actid].role=document.getElementById("rolee").value;
+	actdata.deletedaccounts[actid].job=document.getElementById("jobb").value;
+	actdata.deletedaccounts[actid].status=document.getElementById("stts").value;
+	actdata.deletedaccounts[actid].username=btoa(document.getElementById("usrnam").value);
+	actdata.deletedaccounts[actid].password=btoa(document.getElementById("pssswrd").value);
+	section.classList.remove("active");
+	snackbar_Loading(`Saving - ${atob(actdata.deletedaccounts[actid].username)}`);
+	checkREADY22(false);
+}
+      );
+};
+
 module.deactiv = function deactiv(actid) { 
 snackbar_Loading(`Deactivating - ${atob(actdata.accounts[actid].username)}`);
 actdata.accounts[actid].status="deactivated"
