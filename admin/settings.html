@@ -87,9 +87,9 @@ for (let i24 = 0; i24 < actdata.accounts.length; i24++) {
 actdata.accounts=test;
 test=[];
 var reas="test1f"
-var positem =actdata.deletedaccounts[actdata.deletedaccounts.length];
-console.log()
-actdata.deletedaccounts[actdata.deletedaccounts.length]=JSON.parse(JSON.stringify(positem).replace("}","")+`,\"reason\":\"${reas}\"}`)
+var positem =actdata.deletedaccounts[actdata.deletedaccounts.length-1];
+console.log(positem)
+actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).replace("}","")+`,\"reason\":\"${reas}\"}`)
 checkREADY22();
 };
 
