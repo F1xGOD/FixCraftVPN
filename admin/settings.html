@@ -44,6 +44,16 @@ button.df {
   border-radius: 6px;
   cursor: pointer;
 }
+button.cnffr {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #4070f4;
+  border-radius: 6px;
+  cursor: pointer;
+}
 button.canc {
   font-size: 18px;
   font-weight: 400;
@@ -55,6 +65,9 @@ button.canc {
   cursor: pointer;
 }
 button.df:hover {
+  background-color: #265df2;
+}
+button.cnffr:hover {
   background-color: #265df2;
 }
 button.canc:hover {
@@ -173,13 +186,14 @@ section.active .modal-box {
 			console.log("FAIL")
 		}
 	  </script>
-	  <button class="df" id="confrmbtn" onclick="ttsts();">Add User</button>
+	  <button class="cnffr" id="confrmbtn" onclick="ttsts();">Add User</button>
 	</div>
   </div>
 <script>
 const module = {};
 const section = document.querySelector("section"),
         overlay = document.querySelector(".overlay"),
+		cnfrm = document.querySelector(".cnffr"),
         closeBtn = document.querySelector(".canc");
 
       overlay.addEventListener("click", () =>
@@ -307,7 +321,9 @@ document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
-document.getElementById("confrmbtn").onclick=console.log(document.getElementById("rolee").value)
+cnfrm.addEventListener("click", () =>
+console.log(document.getElementById("rolee").value)
+      );
 section.classList.add("active")
 };
 
