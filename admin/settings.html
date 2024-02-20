@@ -255,10 +255,7 @@ onValue(infodat, (snapshot) => {
       actdata=data.data
   })};
   readd();
-  module.ssc = function scc(){
-  readd();
-  snackbar_Successs2();
-}
+
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -315,7 +312,10 @@ var positem =actdata.deletedaccounts[actdata.deletedaccounts.length-1];
 actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).replace("}","")+`,\"reason\":\"${reas}\"}`)
 checkREADY22(false);
 };
-
+module.ssc = function scc(){
+  readd();
+  snackbar_Successs2();
+}
 module.rest = function rest(actid) {
 snackbar_Loading(`Restoring - ${atob(actdata.deletedaccounts[actid].username)}`);
 delete actdata.deletedaccounts[actid].reason;
@@ -504,7 +504,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var final = ``
 	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none;"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
-	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span>&nbsp;&nbsp;&nbsp;<input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\"><button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
+	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span><input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\">&nbsp;&nbsp;&nbsp;<button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
 	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
@@ -544,10 +544,10 @@ if(i==accountsm.length-1){
 								if(ii22==accountsdel.length-1){
 						setTimeout(function(){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS<br><br>`
-					final+=`PAGES UNDER MAINTENANCE:<br>`
+					final+=`PAGES UNDER MAINTENANCE:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addum()\"><i class=\"fa fa-plus\"></i></button><br>`
 					for (var ii2 = 0; ii2 < actdata.undermaintenance.length; ii2++) {
     				(function(ii2) { 
-					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}<br>`
+					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}<button id=\"${ii2}\" class=\"btn\" onclick=\"module.edittum(this.id)\"><i class="fa fa-edit"></i></button><br>`
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
