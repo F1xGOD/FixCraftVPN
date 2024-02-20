@@ -457,6 +457,7 @@ document.getElementById("reassss").style.display="none";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  section.classList.remove("active");
   var toaddac = {}
 	toaddac.role=document.getElementById("rolee").value;
 	toaddac.job=document.getElementById("jobb").value;
@@ -464,7 +465,6 @@ cnfrm.addEventListener("click", () =>
 	toaddac.username=btoa(document.getElementById("usrnam").value);
 	toaddac.password=btoa(document.getElementById("pssswrd").value);
   actdata.accounts=actdata.accounts.concat(toaddac);
-	section.classList.remove("active");
 	snackbar_Loading(`Adding - ${atob(toaddac.username)}`);
 	checkREADY22(false);
 }
@@ -532,6 +532,19 @@ for (let i2412 = 0; i2412 < actdata.deletedaccounts.length; i2412++) {
 }
 actdata.deletedaccounts=test3;
 test3=[];
+checkREADY22(false);
+};
+
+module.delfvrum = function delfvrum(actid) { 
+snackbar_Loading(`Erasing - ${atob(actdata.deletedaccounts[actid].username)}`);
+var test4 = [];
+for (let i2422 = 0; i2422 < actdata.undermaintenance.length; i2422++) {
+    if (actdata.undermaintenance[i2422] !== actdata.undermaintenance[actid]) {
+        test4=test4.concat(actdata.undermaintenance[i2422]);
+    };
+}
+actdata.undermaintenance=test3;
+test4=[];
 checkREADY22(false);
 };
 
