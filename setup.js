@@ -1,174 +1,210 @@
-//DON'T YOU F*CKING DARE!!!
-
-//DO NOT TRY TO FIND THE DATA SOURCE!!!!
-
-//IF YOU DARE I WILL FIND YOU!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// I AM NOT JOKING...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//IF YOU WILL TRY TO FIND THE SOURCE OF DATA I WILL FIND YOU!
-
-//NAH BRO LAST CHANCE
-import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
-const app = initializeApp(firebaseConfig);
-
-
-const db = getDatabase();
-const infodat = ref(db, 'data');
-var actdatat = {}
-//I WILL FIND YOU....
-if(JSON.stringify(actdatat)=="{\"status\":\"EMERGENCY\"}"||JSON.stringify(actdatat)=="{\"status\":\"NOTFOUND\"}"){
-    console.log("ERROR 523!")
-}else{}
-onValue(infodat, (snapshot) => {
-    const data = snapshot.val();
-      actdatat=data.data
-  })
-export var actdata = actdatat;
+function fwx256bin(string){
+  function binary(stringt){return stringt.split('').map(function (char) {
+    return char.charCodeAt(0).toString(2);
+}).join(' ');}
+function reversebin(bin) {
+  var fin=bin.replaceAll("1","3");
+  fin = fin.replaceAll("0","2");
+  fin = fin.replaceAll("2","1");
+  fin = fin.replaceAll("3","0");
+  return fin;
+}
+  function code(sttr){
+    sttr=sttr.replaceAll("a","e*1")
+    sttr=sttr.replaceAll("b","&hl")
+    sttr=sttr.replaceAll("c","*&Gs")
+    sttr=sttr.replaceAll("d","*YHA")
+    sttr=sttr.replaceAll("e","d)")
+    sttr=sttr.replaceAll("f",")(*HskWA8")
+    sttr=sttr.replaceAll("g","*&GD2")
+    sttr=sttr.replaceAll("h","+A")
+    sttr=sttr.replaceAll("i","1;")
+    sttr=sttr.replaceAll("j","g%")
+    sttr=sttr.replaceAll("k","&G{A")
+    sttr=sttr.replaceAll("l","PF")
+    sttr=sttr.replaceAll("m","*A")
+    sttr=sttr.replaceAll("n","*KA^7")
+    sttr=sttr.replaceAll("o",")A")
+    sttr=sttr.replaceAll("p","*H)PA-G")
+    sttr=sttr.replaceAll("q","*YFSA")
+    sttr=sttr.replaceAll("r","OA")
+    sttr=sttr.replaceAll("s","-A")
+    sttr=sttr.replaceAll("t","*(HARR")
+    sttr=sttr.replaceAll("u","SP")
+    sttr=sttr.replaceAll("v","(A")
+    sttr=sttr.replaceAll("w","&^F*GV")
+    sttr=sttr.replaceAll("x","(*HskW")
+    sttr=sttr.replaceAll("y","{JM")
+    sttr=sttr.replaceAll("z","JA")
+    sttr=sttr.replaceAll("A","(&Tav")
+    sttr=sttr.replaceAll("B","t5")
+    sttr=sttr.replaceAll("C","*TGA3")
+    sttr=sttr.replaceAll("D","*GABD")
+    sttr=sttr.replaceAll("E","{A")
+    sttr=sttr.replaceAll("F","pW")
+    sttr=sttr.replaceAll("G","*UAK(")
+    sttr=sttr.replaceAll("H","&GH+")
+    sttr=sttr.replaceAll("I","&AN)")
+    sttr=sttr.replaceAll("J","L&VA")
+    sttr=sttr.replaceAll("K","(HAF5")
+    sttr=sttr.replaceAll("L","&F*Va")
+    sttr=sttr.replaceAll("M","^&FVB")
+    sttr=sttr.replaceAll("N","(*HSA$")
+    sttr=sttr.replaceAll("O","((*HskWGA")
+    sttr=sttr.replaceAll("P","&*FAl")
+    sttr=sttr.replaceAll("Q",")P{A]")
+    sttr=sttr.replaceAll("R","*Ha$g")
+    sttr=sttr.replaceAll("S","G)OA&")
+    sttr=sttr.replaceAll("T","|Q")
+    sttr=sttr.replaceAll("U","Q&^")
+    sttr=sttr.replaceAll("V","hA")
+    sttr=sttr.replaceAll("W","8h")
+    sttr=sttr.replaceAll("X","_9xlA")
+    sttr=sttr.replaceAll("Y","*J")
+    sttr=sttr.replaceAll("Z","UA")
+    sttr=sttr.replaceAll(" ","A1")
+    sttr=sttr.replaceAll("-","}F")
+    sttr=sttr.replaceAll("=","AL")
+    sttr=sttr.replaceAll("+","}J")
+    sttr=sttr.replaceAll("&","%A")
+    sttr=sttr.replaceAll("%","mA")
+    sttr=sttr.replaceAll("#","IH")
+    sttr=sttr.replaceAll("@","l@")
+    sttr=sttr.replaceAll("!","/A")
+    sttr=sttr.replaceAll("^","8G")
+    sttr=sttr.replaceAll("*","(U")
+    sttr=sttr.replaceAll("(","(*")
+    sttr=sttr.replaceAll(")","^T")
+    sttr=sttr.replaceAll("{","Av[")
+    sttr=sttr.replaceAll("}","9j")
+    sttr=sttr.replaceAll("[","[a)")
+    sttr=sttr.replaceAll("]","jA")
+    sttr=sttr.replaceAll("|",".A")
+    sttr=sttr.replaceAll("/",")*HND_")
+    sttr=sttr.replaceAll("~","=A")
+    sttr=sttr.replaceAll(";","LN")
+    sttr=sttr.replaceAll(":","][")
+    sttr=sttr.replaceAll("?","Oa")
+    sttr=sttr.replaceAll(".","Nt")
+    sttr=sttr.replaceAll(">","aR")
+    sttr=sttr.replaceAll("<","ic")
+    sttr=sttr.replaceAll(",","<R")
+    sttr=sttr.replaceAll("0","od")
+    sttr=sttr.replaceAll("1","}v")
+    sttr=sttr.replaceAll("2","Kr")
+    sttr=sttr.replaceAll("3","_)JHS")
+    sttr=sttr.replaceAll("4","IG(A")
+    sttr=sttr.replaceAll("5","(*GFD")
+    sttr=sttr.replaceAll("6","IU(&V")
+    sttr=sttr.replaceAll("7","(JH*G")
+    sttr=sttr.replaceAll("8","*GHBA")
+    sttr=sttr.replaceAll("9","U&G*C")
+    sttr=reversebin(binary(btoa(sttr)))
+    return sttr;
+  }
+  return code(string)
+}
+function fwx256unbin(string){
+  function unbinary(stringt){return stringt.split(' ').map(bin => String.fromCharCode(parseInt(bin, 2))).join('');}
+  function reversebin(bin) {
+    var fin=bin.replaceAll("1","3");
+    fin = fin.replaceAll("0","2");
+    fin = fin.replaceAll("2","1");
+    fin = fin.replaceAll("3","0");
+    return fin;
+}
+  function decode(sttr){
+    sttr=atob(unbinary(reversebin(sttr)))
+    sttr=sttr.replaceAll("U&G*C","9")
+    sttr=sttr.replaceAll("*GHBA","8")
+    sttr=sttr.replaceAll("(JH*G","7")
+    sttr=sttr.replaceAll("IU(&V","6")
+    sttr=sttr.replaceAll("(*GFD","5")
+    sttr=sttr.replaceAll("IG(A","4")
+    sttr=sttr.replaceAll("_)JHS","3")
+    sttr=sttr.replaceAll("Kr","2")
+    sttr=sttr.replaceAll("}v","1")
+    sttr=sttr.replaceAll("od","0")
+    sttr=sttr.replaceAll("<R",",")
+    sttr=sttr.replaceAll("ic","<")
+    sttr=sttr.replaceAll("aR",">")
+    sttr=sttr.replaceAll("Nt",".")
+    sttr=sttr.replaceAll("Oa","?")
+    sttr=sttr.replaceAll("][",":")
+    sttr=sttr.replaceAll("LN",";")
+    sttr=sttr.replaceAll("=A","~")
+    sttr=sttr.replaceAll(")*HND_","/")
+    sttr=sttr.replaceAll(".A","|")
+    sttr=sttr.replaceAll("jA","]")
+    sttr=sttr.replaceAll("[a)","[")
+    sttr=sttr.replaceAll("9j","}")
+    sttr=sttr.replaceAll("Av[","{")
+    sttr=sttr.replaceAll("^T",")")
+    sttr=sttr.replaceAll("(*","(")
+    sttr=sttr.replaceAll("(U","*")
+    sttr=sttr.replaceAll("8G","^")
+    sttr=sttr.replaceAll("/A","!")
+    sttr=sttr.replaceAll("l@","@")
+    sttr=sttr.replaceAll("IH","#")
+    sttr=sttr.replaceAll("mA","%")
+    sttr=sttr.replaceAll("%A","&")
+    sttr=sttr.replaceAll("}J","+")
+    sttr=sttr.replaceAll("AL","=")
+    sttr=sttr.replaceAll("}F","-")
+    sttr=sttr.replaceAll("A1"," ")
+    sttr=sttr.replaceAll("UA","Z")
+    sttr=sttr.replaceAll("*J","Y")
+    sttr=sttr.replaceAll("_9xlA","X")
+    sttr=sttr.replaceAll("8h","W")
+    sttr=sttr.replaceAll("hA","V")
+    sttr=sttr.replaceAll("Q&^","U")
+    sttr=sttr.replaceAll("|Q","T")
+    sttr=sttr.replaceAll("G)OA&","S")
+    sttr=sttr.replaceAll("*Ha$g","R")
+    sttr=sttr.replaceAll(")P{A]","Q")
+    sttr=sttr.replaceAll("&*FAl","P")
+    sttr=sttr.replaceAll("((*HskWGA","O")
+    sttr=sttr.replaceAll("(*HSA$","N")
+    sttr=sttr.replaceAll("^&FVB","M")
+    sttr=sttr.replaceAll("&F*Va","L")
+    sttr=sttr.replaceAll("(HAF5","K")
+    sttr=sttr.replaceAll("L&VA","J")
+    sttr=sttr.replaceAll("&AN)","I")
+    sttr=sttr.replaceAll("&GH+","H")
+    sttr=sttr.replaceAll("*UAK(","G")
+    sttr=sttr.replaceAll("pW","F")
+    sttr=sttr.replaceAll("{A","E")
+    sttr=sttr.replaceAll("*GABD","D")
+    sttr=sttr.replaceAll("*TGA3","C")
+    sttr=sttr.replaceAll("t5","B")
+    sttr=sttr.replaceAll("(&Tav","A")
+    sttr=sttr.replaceAll("JA","z")
+    sttr=sttr.replaceAll("{JM","y")
+    sttr=sttr.replaceAll("(*HskW","x")
+    sttr=sttr.replaceAll("&^F*GV","w")
+    sttr=sttr.replaceAll("(A","v")
+    sttr=sttr.replaceAll("SP","u")
+    sttr=sttr.replaceAll("*(HARR","t")
+    sttr=sttr.replaceAll("-A","s")
+    sttr=sttr.replaceAll("OA","r")
+    sttr=sttr.replaceAll("*YFSA","q")
+    sttr=sttr.replaceAll("*H)PA-G","p")
+    sttr=sttr.replaceAll(")A","o")
+    sttr=sttr.replaceAll("*KA^7","n")
+    sttr=sttr.replaceAll("*A","m")
+    sttr=sttr.replaceAll("PF","l")
+    sttr=sttr.replaceAll("&G{A","k")
+    sttr=sttr.replaceAll("g%","j")
+    sttr=sttr.replaceAll("1;","i")
+    sttr=sttr.replaceAll("+A","h")
+    sttr=sttr.replaceAll("*&GD2","g")
+    sttr=sttr.replaceAll(")(*HskWA8","f")
+    sttr=sttr.replaceAll("d)","e")
+    sttr=sttr.replaceAll("*YHA","d")
+    sttr=sttr.replaceAll("*&Gs","c")
+    sttr=sttr.replaceAll("&hl","b")
+    sttr=sttr.replaceAll("e*1","a")
+    return sttr
+  }
+  return decode(string)
+}
