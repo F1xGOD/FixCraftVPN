@@ -9,7 +9,7 @@
 	  <script src="/host.js"></script>
   	  <script src="/jquery.js"></script>
   	  <script src="/setup.js"></script>
-  	  <script src="/password.js"></script>
+  	  <script src="/password.js" type="module"></script>
 </head>
 <body>
 	<div class="container" id="container">
@@ -19,8 +19,21 @@
 				<input type="email" id="username" placeholder="Username" />
 				<input type="password" id="password" placeholder="Password" />
 				<a href="/unknown">Forgot Your Password?</a>
-				<script>
-	 Object.freeze(actdata)
+				<script type="module">
+	 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+const module={};
+var actdata = {};
+const infodat = ref(db, 'data');
+function readd(){
+onValue(infodat, (snapshot) => {
+    var data = snapshot.val();
+      actdata=data.data
+  })};
+  readd();
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
@@ -100,7 +113,7 @@
 		}, 1000);
 		
 	}
-	function checkSuccess(){
+	module.checkSuccess = function checkSuccess(){
 		let tries = getCookie("tries");
 	  	Object.freeze(tries);
 		var text = document.getElementById("password").value
@@ -158,7 +171,7 @@
 	
 	</script>	
 
-				<button type="button" onclick="checkSuccess();">Log In</button>
+				<button type="button" onclick="module.checkSuccess();">Log In</button>
 			</form>
 		</div>
 		<div class="overlay-container">

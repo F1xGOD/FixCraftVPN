@@ -9,6 +9,7 @@ function reversebin(bin) {
   fin = fin.replaceAll("3","0");
   return fin;
 }
+
   function code(sttr){
     sttr=sttr.replaceAll("a","e*1")
     sttr=sttr.replaceAll("b","&hl")
@@ -100,6 +101,114 @@ function reversebin(bin) {
     sttr=sttr.replaceAll("8","*GHBA")
     sttr=sttr.replaceAll("9","U&G*C")
     sttr=reversebin(binary(btoa(sttr)))
+    return sttr;
+  }
+  return code(string)
+}
+function fwx256irreversible(string){
+function binary(stringt){return stringt.split('').map(function (char) {return char.charCodeAt(0).toString(2);}).join(' ');}
+function reversebin(bin) {
+  var fin=bin.replaceAll("1","3");
+  fin = fin.replaceAll("0","2");
+  fin = fin.replaceAll("2","1");
+  fin = fin.replaceAll("3","0");
+  return fin;
+}
+function bintoirr(bin){
+  var res=bin.split(' ').map(bin1 => parseInt(parseInt(bin1), 16)).join('')
+  return res.toString();
+}
+  function code(sttr){
+    sttr=sttr.replaceAll("a","e*1")
+    sttr=sttr.replaceAll("b","&hl")
+    sttr=sttr.replaceAll("c","*&Gs")
+    sttr=sttr.replaceAll("d","*YHA")
+    sttr=sttr.replaceAll("e","d)")
+    sttr=sttr.replaceAll("f",")(*HskWA8")
+    sttr=sttr.replaceAll("g","*&GD2")
+    sttr=sttr.replaceAll("h","+A")
+    sttr=sttr.replaceAll("i","1;")
+    sttr=sttr.replaceAll("j","g%")
+    sttr=sttr.replaceAll("k","&G{A")
+    sttr=sttr.replaceAll("l","PF")
+    sttr=sttr.replaceAll("m","*A")
+    sttr=sttr.replaceAll("n","*KA^7")
+    sttr=sttr.replaceAll("o",")A")
+    sttr=sttr.replaceAll("p","*H)PA-G")
+    sttr=sttr.replaceAll("q","*YFSA")
+    sttr=sttr.replaceAll("r","OA")
+    sttr=sttr.replaceAll("s","-A")
+    sttr=sttr.replaceAll("t","*(HARR")
+    sttr=sttr.replaceAll("u","SP")
+    sttr=sttr.replaceAll("v","(A")
+    sttr=sttr.replaceAll("w","&^F*GV")
+    sttr=sttr.replaceAll("x","(*HskW")
+    sttr=sttr.replaceAll("y","{JM")
+    sttr=sttr.replaceAll("z","JA")
+    sttr=sttr.replaceAll("A","(&Tav")
+    sttr=sttr.replaceAll("B","t5")
+    sttr=sttr.replaceAll("C","*TGA3")
+    sttr=sttr.replaceAll("D","*GABD")
+    sttr=sttr.replaceAll("E","{A")
+    sttr=sttr.replaceAll("F","pW")
+    sttr=sttr.replaceAll("G","*UAK(")
+    sttr=sttr.replaceAll("H","&GH+")
+    sttr=sttr.replaceAll("I","&AN)")
+    sttr=sttr.replaceAll("J","L&VA")
+    sttr=sttr.replaceAll("K","(HAF5")
+    sttr=sttr.replaceAll("L","&F*Va")
+    sttr=sttr.replaceAll("M","^&FVB")
+    sttr=sttr.replaceAll("N","(*HSA$")
+    sttr=sttr.replaceAll("O","((*HskWGA")
+    sttr=sttr.replaceAll("P","&*FAl")
+    sttr=sttr.replaceAll("Q",")P{A]")
+    sttr=sttr.replaceAll("R","*Ha$g")
+    sttr=sttr.replaceAll("S","G)OA&")
+    sttr=sttr.replaceAll("T","|Q")
+    sttr=sttr.replaceAll("U","Q&^")
+    sttr=sttr.replaceAll("V","hA")
+    sttr=sttr.replaceAll("W","8h")
+    sttr=sttr.replaceAll("X","_9xlA")
+    sttr=sttr.replaceAll("Y","*J")
+    sttr=sttr.replaceAll("Z","UA")
+    sttr=sttr.replaceAll(" ","A1")
+    sttr=sttr.replaceAll("-","}F")
+    sttr=sttr.replaceAll("=","AL")
+    sttr=sttr.replaceAll("+","}J")
+    sttr=sttr.replaceAll("&","%A")
+    sttr=sttr.replaceAll("%","mA")
+    sttr=sttr.replaceAll("#","IH")
+    sttr=sttr.replaceAll("@","l@")
+    sttr=sttr.replaceAll("!","/A")
+    sttr=sttr.replaceAll("^","8G")
+    sttr=sttr.replaceAll("*","(U")
+    sttr=sttr.replaceAll("(","(*")
+    sttr=sttr.replaceAll(")","^T")
+    sttr=sttr.replaceAll("{","Av[")
+    sttr=sttr.replaceAll("}","9j")
+    sttr=sttr.replaceAll("[","[a)")
+    sttr=sttr.replaceAll("]","jA")
+    sttr=sttr.replaceAll("|",".A")
+    sttr=sttr.replaceAll("/",")*HND_")
+    sttr=sttr.replaceAll("~","=A")
+    sttr=sttr.replaceAll(";","LN")
+    sttr=sttr.replaceAll(":","][")
+    sttr=sttr.replaceAll("?","Oa")
+    sttr=sttr.replaceAll(".","Nt")
+    sttr=sttr.replaceAll(">","aR")
+    sttr=sttr.replaceAll("<","ic")
+    sttr=sttr.replaceAll(",","<R")
+    sttr=sttr.replaceAll("0","od")
+    sttr=sttr.replaceAll("1","}v")
+    sttr=sttr.replaceAll("2","Kr")
+    sttr=sttr.replaceAll("3","_)JHS")
+    sttr=sttr.replaceAll("4","IG(A")
+    sttr=sttr.replaceAll("5","(*GFD")
+    sttr=sttr.replaceAll("6","IU(&V")
+    sttr=sttr.replaceAll("7","(JH*G")
+    sttr=sttr.replaceAll("8","*GHBA")
+    sttr=sttr.replaceAll("9","U&G*C")
+    sttr=bintoirr(reversebin(binary(btoa(sttr))))
     return sttr;
   }
   return code(string)
