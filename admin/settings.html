@@ -21,7 +21,7 @@
     span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
     span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
 	button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
-  button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+  button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 9px; font-size: 13px; border-radius: 4px; }
   button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
 	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
@@ -232,7 +232,15 @@ function snackbar_Successs() {
                             status: "success"
                         });
                     };
-module.ssc = function snackbar_Successs2() {
+function snackbar_Fail(passedvar) {
+                        SnackBar({
+                            message: `Can't Edit User ${passedvar} Because The User Has A Higher Privilege!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "fail"
+                        });
+                    };
+function snackbar_Successs2() {
                         SnackBar({
                             message: `Loaded Successfully!`,
 							timeout:1560,
@@ -247,6 +255,10 @@ onValue(infodat, (snapshot) => {
       actdata=data.data
   })};
   readd();
+  module.ssc = function scc(){
+  readd();
+  snackbar_Successs2();
+}
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -391,6 +403,10 @@ module.editlogsave = function editlogsave(actid) {
   }
 };
 
+module.errr = function errr(actid) {
+snackbar_Fail(atob(actdata.accounts[actid].username))
+ }
+
 module.edittdd = function edittdd(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
@@ -488,7 +504,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var final = ``
 	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none;"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
-	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span><input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\"><button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;&nbsp;<button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
+	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span>&nbsp;&nbsp;&nbsp;<input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\"><button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
 	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
