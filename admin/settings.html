@@ -498,11 +498,11 @@ module.edittum = function edittum(actid) {
 document.getElementById("dilogttl").innerHTML="Edit A Page";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("usrnnm").innerHTML="Location:";
-document.getElementById("usrnam").value="";
+document.getElementById("usrnam").value=actdata.undermaintenance[actid].location;
 document.getElementById("elsee").style.display="none";
 document.getElementById("stat").style.display="none";
 document.getElementById("reassss").style.display="block";
-document.getElementById("reasnn").value="NO REASON";
+document.getElementById("reasnn").value=actdata.undermaintenance[actid].reason;
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
