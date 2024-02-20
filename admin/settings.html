@@ -255,7 +255,9 @@ const infodat = ref(db, 'data');
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
-      actdata=JSON.parse(fwx256unbin(data.data,"G56&.zHIQ"))
+    data=fwx256unbin(data.data,"G56&.zHIQ")
+    console.log(data)
+      actdata=JSON.parse(data)
   })};
   readd();
 
