@@ -401,7 +401,7 @@ module.editlogsave = function editlogsave(actid) {
   checkREADY22(false);
 }else{
   document.getElementById("triessin").style.display="none";
-  actdata.tries=document.getElementById("triessin").value+1;
+  (parseInt(document.getElementById("triessin").value)+1).toString()
   document.getElementById("triess").style.display="block";
   document.getElementById("triessconf").style.display="none";
   document.getElementById("triessed").style.display="block";
@@ -430,7 +430,6 @@ document.getElementById("reasnn").value=actdata.deletedaccounts[actid].reason;
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
-  section.classList.remove("active");
   section.classList.remove("active");
 	actdata.deletedaccounts[actid].role=document.getElementById("rolee").value;
 	actdata.deletedaccounts[actid].job=document.getElementById("jobb").value;
