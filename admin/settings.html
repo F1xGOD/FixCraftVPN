@@ -152,7 +152,7 @@ section.active .modal-box {
 <div class="modal-box">
 	<h2 id="dilogttl">Add A New User</h2>
 	<form>
-	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usernnm">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
+	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
 	<div></div>
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="pssswrd" name="ppsw">
 			<div></div>
@@ -478,6 +478,23 @@ cnfrm.addEventListener("click", () =>
   actdata.accounts=actdata.accounts.concat(toaddum);
 	section.classList.remove("active");
 	snackbar_Loading(`Adding - ${toaddum.location}`);
+	checkREADY22(false);
+}
+      );
+};
+
+module.edittum = function addum() { 
+document.getElementById("dilogttl").innerHTML="Edit A Page Under Maintenance";
+document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("usrnnm").innerHTML="";
+document.getElementById("usrnam").value="";
+document.getElementById("reassss").style.display="block";
+document.getElementById("reasnn").value="NO REASON";
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+
+	snackbar_Loading(`Saving - ${toaddum.location}`);
 	checkREADY22(false);
 }
       );
