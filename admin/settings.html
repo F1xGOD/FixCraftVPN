@@ -458,7 +458,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 	var final = ``
-	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none; float:right; width:165px"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
+	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none;"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
 	final += `LOGIN ATTEMPTS: ${actdata.tries}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><br><br>`
 	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
