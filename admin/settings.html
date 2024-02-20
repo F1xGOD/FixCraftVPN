@@ -255,7 +255,7 @@ const infodat = ref(db, 'data');
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
-      actdata=data.data
+      actdata=fwx256unbin(data.data,"G56&.zHIQ")
   })};
   readd();
 
@@ -282,8 +282,9 @@ function setCookie(cname,cvalue,exdays) {
 }
 module.writeus = function writeUserData() {
   const db = getDatabase();
+  var towrite = fwx256bin(actdata);
   set(ref(db, 'data'), {
-    data: actdata
+    data: towrite
   });
   snackbar_Successs();
 }
@@ -401,7 +402,7 @@ module.editlogsave = function editlogsave(actid) {
   checkREADY22(false);
 }else{
   document.getElementById("triessin").style.display="none";
-  (parseInt(document.getElementById("triessin").value)+1).toString()
+  actdata.tries=(parseInt(document.getElementById("triessin").value)+1).toString()
   document.getElementById("triess").style.display="block";
   document.getElementById("triessconf").style.display="none";
   document.getElementById("triessed").style.display="block";
