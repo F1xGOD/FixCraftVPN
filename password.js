@@ -221,9 +221,9 @@ if(tablocation != "login"){
 			iii1++
 			}
 				  if(fond==false){
-					   conole.log("LOGIN!");
+					   console.log("LOGIN!");
 				window.location.replace(`${host}/login`)}else{
-					   conole.log("ACCOUNT DELETED!")
+					   console.log("ACCOUNT DELETED!")
 					   setCookie("usernamecred","",999);
 					setCookie("passwordcred","",999);
 					setCookie("tries","",999);
