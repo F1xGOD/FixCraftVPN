@@ -487,13 +487,14 @@ section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
   section.classList.remove("active");
-  var toaddum = {}
+  var toaddum = {};
 	toaddum.location=document.getElementById("usrnam").value;
 	toaddum.reason=document.getElementById("reasnn").value;
   actdata.undermaintenance=actdata.undermaintenance.concat(toaddum);
+  toaddum={};
 	section.classList.remove("active");
-	snackbar_Loading(`Adding - ${toaddum.location}`);
-	checkREADY22(false);
+	snackbar_Loading(`Adding - ${actdata.undermaintenance[actdata.undermaintenance.length-1]}`);
+	checkREADY22(false); 
 }
       );
 };
