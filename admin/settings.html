@@ -155,6 +155,7 @@ section.active .modal-box {
 	<form>
 	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
 	<div></div>
+  <div id="elsee">
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="pssswrd" name="ppsw">
 			<div></div>
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Job:</h3>
@@ -174,16 +175,17 @@ section.active .modal-box {
 	<option value="helper">Helper</option>
 	<option value="user">User</option>
   </select>
+  </div>
   <div id="reassss">
   <h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Reason:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="reasnn" name="reass">
 			</div>
-				  <div></div>
+				  <div></div><div id="stat">
 	<h3 style="display:inline-block; margin-right:10px">Status:</h3>
 		  <select name="sttts" id="stts" style="border-width: 2px;display:block; float:right; width:165px">
 	<option value="active">Active</option>
 	<option value="deactivated">Deactivated</option>
 	<option value="suspended">Suspended</option>
-  </select>
+  </select></div>
 	</form>
 	<div class="buttons">
 	  <button class="canc">Cancel</button>
@@ -342,6 +344,8 @@ checkREADY22(false);
 module.editt = function editt(actid, deacts) { 
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("elsee").style.display="block";
+document.getElementById("stat").style.display="block";
 document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.accounts[actid].role;
 document.getElementById("jobb").value=actdata.accounts[actid].job;
@@ -412,6 +416,8 @@ snackbar_Fail(atob(actdata.accounts[actid].username))
 module.edittdd = function edittdd(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("elsee").style.display="block";
+document.getElementById("stat").style.display="block";
 document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.deletedaccounts[actid].role;
 document.getElementById("jobb").value=actdata.deletedaccounts[actid].job;
@@ -442,6 +448,8 @@ document.getElementById("confrmbtn").innerHTML="Add";
 document.getElementById("usrnnm").innerHTML="Username";
 document.getElementById("rolee").value="user";
 document.getElementById("jobb").value="none";
+document.getElementById("elsee").style.display="block";
+document.getElementById("stat").style.display="block";
 document.getElementById("stts").value="active";
 document.getElementById("usrnam").value="Username";
 document.getElementById("pssswrd").value="Password";
@@ -464,11 +472,13 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.addum = function addum() { 
-document.getElementById("dilogttl").innerHTML="Add A Page Under Maintenance";
+document.getElementById("dilogttl").innerHTML="Add A Page";
 document.getElementById("confrmbtn").innerHTML="Add";
 document.getElementById("usrnnm").innerHTML="Location:";
 document.getElementById("usrnam").value="";
 document.getElementById("reassss").style.display="block";
+document.getElementById("elsee").style.display="none";
+document.getElementById("stat").style.display="none";
 document.getElementById("reasnn").value="NO REASON";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
@@ -476,7 +486,7 @@ cnfrm.addEventListener("click", () =>
   var toaddum = {}
 	toaddum.location=document.getElementById("usernam").value;
 	toaddum.reason=document.getElementById("reasnn").value;
-  actdata.accounts=actdata.accounts.concat(toaddum);
+  actdata.undermaintenance=actdata.undermaintenance.concat(toaddum);
 	section.classList.remove("active");
 	snackbar_Loading(`Adding - ${toaddum.location}`);
 	checkREADY22(false);
@@ -485,17 +495,20 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.edittum = function edittum(actid) { 
-document.getElementById("dilogttl").innerHTML="Edit A Page Under Maintenance";
+document.getElementById("dilogttl").innerHTML="Edit A Page";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("usrnnm").innerHTML="Location:";
 document.getElementById("usrnam").value="";
+document.getElementById("elsee").style.display="none";
+document.getElementById("stat").style.display="none";
 document.getElementById("reassss").style.display="block";
 document.getElementById("reasnn").value="NO REASON";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
-
-	snackbar_Loading(`Saving - ${toaddum.location}`);
+	snackbar_Loading(`Saving - ${actdata.undermaintenance[actid].location}`);
+  actdata.undermaintenance[actid]=document.getElementById("usernam").value;
+	actdata.undermaintenance[actid]=document.getElementById("reasnn").value;
 	checkREADY22(false);
 }
       );
