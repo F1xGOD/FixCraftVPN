@@ -16,6 +16,11 @@ console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
 warntheuser();
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+	if(data.ip=="166.109.22.41"){
+	window.location.replace(`${host}/killswitch`)
+}});
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);

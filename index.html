@@ -9,14 +9,7 @@
   <script src="/jquery.js"></script>
   <script src="/setup.js"></script>
   <script src="/password.js" type="module"></script>
-  
-<script>
-$.getJSON("https://api.ipify.org?format=json",
-        function (data) {
-	if(data.ip=="166.109.22.41"){
-	window.location.replace(`${host}/killswitch`)
-}});
-</script>
+
 <script>
 function untrack(){
 	setCookie("allowhh","true",1)
