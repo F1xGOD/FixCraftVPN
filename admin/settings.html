@@ -361,6 +361,7 @@ if(deacts==1){
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  section.classList.remove("active");
 	actdata.accounts[actid].role=document.getElementById("rolee").value;
 	actdata.accounts[actid].job=document.getElementById("jobb").value;
   actdata.accounts[actid].deactreason=document.getElementById("reasnn").value;
@@ -429,6 +430,8 @@ document.getElementById("reasnn").value=actdata.deletedaccounts[actid].reason;
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  section.classList.remove("active");
+  section.classList.remove("active");
 	actdata.deletedaccounts[actid].role=document.getElementById("rolee").value;
 	actdata.deletedaccounts[actid].job=document.getElementById("jobb").value;
 	actdata.deletedaccounts[actid].status=document.getElementById("stts").value;
@@ -483,6 +486,7 @@ document.getElementById("reasnn").value="NO REASON";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  section.classList.remove("active");
   var toaddum = {}
 	toaddum.location=document.getElementById("usrnam").value;
 	toaddum.reason=document.getElementById("reasnn").value;
@@ -506,6 +510,7 @@ document.getElementById("reasnn").value=actdata.undermaintenance[actid].reason;
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  section.classList.remove("active");
 	snackbar_Loading(`Saving - ${actdata.undermaintenance[actid].location}`);
   actdata.undermaintenance[actid].location=document.getElementById("usrnam").value;
 	actdata.undermaintenance[actid].reason=document.getElementById("reasnn").value;
