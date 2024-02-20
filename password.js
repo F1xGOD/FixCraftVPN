@@ -73,15 +73,11 @@ if(window.location.href.includes("?")){
   var text = pasw
   var text2 = usern
   if(text==""||text2==""){console.log("LOGIN FAILED!");}else{
-  $.getJSON(`https://networkcalc.com/api/encoder/${text}?encoding=base64`,
-		  function (data) {
-	  $.getJSON(`https://networkcalc.com/api/encoder/${text2}?encoding=base64`,
-			  function (data2) {
 			  var succs = false
 				  var accounts = actdata.accounts
 			  var deletedaccounts = actdata.deletedaccounts
-			  var enc = data.encoded
-			  var enc2 = data2.encoded
+			  var enc = data
+			  var enc2 = data2
 			  Object.freeze(enc);
 			   Object.freeze(enc2);
 			  let i2 = 0;
@@ -118,12 +114,7 @@ if(window.location.href.includes("?")){
 						shd = false
 					}
 				  }
-			  }
-		  
-				  
-			   
-					  
-)})}
+}
 }else{}}
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
@@ -171,10 +162,8 @@ if(tablocation != "login"){
 		}
 	  }
 	  if(username == "" && password == ""){if(shd==true){window.location.replace(`${host}/login`)}}else{
-	  $.getJSON(`https://networkcalc.com/api/encoder/${username}?encoding=base64`,
-            	function (data4) {
-			$.getJSON(`https://networkcalc.com/api/encoder/${password}?encoding=base64`,
-            		function (data5) {
+				var data4=btoa(username)
+				var data5=btoa(password)
 				Object.freeze(data4);
 				Object.freeze(data5);
 				var success2 = false
@@ -182,7 +171,7 @@ if(tablocation != "login"){
 	    	  		var accountsm = actdata.accounts
 		  		Object.freeze(accountsm)
 	    	  		while (i < accountsm.length) {
-	      				if(accountsm[i].username==data4.encoded&&accountsm[i].password==data5.encoded){
+	      				if(accountsm[i].username==data4&&accountsm[i].password==data5){
 						success2 = true;
 					};
 					i++;
@@ -191,7 +180,7 @@ if(tablocation != "login"){
 			var ii2 = 0;
 			var uname = username;
 			var sts = "";
-			$.getJSON(`https://networkcalc.com/api/encoder/${uname}?encoding=base64`, function (dataa) {uname=dataa.encoded
+			uname=btoa(uname)
 			while (ii2 < actdata.accounts.length){
 			if(actdata.accounts[ii2].username==uname){
 			sts=actdata.accounts[ii2].status
@@ -207,7 +196,7 @@ if(tablocation != "login"){
 				setCookie("passwordcred","",999);
 				setCookie("tries","",999);
 				window.location.replace(`${host}/login`)
-			}})
+			}
 		  }else{
 			  let triess = getCookie("tries");
 	  		  Object.freeze(triess);
@@ -215,7 +204,7 @@ if(tablocation != "login"){
 				  var iii1 = 0
 				  var fond = false
 				  while (iii1 < actdata.deletedaccounts.length){
-			if(actdata.deletedaccounts[iii1].username==data4.encoded&&actdata.deletedaccounts[iii1].password==data5.encoded){
+			if(actdata.deletedaccounts[iii1].username==data4&&actdata.deletedaccounts[iii1].password==data5){
 			fond = true
 			}
 			iii1++
@@ -232,7 +221,7 @@ if(tablocation != "login"){
 				  window.location.replace(`${host}/forbidden`)
 				}
 		  } 
-			})})}
+			}
     }
 	
   
