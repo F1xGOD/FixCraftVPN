@@ -230,7 +230,7 @@ function snackbar_Successs() {
                             status: "success"
                         });
                     };
-function snackbar_Successs2() {
+module.ssc = function snackbar_Successs2() {
                         SnackBar({
                             message: `Loaded Successfully!`,
 							timeout:1560,
@@ -354,7 +354,10 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.editlog = function editlog(actid) { 
-
+  document.getElementById("stattsin").style.display="block";
+  document.getElementById("statts").style.display="none";
+  document.getElementById("stattsconf").style.display="block";
+  document.getElementById("stattsee").style.display="none";
 };
 
 module.edittdd = function edittdd(actid) { 
@@ -453,7 +456,7 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var accountsm = actdata.accounts
 	Object.freeze(accountsm)
 	var final = ``
-	final = `STATUS: ${actdata.status.toUpperCase()}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(0)\"><i class="fa fa-edit"></i></button><br>`
+	final = `STATUS: <span id=\"statts\"">${actdata.status.toUpperCase()}</span><input style=\"border-width: 2px;display:none;\" type=\"text\" id=\"stattsin\" name=\"stas\">&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;&nbsp;<button style=\"display=\"none\"\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class="fa-solid fa-check"></i></button><br>`
 	final += `LOGIN ATTEMPTS: ${actdata.tries}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><br><br>`
 	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
@@ -494,7 +497,7 @@ if(i==accountsm.length-1){
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
-							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="snackbar_Successs2();checkREADY22(false)" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
+							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();checkREADY22(false)" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById('log').innerHTML = final
 						},40)
         			}
