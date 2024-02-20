@@ -152,7 +152,7 @@ section.active .modal-box {
 <div class="modal-box">
 	<h2 id="dilogttl">Add A New User</h2>
 	<form>
-	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
+	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usernnm">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
 	<div></div>
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="pssswrd" name="ppsw">
 			<div></div>
@@ -341,6 +341,7 @@ checkREADY22(false);
 module.editt = function editt(actid, deacts) { 
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.accounts[actid].role;
 document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
@@ -410,6 +411,7 @@ snackbar_Fail(atob(actdata.accounts[actid].username))
 module.edittdd = function edittdd(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.deletedaccounts[actid].role;
 document.getElementById("jobb").value=actdata.deletedaccounts[actid].job;
 document.getElementById("stts").value=actdata.deletedaccounts[actid].status;
@@ -436,6 +438,7 @@ cnfrm.addEventListener("click", () =>
 module.addac = function addac() { 
 document.getElementById("dilogttl").innerHTML="Add A User";
 document.getElementById("confrmbtn").innerHTML="Add";
+document.getElementById("usrnnm").innerHTML="Username";
 document.getElementById("rolee").value="user";
 document.getElementById("jobb").value="none";
 document.getElementById("stts").value="active";
@@ -454,6 +457,27 @@ cnfrm.addEventListener("click", () =>
   actdata.accounts=actdata.accounts.concat(toaddac);
 	section.classList.remove("active");
 	snackbar_Loading(`Adding - ${atob(toaddac.username)}`);
+	checkREADY22(false);
+}
+      );
+};
+
+module.addum = function addum() { 
+document.getElementById("dilogttl").innerHTML="Add A Page Under Maintenance";
+document.getElementById("confrmbtn").innerHTML="Add";
+document.getElementById("usrnnm").innerHTML="";
+document.getElementById("usrnam").value="";
+document.getElementById("reassss").style.display="block";
+document.getElementById("reasnn").value="NO REASON";
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+  var toaddum = {}
+	toaddum.location=document.getElementById("usernam").value;
+	toaddum.reason=document.getElementById("reasnn").value;
+  actdata.accounts=actdata.accounts.concat(toaddum);
+	section.classList.remove("active");
+	snackbar_Loading(`Adding - ${toaddum.location}`);
 	checkREADY22(false);
 }
       );
@@ -547,11 +571,11 @@ if(i==accountsm.length-1){
 					final+=`PAGES UNDER MAINTENANCE:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addum()\"><i class=\"fa fa-plus\"></i></button><br>`
 					for (var ii2 = 0; ii2 < actdata.undermaintenance.length; ii2++) {
     				(function(ii2) { 
-					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}<button id=\"${ii2}\" class=\"btn\" onclick=\"module.edittum(this.id)\"><i class="fa fa-edit"></i></button><br>`
+					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.edittum(this.id)\"><i class="fa fa-edit"></i></button><br>`
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
-							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();checkREADY22(false)" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
+							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById('log').innerHTML = final
 						},40)
         			}
