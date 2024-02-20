@@ -21,7 +21,8 @@
     span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
     span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
 	button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
-	button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
+  button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+  button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
 	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
@@ -240,11 +241,12 @@ module.ssc = function snackbar_Successs2() {
                         });
                     };
 const infodat = ref(db, 'data');
+function readd(){
 onValue(infodat, (snapshot) => {
-    const data = snapshot.val();
+    var data = snapshot.val();
       actdata=data.data
-  })
-  console.log(actdata)
+  })};
+  readd();
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -355,11 +357,38 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.editlog = function editlog(actid) { 
+  if(actid==0){ 
   document.getElementById("stattsin").style.display="inline-block";
   document.getElementById("stattsin").value=actdata.status;
   document.getElementById("statts").style.display="none";
   document.getElementById("stattsconf").style.display="inline-block";
-  document.getElementById("stattsee").style.display="none";
+  document.getElementById("stattsee").style.display="none";}else{
+  document.getElementById("triessin").style.display="inline-block";
+  document.getElementById("triessin").value=actdata.tries-1;
+  document.getElementById("triess").style.display="none";
+  document.getElementById("triessconf").style.display="inline-block";
+  document.getElementById("triessed").style.display="none";
+  }
+};
+
+module.editlogsave = function editlogsave(actid) {
+  if(actid==0){ 
+  document.getElementById("stattsin").style.display="none";
+  actdata.status=document.getElementById("stattsin").value;
+  document.getElementById("statts").style.display="block";
+  document.getElementById("stattsconf").style.display="none";
+  document.getElementById("stattsee").style.display="block";
+  snackbar_Loading(`Saving - STATUS: ${actdata.status.toUpperCase()}`);
+  checkREADY22(false);
+}else{
+  document.getElementById("triessin").style.display="none";
+  actdata.tries=document.getElementById("triessin").value+1;
+  document.getElementById("triess").style.display="block";
+  document.getElementById("triessconf").style.display="none";
+  document.getElementById("triessed").style.display="block";
+  snackbar_Loading(`Saving - ${actdata.tries-1} LOGIN ATTEMPTS`);
+  checkREADY22(false);
+  }
 };
 
 module.edittdd = function edittdd(actid) { 
@@ -459,23 +488,30 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var final = ``
 	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none;"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
-	final += `LOGIN ATTEMPTS: ${actdata.tries}&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><br><br>`
+	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span><input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\"><button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;&nbsp;<button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
 	final += `ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
 	var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
 	var psw = "";
+  var manage = false;
 for (var i = 0; i < accountsm.length; i++) {
-    (function(i) { // protects i in an immediately called function
+    (function(i) {
 		var data2 = atob(accountsm[i].password);
 		var data = atob(accountsm[i].username);
 	      						var level = 0
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
-	      						if(accesslevel<level){psw = "********"}else{psw = data2}
+	      						if(accesslevel<level){psw = "********";manage=false}else{psw = data2; manage=true}
+                    if(manage==false){
+                      if(accountsm[i].status == "active"){
+	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btnerr\" onclick=\"module.errr(this.id)\"><i class="fa-solid fa-exclamation"></i></button><br>`}else{
+									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btnerr\" onclick=\"module.errr(this.id)\"><i class="fa-solid fa-exclamation"></i></button><br>`
+								}
+                    }else{
 	                                                           if(accountsm[i].status == "active"){
 	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.susp(this.id)\"><i class="fa-solid fa-timer"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.deactiv(this.id)\"><i class="fa-solid fa-octagon-exclamation"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.editt(this.id,0)\"><i class="fa fa-edit"></i></button><br>`}else{
 									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.activ(this.id)\"><i class=\"fa fa-toggle-on\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.editt(this.id,1)\"><i class="fa fa-edit"></i></button><br>`
-								}              
+								}}              
 if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
@@ -486,7 +522,7 @@ if(i==accountsm.length-1){
 		var data3 = atob(accountsdel[ii22].username);
     	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
-	      						if(accesslevel<level2){psw = "********"}else{psw = data4}
+	      						if(accesslevel<level2){psw = "********"; manage=false}else{psw = data4; manage=true}
 	                                               
         						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span>/<span class=\"deactivated\">Deleted&nbsp;&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.rest(this.id)\"><i class=\"fa fa-undo\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.edittdd(this.id)\"><i class="fa fa-edit"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.delfvr(this.id)\"><i class="fa-solid fa-eraser"></i></button><br>`
 								if(ii22==accountsdel.length-1){
