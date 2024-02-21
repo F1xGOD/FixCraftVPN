@@ -368,8 +368,9 @@ checkREADY22(false);
 };
 
 module.editt = function editt(actid, deacts) { 
-  var ii2i= 0;
+var ii2i= 0;
 var role = ""
+var uname = getCookie("usernamecred");
 uname=btoa(uname)
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname){
@@ -379,6 +380,7 @@ while (ii2i < actdata.accounts.length){
 }
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
+console.log(accesslevel)
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
