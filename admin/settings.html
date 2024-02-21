@@ -244,6 +244,14 @@ function snackbar_Fail(passedvar) {
                             status: "fail"
                         });
                     };
+function snackbar_Failg() {
+                        SnackBar({
+                            message: `You Can't Edit Yourself!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "fail"
+                        });
+                    };
 function snackbar_Successs2() {
                         SnackBar({
                             message: `Loaded Successfully!`,
@@ -463,6 +471,18 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.addac = function addac() { 
+var ii2i= 0;
+var role = ""
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+var accesslevel = 0
+if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
+//
 document.getElementById("dilogttl").innerHTML="Add A User";
 document.getElementById("confrmbtn").innerHTML="Add";
 document.getElementById("usrnnm").innerHTML="Username";
@@ -577,6 +597,9 @@ actdata.accounts[actid].status="suspended"
 actdata.accounts[actid].deactreason="SUSPENDED - NO REASON!"
 checkREADY22(false);
 };
+module.infofy = function infofy() {
+  snackbar_Failg();
+}
 if(fistt==true){
 document.getElementById('log').innerHTML = `INITIALIZING...`}
 var uname = getCookie("usernamecred");

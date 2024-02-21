@@ -54,7 +54,8 @@ function setCookie(cname,cvalue,exdays) {
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
-      actdata=data.data
+	data=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
+      actdata=data
   })};
   readd();
         function checkCookie() {
