@@ -263,9 +263,12 @@ document.getElementById("inputUsername").placeholder=atob(user.username)
 document.getElementById("inputPassword").placeholder=atob(user.password)
 document.getElementById("inputCPassword").placeholder=atob(user.password)
 var udetails=user.details;
-document.getElementById("inputInfo").placeholder=udetails.info
-document.getElementById("inputName").placeholder=udetails.aname
-document.getElementById("inputEmailAddress").placeholder=udetails.email
+if(udetails.info!=""){
+document.getElementById("inputInfo").placeholder=udetails.info}
+if(udetails.aname!=""){
+document.getElementById("inputName").placeholder=udetails.aname}
+if(udetails.email!=""){
+document.getElementById("inputEmailAddress").placeholder=udetails.email}
 }
 }
 checkREADY22(true)
@@ -336,7 +339,7 @@ function dialog(){
 </div>
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputInfo">Birthday</label>
+<label class="small mb-1" for="inputInfo">Additional Info</label>
 <input class="form-control" id="inputInfo" type="text" name="innfo" placeholder="Enter Any Additional Info" value="">
 </div>
 </div>
