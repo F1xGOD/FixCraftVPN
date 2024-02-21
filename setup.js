@@ -106,7 +106,7 @@ function reversebin(bin) {
     sttr=sttr.replaceAll("7","(JH*G")
     sttr=sttr.replaceAll("8","*GHBA")
     sttr=sttr.replaceAll("9","U&G*C")
-    sttr=textohex(btoa(sttr).replaceAll(" ",""))
+    sttr=texttohex(btoa(sttr).replaceAll(" ",""))
     return sttr;
   }
   return code(string)
