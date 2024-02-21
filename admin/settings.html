@@ -267,11 +267,9 @@ onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     data=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
     actdata=data
-    originalactdata=data
-    Object.freeze(originalactdata)
   })};
   readd();
-
+  originalactdata=data
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
