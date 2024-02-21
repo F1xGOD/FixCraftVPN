@@ -270,24 +270,26 @@ module.writeus = function writeus() {
 module.savec = function savec() {
 var ii2i= 0;
 var userd = {}
+var user={}
 var id=0
 var uname = getCookie("usernamecred");
 uname=btoa(uname)
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname){
         userd=actdata.accounts[ii2i].details
+        user=actdata.accounts[ii2i]
         id=ii2i
 	}
 	ii2i++
 }
     var reasonf="";
     var savess=null;
-    if(document.getElementById("inputUsername").value==""||document.getElementById("inputUsername").value==atob(userd.username)){if(savess==null){savess=false}}else{
+    if(document.getElementById("inputUsername").value==""||document.getElementById("inputUsername").value==atob(user.username)){if(savess==null){savess=false}}else{
         actdata.accounts[id].details.username=document.getElementById("inputUsername").value
         setCookie("usernamecred",document.getElementById("inputUsername").value,"28")
         savess=true
     }
-    if(document.getElementById("inputPassword").value==""||document.getElementById("inputPassword").value==atob(userd.password)){if(savess==null){savess=false}}else{
+    if(document.getElementById("inputPassword").value==""||document.getElementById("inputPassword").value==atob(user.password)){if(savess==null){savess=false}}else{
         if(document.getElementById("inputPassword")==document.getElementById("inputCPassword")){
         actdata.accounts[id].details.password=document.getElementById("inputPassword").value 
         setCookie("passwordcred",document.getElementById("inputPassword").value)}else{savess==false; reasonf="Password Don't Match!"}
