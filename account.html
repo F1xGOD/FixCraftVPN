@@ -259,7 +259,9 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-document.getElementById("inputUsername").value=user.username
+document.getElementById("inputUsername").value=btoa(user.username)
+document.getElementById("inputPassword").value=btoa(user.password)
+document.getElementById("inputCPassword").value=btoa(user.password)
 }
 }
 checkREADY22(true)
@@ -306,13 +308,13 @@ function dialog(){
 <div class="row gx-3 mb-3">
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputFirstName">Password</label>
-<input class="form-control" id="inputFirstName" type="text" placeholder="Enter Your New Password" value="">
+<label class="small mb-1" for="inputPassword">Password</label>
+<input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" value="">
 </div>
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputLastName">Confirm Password</label>
-<input class="form-control" id="inputLastName" type="text" placeholder="Confirm Your New Password" value="">
+<label class="small mb-1" for="inputCPassword">Confirm Password</label>
+<input class="form-control" id="inputCPassword" type="text" placeholder="Confirm Your New Password" value="">
 </div>
 </div>
 
