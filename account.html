@@ -292,13 +292,17 @@ while (ii2i < actdata.accounts.length){
     if(document.getElementById("inputPassword").value==""||document.getElementById("inputPassword").value==atob(user.password)){if(savess==null){savess=false}}else{
         if(document.getElementById("inputPassword")==document.getElementById("inputCPassword")){
         actdata.accounts[id].details.password=document.getElementById("inputPassword").value 
-        setCookie("passwordcred",document.getElementById("inputPassword").value)}else{savess==false; reasonf="Password Don't Match!"}
+        setCookie("passwordcred",document.getElementById("inputPassword").value)
         savess=true
+    }else{savess==false; reasonf="Password Don't Match!"}
+        
     }
     if(document.getElementById("inputEmailAddress").value==""||document.getElementById("inputEmailAddress").value==userd.email){if(savess==null){savess=false}}else{
         if(validateEmail(document.getElementById("inputEmailAddress").value)==true){
-        actdata.accounts[id].details.email=document.getElementById("inputEmailAddress").value}else{savess==false; reasonf="The Email You Entered Is Invalid!"}
+        actdata.accounts[id].details.email=document.getElementById("inputEmailAddress").value
         savess=true
+    }else{savess==false; reasonf="The Email You Entered Is Invalid!"}
+        
     }
     if(document.getElementById("inputName").value==""||document.getElementById("inputName").value==userd.aname){if(savess==null){savess=false}}else{
         actdata.accounts[id].details.aname=document.getElementById("inputName").value
