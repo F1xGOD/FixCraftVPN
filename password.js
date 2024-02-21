@@ -8,7 +8,7 @@ var actdata = {};
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
-      actdata=data.data
+      actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
   })
 function warntheuser(){
 console.clear();
