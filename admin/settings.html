@@ -21,7 +21,8 @@
     span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
     span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
     span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
-	button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+    button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+	button.selffbtn { background-color: rgb(61, 212, 10); border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
   button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 9px; font-size: 13px; border-radius: 4px; }
   button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
 	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -602,11 +603,13 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	Object.freeze(accountsm)
 	var psw = "";
   var manage = false;
+  var yself = false;
 for (var i = 0; i < accountsm.length; i++) {
     (function(i) {
 		var data2 = atob(accountsm[i].password);
 		var data = atob(accountsm[i].username);
 	      						var level = 0
+                    if(accountsm[i].username==uname){yself=true}else{yself=false}
 	      						if(accountsm[i].role=="debugger"){ level=2}else{if(accountsm[i].role=="moderator"){ level=3}if(accountsm[i].role=="admin"){ level=4}}
 	      						if(accesslevel<level){psw = "********";manage=false}else{psw = data2; manage=true}
                     if(manage==false){
@@ -614,11 +617,13 @@ for (var i = 0; i < accountsm.length; i++) {
 	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btnerr\" onclick=\"module.errr(this.id)\"><i class="fa-solid fa-exclamation"></i></button><br>`}else{
 									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btnerr\" onclick=\"module.errr(this.id)\"><i class="fa-solid fa-exclamation"></i></button><br>`
 								}
+                    }else{if(yself==true){
+                      final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"selffbtn\" onclick=\"module.infofy()\"><i class=\"fa fa-check\"></i></button><br>`
                     }else{
 	                                                           if(accountsm[i].status == "active"){
 	                                final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.susp(this.id)\"><i class="fa-solid fa-timer"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.deactiv(this.id)\"><i class="fa-solid fa-octagon-exclamation"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.editt(this.id,0)\"><i class="fa fa-edit"></i></button><br>`}else{
 									final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data}, PASSWORD: ${psw}, ROLE: ${accountsm[i].role.charAt(0).toUpperCase()+accountsm[i].role.slice(1)}, JOB: ${accountsm[i].job.charAt(0).toUpperCase()+accountsm[i].job.slice(1)}, REASON: ${accountsm[i].deactreason}, STATUS: <span class=\"${accountsm[i].status}\">${accountsm[i].status.charAt(0).toUpperCase()+accountsm[i].status.slice(1)}&nbsp;&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.activ(this.id)\"><i class=\"fa fa-toggle-on\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.delac(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i}\" class=\"btn\" onclick=\"module.editt(this.id,1)\"><i class="fa fa-edit"></i></button><br>`
-								}}              
+								}}}              
 if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS<br><br>`
@@ -630,6 +635,7 @@ if(i==accountsm.length-1){
     	      						var level2 = 0
 	      						if(accountsdel[ii22].role=="debugger"){ level2=2}else{if(accountsdel[ii22].role=="moderator"){ level2=3}if(accountsdel[ii22].role=="admin"){ level2=4}}
 	      						if(accesslevel<level2){psw = "********"; manage=false}else{psw = data4; manage=true}
+                    
 	                                               
         						final += `&nbsp;&nbsp;&nbsp;&nbsp;USERNAME: ${data3}, PASSWORD: ${psw}, ROLE: ${accountsdel[ii22].role.charAt(0).toUpperCase()+accountsdel[ii22].role.slice(1)}, JOB: ${accountsdel[ii22].job.charAt(0).toUpperCase()+accountsdel[ii22].job.slice(1)}, REASON: ${accountsdel[ii22].reason}, STATUS: <span class=\"${accountsdel[ii22].status}\">${accountsdel[ii22].status.charAt(0).toUpperCase()+accountsdel[ii22].status.slice(1)}</span>/<span class=\"deactivated\">Deleted&nbsp;&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.rest(this.id)\"><i class=\"fa fa-undo\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.edittdd(this.id)\"><i class="fa fa-edit"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii22}\" class=\"btn\" onclick=\"module.delfvr(this.id)\"><i class="fa-solid fa-eraser"></i></button><br>`
 								if(ii22==accountsdel.length-1){
