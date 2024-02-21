@@ -229,11 +229,16 @@ function fwx256unbin(string,passww){
     fin = fin.replaceAll("3","0");
     return fin;
 }
-function hextobin(hexx){
-  return parseInt(hexx, 16).toString(2).padStart(8, '0')
+function hextotext(hex){
+  var hex = hex.toString();//force conversion
+  var str = '';
+  for (var i = 0; i < hex.length; i += 2)
+      str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+  return str;
+
 }
   function decode(sttr){
-    sttr=atob(unbinary(reversebin(hextobin(sttr))))
+    sttr=atob(hextotext(sttr))
     sttr=sttr.replaceAll("U&G*C","9")
     sttr=sttr.replaceAll("*GHBA","8")
     sttr=sttr.replaceAll("(JH*G","7")
