@@ -161,20 +161,20 @@ section.active .modal-box {
 			<div></div>
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Job:</h3>
 		  <select name="job" id="jobb" style="border-width: 2px;display:block; float:right; width:165px">
-	<option value="owner">Owner</option>
-	<option value="HR">HR</option>
-	<option value="debugger">Debugger</option>
-	<option value="idea">Idea</option>
-	<option value="none">None</option>
+	<option id="owner" value="owner">Owner</option>
+	<option id="humanres" value="HR">HR</option>
+	<option id="debugger" value="debugger">Debugger</option>
+	<option id="idea" value="idea">Idea</option>
+	<option id="nojob" value="none">None</option>
   </select>
 				  <div></div>
 						  <h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">User Role:</h3>
 		  <select name="role" id="rolee" style="border-width: 2px;display:block; float:right; width:165px">
-	<option value="admin">Admin</option>
-	<option value="moderator">Moderator</option>
-	<option value="debugger">Debugger</option>
-	<option value="helper">Helper</option>
-	<option value="user">User</option>
+	<option id="admin" value="admin">Admin</option>
+	<option id="moderator" value="moderator">Moderator</option>
+	<option id="debuggerrole" value="debugger">Debugger</option>
+	<option id="helper" value="helper">Helper</option>
+	<option id="user" value="user">User</option>
   </select>
   </div>
   <div id="reassss">
@@ -368,6 +368,17 @@ checkREADY22(false);
 };
 
 module.editt = function editt(actid, deacts) { 
+  var ii2i= 0;
+var role = ""
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+var accesslevel = 0
+if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
@@ -378,12 +389,14 @@ document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
+if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
 if(deacts==1){
   document.getElementById("reassss").style.display="block";
   document.getElementById("reasnn").value=actdata.accounts[actid].deactreason;
 }else{
   document.getElementById("reassss").style.display="none";
 }
+
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
