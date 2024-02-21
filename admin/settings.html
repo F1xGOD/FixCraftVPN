@@ -256,7 +256,6 @@ function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     data=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
-    console.log(data)
       actdata=data
   })};
   readd();
@@ -301,6 +300,7 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 100)
 }else{console.log("LOADED!");
+console.log(actdata)
 module.delac = function delac(actid) { 
 snackbar_Loading(`Deleting - ${atob(actdata.accounts[actid].username)}`);
 actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
