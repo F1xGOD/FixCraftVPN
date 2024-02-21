@@ -259,9 +259,9 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-document.getElementById("inputUsername").value=btoa(user.username)
-document.getElementById("inputPassword").value=btoa(user.password)
-document.getElementById("inputCPassword").value=btoa(user.password)
+document.getElementById("inputUsername").value=atob(user.username)
+document.getElementById("inputPassword").value=atob(user.password)
+document.getElementById("inputCPassword").value=atob(user.password)
 }
 }
 checkREADY22(true)
