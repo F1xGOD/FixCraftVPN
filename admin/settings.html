@@ -220,6 +220,7 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var originalactdata ={};
 function snackbar_Loading(passedvar) {
                         SnackBar({
                             message: `Loading... (${passedvar})`,
@@ -261,12 +262,12 @@ function snackbar_Successs2() {
                         });
                     };
 const infodat = ref(db, 'data');
-var originalactdata ={};
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     data=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
     actdata=data
+    originalactdata=data
   })};
   readd();
 function getCookie(cname) {
@@ -310,8 +311,6 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
-if(fistt==true){
-originalactdata=actdata}
 module.delac = function delac(actid) { 
 snackbar_Loading(`Deleting - ${atob(actdata.accounts[actid].username)}`);
 actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
