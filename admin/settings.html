@@ -261,11 +261,13 @@ function snackbar_Successs2() {
                         });
                     };
 const infodat = ref(db, 'data');
+var originalactdata ={};
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     data=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
-      actdata=data
+    originalactdata=data
+    actdata=data
   })};
   readd();
 
@@ -299,19 +301,6 @@ module.writeus = function writeus() {
   snackbar_Successs();
 }
 
-function writeus2() {
-  const db = getDatabase();
-  var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
-  var towrite2 = fwx256bin(JSON.stringify(actdata));
-  set(ref(db, 'data'), {
-    data: towrite2
-  });
-  setTimeout(function(){
-    set(ref(db, 'data'), {
-    data: towrite
-  });
-  },156)
-}
 
 function ReplaceContent(NC) {
 	document.open();
@@ -341,7 +330,7 @@ actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.string
 checkREADY22(false);
 };
 module.ssc = function scc(){
-  writeus2();
+  actdata=originalactdata
   readd();
   snackbar_Successs2();
 }
