@@ -66,7 +66,7 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
-
+console.log(actdata)
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
