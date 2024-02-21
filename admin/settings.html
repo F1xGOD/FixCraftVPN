@@ -269,7 +269,6 @@ onValue(infodat, (snapshot) => {
     actdata=data
   })};
   readd();
-  originalactdata=actdata
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -311,6 +310,8 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
+if(fistt==true){
+originalactdata=actdata}
 module.delac = function delac(actid) { 
 snackbar_Loading(`Deleting - ${atob(actdata.accounts[actid].username)}`);
 actdata.deletedaccounts=actdata.deletedaccounts.concat(actdata.accounts[actid]);
