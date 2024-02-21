@@ -281,7 +281,7 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-module.writeus = function writeUserData() {
+module.writeus = function writeus() {
   const db = getDatabase();
   var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
   set(ref(db, 'data'), {
@@ -290,7 +290,7 @@ module.writeus = function writeUserData() {
   snackbar_Successs();
 }
 
-module.writeus2 = function writeUserData() {
+function writeus2() {
   const db = getDatabase();
   var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
   var towrite2 = fwx256bin(JSON.stringify(actdata));
