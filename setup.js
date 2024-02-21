@@ -3,6 +3,7 @@ function fwx256bin(string){
     return char.charCodeAt(0).toString(2);
 }).join(' ');}
 function texttohex(str){
+  var hex="";
   for(var i=0;i<str.length;i++) {
     hex += ''+str.charCodeAt(i).toString(16);
 }
