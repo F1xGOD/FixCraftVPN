@@ -380,7 +380,6 @@ while (ii2i < actdata.accounts.length){
 }
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
-console.log(accesslevel)
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
@@ -456,6 +455,18 @@ snackbar_Fail(atob(actdata.accounts[actid].username))
  }
 
 module.edittdd = function edittdd(actid) { 
+var ii2i= 0;
+var role = ""
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+var accesslevel = 0
+if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
@@ -468,6 +479,7 @@ document.getElementById("usrnam").value=atob(actdata.deletedaccounts[actid].user
 document.getElementById("pssswrd").value=atob(actdata.deletedaccounts[actid].password);
 document.getElementById("reassss").style.display="block";
 document.getElementById("reasnn").value=actdata.deletedaccounts[actid].reason;
+if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
@@ -488,6 +500,7 @@ cnfrm.addEventListener("click", () =>
 module.addac = function addac() { 
 var ii2i= 0;
 var role = ""
+var uname = getCookie("usernamecred");
 uname=btoa(uname)
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname){
@@ -497,7 +510,6 @@ while (ii2i < actdata.accounts.length){
 }
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
-//
 document.getElementById("dilogttl").innerHTML="Add A User";
 document.getElementById("confrmbtn").innerHTML="Add";
 document.getElementById("usrnnm").innerHTML="Username";
@@ -509,6 +521,7 @@ document.getElementById("stts").value="active";
 document.getElementById("usrnam").value="Username";
 document.getElementById("pssswrd").value="Password";
 document.getElementById("reassss").style.display="none";
+if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
