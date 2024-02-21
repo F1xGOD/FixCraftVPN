@@ -2,6 +2,9 @@ function fwx256bin(string){
   function binary(stringt){return stringt.split('').map(function (char) {
     return char.charCodeAt(0).toString(2);
 }).join(' ');}
+function bintohex(binn){
+  return parseInt(parseInt(binn), 2).toString(16);
+}
 function reversebin(bin) {
   var fin=bin.replaceAll("1","3");
   fin = fin.replaceAll("0","2");
@@ -100,7 +103,7 @@ function reversebin(bin) {
     sttr=sttr.replaceAll("7","(JH*G")
     sttr=sttr.replaceAll("8","*GHBA")
     sttr=sttr.replaceAll("9","U&G*C")
-    sttr=reversebin(binary(btoa(sttr)))
+    sttr=bintohex(reversebin(binary(btoa(sttr)).replaceAll(" ","")))
     return sttr;
   }
   return code(string)
@@ -222,8 +225,11 @@ function fwx256unbin(string,passww){
     fin = fin.replaceAll("3","0");
     return fin;
 }
+function hextobin(hexx){
+  return parseInt(hexx, 16).toString(2).padStart(8, '0')
+}
   function decode(sttr){
-    sttr=atob(unbinary(reversebin(sttr)))
+    sttr=atob(unbinary(reversebin(hextobin(sttr))))
     sttr=sttr.replaceAll("U&G*C","9")
     sttr=sttr.replaceAll("*GHBA","8")
     sttr=sttr.replaceAll("(JH*G","7")
