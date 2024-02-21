@@ -150,7 +150,7 @@ section.active .modal-box {
 <body>
 <section>
 <span class="overlay"></span>
-<p class="text" style="margin: 10px;" id="log">LOADING...</p>
+<p class="text" style="margin: 0px;" id="log">LOADING...</p>
 <div class="modal-box">
 	<h2 id="dilogttl">Add A New User</h2>
 	<form>
@@ -398,7 +398,7 @@ document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
-if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("owner").style.display="none"}else{document.getElementById("owner").style.display="block"}
 if(accesslevel<4){ document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
 if(deacts==1){
   document.getElementById("reassss").style.display="block";
@@ -499,7 +499,7 @@ document.getElementById("pssswrd").value=atob(actdata.deletedaccounts[actid].pas
 document.getElementById("reassss").style.display="block";
 document.getElementById("reasnn").value=actdata.deletedaccounts[actid].reason;
 if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
-if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("owner").style.display="none"}else{document.getElementById("owner").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
@@ -552,7 +552,7 @@ document.getElementById("usrnam").value="Username";
 document.getElementById("pssswrd").value="Password";
 document.getElementById("reassss").style.display="none";
 if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
-if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("owner").style.display="none"}else{document.getElementById("owner").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
@@ -733,7 +733,8 @@ if(i==accountsm.length-1){
 						setTimeout(function(){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
-							document.getElementById('log').innerHTML = final
+							document.getElementById("log").style.margin="10px"
+              document.getElementById('log').innerHTML = final
 						},40)
         			}
       })(ii2)};
