@@ -262,6 +262,10 @@ while (ii2i < actdata.accounts.length){
 document.getElementById("inputUsername").placeholder=atob(user.username)
 document.getElementById("inputPassword").placeholder=atob(user.password)
 document.getElementById("inputCPassword").placeholder=atob(user.password)
+var udetails=user.details;
+document.getElementById("inputInfo").placeholder=udetails.info
+document.getElementById("inputName").placeholder=udetails.aname
+document.getElementById("inputEmailAddress").placeholder=udetails.email
 }
 }
 checkREADY22(true)
@@ -321,19 +325,19 @@ function dialog(){
 
 <div class="mb-3">
 <label class="small mb-1" for="inputEmailAddress">Email Address</label>
-<input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+<input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="">
 </div>
 
 <div class="row gx-3 mb-3">
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputPhone">Phone Number</label>
-<input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="+88005553535">
+<label class="small mb-1" for="inputName">Name</label>
+<input class="form-control" id="inputName" type="text" placeholder="Enter Your Actual Name" value="">
 </div>
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputBirthday">Birthday</label>
-<input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="01/01/2000">
+<label class="small mb-1" for="inputInfo">Birthday</label>
+<input class="form-control" id="inputInfo" type="text" name="innfo" placeholder="Enter Any Additional Info" value="">
 </div>
 </div>
 
