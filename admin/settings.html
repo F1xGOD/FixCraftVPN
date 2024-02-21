@@ -290,6 +290,20 @@ module.writeus = function writeUserData() {
   snackbar_Successs();
 }
 
+module.writeus2 = function writeUserData() {
+  const db = getDatabase();
+  var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
+  var towrite2 = fwx256bin(JSON.stringify(actdata));
+  set(ref(db, 'data'), {
+    data: towrite2
+  });
+  setTimeout(function(){
+    set(ref(db, 'data'), {
+    data: towrite
+  });
+  },156)
+}
+
 function ReplaceContent(NC) {
 	document.open();
 	document.write(NC);
@@ -318,6 +332,7 @@ actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.string
 checkREADY22(false);
 };
 module.ssc = function scc(){
+  writeus2();
   readd();
   snackbar_Successs2();
 }
