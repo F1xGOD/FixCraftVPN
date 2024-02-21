@@ -295,7 +295,7 @@ while (ii2i < actdata.accounts.length){
     }
     if(document.getElementById("inputEmailAddress").value==""||document.getElementById("inputEmailAddress").value==userd.email){if(savess==null){savess=false}}else{
         if(validateEmail(document.getElementById("inputEmailAddress").value)==true){
-        actdata.accounts[id].details.username=document.getElementById("inputEmailAddress").value}else{savess==false; reasonf="The Email You Entered Is Invalid!"}
+        actdata.accounts[id].details.email=document.getElementById("inputEmailAddress").value}else{savess==false; reasonf="The Email You Entered Is Invalid!"}
         savess=true
     }
     if(document.getElementById("inputName").value==""||document.getElementById("inputName").value==userd.aname){if(savess==null){savess=false}}else{
