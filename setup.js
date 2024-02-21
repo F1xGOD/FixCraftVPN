@@ -107,7 +107,7 @@ function reversebin(bin) {
     sttr=sttr.replaceAll("7","(JH*G")
     sttr=sttr.replaceAll("8","*GHBA")
     sttr=sttr.replaceAll("9","U&G*C")
-    sttr=texttohex(btoa(sttr).replaceAll(" ",""))
+    sttr=btoa(sttr)
     return sttr;
   }
   return code(string)
@@ -238,7 +238,7 @@ function hextotext(hex){
 
 }
   function decode(sttr){
-    sttr=atob(hextotext(sttr))
+    sttr=atob(sttr)
     sttr=sttr.replaceAll("U&G*C","9")
     sttr=sttr.replaceAll("*GHBA","8")
     sttr=sttr.replaceAll("(JH*G","7")
