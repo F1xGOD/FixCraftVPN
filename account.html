@@ -248,7 +248,20 @@ function checkREADY22(fistt){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 10)
-}else{console.log("LOADED!");}}
+}else{console.log("LOADED!");
+var ii2i= 0;
+var user = ""
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		user=actdata.accounts[ii2i]
+	}
+	ii2i++
+}
+document.getElementById("inputUsername").value=user.username
+}
+}
 checkREADY22(true)
 </script>
 
