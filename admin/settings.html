@@ -150,7 +150,7 @@ section.active .modal-box {
 <body>
 <section>
 <span class="overlay"></span>
-<p class="text" id="log">LOADING...</p>
+<p class="text" style="margin: 10px;" id="log">LOADING...</p>
 <div class="modal-box">
 	<h2 id="dilogttl">Add A New User</h2>
 	<form>
@@ -378,6 +378,14 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
+ii2i=0;
+var job=""
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		job=actdata.accounts[ii2i].job
+	}
+	ii2i++
+}
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
@@ -390,7 +398,8 @@ document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
-if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
+if(accesslevel<4){ document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
 if(deacts==1){
   document.getElementById("reassss").style.display="block";
   document.getElementById("reasnn").value=actdata.accounts[actid].deactreason;
@@ -402,6 +411,8 @@ section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
   section.classList.remove("active");
+  if(accesslevel<4&&document.getElementById("rolee").value=="admin"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"};if(accesslevel<3&&document.getElementById("rolee").value=="moderator"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
+  if(job!="owner"&&document.getElementById("jobb").value=="owner"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
 	actdata.accounts[actid].role=document.getElementById("rolee").value;
 	actdata.accounts[actid].job=document.getElementById("jobb").value;
   actdata.accounts[actid].deactreason=document.getElementById("reasnn").value;
@@ -465,6 +476,14 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
+ii2i=0;
+var job=""
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		job=actdata.accounts[ii2i].job
+	}
+	ii2i++
+}
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
@@ -480,9 +499,12 @@ document.getElementById("pssswrd").value=atob(actdata.deletedaccounts[actid].pas
 document.getElementById("reassss").style.display="block";
 document.getElementById("reasnn").value=actdata.deletedaccounts[actid].reason;
 if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  if(accesslevel<4&&document.getElementById("rolee").value=="admin"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"};if(accesslevel<3&&document.getElementById("rolee").value=="moderator"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
+  if(job!="owner"&&document.getElementById("jobb").value=="owner"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
   section.classList.remove("active");
 	actdata.deletedaccounts[actid].role=document.getElementById("rolee").value;
 	actdata.deletedaccounts[actid].job=document.getElementById("jobb").value;
@@ -508,6 +530,14 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
+ii2i=0;
+var job=""
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		job=actdata.accounts[ii2i].job
+	}
+	ii2i++
+}
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Add A User";
@@ -522,9 +552,12 @@ document.getElementById("usrnam").value="Username";
 document.getElementById("pssswrd").value="Password";
 document.getElementById("reassss").style.display="none";
 if(accesslevel<4){document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
+if(job!="owner"){document.getElementById("admin").style.display="none"}else{document.getElementById("admin").style.display="block"}
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
+  if(accesslevel<4&&document.getElementById("rolee").value=="admin"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"};if(accesslevel<3&&document.getElementById("rolee").value=="moderator"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
+  if(job!="owner"&&document.getElementById("jobb").value=="owner"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
   section.classList.remove("active");
   var toaddac = {}
 	toaddac.role=document.getElementById("rolee").value;
