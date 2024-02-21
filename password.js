@@ -11,7 +11,7 @@ onValue(infodat, (snapshot) => {
       actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
   })
 function warntheuser(){
-//console.clear();
+console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
@@ -66,7 +66,6 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
-console.log(actdata)
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
@@ -125,8 +124,8 @@ if(window.location.href.includes("?")){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
-if(actdata.status != "secure"){if(getCookie("canlogintosite")!="truesigma"){
-			      if (actdata.status == "newuserhide"){if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}}else{execute=true}
+if(actdata.status != "secure"){if (actdata.status == "newuserhide"){
+	if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){if(getCookie("canlogintosite")!="truesigma"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}else{execute=true}}else{execute=true}
 			      if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      }else{execute=true}
 
@@ -149,7 +148,8 @@ if(maintain[iii].location==tablocation){
 }
 
 if(tablocation != "login"){
-	if(actdata.status == "secure"||getCookie("canlogintosite")=="truesigma"){
+	if(actdata.status == "secure"||getCookie("canlogintosite")=="truesigma"||getCookie("usernamecred")!=""){
+		if(getCookie("passwordcred")!=""||actdata.status == "secure"){
         //window.history.pushState("Forbidden", "403 Forbidden", "/");
 
         function checkCookie() {
@@ -231,8 +231,8 @@ if(tablocation != "login"){
 	
   
 checkCookie();
-}else{window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}else{
-	
+}}else{window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}}else{
+
 let tries2 = getCookie("tries");
 Object.freeze(tries2);
 if (tries2==""){
