@@ -6,7 +6,8 @@
 <script src="/host.js"></script>
 <script src="/setup.js"></script>
 <script src="/password.js" type="module"></script>
-
+<link rel="stylesheet" href="/snackbar.css">
+<script src="/snackbar.js"></script>
 <title>FixCraft VPN | Account</title>
 <link rel="icon" href="https://x0.at/lG8i.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -236,6 +237,28 @@ function setCookie(cname,cvalue,exdays) {
           let expires = "expires=" + d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+function validateEmail(email){
+  var result=false;
+  var em = email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+  if (em == null){result=false}else{result=true}
+  return result
+};
+function snackbar_Successs() {
+                        SnackBar({
+                            message: `Saved Successfully!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
+function snackbar_Fail(passedvar) {
+                        SnackBar({
+                            message: `Error While Saving! - (${passedvar})`,
+							timeout:1560,
+							dismissible:false,
+                            status: "danger"
+                        });
+                    };
 module.writeus = function writeus() {
   const db = getDatabase();
   var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
@@ -243,6 +266,48 @@ module.writeus = function writeus() {
     data: towrite
   });
   snackbar_Successs();
+}
+module.savec = function savec() {
+var ii2i= 0;
+var userd = {}
+var id=0
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+        userd=actdata.accounts[ii2i].details
+        id=ii2i
+	}
+	ii2i++
+}
+    var reasonf="";
+    var savess=null;
+    if(document.getElementById("inputUsername").value==""||document.getElementById("inputUsername").value==atob(userd.username)){if(savess==null){savess=false}}else{
+        actdata.accounts[id].details.username=document.getElementById("inputUsername").value
+        setCookie("usernamecred",document.getElementById("inputUsername").value,"28")
+        savess=true
+    }
+    if(document.getElementById("inputPassword").value==""||document.getElementById("inputPassword").value==atob(userd.password)){if(savess==null){savess=false}}else{
+        if(document.getElementById("inputPassword")==document.getElementById("inputCPassword")){
+        actdata.accounts[id].details.password=document.getElementById("inputPassword").value 
+        setCookie("passwordcred",document.getElementById("inputPassword").value)}else{savess==false; reasonf="Password Don't Match!"}
+        savess=true
+    }
+    if(document.getElementById("inputEmailAddress").value==""||document.getElementById("inputEmailAddress").value==userd.email){if(savess==null){savess=false}}else{
+        if(validateEmail(document.getElementById("inputEmailAddress").value)==true){
+        actdata.accounts[id].details.username=document.getElementById("inputEmailAddress").value}else{savess==false; reasonf="The Email You Entered Is Invalid!"}
+        savess=true
+    }
+    if(document.getElementById("inputName").value==""||document.getElementById("inputName").value==userd.aname){if(savess==null){savess=false}}else{
+        actdata.accounts[id].details.aname=document.getElementById("inputName").value
+        savess=true
+    }
+    if(document.getElementById("inputInfo").value==""||document.getElementById("inputInfo").value==userd.info){if(savess==null){savess=false}}else{
+        actdata.accounts[id].details.info=document.getElementById("inputInfo").value
+        savess=true
+    }
+  if(savess==true){
+  module.writeus()}else{if(reasonf!=""){snackbar_Fail(reasonf)}else{snackbar_Fail("You Didn't Make Any Changes!")}}
 }
 function checkREADY22(fistt){
 if(JSON.stringify(actdata)=="{}"){
@@ -344,7 +409,7 @@ function dialog(){
 </div>
 </div>
 
-<button class="btn btn-primary" type="button">Save Changes</button>
+<button class="btn btn-primary" type="button" onclick="module.savec()">Save Changes</button>
 <button class="btn btn-primary" type="button" style="margin-left:10px; background:#db0c10; border:#db0c10" onclick="dialog();">Log Out</button>
 </form>
 </div>
