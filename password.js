@@ -247,7 +247,7 @@ if(tablocation != "login"){
 			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
 			towrite2=towrite2.toeditt
 			var ppp = towrite2.timestamp
-			justtn=false
+			var justtn=false
 			if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]){
 			if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1])
 			if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
