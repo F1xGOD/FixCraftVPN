@@ -94,6 +94,7 @@ onValue(infodat, (snapshot) => {
   writeus2(sid)
   });
 function warntheuser(){
+writeus2(inf)
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
