@@ -350,4 +350,10 @@ function getOS() {
   if (window.navigator.userAgent.indexOf("Linux")          != -1) OSName="Linux";
   return OSName
   }
-
+function getCurrentTime(){
+  var d = new Date();
+var dm = "0"+d.getMinutes()
+var ds = "0"+d.getSeconds()
+var timestamp = d.getHours()+":"+dm.substr(-2)+":"+ds.substr(-2)
+return timestamp
+}

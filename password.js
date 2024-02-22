@@ -221,7 +221,8 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
-			sessiondata={"ip":ip,"osinfo":getUserAgent().description};
+			var sid = btoa(btoa(ip)+btoa(getUserAgent().description))
+			sessiondata={sid:{"ip":ip,"osinfo":getUserAgent().description,"timestamp":getCurrentTime()}};
 			writeus();
 			warntheuser()
 			}else{
