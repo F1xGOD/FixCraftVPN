@@ -1,7 +1,7 @@
 
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import * as platform from "/platform.js";
+import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
