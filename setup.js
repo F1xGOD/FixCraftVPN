@@ -357,3 +357,10 @@ var ds = "0"+d.getSeconds()
 var timestamp = d.getHours()+":"+dm.substr(-2)+":"+ds.substr(-2)
 return timestamp
 }
+function getLocation(ip){
+  var value= $.ajax({ 
+    url: `https://ipapi.co/${ip}/json`, 
+    async: false
+ }).responseText;
+  return JSON.parse(value.toString())
+}
