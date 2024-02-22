@@ -18,8 +18,30 @@
 </style>
 </head>
 <body>
-<p id="log" class="text">LODAING...</p>
+<p id="log" style="margin:0px" class="text">LODAING...</p>
 <script type="module">
+  function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+	  let c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
+
+function setCookie(cname,cvalue,exdays) {
+	const d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
@@ -52,7 +74,20 @@ setTimeout(function(){
 	checkREADY22(false)
 	first()
 },3500)}
-first();
+var uname = getCookie("usernamecred");
+var ii2i= 0;
+var role = ""
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+var accesslevel = 0
+if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
+if(role=="admin" || role=="moderator" || role=="debugger"){
+first();}
 </script>
 </body>
 </html>
