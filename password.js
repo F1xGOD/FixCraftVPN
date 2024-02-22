@@ -225,7 +225,7 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
-			sessiondata=JSON.parse(`{\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"}}`);
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			writeus();
 			warntheuser()
 			}else{
