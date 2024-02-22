@@ -126,16 +126,6 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
-if(getCookie("usernamecred")!=""){
-	var uuun=getCookie("usernamecred")
-	var user={}
-	var ii2i=0
-	while (ii2i < actdata.accounts.length){
-	  if(actdata.accounts[ii2i].username==uuun){
-		  user=actdata.accounts[ii2i]
-	  }
-	  ii2i++
-  }}
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
@@ -264,6 +254,16 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
+			if(getCookie("usernamecred")!=""){
+				var uuun=getCookie("usernamecred")
+				var user={}
+				var ii2i=0
+				while (ii2i < actdata.accounts.length){
+				  if(actdata.accounts[ii2i].username==uuun){
+					  user=actdata.accounts[ii2i]
+				  }
+				  ii2i++
+			  }}
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
 			var lenn=Object.keys(osessiondata).length+1
