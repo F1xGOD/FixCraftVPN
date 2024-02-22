@@ -6,6 +6,7 @@ function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
 var ip = "";
+
 $.getJSON("https://api.ipify.org?format=json",
         function (data) {
 			ip=data.ip
@@ -27,6 +28,7 @@ function getCookie(cname) {
 	}
 	return "";
   }
+
 function setCookie(cname,cvalue,exdays) {
 	const d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -124,6 +126,15 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
+if(getCookie("usernamecred")!=""){
+	var uuun=getCookie("usernamecred")
+	var user={}
+	while (ii2i < actdata.accounts.length){
+	  if(actdata.accounts[ii2i].username==uuun){
+		  user=actdata.accounts[ii2i]
+	  }
+	  ii2i++
+  }}
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
@@ -276,10 +287,10 @@ if(tablocation != "login"){
 		}else{}}
     		if(justtn==true){
 				sessiondata.toeditt=undefined
-				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}else{
 				sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
 			
 			writeus();
