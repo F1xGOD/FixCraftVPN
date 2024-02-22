@@ -5,6 +5,15 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
+var ip = "";
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+			ip=data.ip
+	if(data.ip=="166.109.22.41"){
+	window.location.replace(`${host}/killswitch`)
+}});
+var uid=Math.floor(Math.random() * 100000)
+var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
@@ -24,16 +33,16 @@ onValue(infodat, (snapshot) => {
 	  session: towrite
 	});
   }
-  function writeus2() {
+  function writeus2(inf) {
 	const db = getDatabase();
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
 	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
-	  session: "OFFLINE"
+	  session: JSON.parse(JSON.stringify(towrite).replace(`${inf}`,"OFFLINE"))
 	});
   }
   window.addEventListener('beforeunload', function(e) {
-  writeus2()
+  writeus2(sid)
   });
 function warntheuser(){
 console.clear();
@@ -41,13 +50,7 @@ console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
 warntheuser();
-var ip = "";
-$.getJSON("https://api.ipify.org?format=json",
-        function (data) {
-			ip=data.ip
-	if(data.ip=="166.109.22.41"){
-	window.location.replace(`${host}/killswitch`)
-}});
+
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -221,7 +224,6 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
-			var sid = btoa(btoa(ip)+btoa(getUserAgent().description))
 			sessiondata=JSON.parse(`{\"${sid.toString()}\":{\"ip\":\"${ip}\",\"osinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\"}}`);
 			writeus();
 			warntheuser()
