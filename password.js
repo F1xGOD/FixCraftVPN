@@ -45,6 +45,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
 var sessiondata = {};
+var iid=0
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
@@ -60,7 +61,6 @@ onValue(infodat, (snapshot) => {
 	});
   }
   function writeus2(inf) {
-	var iid=0
 	const db = getDatabase();
 	var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
@@ -69,7 +69,7 @@ onValue(infodat, (snapshot) => {
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
     towrite=JSON.stringify(towrite)
 	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
-		for (let i24 = 0; i24 < iid; i24++) {
+		for (let i24 = 0; i24 < sessiondata.length; i24++) {
 			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite));break;}
 			iid++
 		}

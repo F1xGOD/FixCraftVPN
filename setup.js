@@ -359,7 +359,7 @@ return timestamp
 }
 function getCurrentDate(){
   var d = new Date();
-var dm = "0"+d.getMonth()+1
+var dm = "0"+parseInt(d.getMonth())+1
 var dd = "0"+d.getDate()
 var timestamp = dm.substr(-2)+"/"+dd.substr(-2)+"/"+d.getFullYear()
 return timestamp
