@@ -261,10 +261,12 @@ if(tablocation != "login"){
 				while (ii2i < actdata.accounts.length){
 				  if(actdata.accounts[ii2i].username==uuun){
 					  user=actdata.accounts[ii2i]
+					  console.log(user)
 				  }
+				  console.log(actdata.accounts[ii2i])
 				  ii2i++
 			  }}
-			  console.log(user)
+			  
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
 			var lenn=Object.keys(osessiondata).length+1
