@@ -46,7 +46,13 @@ var final= "";
       document.getElementById('log').innerHTML=final
     }
   }}}
-  checkREADY22(true)
+
+  function first(){
+setTimeout(function(){
+	checkREADY22(false)
+	first()
+},3500)}
+first();
 </script>
 </body>
 </html>
