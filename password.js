@@ -60,6 +60,7 @@ onValue(infodat, (snapshot) => {
 	});
   }
   function writeus2(inf) {
+	var iid=0
 	const db = getDatabase();
 	var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
@@ -67,7 +68,13 @@ onValue(infodat, (snapshot) => {
     var oldtowrite= JSON.stringify(towrite)
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
     towrite=JSON.stringify(towrite)
-    	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf}`).replace(oldtowrite,towrite))
+	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
+		for (let i24 = 0; i24 < iid; i24++) {
+			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite));break;}
+			iid++
+		}
+	}else{
+    	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
 	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
 	  session: sessiondata
@@ -242,9 +249,10 @@ if(tablocation != "login"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
 			var inf =sid;
-			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf}`)){
-			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
+			var iid=0
+			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
+			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+iid}`,`toeditt`))
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+iid}`,`toeditt`))
 			towrite2=towrite2.toeditt
 			var ppp = towrite2.timestamp
 			var justtn=false
@@ -257,18 +265,18 @@ if(tablocation != "login"){
 
 			}}
 		if(justtn==false){
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf}`))
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`))
 		}
 		}else{
 				sessiondata.toeditt=undefined
-				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
     		if(justtn==true){
 				sessiondata.toeditt=undefined
-				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}else{
 				sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
 			writeus();
 			warntheuser()
