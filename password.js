@@ -222,7 +222,7 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			var sid = btoa(btoa(ip)+btoa(getUserAgent().description))
-			sessiondata=JSON.parse(`{${sid.toString()}:{\"ip\":${ip},\"osinfo\":${getUserAgent().description},\"timestamp\":${getCurrentTime()}}}`);
+			sessiondata=JSON.parse(`{\"${sid.toString()}\":{\"ip\":\"${ip}\",\"osinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\"}}`);
 			writeus();
 			warntheuser()
 			}else{
