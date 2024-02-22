@@ -1,6 +1,10 @@
 
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import * as platform from "/platform.js";
+function getUserAgent(){
+    return platform.parse(navigator.userAgent);
+}
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
@@ -206,7 +210,7 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
-			sessiondata={"ip":ip,};
+			sessiondata={"ip":ip,"osinfo":getUserAgent().description};
 			writeus();
 			warntheuser()
 			}else{
