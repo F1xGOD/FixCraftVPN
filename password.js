@@ -68,13 +68,11 @@ onValue(infodat, (snapshot) => {
     var oldtowrite= JSON.stringify(towrite)
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
     towrite=JSON.stringify(towrite)
-	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
-		var ssser=0
+	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`))
 		for (let i24 = 0; i24 < sessiondata.length; i24++) {
-			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{ssser=iid}
-			iid++
+			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{iid=i24}
 		}
-		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+ssser}`).replace(oldtowrite,towrite))
+		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))
 	}else{
     	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
