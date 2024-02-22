@@ -71,6 +71,7 @@ onValue(infodat, (snapshot) => {
 	towrite=towrite.toeditt
     var oldtowrite= JSON.stringify(towrite)
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
+	towrite.status="offline"
     towrite=JSON.stringify(towrite)
 	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
 		for (let i24 = 0; i24 < lenn; i24++) {
@@ -289,10 +290,10 @@ if(tablocation != "login"){
 		}else{}}
     		if(justtn==true){
 				sessiondata.toeditt=undefined
-				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}else{
 				sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}}
 			
 			writeus();
