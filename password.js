@@ -92,7 +92,7 @@ onValue(infodat, (snapshot) => {
 
   });
   window.addEventListener('beforeunload', function(e) {
-	if(tablocation!="admin/session"||tablocation!="admin/session.html"){
+	if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
   writeus2(sid)}
   });
 function warntheuser(){
@@ -264,7 +264,7 @@ if(tablocation != "login"){
 				  }
 				  ii2i++
 			  }}
-			  if(tablocation!="admin/session"||tablocation!="admin/session.html"){
+			  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
 			var lenn=Object.keys(osessiondata).length+1

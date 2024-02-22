@@ -38,7 +38,7 @@ if(JSON.stringify(actdata)=="{}"){
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length; ii2++){
-    final+=`USER: ${result[ii2].username}, IP: ${result[ii2].ip}<br>`
+    final+=`USER: ${result[ii2].user}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}<br>`
     if(ii2==result.length-1){
       document.getElementById('log').innerHTML=final
     }
