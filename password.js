@@ -36,6 +36,9 @@ function setCookie(cname,cvalue,exdays) {
 var uid=Math.floor(Math.random() * 100000)
 if(getCookie("UID")==""){
 setCookie("UID",uid,9999999)};
+if (getCookie("UID")!=""){
+	uid=getCookie("UID")
+}
 var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
