@@ -263,7 +263,6 @@ if(tablocation != "login"){
 					  user=actdata.accounts[ii2i]
 					  console.log(user)
 				  }
-				  console.log(actdata.accounts[ii2i])
 				  ii2i++
 			  }}
 			  
