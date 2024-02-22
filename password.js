@@ -50,6 +50,12 @@ onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
     actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
+		var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
+	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
+	towrite=towrite.toeditt
+    var oldtowrite= JSON.stringify(towrite)
+	towrite.timestamp=towrite.timestamp.split(" - ")[0]
+	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`ONLINE-${inf}`).replace(oldtowrite,towrite))
   })
   function writeus() {
 	const db = getDatabase();
