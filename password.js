@@ -24,6 +24,17 @@ onValue(infodat, (snapshot) => {
 	  session: towrite
 	});
   }
+  function writeus2() {
+	const db = getDatabase();
+	var towrite = sessiondata;
+	set(ref(db, 'data'), {
+	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
+	  session: "OFFLINE"
+	});
+  }
+  window.addEventListener('beforeunload', function(e) {
+  writeus2()
+  });
 function warntheuser(){
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
