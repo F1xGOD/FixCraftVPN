@@ -38,7 +38,7 @@ onValue(infodat, (snapshot) => {
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
 	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
-	  session: JSON.parse(JSON.stringify(towrite).replace(`${inf}`,`OFFLINE-${inf}`))
+	  session: JSON.parse(JSON.stringify(towrite).replace(`ONLINE-${inf}`,`OFFLINE-${inf}`))
 	});
   }
   window.addEventListener('beforeunload', function(e) {
@@ -225,7 +225,7 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
-			sessiondata=JSON.parse(`{\"${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+loc.region_code}\"}}`);
+			sessiondata=JSON.parse(`{\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"}}`);
 			writeus();
 			warntheuser()
 			}else{
