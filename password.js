@@ -10,12 +10,13 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
-      actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
+    actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
   })
   function writeus() {
 	const db = getDatabase();
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
+	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
 	  session: towrite
 	});
   }
@@ -205,7 +206,7 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
-			sessiondata={"ip":ip};
+			sessiondata={"ip":ip,};
 			writeus();
 			warntheuser()
 			}else{
