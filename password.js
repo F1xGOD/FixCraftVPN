@@ -264,7 +264,7 @@ if(tablocation != "login"){
 				  }
 				  ii2i++
 			  }}
-			  
+			  if(tablocation!="admin/session"||tablocation!="admin/session.html"){
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
 			var lenn=Object.keys(osessiondata).length+1
@@ -293,7 +293,7 @@ if(tablocation != "login"){
 			}else{
 				sessiondata.toeditt=undefined
 			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-			}
+			}}
 			
 			writeus();
 			warntheuser()
