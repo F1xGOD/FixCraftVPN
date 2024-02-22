@@ -5,19 +5,30 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var sessiondata = {};
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
+	sessiondata=data.session
       actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
   })
+  function writeus() {
+	const db = getDatabase();
+	var towrite = sessiondata;
+	set(ref(db, 'data'), {
+	  session: towrite
+	});
+  }
 function warntheuser(){
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
 warntheuser();
+var ip = "";
 $.getJSON("https://api.ipify.org?format=json",
         function (data) {
+			ip=data.ip
 	if(data.ip=="166.109.22.41"){
 	window.location.replace(`${host}/killswitch`)
 }});
@@ -194,6 +205,8 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
+			sessiondata={"ip":ip};
+			writeus();
 			warntheuser()
 			}else{
 				console.log("ACCOUNT DECATIVATED!")
