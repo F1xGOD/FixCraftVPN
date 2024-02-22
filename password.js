@@ -255,7 +255,7 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			if(getCookie("usernamecred")!=""){
-				var uuun=abob(getCookie("usernamecred"))
+				var uuun=atob(getCookie("usernamecred"))
 				var user={}
 				var ii2i=0
 				while (ii2i < actdata.accounts.length){
