@@ -248,22 +248,22 @@ if(tablocation != "login"){
 			towrite2=towrite2.toeditt
 			var ppp = towrite2.timestamp
 			var justtn=false
-			if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]){
-			if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1])
+			if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
+			if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1]||parseInt(getCurrentTime().split(":")[1])-parseInt(ppp.split(" - ")[1].split(":")[1])==1)
 			if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
     		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
     		justtn=true
 		}
 
 			}}}else{
-				sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toditt`,`ONLINE-${inf}`))
+				sessiondata.toeditt=undefined
 				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
     		if(justtn==true){
-				sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toditt`,`ONLINE-${inf}`))
+				sessiondata.toeditt=undefined
 				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}else{
-				sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toditt`,`ONLINE-${inf}`))
+				sessiondata.toeditt=undefined
 			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
 			writeus();
