@@ -357,6 +357,13 @@ var ds = "0"+d.getSeconds()
 var timestamp = d.getHours()+":"+dm.substr(-2)+":"+ds.substr(-2)
 return timestamp
 }
+function getCurrentDate(){
+  var d = new Date();
+var dm = "0"+d.getMonth()+1
+var dd = "0"+d.getDate()
+var timestamp = dm.substr(-2)+"/"+dd.substr(-2)+"/"+d.getFullYear()
+return timestamp
+}
 function getLocation(ip){
   var value= $.ajax({ 
     url: `https://ipapi.co/${ip}/json`, 
