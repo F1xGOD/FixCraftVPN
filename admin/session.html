@@ -26,11 +26,16 @@ onValue(infodat, (snapshot) => {
 	  sessiondata=data.session
     actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
   })
+  function checkREADY22(fistt){
+if(JSON.stringify(actdata)=="{}"){
+  setTimeout(function(){
+  checkREADY22(true)}, 10)
+}else{console.log("LOADED!");
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length; ii2++){
     document.getElementById('log').innerHTML+=result[ii2]
-  }
-  
+  }}}
+  checkREADY22(true)
 </script>
 </body>
 </html>
