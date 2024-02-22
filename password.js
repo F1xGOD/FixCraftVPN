@@ -129,6 +129,7 @@ if(JSON.stringify(actdata)=="{}"){
 if(getCookie("usernamecred")!=""){
 	var uuun=getCookie("usernamecred")
 	var user={}
+	var ii2i=0
 	while (ii2i < actdata.accounts.length){
 	  if(actdata.accounts[ii2i].username==uuun){
 		  user=actdata.accounts[ii2i]
