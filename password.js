@@ -50,12 +50,6 @@ onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
     actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
-		var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
-	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
-	towrite=towrite.toeditt
-    var oldtowrite= JSON.stringify(towrite)
-	towrite.timestamp=towrite.timestamp.split(" - ")[0]
-	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`ONLINE-${inf}`).replace(oldtowrite,towrite))
   })
   function writeus() {
 	const db = getDatabase();
@@ -79,13 +73,13 @@ onValue(infodat, (snapshot) => {
 	  session: sessiondata
 	});
   }
-  var doo=true
+
   window.addEventListener("pagehide", function() {
-  doo=false
+
   });
   window.addEventListener('beforeunload', function(e) {
-	if(doo){
-  writeus2(sid)}
+
+  writeus2(sid)
   });
 function warntheuser(){
 console.clear();
@@ -247,7 +241,23 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
+			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf}`,`toeditt`))
+			towrite2=towrite2.toeditt
+			var ppp = towrite2.timestamp
+			justtn=false
+			if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]){
+			if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1])
+			if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
+    		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
+    		justtn=true
+		}
+			}}
+    		if(justtn){
+				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			}else{
 			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			}
 			writeus();
 			warntheuser()
 			}else{
