@@ -10,5 +10,4 @@ tablocation=""
 for(var io=0;io<otablocation.split('/').length;io++){
     if(io>2){tablocation+="/"+otablocation.split('/')[io]}
 }
-tablocation.slice(1)
-
+tablocation=tablocation.slice(1)
