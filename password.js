@@ -264,6 +264,7 @@ if(tablocation != "login"){
 				  }
 				  ii2i++
 			  }}
+			  console.log(user)
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
 			var lenn=Object.keys(osessiondata).length+1
