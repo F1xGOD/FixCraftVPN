@@ -253,11 +253,12 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
-			var inf =sid;
-			var iid=0
-			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
-			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+iid}`,`toeditt`))
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+iid}`,`toeditt`))
+			var inf =sid;var osessiondata=sessiondata
+			var lenn=Object.keys(osessiondata).length
+			for (let i242 = 0; i242 < lenn; i242++) {
+			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
+			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 			towrite2=towrite2.toeditt
 			var ppp = towrite2.timestamp
 			var justtn=false
@@ -270,12 +271,12 @@ if(tablocation != "login"){
 
 			}}
 		if(justtn==false){
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`))
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
 		}
 		}else{
 				sessiondata.toeditt=undefined
 				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-			}
+			}}
     		if(justtn==true){
 				sessiondata.toeditt=undefined
 				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
