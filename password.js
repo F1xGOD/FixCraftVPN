@@ -268,7 +268,7 @@ if(tablocation != "login"){
     		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
     		justtn=true
 		}
-
+		console.log(jsuttn)
 			}}
 		if(justtn==false){
 			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
