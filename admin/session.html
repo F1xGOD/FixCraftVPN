@@ -9,9 +9,13 @@
   <link rel="stylesheet" href="/snackbar.css">
   <script src="/snackbar.js"></script>
 <link rel="icon" href="https://x0.at/CVDX.png">
+<style>
+  p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+</style>
 </head>
 <body>
-<p id="log">LODAING...</p>
+<p id="log" class="text">LODAING...</p>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
@@ -31,9 +35,13 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
+var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length; ii2++){
-    document.getElementById('log').innerHTML+=result[ii2]
+    final+=`USER: ${result[ii2].username}, IP: ${result[ii2].ip}<br>`
+    if(ii2==result.length-1){
+      document.getElementById('log').innerHTML=final
+    }
   }}}
   checkREADY22(true)
 </script>
