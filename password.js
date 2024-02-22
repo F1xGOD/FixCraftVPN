@@ -255,7 +255,11 @@ if(tablocation != "login"){
     		justtn=true
 		}
 
-			}}}else{
+			}}
+		if(justtn==false){
+			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf}`))
+		}
+		}else{
 				sessiondata.toeditt=undefined
 				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
