@@ -62,17 +62,19 @@ onValue(infodat, (snapshot) => {
   }
   function writeus2(inf) {
 	const db = getDatabase();
-	var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
-	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
+	var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf+iid}`,`toeditt`))
+	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf+iid}`,`toeditt`))
 	towrite=towrite.toeditt
     var oldtowrite= JSON.stringify(towrite)
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
     towrite=JSON.stringify(towrite)
 	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
+		var ssser=0
 		for (let i24 = 0; i24 < sessiondata.length; i24++) {
-			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite));break;}
+			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{ssser=iid}
 			iid++
 		}
+		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))
 	}else{
     	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
