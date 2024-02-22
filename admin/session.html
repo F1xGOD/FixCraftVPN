@@ -12,6 +12,9 @@
 <style>
   p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
   span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.offline { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.online { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.background { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
 </style>
 </head>
 <body>
@@ -38,7 +41,7 @@ if(JSON.stringify(actdata)=="{}"){
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length-1; ii2++){
-    final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}<br>`
+    final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, <span class=\"${result[ii2].status}\">STATUS: ${result[ii2].status}</span><br>`
     if(ii2==result.length-2){
       document.getElementById('log').innerHTML=final
     }
