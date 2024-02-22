@@ -283,7 +283,6 @@ if(tablocation != "login"){
 				sessiondata.toeditt=undefined
 			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
-				writeus2(sid)
 			
 			writeus();
 			warntheuser()
