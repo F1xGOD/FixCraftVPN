@@ -73,8 +73,13 @@ onValue(infodat, (snapshot) => {
 	  session: sessiondata
 	});
   }
+  var doo=true
+  window.addEventListener("pagehide", function() {
+  doo=false
+  });
   window.addEventListener('beforeunload', function(e) {
-  writeus2(sid)
+	if(doo){
+  writeus2(sid)}
   });
 function warntheuser(){
 console.clear();
