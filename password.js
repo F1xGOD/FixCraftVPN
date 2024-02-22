@@ -255,13 +255,12 @@ if(tablocation != "login"){
 			if(sts=="active"){
 			console.log("Session Login")
 			if(getCookie("usernamecred")!=""){
-				var uuun=getCookie("usernamecred")
+				var uuun=abob(getCookie("usernamecred"))
 				var user={}
 				var ii2i=0
 				while (ii2i < actdata.accounts.length){
 				  if(actdata.accounts[ii2i].username==uuun){
 					  user=actdata.accounts[ii2i]
-					  console.log(user)
 				  }
 				  ii2i++
 			  }}
@@ -282,7 +281,7 @@ if(tablocation != "login"){
     		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
     		justtn=true
 		}
-		console.log(jsuttn)
+		console.log(justtn)
 			}}
 		if(justtn==false){
 			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
