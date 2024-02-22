@@ -94,7 +94,6 @@ onValue(infodat, (snapshot) => {
   writeus2(sid)
   });
 function warntheuser(){
-	writeus2(sid)
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
@@ -284,6 +283,7 @@ if(tablocation != "login"){
 				sessiondata.toeditt=undefined
 			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 			}
+				writeus2(sid)
 			
 			writeus();
 			warntheuser()
