@@ -254,7 +254,7 @@ if(tablocation != "login"){
 			console.log("Session Login")
 			var loc=getLocation(ip)
 			var inf =sid;var osessiondata=sessiondata
-			var lenn=Object.keys(osessiondata).length
+			var lenn=Object.keys(osessiondata).length+1
 			for (let i242 = 0; i242 < lenn; i242++) {
 			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
 			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
