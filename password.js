@@ -68,7 +68,7 @@ onValue(infodat, (snapshot) => {
     var oldtowrite= JSON.stringify(towrite)
 	towrite.timestamp=towrite.timestamp+" - "+getCurrentTime()
     towrite=JSON.stringify(towrite)
-	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`))
+	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){
 		for (let i24 = 0; i24 < sessiondata.length; i24++) {
 			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+iid}`)){}else{iid=i24}
 		}
