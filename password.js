@@ -92,8 +92,8 @@ onValue(infodat, (snapshot) => {
 
   });
   window.addEventListener('beforeunload', function(e) {
-
-  writeus2(sid)
+	if(tablocation!="admin/session"||tablocation!="admin/session.html"){
+  writeus2(sid)}
   });
 function warntheuser(){
 console.clear();
