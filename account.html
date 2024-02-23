@@ -260,7 +260,7 @@ function snackbar_Fail(passedvar) {
                     };
 module.writeus = function writeus() {
   const db = getDatabase();
-  var towrite = fwx256bin(JSON.stringify(actdata).slice(1,-1));
+  var towrite = actdata
   set(ref(db, 'data'), {
     data: towrite
   });
