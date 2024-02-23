@@ -25,10 +25,20 @@
 				<script type="module">
 	 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import "/platform.js";
+function getUserAgent(){
+    return platform.parse(navigator.userAgent);
+}
+var ip="";
+var loc=getLocation(ip)
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+			ip=data.ip})
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var sessiondata = {};
 const infodat = ref(db, 'data');
 function getCookie(cname) {
 	let name = cname + "=";
@@ -54,10 +64,16 @@ function setCookie(cname,cvalue,exdays) {
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
-	data=data.data
-      actdata=data
+      actdata=data.data
+	  sessiondata=data.session
   })};
   readd();
+  function succcessLogin(){
+	sessiondata=JSON.parse("{"+`\"LOGIN-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"success\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	set(ref(db, 'data'), {
+	  data: actdata,
+	  session: sessiondata
+	});}
         function checkCookie() {
           let password = getCookie("passwordcred");
 	  let username = getCookie("usernamecred");
@@ -187,6 +203,7 @@ onValue(infodat, (snapshot) => {
 						}else{
 							snackbar_Success();
 							console.log("LOGIN SUCCEED!");
+							succcessLogin()
 							setCookie("passwordcred",text,14);
 							setCookie("usernamecred",text2,14);
 							init();}

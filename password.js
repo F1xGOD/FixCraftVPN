@@ -55,7 +55,6 @@ onValue(infodat, (snapshot) => {
     actdata=data.data
   })
   function writeus() {
-	const db = getDatabase();
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
 	  data: actdata,
@@ -63,7 +62,6 @@ onValue(infodat, (snapshot) => {
 	});
   }
   function writeus2(inf) {
-	const db = getDatabase();
 	var towrite = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`ONLINE-${inf}`,`toeditt`))
     var osessiondata=sessiondata
