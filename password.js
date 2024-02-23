@@ -52,6 +52,7 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
+	console.log(data.data)
     actdata=data.data
   })
   function writeus() {
