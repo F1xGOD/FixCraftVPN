@@ -52,13 +52,13 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
-    actdata=JSON.parse("{"+fwx256unbin(data.data)+"}")
+    actdata=data.data
   })
   function writeus() {
 	const db = getDatabase();
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
-	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
+	  data: actdata,
 	  session: towrite
 	});
   }
@@ -84,7 +84,7 @@ onValue(infodat, (snapshot) => {
 	}else{
     	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
-	  data: fwx256bin(JSON.stringify(actdata).slice(1,-1)),
+	  data: actdata,
 	  session: sessiondata
 	});
   }
