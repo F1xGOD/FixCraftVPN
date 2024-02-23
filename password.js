@@ -52,7 +52,7 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
-    actdata=JSON.parse("{"+fwx256unbin(data.data,"G56&.zHIQ")+"}")
+    actdata=JSON.parse("{"+fwx256unbin(data.data)+"}")
   })
   function writeus() {
 	const db = getDatabase();
