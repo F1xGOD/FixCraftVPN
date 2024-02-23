@@ -80,7 +80,7 @@ onValue(infodat, (snapshot) => {
             }}
 		}
         
-		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+parseInt(iid-3)}`).replace(oldtowrite,towrite))
+		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+parseInt(iid-2)}`).replace(oldtowrite,towrite))
 	}else{
     	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
