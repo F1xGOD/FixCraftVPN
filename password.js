@@ -145,8 +145,6 @@ if(justtn==false){
 	}}
 }
 
-checkSessionStart();
-
 function ReplaceContent(NC) {
 	document.open();
 	document.write(NC);
@@ -170,6 +168,7 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
+checkSessionStart();
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
