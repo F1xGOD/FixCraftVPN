@@ -102,7 +102,50 @@ console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
 console.log('%cThe browser console is a developer tool not intended for use!\nDO NOT copy and paste any code in this window.  Any code execution in this window is a violation of the Terms of Use and may result BAN','font-size: 12px;')	
 }
 warntheuser();
+function checkSessionStart(){
+	if(getCookie("usernamecred")!=""){
+		var uuun=btoa(getCookie("usernamecred"))
+		var user={}
+		var ii2i=0
+		while (ii2i < actdata.accounts.length){
+		  if(actdata.accounts[ii2i].username==uuun){
+			  user=actdata.accounts[ii2i]
+		  }
+		  ii2i++
+	  }}
+	  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
+	var loc=getLocation(ip)
+	var inf =sid;var osessiondata=sessiondata
+	var lenn=Object.keys(osessiondata).length+1
+	for (let i242 = 0; i242 < lenn; i242++) {
+	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
+	var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
+	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
+	towrite2=towrite2.toeditt
+	var ppp = towrite2.timestamp
+	var justtn=false
+	if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
+	if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1]||parseInt(getCurrentTime().split(":")[1])-parseInt(ppp.split(" - ")[1].split(":")[1])==1)
+	if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
+	if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
+	justtn=true
+}
+console.log(justtn)
+	}}
+if(justtn==false){
+	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
+}
+}else{}}
+	if(justtn==true){
+		sessiondata.toeditt=undefined
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	}else{
+		sessiondata.toeditt=undefined
+	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	}}
+}
 
+checkSessionStart();
 
 function ReplaceContent(NC) {
 	document.open();
@@ -255,46 +298,6 @@ if(tablocation != "login"){
 			}
 			if(sts=="active"){
 			console.log("Session Login")
-			if(getCookie("usernamecred")!=""){
-				var uuun=btoa(getCookie("usernamecred"))
-				var user={}
-				var ii2i=0
-				while (ii2i < actdata.accounts.length){
-				  if(actdata.accounts[ii2i].username==uuun){
-					  user=actdata.accounts[ii2i]
-				  }
-				  ii2i++
-			  }}
-			  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
-			var loc=getLocation(ip)
-			var inf =sid;var osessiondata=sessiondata
-			var lenn=Object.keys(osessiondata).length+1
-			for (let i242 = 0; i242 < lenn; i242++) {
-			if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
-			var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
-			towrite2=towrite2.toeditt
-			var ppp = towrite2.timestamp
-			var justtn=false
-			if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
-			if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1]||parseInt(getCurrentTime().split(":")[1])-parseInt(ppp.split(" - ")[1].split(":")[1])==1)
-			if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
-    		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
-    		justtn=true
-		}
-		console.log(justtn)
-			}}
-		if(justtn==false){
-			sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
-		}
-		}else{}}
-    		if(justtn==true){
-				sessiondata.toeditt=undefined
-				sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-			}else{
-				sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-			}}
 			
 			writeus();
 			warntheuser()
