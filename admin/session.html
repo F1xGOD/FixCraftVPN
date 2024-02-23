@@ -53,7 +53,7 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	  sessiondata=data.session
-    actdata=JSON.parse("{"+fwx256unbin(data.data)+"}")
+    actdata=data.data
   })
   function checkREADY22(fistt){
 if(JSON.stringify(actdata)=="{}"){
