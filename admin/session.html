@@ -71,8 +71,7 @@ while (ii2i < actdata.accounts.length){
 	ii2i++
 }
 var accesslevel = 0
-if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
-if(role=="admin" || role=="moderator" || role=="debugger"){
+
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length-1; ii2++){
@@ -80,7 +79,7 @@ var final= "";
     if(ii2==result.length-2){
       document.getElementById('log').innerHTML=final
     }
-  }}}
+  }}
 }
   function first(){
 setTimeout(function(){
