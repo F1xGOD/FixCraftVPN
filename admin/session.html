@@ -60,20 +60,6 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
-var final= "";
-  var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
-  for(var ii2 = 0; ii2 < result.length-1; ii2++){
-    final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
-    if(ii2==result.length-2){
-      document.getElementById('log').innerHTML=final
-    }
-  }}}
-
-  function first(){
-setTimeout(function(){
-	checkREADY22(false)
-	first()
-},3500)}
 var uname = getCookie("usernamecred");
 var ii2i= 0;
 var role = ""
@@ -88,6 +74,21 @@ var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 if(role=="admin" || role=="moderator" || role=="debugger"){
 first();}
+var final= "";
+  var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
+  for(var ii2 = 0; ii2 < result.length-1; ii2++){
+    final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
+    if(ii2==result.length-2){
+      document.getElementById('log').innerHTML=final
+    }
+  }}}
+
+  function first(){
+setTimeout(function(){
+	checkREADY22(false)
+	first()
+},3500)}
+
 </script>
 </body>
 </html>
