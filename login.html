@@ -76,6 +76,17 @@ onValue(infodat, (snapshot) => {
   })};
   readd();
   function succcessLogin(){
+}else{console.log("LOADED!");
+var ii2i= 0;
+var user = ""
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		user=actdata.accounts[ii2i]
+	}
+	ii2i++
+}
 	sessiondata=JSON.parse("{"+`\"LOGIN-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"success\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	set(ref(db, 'data'), {
 	  data: actdata,
