@@ -29,6 +29,13 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
+var uid=Math.floor(Math.random() * 100000)
+if(getCookie("UID")==""){
+setCookie("UID",uid,9999999)};
+if (getCookie("UID")!=""){
+	uid=getCookie("UID")
+}
+var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 var ip="";
 var loc=getLocation(ip)
 $.getJSON("https://api.ipify.org?format=json",
