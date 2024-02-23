@@ -52,7 +52,6 @@ const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
-	console.log(data.data)
     actdata=data.data
   })
   function writeus() {
@@ -113,7 +112,7 @@ function checkSessionStart(){
 			  user=actdata.accounts[ii2i]
 		  }
 		  ii2i++
-	  }}
+	  }
 	  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
 	var loc=getLocation(ip)
 	var inf =sid;var osessiondata=sessiondata
@@ -143,7 +142,7 @@ if(justtn==false){
 	}else{
 		sessiondata.toeditt=undefined
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-	}}
+	}}}
 }
 
 function ReplaceContent(NC) {
