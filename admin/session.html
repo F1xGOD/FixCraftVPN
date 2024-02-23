@@ -73,7 +73,6 @@ while (ii2i < actdata.accounts.length){
 var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 if(role=="admin" || role=="moderator" || role=="debugger"){
-first();}
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length-1; ii2++){
@@ -82,7 +81,7 @@ var final= "";
       document.getElementById('log').innerHTML=final
     }
   }}}
-
+}
   function first(){
 setTimeout(function(){
 	checkREADY22(false)
