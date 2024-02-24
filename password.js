@@ -1,7 +1,7 @@
 
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
+import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
@@ -53,6 +53,23 @@ function requestPermission() {
 	  if (permission === 'granted') {
 		console.log('Notification permission granted.');}})}
 		requestPermission()
+		const messaging = getMessaging();
+		onMessage(messaging, (payload) => {
+		  console.log('Message received. ', payload);
+		  // ...
+		});
+		onBackgroundMessage(messaging, (payload) => {
+			console.log('[firebase-messaging-sw.js] Received background message ', payload);
+			// Customize notification here
+			const notificationTitle = 'Background Message Title';
+			const notificationOptions = {
+			  body: 'Background Message body.',
+			  icon: '/firebase-logo.png'
+			};
+		  
+			self.registration.showNotification(notificationTitle,
+			  notificationOptions);
+		  });
 var actdata = {};
 var sessiondata = {};
 var iid=0
