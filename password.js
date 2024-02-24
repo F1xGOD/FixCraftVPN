@@ -2,11 +2,13 @@
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
+import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-navigator.serviceWorker.register('https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js');
+
 var ip = "";
 
 $.getJSON("https://api.ipify.org?format=json",
@@ -54,10 +56,7 @@ function requestPermission() {
 	  if (permission === 'granted') {
 		console.log('Notification permission granted.');}})}
 		requestPermission()
-		onMessage(messaging, (payload) => {
-		  console.log('Message received. ', payload);
-		  // ...
-		});
+
 
 var actdata = {};
 var sessiondata = {};
