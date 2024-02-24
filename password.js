@@ -1,7 +1,8 @@
 
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+import { onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
