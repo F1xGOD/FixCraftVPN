@@ -1,7 +1,7 @@
 
-import { initializeApp, firebase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
+import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
@@ -46,15 +46,18 @@ var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-const messaging = firebase.messaging();
+const messaging = getMessaging(app);
 function requestPermission() {
 	console.log('Requesting permission...');
 	Notification.requestPermission().then((permission) => {
 	  if (permission === 'granted') {
 		console.log('Notification permission granted.');}})}
 		requestPermission()
-
-		messaging.onBackgroundMessage(function(payload) {
+		onMessage(messaging, (payload) => {
+		  console.log('Message received. ', payload);
+		  // ...
+		});
+		onBackgroundMessage(messaging, (payload) => {
 			console.log('[firebase-messaging-sw.js] Received background message ', payload);
 			// Customize notification here
 			const notificationTitle = 'Background Message Title';
