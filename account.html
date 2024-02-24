@@ -221,6 +221,10 @@ onValue(infodat, (snapshot) => {
     sessiondata=data.session
   })};
   readd();
+  var ip = "";
+
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {ip=data.ip})
   function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
