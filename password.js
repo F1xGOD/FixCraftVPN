@@ -53,10 +53,7 @@ function requestPermission() {
 	  if (permission === 'granted') {
 		console.log('Notification permission granted.');}})}
 		requestPermission()
-		onMessage(messaging, (payload) => {
-		  console.log('Message received. ', payload);
-		  // ...
-		});
+
 		onBackgroundMessage(messaging, (payload) => {
 			console.log('[firebase-messaging-sw.js] Received background message ', payload);
 			// Customize notification here
