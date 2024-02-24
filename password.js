@@ -1,8 +1,7 @@
 
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
-import { onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
+import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
@@ -58,7 +57,7 @@ function requestPermission() {
 		  console.log('Message received. ', payload);
 		  // ...
 		});
-		onBackgroundMessage(messaging, (payload) => {
+		messaging.setBackgroundMessageHandler(function(payload) {
 			console.log('[firebase-messaging-sw.js] Received background message ', payload);
 			// Customize notification here
 			const notificationTitle = 'Background Message Title';
