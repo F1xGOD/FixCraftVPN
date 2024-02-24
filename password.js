@@ -6,6 +6,7 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
+navigator.serviceWorker.register('https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js');
 var ip = "";
 
 $.getJSON("https://api.ipify.org?format=json",
