@@ -75,19 +75,22 @@ onValue(infodat, (snapshot) => {
 	  sessiondata=data.session
   })};
   readd();
-  function succcessLogin(){
-var ii2i= 0;
-var user = ""
-var uname = getCookie("usernamecred");
-uname=btoa(uname)
-while (ii2i < actdata.accounts.length){
-	if(actdata.accounts[ii2i].username==uname){
-		user=actdata.accounts[ii2i]
-	}
-	ii2i++
-}
-	sessiondata=JSON.parse("{"+`\"LOGIN-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"success\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-	set(ref(db, 'data'), {
+  function succcessLogin(usernamee){
+	var inf=sid
+    var iid=0
+    var lenn=Object.keys(sessiondata).length+1
+    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${usernamee}\",\"status\":\"success\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+    if(JSON.stringify(sessiondata).includes(`LOGIN-${inf+iid}`)){
+		for (let i24 = 0; i24 < lenn; i24++) {
+			if(JSON.stringify(sessiondata).includes(`EDITED-${inf+iid}`)){sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`LOGIN-${inf+iid}`,`${i24+"tte"}`))}else{iid=i24+1;for(let iii = 0; iii < lenn; iii++){
+                sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`${iii.toString()+"tte"}`,`LOGIN-${inf+iii.toString()}`))
+            }}
+		}
+sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`-${inf+parseInt(iid-2)}`))
+  }else{
+  sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`LOGIN-${inf+iid}`));
+    }
+		set(ref(db, 'data'), {
 	  data: actdata,
 	  session: sessiondata
 	});}
@@ -220,7 +223,7 @@ while (ii2i < actdata.accounts.length){
 						}else{
 							snackbar_Success();
 							console.log("LOGIN SUCCEED!");
-							succcessLogin()
+							succcessLogin(text)
 							setCookie("passwordcred",text,14);
 							setCookie("usernamecred",text2,14);
 							init();}
