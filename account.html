@@ -299,7 +299,7 @@ module.writeus = function writeus() {
             }}
 		}
   }else{
-  sessiondata=JSON.parse("{"+`\"EDITED-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+  sessiondata=JSON.parse("{"+`\"EDITED-${sid.toString()+iid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
     }
   set(ref(db, 'data'), {
     data: towrite,
