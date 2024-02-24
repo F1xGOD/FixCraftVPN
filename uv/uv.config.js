@@ -3,8 +3,8 @@
 self.__uv$config = {
   prefix: "/uv/service/",
   bare: "/bare/",
-  encodeUrl: "https://networkcalc.com/api/encoder/",
-  decodeUrl: "https://networkcalc.com/api/encoder/",
+  encodeUrl: Ultraviolet.codec.xor.encode,
+  decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
   client: "/uv/uv.client.js",
   bundle: "/uv/uv.bundle.js",
