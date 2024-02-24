@@ -57,7 +57,7 @@ function requestPermission() {
 		  console.log('Message received. ', payload);
 		  // ...
 		});
-		messaging.setBackgroundMessageHandler(function(payload) {
+		messaging.onBackgroundMessage(function(payload) {
 			console.log('[firebase-messaging-sw.js] Received background message ', payload);
 			// Customize notification here
 			const notificationTitle = 'Background Message Title';
