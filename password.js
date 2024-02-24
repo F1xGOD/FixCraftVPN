@@ -53,7 +53,6 @@ function requestPermission() {
 	  if (permission === 'granted') {
 		console.log('Notification permission granted.');}})}
 		requestPermission()
-		const messaging = getMessaging();
 		onMessage(messaging, (payload) => {
 		  console.log('Message received. ', payload);
 		  // ...
