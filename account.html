@@ -285,14 +285,14 @@ module.writeus = function writeus() {
 			  user=actdata.accounts[ii2i]
 		  }
 		  ii2i++
-	  }
+	  }}
   sessiondata=JSON.parse("{"+`\"EDITED-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
   set(ref(db, 'data'), {
     data: towrite,
     session: sessiondata
   });
   snackbar_Successs();
-}}
+}
 module.savec = function savec() {
 var ii2i= 0;
 var userd = {}
