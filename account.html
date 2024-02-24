@@ -293,8 +293,7 @@ module.writeus = function writeus() {
     var inf=sid
     var iid=0
     var lenn=Object.keys(sessiondata).length+1
-    sessiondata=JSON.parse("{"+`\"EDITING-${sid.toString()+iid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-    sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`EDITING-${inf+iid}`,`toeditt`))
+    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
     if(JSON.stringify(sessiondata).includes(`EDITED-${inf+iid}`)){
 		for (let i24 = 0; i24 < lenn; i24++) {
 			if(JSON.stringify(sessiondata).includes(`EDITED-${inf+iid}`)){sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`EDITED-${inf+iid}`,`${i24+"tte"}`))}else{iid=i24+1;for(let iii = 0; iii < lenn; iii++){
@@ -303,7 +302,7 @@ module.writeus = function writeus() {
 		}
 sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`EDITED-${inf+parseInt(iid-2)}`))
   }else{
-  sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`EDITING-${inf+iid}`,`EDITED-${inf+iid}`));
+  sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`EDITED-${inf+iid}`));
     }
   set(ref(db, 'data'), {
     data: towrite,
