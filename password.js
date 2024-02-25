@@ -126,7 +126,8 @@ function checkSessionStart(){
 	  }
 	  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
 	var loc=getLocation(ip)
-	var inf =sid;var osessiondata=sessiondata
+	var inf =sid;
+	var osessiondata=sessiondata;
 	var lenn=Object.keys(osessiondata).length+1
 	for (let i242 = 0; i242 < lenn; i242++) {
 	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
