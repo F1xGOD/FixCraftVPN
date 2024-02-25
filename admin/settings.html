@@ -224,20 +224,7 @@ const section = document.querySelector("section"),
       closeBtn.addEventListener("click", () =>
         section.classList.remove("active")
       );
-      var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
 </script>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -815,7 +802,7 @@ for (var i = 0; i < accountsm.length; i++) {
 if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS`
-            final+="</div><br><br>"
+            final+="</div>"
 					final+=`DELETED ACCOUNTS:<br>`
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
@@ -855,6 +842,19 @@ if(i==accountsm.length-1){
                 final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById("log").style.margin="10px"
               document.getElementById('log').innerHTML = final
+              var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
               }
             })(ii)}
 							},40)}})(i2)}}
