@@ -8,5 +8,6 @@ function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
 	module.hosts=data.hosts
+    console.log(self.__uv$config)
   })};
   readd();
