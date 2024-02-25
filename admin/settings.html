@@ -19,7 +19,7 @@
   html {height: 100%;}
   .collapsible {cursor: pointer;width: 100%;border: none;text-align: left;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
     .ccontent {display: none;overflow: hidden;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
-    p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20; }
+    div.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20; }
     a.text { text-decoration:underline; color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
     span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
     span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
@@ -155,7 +155,7 @@ section.active .modal-box {
 <body>
 <section>
 <span class="overlay"></span>
-<p class="text" style="margin: 0px;" id="log">LOADING...</p>
+<div class="text" style="margin: 0px;" id="log">LOADING...</div>
 <div class="modal-box">
 	<h2 id="dilogttl">Add A New User</h2>
 	<form>
@@ -860,20 +860,7 @@ if(i==accountsm.length-1){
   window.location.replace(`${host}/forbidden`);
 }}}
 checkREADY22(true);
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
 </script>
 </section>
 </body>
