@@ -220,6 +220,9 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var hosts ={};
+var games = {};
+var sessiondata ={};
 var originalactdata ={};
 function snackbar_Loading(passedvar) {
                         SnackBar({
@@ -265,9 +268,11 @@ const infodat = ref(db, 'data');
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
-    data=data.data
-    actdata=data
-    originalactdata=data
+	games=data.games
+	sessiondata=data.session
+	hosts=data.hosts
+    actdata=datd.data
+    originalactdata=datd.data
   })};
   readd();
 function getCookie(cname) {
@@ -295,7 +300,10 @@ module.writeus = function writeus() {
   const db = getDatabase();
   var towrite = actdata;
   set(ref(db, 'data'), {
-    data: towrite
+    data: towrite,
+games: games,
+	session: sessiondata,
+	  hosts:hosts
   });
   snackbar_Successs();
 }
