@@ -92,5 +92,6 @@ var games = [
     games.push(game)
   })
   
-  console.log("Loaded " + games.length + " games")
+  console.log("Loaded " +https://fixcraft-vpn.onrender.com/danger
+  games.length + " games")
   console.log("Loaded " + customgames.lenfth + " custom games")
