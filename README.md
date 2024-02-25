@@ -1,5 +1,5 @@
 <pre>
-
+ ALL RIGHTS RESERVED
  _______ _        ______             ___      
 (_______|_)      / _____)           / __)_    
  _____   _ _   _| /       ____ ____| |__| |_  
@@ -8,7 +8,7 @@
 |_|     |_(_/ \_)\______)_|   \_||_|_|   \___)
                                               
                                                            
-FixCraft ® FixCraftVPN Copyright ©   
+FixCraft® Inc. FixCraftVPN Copyright ©   
 
 By F1xGOD 💀
 </pre>
