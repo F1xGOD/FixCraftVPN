@@ -211,20 +211,6 @@ section.active .modal-box {
 	</div>
   </div>
 <script>
-  var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
 const module = {};
 const section = document.querySelector("section"),
         overlay = document.querySelector(".overlay"),
@@ -849,7 +835,7 @@ if(i==accountsm.length-1){
                   for (var ii = 0; ii < hosts.length; ii++) {
     				(function(ii) {
               if(JSON.stringify(hosts[ii]).includes("uvconfig")){
-              final+=`&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].bare}<br>`}
+              final+=`&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].uvconfig.bare}<br>`}
               if(ii==hosts.length-1){
                 final+=`TOTAL ${hosts.length} HOSTS <br><br>`
                 final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
@@ -874,6 +860,20 @@ if(i==accountsm.length-1){
   window.location.replace(`${host}/forbidden`);
 }}}
 checkREADY22(true);
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
 </script>
 </section>
 </body>
