@@ -213,11 +213,13 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
 var sessiondata = {};
+var games = {};
 const infodat = ref(db, 'data');
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     actdata=data.data
+    games=data.games
     sessiondata=data.session
   })};
   readd();
@@ -306,7 +308,9 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
     }
   set(ref(db, 'data'), {
     data: towrite,
-    session: sessiondata
+    session: sessiondata,
+    games: games
+
   });
   snackbar_Successs();
 }
