@@ -731,7 +731,7 @@ if(i==accountsm.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
-              final+=`${games[i2].title}`
+              final+=`NAME: ${games[i2].title}, URL: ${games[i2].url}, IMAGE: ${games[i2].image}<br>`
               if(i2==games.length-1){
                 final+=`TOTAL ${games.length} GAMES <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
