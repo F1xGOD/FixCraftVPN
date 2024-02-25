@@ -639,6 +639,37 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
+module.addgame = function addgame() { 
+  document.getElementById("dilogttl").innerHTML="Add A New Game";
+document.getElementById("confrmbtn").innerHTML="Add";
+document.getElementById("elsee").style.display="none";
+document.getElementById("gms").style.display="block";
+document.getElementById("stat").style.display="none";
+document.getElementById("usrnnm").innerHTML="Name:";
+document.getElementById("reassss").style.display="none";
+document.getElementById("usrnam").value="Game";
+document.getElementById("idg").value="gamee";
+document.getElementById("urll").value="";
+document.getElementById("img").value="";
+document.getElementById("pssswrd").style.display="none";
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+  section.classList.remove("active");
+  var toadd = {};
+	toadd.id=document.getElementById("idg").value;
+	toadd.title=document.getElementById("usrnam").value;
+  toadd.url=document.getElementById("urll").value;
+	toadd.image=document.getElementById("img").value;
+  games=games.concat(toadd);
+  toaddum={};
+	section.classList.remove("active");
+	snackbar_Loading(`Adding - ${games[games.length-1]}`);
+	checkREADY22(false); 
+}
+      );
+};
+
 module.edittum = function edittum(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit A Page";
 document.getElementById("confrmbtn").innerHTML="Apply";
@@ -789,10 +820,10 @@ if(i==accountsm.length-1){
 						setTimeout(function(){
               if(ii2==actdata.undermaintenance.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
-              final+=`GAMES: &nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
+              final+=`GAMES:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
-              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: <a href=\"${games[i2].url}\" class=\"text\">${games[i2].url}</a>, IMAGE: ${games[i2].image}&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
+              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: <a href=\"${games[i2].url}\" class=\"text\">${games[i2].url}</a>, IMAGE: ${games[i2].image}&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa-solid fa-eraser\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
               if(i2==games.length-1){
                 final+=`TOTAL ${games.length} GAMES <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
