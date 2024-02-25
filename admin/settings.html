@@ -731,10 +731,10 @@ if(i==accountsm.length-1){
 						setTimeout(function(){
               if(ii2==actdata.undermaintenance.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
-              final+=`GAMES:f <br>`
+              final+=`GAMES: &nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
-              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: ${games[i2].url}, IMAGE: ${games[i2].image}<br>`
+              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: ${games[i2].url}, IMAGE: ${games[i2].image}&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
               if(i2==games.length-1){
                 final+=`TOTAL ${games.length} GAMES <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
