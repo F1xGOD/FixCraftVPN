@@ -451,11 +451,12 @@ section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
   section.classList.remove("active");
-	games[actid].title=document.getElementById("stts").value;
-	games[actid].s=btoa(document.getElementById("usrnam").value);
-	games[actid].password=btoa(document.getElementById("pssswrd").value);
+	games[actid].title=document.getElementById("usrnam").value;
+	games[actid].id=btoa(document.getElementById("idg").value);
+	games[actid].url=btoa(document.getElementById("urll").value);
+  games[actid].image=btoa(document.getElementById("img").value);
 	section.classList.remove("active");
-	snackbar_Loading(`Saving - ${atob(games[actid].username)}`);
+	snackbar_Loading(`Saving - ${games[actid].title}`);
 	checkREADY22(false);
 }
       );
