@@ -425,7 +425,7 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
-module.editt = function editt(actid) { 
+module.edittgm = function edittgm(actid) { 
 var ii2i= 0;
 var role = ""
 var uname = getCookie("usernamecred");
@@ -678,7 +678,7 @@ checkREADY22(false);
 };
 
 module.delgm = function delgm(actid) { 
-snackbar_Loading(`Erasing - ${atob(games[actid].title)}`);
+snackbar_Loading(`Erasing - ${games[actid].title}`);
 var test3 = [];
 for (let i2412 = 0; i2412 < games.length; i2412++) {
     if (games[i2412] !== games[actid]) {
