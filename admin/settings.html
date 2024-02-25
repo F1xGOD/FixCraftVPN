@@ -271,8 +271,8 @@ onValue(infodat, (snapshot) => {
 	games=data.games
 	sessiondata=data.session
 	hosts=data.hosts
-    actdata=datd.data
-    originalactdata=datd.data
+    actdata=data.data
+    originalactdata=data.data
   })};
   readd();
 function getCookie(cname) {
@@ -298,9 +298,8 @@ function setCookie(cname,cvalue,exdays) {
 }
 module.writeus = function writeus() {
   const db = getDatabase();
-  var towrite = actdata;
   set(ref(db, 'data'), {
-    data: towrite,
+    data: actdata,
 games: games,
 	session: sessiondata,
 	  hosts:hosts
