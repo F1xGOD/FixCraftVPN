@@ -353,6 +353,28 @@ var ds = "0"+d.getSeconds()
 var timestamp = d.getHours()+":"+dm.substr(-2)+":"+ds.substr(-2)
 return timestamp
 }
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+	  let c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
+
+function setCookie(cname,cvalue,exdays) {
+	const d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 function getCurrentDate(){
   var d = new Date();
 var dm = "0"+(parseInt(d.getMonth())+1).toString()
