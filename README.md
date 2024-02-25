@@ -7,6 +7,8 @@
 | |     | |) X (| \_____| |  ( ( | | |  | |__ 
 |_|     |_(_/ \_)\______)_|   \_||_|_|   \___)
                                               
-                                                     _______ _        ______             ___      
- Copyright ©                                                                             
+                                                           
+FixCraft ® FixCraftVPN Copyright ©   
+
+By F1xGOD 💀
 </pre>
