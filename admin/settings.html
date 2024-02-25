@@ -426,38 +426,16 @@ cnfrm.addEventListener("click", () =>
 };
 
 module.edittgm = function edittgm(actid) { 
-var ii2i= 0;
-var role = ""
-var uname = getCookie("usernamecred");
-uname=btoa(uname)
-while (ii2i < actdata.accounts.length){
-	if(actdata.accounts[ii2i].username==uname){
-		role=actdata.accounts[ii2i].role
-	}
-	ii2i++
-}
-ii2i=0;
-var job=""
-while (ii2i < actdata.accounts.length){
-	if(actdata.accounts[ii2i].username==uname){
-		job=actdata.accounts[ii2i].job
-	}
-	ii2i++
-}
-var accesslevel = 0
 document.getElementById("dilogttl").innerHTML="Edit An Existing Game";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
-document.getElementById("stat").style.display="block";
-document.getElementById("usrnnm").innerHTML="Username:";
+document.getElementById("stat").style.display="none";
+document.getElementById("usrnnm").innerHTML="Name:";
 document.getElementById("rolee").value=actdata.accounts[actid].role;
 document.getElementById("jobb").value=actdata.accounts[actid].job;
 document.getElementById("stts").value=actdata.accounts[actid].status;
 document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
 document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
-if(job!="owner"){document.getElementById("owner").style.display="none"}else{document.getElementById("owner").style.display="block"}
-if(accesslevel<4){ document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
-
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
