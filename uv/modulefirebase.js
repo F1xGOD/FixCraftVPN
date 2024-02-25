@@ -11,5 +11,6 @@ onValue(infodat, (snapshot) => {
     if(module.hosts.uvconfig.encodeUrl=="UVE"){module.hosts.uvconfig.encodeUrl=Ultraviolet.codec.xor.encode};
     if(module.hosts.uvconfig.decodeUrl=="UVD"){module.hosts.uvconfig.decodeUrl=Ultraviolet.codec.xor.decode};
     self.__uv$config=module.hosts.uvconfig
+    console.log(self.__uv$config)
   })};
   readd();
