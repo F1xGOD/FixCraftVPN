@@ -18,6 +18,7 @@
 <style type="text/css">
   html {height: 100%;}
     p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20; }
+    a.text { text-decoration:underline; color:#0000EE;font-weight:bold;font-family:Calibri;font-size:20;}
     span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
     span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
     span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
@@ -424,6 +425,58 @@ cnfrm.addEventListener("click", () =>
       );
 };
 
+module.editt = function editt(actid) { 
+var ii2i= 0;
+var role = ""
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+ii2i=0;
+var job=""
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		job=actdata.accounts[ii2i].job
+	}
+	ii2i++
+}
+var accesslevel = 0
+document.getElementById("dilogttl").innerHTML="Edit An Existing Game";
+document.getElementById("confrmbtn").innerHTML="Apply";
+document.getElementById("elsee").style.display="block";
+document.getElementById("stat").style.display="block";
+document.getElementById("usrnnm").innerHTML="Username:";
+document.getElementById("rolee").value=actdata.accounts[actid].role;
+document.getElementById("jobb").value=actdata.accounts[actid].job;
+document.getElementById("stts").value=actdata.accounts[actid].status;
+document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
+document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
+if(job!="owner"){document.getElementById("owner").style.display="none"}else{document.getElementById("owner").style.display="block"}
+if(accesslevel<4){ document.getElementById("admin").style.display="none";if(accesslevel<3){document.getElementById("moderator").style.display="none"}else{document.getElementById("moderator").style.display="block"}}else{document.getElementById("admin").style.display="block"}
+
+section.classList.add("active")
+cnfrm.addEventListener("click", () =>
+{
+  section.classList.remove("active");
+  if(accesslevel<4&&document.getElementById("rolee").value=="admin"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"};if(accesslevel<3&&document.getElementById("rolee").value=="moderator"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
+  if(job!="owner"&&document.getElementById("jobb").value=="owner"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
+	actdata.accounts[actid].role=document.getElementById("rolee").value;
+	actdata.accounts[actid].job=document.getElementById("jobb").value;
+  actdata.accounts[actid].deactreason=document.getElementById("reasnn").value;
+	actdata.accounts[actid].status=document.getElementById("stts").value;
+	actdata.accounts[actid].username=btoa(document.getElementById("usrnam").value);
+	actdata.accounts[actid].password=btoa(document.getElementById("pssswrd").value);
+	section.classList.remove("active");
+	snackbar_Loading(`Saving - ${atob(actdata.accounts[actid].username)}`);
+	checkREADY22(false);
+}
+      );
+};
+
 module.editlog = function editlog(actid) { 
   if(actid==0){ 
   document.getElementById("stattsin").style.display="inline-block";
@@ -624,6 +677,19 @@ actdata.accounts[actid].deactreason="DEACTIVATED - NO REASON!"
 checkREADY22(false);
 };
 
+module.delgm = function delgm(actid) { 
+snackbar_Loading(`Erasing - ${atob(games[actid].title)}`);
+var test3 = [];
+for (let i2412 = 0; i2412 < games.length; i2412++) {
+    if (games[i2412] !== games[actid]) {
+        test3=test3.concat(games[i2412]);
+    };
+}
+games=test3;
+test3=[];
+checkREADY22(false);
+};
+
 module.delfvr = function delfvr(actid) { 
 snackbar_Loading(`Erasing - ${atob(actdata.deletedaccounts[actid].username)}`);
 var test3 = [];
@@ -734,7 +800,7 @@ if(i==accountsm.length-1){
               final+=`GAMES: &nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
-              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: ${games[i2].url}, IMAGE: ${games[i2].image}&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
+              final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: <a href=\"${games[i2].url}\" class=\"text\">${games[i2].url}</a>, IMAGE: ${games[i2].image}&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa fa-trash\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
               if(i2==games.length-1){
                 final+=`TOTAL ${games.length} GAMES <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
