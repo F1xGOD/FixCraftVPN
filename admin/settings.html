@@ -159,6 +159,13 @@ section.active .modal-box {
 	<form>
 	<h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">Username:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="usrnam" name="usrrn">
 	<div></div>
+  <div id="gms">
+  <h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">URL:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="urll">
+	<div></div>
+  <h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">Image:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="img">
+	<div></div>
+  <h3 style="display:inline-block; margin-right:10px; margin-bottom:10px" id="usrnnm">ID:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="idg">
+	<div></div></div>
   <div id="elsee">
 	<h3 style="display:inline-block; margin-right:10px;margin-bottom:10px">Password:</h3><input style="border-width: 2px;display:block; float:right" type="text" id="pssswrd" name="ppsw">
 			<div></div>
@@ -390,7 +397,10 @@ if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if
 document.getElementById("dilogttl").innerHTML="Edit An Existing User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
+document.getElementById("pssswrd").style.display="block";
+document.getElementById("gms").style.display="none";
 document.getElementById("stat").style.display="block";
+document.getElementById("pssswrd").style.display="block";
 document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.accounts[actid].role;
 document.getElementById("jobb").value=actdata.accounts[actid].job;
@@ -428,28 +438,21 @@ cnfrm.addEventListener("click", () =>
 module.edittgm = function edittgm(actid) { 
 document.getElementById("dilogttl").innerHTML="Edit An Existing Game";
 document.getElementById("confrmbtn").innerHTML="Apply";
-document.getElementById("elsee").style.display="block";
+document.getElementById("elsee").style.display="none";
+document.getElementById("gms").style.display="block";
 document.getElementById("stat").style.display="none";
 document.getElementById("usrnnm").innerHTML="Name:";
-document.getElementById("rolee").value=actdata.accounts[actid].role;
-document.getElementById("jobb").value=actdata.accounts[actid].job;
-document.getElementById("stts").value=actdata.accounts[actid].status;
-document.getElementById("usrnam").value=atob(actdata.accounts[actid].username);
-document.getElementById("pssswrd").value=atob(actdata.accounts[actid].password);
+document.getElementById("usrnam").value=games[actid].name;
+document.getElementById("pssswrd").style.display="none";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
 {
   section.classList.remove("active");
-  if(accesslevel<4&&document.getElementById("rolee").value=="admin"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"};if(accesslevel<3&&document.getElementById("rolee").value=="moderator"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
-  if(job!="owner"&&document.getElementById("jobb").value=="owner"){throw "You Can't Make Someone's Role Or Job Higher Than Yours!"}
-	actdata.accounts[actid].role=document.getElementById("rolee").value;
-	actdata.accounts[actid].job=document.getElementById("jobb").value;
-  actdata.accounts[actid].deactreason=document.getElementById("reasnn").value;
-	actdata.accounts[actid].status=document.getElementById("stts").value;
-	actdata.accounts[actid].username=btoa(document.getElementById("usrnam").value);
-	actdata.accounts[actid].password=btoa(document.getElementById("pssswrd").value);
+	games[actid].title=document.getElementById("stts").value;
+	games[actid].s=btoa(document.getElementById("usrnam").value);
+	games[actid].password=btoa(document.getElementById("pssswrd").value);
 	section.classList.remove("active");
-	snackbar_Loading(`Saving - ${atob(actdata.accounts[actid].username)}`);
+	snackbar_Loading(`Saving - ${atob(games[actid].username)}`);
 	checkREADY22(false);
 }
       );
@@ -519,6 +522,8 @@ document.getElementById("dilogttl").innerHTML="Edit A Deleted User";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("elsee").style.display="block";
 document.getElementById("stat").style.display="block";
+document.getElementById("gms").style.display="none";
+document.getElementById("pssswrd").style.display="block";
 document.getElementById("usrnnm").innerHTML="Username:";
 document.getElementById("rolee").value=actdata.deletedaccounts[actid].role;
 document.getElementById("jobb").value=actdata.deletedaccounts[actid].job;
@@ -571,12 +576,14 @@ var accesslevel = 0
 if(role=="debugger"){ accesslevel=2}else{if(role=="moderator"){ accesslevel=3}if(role=="admin"){ accesslevel=4}}
 document.getElementById("dilogttl").innerHTML="Add A User";
 document.getElementById("confrmbtn").innerHTML="Add";
+document.getElementById("pssswrd").style.display="block";
 document.getElementById("usrnnm").innerHTML="Username";
 document.getElementById("rolee").value="user";
 document.getElementById("jobb").value="none";
 document.getElementById("elsee").style.display="block";
 document.getElementById("stat").style.display="block";
 document.getElementById("stts").value="active";
+document.getElementById("gms").style.display="none";
 document.getElementById("usrnam").value="Username";
 document.getElementById("pssswrd").value="Password";
 document.getElementById("reassss").style.display="none";
@@ -606,6 +613,7 @@ document.getElementById("dilogttl").innerHTML="Add A Page";
 document.getElementById("confrmbtn").innerHTML="Add";
 document.getElementById("usrnnm").innerHTML="Location:";
 document.getElementById("usrnam").value="";
+document.getElementById("gms").style.display="none";
 document.getElementById("reassss").style.display="block";
 document.getElementById("elsee").style.display="none";
 document.getElementById("stat").style.display="none";
@@ -630,6 +638,7 @@ module.edittum = function edittum(actid) {
 document.getElementById("dilogttl").innerHTML="Edit A Page";
 document.getElementById("confrmbtn").innerHTML="Apply";
 document.getElementById("usrnnm").innerHTML="Location:";
+document.getElementById("gms").style.display="none";
 document.getElementById("usrnam").value=actdata.undermaintenance[actid].location;
 document.getElementById("elsee").style.display="none";
 document.getElementById("stat").style.display="none";
