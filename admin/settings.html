@@ -442,7 +442,10 @@ document.getElementById("elsee").style.display="none";
 document.getElementById("gms").style.display="block";
 document.getElementById("stat").style.display="none";
 document.getElementById("usrnnm").innerHTML="Name:";
-document.getElementById("usrnam").value=games[actid].name;
+document.getElementById("usrnam").value=games[actid].title;
+document.getElementById("idg").value=games[actid].id;
+document.getElementById("urll").value=games[actid].url;
+document.getElementById("img").value=games[actid].image;
 document.getElementById("pssswrd").style.display="none";
 section.classList.add("active")
 cnfrm.addEventListener("click", () =>
