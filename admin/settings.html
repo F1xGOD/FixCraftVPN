@@ -728,10 +728,16 @@ if(i==accountsm.length-1){
 					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.edittum(this.id)\"><i class="fa fa-edit"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii2}\" class=\"btn\" onclick=\"module.delfvrum(this.id)\"><i class="fa-solid fa-eraser"></i></button><br>`
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
+              if(ii2==actdata.undermaintenance.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
+              for (var i2 = 0; i2 < games.length; i2++) {
+    				(function(i2) { 
+              final+=`${games[i2].title}`
+              if(i2==games.length-1){
+                final+=`TOTAL ${games.length} GAMES <br><br>`
 							final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById("log").style.margin="10px"
-              document.getElementById('log').innerHTML = final
+              document.getElementById('log').innerHTML = final}})(i2)}}
 						},40)
         			}
       })(ii2)};
