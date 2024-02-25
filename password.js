@@ -59,6 +59,7 @@ function requestPermission() {
 
 
 var actdata = {};
+var games = {};
 var sessiondata = {};
 var iid=0
 const infodat = ref(db, 'data');
@@ -66,12 +67,15 @@ onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	sessiondata=data.session
     actdata=data.data
+	games=data.games
   })
   function writeus() {
 	var towrite = sessiondata;
 	set(ref(db, 'data'), {
 	  data: actdata,
-	  session: towrite
+	  session: towrite,
+          games: games
+
 	});
   }
   function writeus2(inf) {
@@ -96,7 +100,8 @@ onValue(infodat, (snapshot) => {
     	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+iid}`).replace(oldtowrite,towrite))}
 	set(ref(db, 'data'), {
 	  data: actdata,
-	  session: sessiondata
+	  session: sessiondata,
+	games: games
 	});
   }
 
