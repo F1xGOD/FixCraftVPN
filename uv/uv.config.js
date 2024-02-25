@@ -2,7 +2,7 @@
 
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: "https://salyardsmiddleschoolhector.eithermouse.com/bare/",
+  bare: "https://cerryx.net/bare/",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
