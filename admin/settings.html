@@ -784,8 +784,8 @@ if(role=="admin" || role=="moderator" || role=="debugger"){
 	var final = ``
 	final = `STATUS: <span class=\"text\" id=\"statts\">${actdata.status.toUpperCase()}</span><select name="stattts" id="stattsin" style="border-width: 2px;display:none;"> <option value="danger">DANGER</option> <option value="secure">SECURE</option> <option value="hide">HIDE</option> <option value="newuserhide">NEWUSERHIDE</option> </select>&nbsp;&nbsp;&nbsp;<button class=\"btn\" id=\"stattsee\" onclick=\"module.editlog(0)\"><i class=\"fa fa-edit\"></i></button><button style=\"display:none;\" id=\"stattsconf\" class=\"btn\" onclick=\"module.editlogsave(0)\"><i class=\"fa-solid fa-check\"></i></button><br>`
 	final += `LOGIN ATTEMPTS: <span class=\"text\" id=\"triess\">${actdata.tries-1}</span><input style="border-width: 2px;display:none;" id=\"triessin\" type=\"number\" max=\"100\" min=\"1\">&nbsp;&nbsp;&nbsp;<button id=\"triessed\" class=\"btn\" onclick=\"module.editlog(1)\"><i class="fa fa-edit"></i></button><button style=\"display:none;\" id=\"triessconf\" class=\"btn\" onclick=\"module.editlogsave(1)\"><i class=\"fa-solid fa-check\"></i></button><br><br>`
-	final += `<span class=\"collapsible\">ACCOUNTS:</span>&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button><br>`
-	final +="<span class=\"ccontent\">"
+	final += `<div class=\"collapsible\">ACCOUNTS:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addac()\"><i class=\"fa fa-plus\"></i></button></div><br>`
+	final +="<div class=\"ccontent\">"
   var accountsm = actdata.accounts
 	var accountsdel = actdata.deletedaccounts
 	Object.freeze(accountsm)
@@ -815,7 +815,7 @@ for (var i = 0; i < accountsm.length; i++) {
 if(i==accountsm.length-1){
 					setTimeout(function(){
 						final+=`TOTAL ${accountsm.length} ACCOUNTS`
-            final+="</span><br><br>"
+            final+="</div><br><br>"
 					final+=`DELETED ACCOUNTS:<br>`
 					for (var ii22 = 0; ii22 < accountsdel.length; ii22++) {
     (function(ii22) { // protects i in an immediately called function
