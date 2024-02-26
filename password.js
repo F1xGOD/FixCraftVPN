@@ -332,7 +332,7 @@ if(tablocation != "login"){
 			window.location.replace(`${host}/forbidden`)
 		}
 	  }
-	  if(username == "" && password == ""){if(shd==true){window.location.replace(`${host}/login`)}}else{
+	  if(username == "" || password == ""){window.location.replace(`${host}/login`)}else{
 				var data4=btoa(username)
 				var data5=btoa(password)
 				Object.freeze(data4);
