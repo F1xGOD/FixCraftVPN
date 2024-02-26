@@ -210,7 +210,7 @@ if(localStorage.getItem('websiteTitle')==null){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
-				
+				document.title=hosts[oi2].content.value+" | "+document.title.split("|")[1]
 			}}}
 }
 var shd = true
