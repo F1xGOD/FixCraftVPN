@@ -826,14 +826,16 @@ if(i==accountsm.length-1){
 						setTimeout(function(){
 			    	final+=`TOTAL ${accountsdel.length} DELETED ACCOUNTS`
             final+="</div><br>"
-					final+=`PAGES UNDER MAINTENANCE:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addum()\"><i class=\"fa fa-plus\"></i></button><br>`
-					for (var ii2 = 0; ii2 < actdata.undermaintenance.length; ii2++) {
+					final+=`<div class='parent'><div class='child'><div class=\"collapsible\" style=\"display:inline-block\" >PAGES UNDER MAINTENANCE:&nbsp;&nbsp;&nbsp;</div></div><div class='child'><button class=\"btn\" onclick=\"module.addum()\"><i class=\"fa fa-plus\"></i></button></div></div>`;
+          final +="<div class=\"ccontent\">"
+          for (var ii2 = 0; ii2 < actdata.undermaintenance.length; ii2++) {
     				(function(ii2) { 
 					final+=`&nbsp;&nbsp;&nbsp;&nbsp;PAGE: ${actdata.undermaintenance[ii2].location}, REASON: ${actdata.undermaintenance[ii2].reason}&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.edittum(this.id)\"><i class="fa fa-edit"></i></button><span>&nbsp;&nbsp;</span><button id=\"${ii2}\" class=\"btn\" onclick=\"module.delfvrum(this.id)\"><i class="fa-solid fa-eraser"></i></button><br>`
                     if(ii2==actdata.undermaintenance.length-1){
 						setTimeout(function(){
               if(ii2==actdata.undermaintenance.length-1){
-							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE <br><br>`
+							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE `
+              final +="</div><br>"
               final+=`GAMES:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
