@@ -352,7 +352,7 @@ actdata.accounts=test;
 test=[];
 var reas="DELETED - NO REASON!"
 var positem =actdata.deletedaccounts[actdata.deletedaccounts.length-1];
-actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).slice(1,-1)+`,\"reason\":\"${reas}\"}`)
+actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse("{"+JSON.stringify(positem).slice(1,-1)+`,\"reason\":\"${reas}\"}`)
 checkREADY22(false);
 };
 module.ssc = function scc(){
