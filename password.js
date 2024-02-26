@@ -218,12 +218,12 @@ if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
 if(document.getElementsByClassName("navbar-nav ms-auto").length==0){}else{
 	var toot=""
 	for(var fi=0; fi<hosts.length;fi++){
-		if(JSON.stringify(hosts[oi2]).includes("key")&&Array.isArray(hosts[oi2]))
+		if(JSON.stringify(hosts[fi]).includes("key")&&Array.isArray(hosts[fi]))
 		{
-			if(hosts[oi2][0].key=="navbar"){
-				for(var ooi=0;ooi<hosts[oi2].length;ooi++){
-				toot+=`<a style="color: #fff;" class="nav-item nav-link active" href="${hosts[oi2][ooi].href}"><i class="${hosts[oi2][ooi].image}"></i> ${hosts[oi2][ooi].name}</a>`
-				if(ooi==hosts[oi2].length-1){
+			if(hosts[fi][0].key=="navbar"){
+				for(var ooi=0;ooi<hosts[fi].length;ooi++){
+				toot+=`<a style="color: #fff;" class="nav-item nav-link active" href="${hosts[fi][ooi].href}"><i class="${hosts[fi][ooi].image}"></i> ${hosts[fi][ooi].name}</a>`
+				if(ooi==hosts[fi].length-1){
 				document.getElementsByClassName("navbar-nav ms-auto")[0].innerHTML=toot}
 			}
 			}
