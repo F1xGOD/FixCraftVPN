@@ -190,8 +190,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 checkSessionStart();
-console.log(localStorage.getItem('websiteIcon'))
-if(localStorage.getItem('websiteIcon')==""&&!tablocation.includes("admin")){
+if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")){
 	console.log("seticon")
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
@@ -207,7 +206,7 @@ link.href = hosts[oi].content.value;
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==""){
+if(localStorage.getItem('websiteTitle')==null){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
