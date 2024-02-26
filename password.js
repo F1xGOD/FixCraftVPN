@@ -202,6 +202,9 @@ if (!link) {
     document.head.appendChild(link);
 }
 link.href = hosts[oi].content.value;
+if(document.getElementsByClassName("navbar-brand").length==0){}else{
+	document.getElementsByClassName("navbar-brand")[0].lastChild.src=document.title=hosts[oi2].content.value
+}
 		}
 	}
 }
@@ -211,9 +214,6 @@ if(localStorage.getItem('websiteTitle')==null){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
 				document.title=hosts[oi2].content.value+" | "+document.title.split("|")[1]
-				if(document.getElementsByClassName("navbar-brand").length==0){}else{
-				document.getElementsByClassName("navbar-brand")[0].lastChild.src=document.title=hosts[oi2].content.value
-			}
 			}}}
 }
 var shd = true
