@@ -849,15 +849,15 @@ if(i==accountsm.length-1){
                 final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById("log").style.margin="10px"
               document.getElementById('log').innerHTML = final
-              var coll = document.getElementsByClassName("collapsible");
-              var par = document.getElementsByClassName("parent");
+var coll = document.getElementsByClassName("collapsible");
+var par = document.getElementsByClassName("parent");
 var i;
 var iii;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     for (iii = 0; iii < par.length; iii++) {
-    if(par[iii].includes(coll[i])){
+    if(par[iii].firstChild==coll[i]){
     var content = par[0].nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
