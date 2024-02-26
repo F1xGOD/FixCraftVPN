@@ -191,7 +191,6 @@ if(JSON.stringify(actdata)=="{}"){
 }else{console.log("LOADED!")
 checkSessionStart();
 if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")){
-	console.log("seticon")
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
@@ -209,12 +208,29 @@ link.href = hosts[oi].content.value;
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==null){
+if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
 				document.title=hosts[oi2].content.value+" | "+document.title.split("|")[1]
 			}}}
+}
+if(document.getElementsByTagName("navbar-nav ms-auto").length==0){}else{
+	var toot=""
+	for(var fi=0; fi<hosts.length;fi++){
+		if(JSON.stringify(hosts[oi2]).includes("key")&&Array.isArray(hosts[oi2]))
+		{
+			if(hosts[oi2][0].key=="navbar"){
+				for(var ooi=0;ooi<hosts[oi2].length;ooi++){
+				toot+=`<a style="color: #fff;" class="nav-item nav-link active" href="${hosts[oi2][ooi].href}"><i class="${hosts[oi2][ooi].image}"></i> ${hosts[oi2][ooi].name}</a>`
+				if(ooi==hosts[oi2].length-1){
+				document.getElementsByTagName("navbar-nav ms-auto")[0].innerHTML=toot}
+			}
+			}
+		}
+	
+}
+	
 }
 var shd = true
 if(window.location.href.includes("?")){
