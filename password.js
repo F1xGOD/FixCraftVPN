@@ -286,7 +286,7 @@ if(window.location.href.includes("?")){
 				  }
 }
 }else{}}else{shd=true}
-      if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true){window.location.replace(`${host}/login`)}
+      if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true&&tablocation!="login"&&tablocation!="login.html"){window.location.replace(`${host}/login`)}
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
