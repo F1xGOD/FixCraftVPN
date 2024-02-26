@@ -850,19 +850,20 @@ if(i==accountsm.length-1){
 							document.getElementById("log").style.margin="10px"
               document.getElementById('log').innerHTML = final
               var coll = document.getElementsByClassName("collapsible");
-              var par = document.getElementsByClassName("parent")[0];
+              var par = document.getElementsByClassName("parent");
 var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var content = par.nextElementSibling;
-    console.log(par)
+    for (iii = 0; iii < coll.length; iii++) {
+    if(par[iii].includes(coll[i])){
+    var content = par[0].nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
     } else {
       content.style.display = "block";
-    }
-  });
+    }}
+  }});
 }
               }
             })(ii)}
