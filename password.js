@@ -190,7 +190,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 checkSessionStart();
-console.log(localStorage.getItem('websiteIcon')=="")
+console.log(localStorage.getItem('websiteIcon'))
 if(localStorage.getItem('websiteIcon')==""&&!tablocation.includes("admin")){
 	console.log("seticon")
 	for(var oi =0; oi<hosts.length;oi++){
