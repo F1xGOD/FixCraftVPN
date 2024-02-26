@@ -221,7 +221,7 @@ if(document.getElementsByClassName("navbar-nav ms-auto").length==0){}else{
 		if(JSON.stringify(hosts[fi]).includes("key")&&Array.isArray(hosts[fi]))
 		{
 			if(hosts[fi][0].key=="navbar"){
-				for(var ooi=0;ooi<hosts[fi].length;ooi++){
+				for(var ooi=1;ooi<hosts[fi].length;ooi++){
 				toot+=`<a style="color: #fff;" class="nav-item nav-link active" href="${hosts[fi][ooi].href}"><i class="${hosts[fi][ooi].image}"></i> ${hosts[fi][ooi].name}</a>`
 				if(ooi==hosts[fi].length-1){
 				document.getElementsByClassName("navbar-nav ms-auto")[0].innerHTML=toot}
