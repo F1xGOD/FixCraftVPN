@@ -196,7 +196,7 @@ if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
 			if(document.getElementsByClassName("navbar-brand").length==0){}else{
-				document.getElementsByClassName("navbar-brand")[0].lastChild.src=hosts[oi].content.value
+				document.getElementsByClassName("navbar-brand")[0].getElementsByTagName("img")[0].src=hosts[oi].content.value
 			}
 			var link = document.querySelector("link[rel~='icon']");
 if (!link) {
