@@ -352,7 +352,7 @@ actdata.accounts=test;
 test=[];
 var reas="DELETED - NO REASON!"
 var positem =actdata.deletedaccounts[actdata.deletedaccounts.length-1];
-actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).replace("}","")+`,\"reason\":\"${reas}\"}`)
+actdata.deletedaccounts[actdata.deletedaccounts.length-1]=JSON.parse(JSON.stringify(positem).split(0,-1)+`,\"reason\":\"${reas}\"}`)
 checkREADY22(false);
 };
 module.ssc = function scc(){
@@ -724,7 +724,7 @@ checkREADY22(false);
 };
 
 module.delfvr = function delfvr(actid) { 
-snackbar_Loading(`Erasing - ${atob(actdata.deletedaccounts[actid].username)}`);
+snackbar_Loading(`Erasing - ${atob(actdata.deletedaccouns[actid].username)}`);
 var test3 = [];
 for (let i2412 = 0; i2412 < actdata.deletedaccounts.length; i2412++) {
     if (actdata.deletedaccounts[i2412] !== actdata.deletedaccounts[actid]) {
@@ -737,7 +737,7 @@ checkREADY22(false);
 };
 
 module.delfvrum = function delfvrum(actid) { 
-snackbar_Loading(`Erasing - ${atob(actdata.deletedaccounts[actid].username)}`);
+snackbar_Loading(`Erasing - ${actdata.undermaintenance[actid].username}`);
 var test4 = [];
 for (let i2422 = 0; i2422 < actdata.undermaintenance.length; i2422++) {
     if (actdata.undermaintenance[i2422] !== actdata.undermaintenance[actid]) {
