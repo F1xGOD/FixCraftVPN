@@ -171,6 +171,7 @@ function ReplaceContent(NC) {
 	document.write(NC);
 	document.close();
 	  }
+if(getCookie("passwordcred") == "" || getCookie("usernamecred") == ""){window.location.replace(`${host}/login`)}
 function startCheck(){
 
 if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
