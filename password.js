@@ -215,17 +215,16 @@ if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
 				document.title=hosts[oi2].content.value+" | "+document.title.split("|")[1]
 			}}}
 }
-if(document.getElementsByTagName("navbar-nav ms-auto").length==0){}else{
+if(document.getElementsByClassName("navbar-nav ms-auto").length==0){}else{
 	var toot=""
 	for(var fi=0; fi<hosts.length;fi++){
-		console.log(Array.isArray(hosts[oi2]))
 		if(JSON.stringify(hosts[oi2]).includes("key")&&Array.isArray(hosts[oi2]))
 		{
 			if(hosts[oi2][0].key=="navbar"){
 				for(var ooi=0;ooi<hosts[oi2].length;ooi++){
 				toot+=`<a style="color: #fff;" class="nav-item nav-link active" href="${hosts[oi2][ooi].href}"><i class="${hosts[oi2][ooi].image}"></i> ${hosts[oi2][ooi].name}</a>`
 				if(ooi==hosts[oi2].length-1){
-				document.getElementsByTagName("navbar-nav ms-auto")[0].innerHTML=toot}
+				document.getElementsByClassName("navbar-nav ms-auto")[0].innerHTML=toot}
 			}
 			}
 		}
