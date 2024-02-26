@@ -191,6 +191,7 @@ if(JSON.stringify(actdata)=="{}"){
 }else{console.log("LOADED!")
 checkSessionStart();
 if(localStorage.getItem('websiteIcon')==""){
+	console.log("seticon")
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
@@ -205,7 +206,13 @@ link.href = hosts[oi].content.value;
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==""){}
+if(localStorage.getItem('websiteTitle')==""){
+	for(var oi2 =0; oi2<hosts.length;oi2++){
+		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
+			if(hosts[oi2].content.key=="websitetitle"){
+				
+			}}}
+}
 var shd = true
 if(window.location.href.includes("?")){
 	var pasw = window.location.href.split("password=")[1].split("%22")[1].split("%22")[0]
