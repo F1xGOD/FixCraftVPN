@@ -218,6 +218,7 @@ if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
 if(document.getElementsByTagName("navbar-nav ms-auto").length==0){}else{
 	var toot=""
 	for(var fi=0; fi<hosts.length;fi++){
+		console.log(Array.isArray(hosts[oi2]))
 		if(JSON.stringify(hosts[oi2]).includes("key")&&Array.isArray(hosts[oi2]))
 		{
 			if(hosts[oi2][0].key=="navbar"){
