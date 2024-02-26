@@ -45,6 +45,8 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var games={};
+var hosts={};
 var sessiondata = {};
 const infodat = ref(db, 'data');
 function getCookie(cname) {
@@ -72,6 +74,8 @@ function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
       actdata=data.data
+	hosts=data.hosts
+	games=data.games
 	  sessiondata=data.session
   })};
   readd();
@@ -92,6 +96,8 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`-${inf+par
     }
 		set(ref(db, 'data'), {
 	  data: actdata,
+	hosts: hosts,
+	games:games,
 	  session: sessiondata
 	});}
         function checkCookie() {
