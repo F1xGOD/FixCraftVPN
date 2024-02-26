@@ -195,6 +195,9 @@ if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
+			if(document.getElementsByClassName("navbar-brand").length==0){}else{
+				document.getElementsByClassName("navbar-brand")[0].lastChild.src=hosts[oi].content.value
+			}
 			var link = document.querySelector("link[rel~='icon']");
 if (!link) {
     link = document.createElement('link');
@@ -202,9 +205,6 @@ if (!link) {
     document.head.appendChild(link);
 }
 link.href = hosts[oi].content.value;
-if(document.getElementsByClassName("navbar-brand").length==0){}else{
-	document.getElementsByClassName("navbar-brand")[0].lastChild.src=document.title=hosts[oi2].content.value
-}
 		}
 	}
 }
