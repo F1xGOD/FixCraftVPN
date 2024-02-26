@@ -858,22 +858,15 @@ var iii;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    if(par[0].firstChild.firstChild==this){
-    var content = par[0].nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }}else{
-      if(par[1].firstChild.firstChild==this){
-    var content = par[1].nextElementSibling;
+    for (iii = 0; iii < par.length; iii++) {
+    if(par[iii].firstChild.firstChild==this){
+    var content = par[iii].nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
     } else {
       content.style.display = "block";
     }}
-    }
-  });
+  }});
 }
               }
             })(ii)}
