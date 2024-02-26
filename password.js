@@ -158,10 +158,10 @@ if(justtn==false){
 }else{}}
 	if(justtn==true){
 		sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}else{
 		sessiondata.toeditt=undefined
-	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}}}
 }
 
@@ -190,7 +190,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 checkSessionStart();
-if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")){
+if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation!="login"&&!tablocation!="login.html"){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
