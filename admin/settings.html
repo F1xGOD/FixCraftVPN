@@ -836,12 +836,14 @@ if(i==accountsm.length-1){
               if(ii2==actdata.undermaintenance.length-1){
 							final+=`TOTAL ${actdata.undermaintenance.length} PAGES UNDER MAINTENANCE `
               final +="</div><br>"
-              final+=`GAMES:&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button><br>`
+              final+=`<div class='parent'><div class='child'><div class=\"collapsible\" style=\"display:inline-block\" >GAMES:&nbsp;&nbsp;&nbsp;</div></div><div class='child'><button class=\"btn\" onclick=\"module.addgame()\"><i class=\"fa fa-plus\"></i></button></div></div>`
+              final +="<div class=\"ccontent\">"
               for (var i2 = 0; i2 < games.length; i2++) {
     				(function(i2) { 
               final+=`&nbsp;&nbsp;&nbsp;&nbsp;NAME: ${games[i2].title}, URL: <a href=\"${games[i2].url}\" class=\"text\">${games[i2].url}</a>, IMAGE: <a href=\"${games[i2].image}\" class=\"text\">${games[i2].image}</a>&nbsp;&nbsp;&nbsp;<button id=\"${i2}\" class=\"btn\" onclick=\"module.delgm(this.id)\"><i class=\"fa-solid fa-eraser\"></i></button><span>&nbsp;&nbsp;</span><button id=\"${i2}\" class=\"btn\" onclick=\"module.edittgm(this.id)\"><i class="fa fa-edit"></i></button><br>`
               if(i2==games.length-1){
-                final+=`TOTAL ${games.length} GAMES <br><br>`
+                final+=`TOTAL ${games.length} GAMES `
+                final+="</div><br>"
                 setTimeout(function(){
                   final+=`HOSTS <br>`
                   for (var ii = 0; ii < hosts.length; ii++) {
