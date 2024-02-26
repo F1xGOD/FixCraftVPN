@@ -845,13 +845,15 @@ if(i==accountsm.length-1){
                 final+=`TOTAL ${games.length} GAMES `
                 final+="</div><br>"
                 setTimeout(function(){
-                  final+=`HOSTS <br>`
+                  final+=`<div class='parent'><div class='child'><div class=\"collapsible\" style=\"display:inline-block\" >HOSTS: </div></div><div class='child'></div></div>`
+                  final +="<div class=\"ccontent\">"
                   for (var ii = 0; ii < hosts.length; ii++) {
     				(function(ii) {
               if(JSON.stringify(hosts[ii]).includes("uvconfig")){
               final+=`&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].uvconfig.bare}<br>`}
               if(ii==hosts.length-1){
-                final+=`TOTAL ${hosts.length} HOSTS <br><br>`
+                final+=`TOTAL ${hosts.length} HOSTS `
+                final+="</div><br>"
                 final+=`<button onclick="module.writeus()" class="save"><i class="fa fa-save"></i>&nbsp; Save&nbsp;</button>&nbsp;&nbsp;&nbsp;<button onclick="module.ssc();" class="save"><i class="fa-solid fa-download"></i>&nbsp; Load&nbsp;</button>`
 							document.getElementById("log").style.margin="10px"
               document.getElementById('log').innerHTML = final
