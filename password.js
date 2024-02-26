@@ -287,6 +287,7 @@ if(window.location.href.includes("?")){
 				  }
 }
 }else{}}else{shd=false}
+      if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true){window.location.replace(`${host}/login`)}
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
