@@ -208,11 +208,11 @@ link.href = hosts[oi].content.value;
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")&&!tablocation=="login"){
+if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")&!&tablocation=="login"){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
-				document.title=document.title.replaceAll("FixCraftVPN",document.title=hosts[oi2].content.value).replaceAll("FixCraft VPN",document.title=hosts[oi2].content.value)
+				document.title=document.title.replaceAll("FixCraftVPN",hosts[oi2].content.value).replaceAll("FixCraft VPN",hosts[oi2].content.value)
 			}}}
 }
 if(document.getElementsByClassName("navbar-nav ms-auto").length==0){}else{
