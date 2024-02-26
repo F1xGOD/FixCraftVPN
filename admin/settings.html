@@ -850,7 +850,8 @@ if(i==accountsm.length-1){
                   for (var ii = 0; ii < hosts.length; ii++) {
     				(function(ii) {
               if(JSON.stringify(hosts[ii]).includes("uvconfig")){
-              final+=`&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].uvconfig.bare}<br>`}
+                final+="&nbsp;&nbsp;&nbsp;&nbsp;UVConfig:"
+              final+=`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].uvconfig.bare}<br>PREFIX: ${hosts[ii].uvconfig.prefix} <br>`}
               if(ii==hosts.length-1){
                 final+=`TOTAL ${hosts.length} HOSTS `
                 final+="</div><br>"
