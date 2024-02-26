@@ -209,7 +209,7 @@ link.href = hosts[oi].content.value;
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
+if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")&&!tablocation=="login"){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
@@ -286,7 +286,7 @@ if(window.location.href.includes("?")){
 					}
 				  }
 }
-}else{}}
+}else{}}else{shd=false}
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
