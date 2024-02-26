@@ -1,4 +1,4 @@
-
+8th
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
@@ -247,8 +247,8 @@ if(window.location.href.includes("?")){
 			  var succs = false
 				  var accounts = actdata.accounts
 			  var deletedaccounts = actdata.deletedaccounts
-			  var enc = data
-			  var enc2 = data2
+			  var enc = text
+			  var enc2 = usern
 			  Object.freeze(enc);
 			   Object.freeze(enc2);
 			  let i2 = 0;
@@ -286,7 +286,7 @@ if(window.location.href.includes("?")){
 					}
 				  }
 }
-}else{}}else{shd=false}
+}else{}}else{shd=true}
       if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true){window.location.replace(`${host}/login`)}
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
