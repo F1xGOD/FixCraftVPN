@@ -171,7 +171,7 @@ function ReplaceContent(NC) {
 	document.write(NC);
 	document.close();
 	  }
-if(getCookie("passwordcred") == "" || getCookie("usernamecred") == ""){window.location.replace(`${host}/login`)}
+
 function startCheck(){
 
 if(JSON.stringify(actdata)=="{\"status\":\"EMERGENCY\"}"){
@@ -213,7 +213,7 @@ if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
-				document.title=hosts[oi2].content.value+" | "+document.title.split("|")[1]
+				document.title=document.title.replaceAll("FixCraftVPN",document.title=hosts[oi2].content.value).replaceAll("FixCraft VPN",document.title=hosts[oi2].content.value)
 			}}}
 }
 if(document.getElementsByClassName("navbar-nav ms-auto").length==0){}else{
@@ -333,7 +333,7 @@ if(tablocation != "login"){
 			window.location.replace(`${host}/forbidden`)
 		}
 	  }
-	  if(username == "" || password == ""){window.location.replace(`${host}/login`)}else{
+	  if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true){window.location.replace(`${host}/login`)}else{
 				var data4=btoa(username)
 				var data5=btoa(password)
 				Object.freeze(data4);
