@@ -135,6 +135,7 @@ function checkSessionStart(){
 	  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
 	var loc=getLocation(ip)
 	var inf =sid;
+	var toclose="";
 	var osessiondata=sessiondata;
 	var lenn=Object.keys(osessiondata).length+1
 	for (let i242 = 0; i242 < lenn; i242++) {
@@ -142,6 +143,7 @@ function checkSessionStart(){
 	var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	towrite2=towrite2.toeditt
+	toclose=towrite2.toclose
 	var ppp = towrite2.timestamp
 	var justtn=false
 	if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
@@ -162,7 +164,11 @@ if(justtn==false){
 	}else{
 		sessiondata.toeditt=undefined
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-	}}}
+	}}
+if(toclose=="true"){
+	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"https://cdn.vox-cdn.com/thumbor/5NX2EB-d0_CMTiuLZFFGdCkJ7ks=/0x0:288x288/288x288/filters:focal(144x144:145x145)/cdn.vox-cdn.com/uploads/chorus_asset/file/24629570/tune.png\">";
+}
+}
 }
 
 function ReplaceContent(NC) {
