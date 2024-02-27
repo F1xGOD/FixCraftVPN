@@ -144,6 +144,7 @@ function checkSessionStart(){
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	towrite2=towrite2.toeditt
 	toclose=towrite2.toclose
+	console.log(toclose)
 	var ppp = towrite2.timestamp
 	var justtn=false
 	if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
