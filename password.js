@@ -167,6 +167,7 @@ if(justtn==false){
 	}}
 	toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd"))
 		toclose=toclose.toeddd
+		console.log(toclose)
 		toclose=toclose.toclose
 if(toclose==true){
 	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
