@@ -8,6 +8,8 @@
   <script src="/password.js" type="module"></script>
   <link rel="stylesheet" href="/snackbar.css">
   <script src="/snackbar.js"></script>
+  <link rel="stylesheet" href="/snackbar.css">
+  <script src="/snackbar.js"></script>
 <link rel="icon" href="https://x0.at/CVDX.png">
 <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-462d1fe84b879d730fe2180b0e0354e0.css?vsn=d">
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
@@ -80,6 +82,15 @@ onValue(infodat, (snapshot) => {
     hosts=data.hosts
   })
 
+  function snackbar_Successs() {
+                        SnackBar({
+                            message: `Saved Successfully!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
+  
   function writeus() {
   const db = getDatabase();
   set(ref(db, 'data'), {
@@ -88,7 +99,7 @@ onValue(infodat, (snapshot) => {
 	session: sessiondata,
 	  hosts:hosts
   });
-  //snackbar_Successs();
+  snackbar_Successs();
 }
 var uid=Math.floor(Math.random() * 100000)
 if(getCookie("UID")==""){
