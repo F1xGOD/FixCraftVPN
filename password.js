@@ -143,7 +143,6 @@ function checkSessionStart(){
 	var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	towrite2=towrite2.toeditt
-	toclose=towrite2.toclose
 	console.log(toclose)
 	var ppp = towrite2.timestamp
 	var justtn=false
@@ -159,6 +158,8 @@ if(justtn==false){
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
 }
 }else{}}
+var ttc=
+toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd")).toeddd.toclose
 	if(justtn==true){
 		sessiondata.toeditt=undefined
 		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
