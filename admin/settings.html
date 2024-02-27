@@ -852,8 +852,10 @@ if(i==accountsm.length-1){
               if(JSON.stringify(hosts[ii]).includes("uvconfig")){
                 final+="&nbsp;&nbsp;&nbsp;&nbsp;UVConfig:<br>"
               final+=`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BARE: ${hosts[ii].uvconfig.bare}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PREFIX: ${hosts[ii].uvconfig.prefix} <br>`}else{
-                final+=`&nbsp;&nbsp;&nbsp;&nbsp;${hosts[ii].content.key.toUpperCase()}: ${hosts[ii].content.value}<br>`
-              }
+                if(JSON.stringify(hosts[ii]).includes("value")){
+		      final+=`&nbsp;&nbsp;&nbsp;&nbsp;${hosts[ii].content.key.toUpperCase()}: ${hosts[ii].content.value}<br>`
+		}
+	      }
               if(ii==hosts.length-1){
                 final+=`TOTAL ${hosts.length} HOSTS `
                 final+="</div><br>"
