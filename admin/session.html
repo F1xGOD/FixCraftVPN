@@ -101,6 +101,7 @@ var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
     sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid}`,"fedit"));
     sessiondata.fedit.toclose=true;
     sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${sid}`))
+    document.getElementById(iid).style.display="none"
     writeus()
   }
   function checkREADY22(fistt){
