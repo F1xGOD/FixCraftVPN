@@ -164,7 +164,7 @@ if(justtn==false){
 		sessiondata.toeditt=undefined
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}
-	  		toclose=JSON.parse(JSON.strigify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
+	  		toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
 if(toclose==true){
 	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
 }
