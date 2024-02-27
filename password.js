@@ -143,10 +143,6 @@ function checkSessionStart(){
 	var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
 	towrite2=towrite2.toeditt
-        toclose=towrite2.toclose
-	if(toclose==true){
-	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
-	}
 	var ppp = towrite2.timestamp
 	var justtn=false
 	if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
@@ -168,8 +164,10 @@ if(justtn==false){
 		sessiondata.toeditt=undefined
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}}
-
-
+		toclose=JSON.parse(JSON.strigify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
+if(toclose==true){
+	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
+}
 }
 }
 
