@@ -158,7 +158,6 @@ if(justtn==false){
 	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
 }
 }else{}}
-var ttc=
 toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd")).toeddd.toclose
 	if(justtn==true){
 		sessiondata.toeditt=undefined
