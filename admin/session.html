@@ -19,9 +19,22 @@
 </head>
 <body>
 <p id="log" style="margin:0px" class="text">LODAING...</p>
+<script>
+  var module={}
+</script>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import "/platform.js";
+function getUserAgent(){
+    return platform.parse(navigator.userAgent);
+}
+
+var ip = "";
+
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+			ip=data.ip})
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 function getCookie(cname) {
@@ -49,12 +62,40 @@ function setCookie(cname,cvalue,exdays) {
 const db = getDatabase();
 var actdata = {};
 var sessiondata = {};
+var hosts={};
+var games={};
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	  sessiondata=data.session
     actdata=data.data
+    games=data.games
+    hosts=data.hosts
   })
+
+  function writeus() {
+  const db = getDatabase();
+  set(ref(db, 'data'), {
+    data: actdata,
+  games: games,
+	session: sessiondata,
+	  hosts:hosts
+  });
+  //snackbar_Successs();
+}
+var uid=Math.floor(Math.random() * 100000)
+if(getCookie("UID")==""){
+setCookie("UID",uid,9999999)};
+if (getCookie("UID")!=""){
+	uid=getCookie("UID")
+}
+var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+  module.clut=function clut(idd){
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid}`,"fedit"));
+    sessiondata.fedit.toclose=true;
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${sid}`))
+    writeus()
+  }
   function checkREADY22(fistt){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
@@ -75,7 +116,11 @@ var accesslevel = 0
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
   for(var ii2 = 0; ii2 < result.length-1; ii2++){
+    if(result[ii2].status!="online"){
     final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
+    }else{
+      final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span>&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.clut(this.id)\"><i class=\"fa fa-times\"></i></button><br>`
+    }
     if(ii2==result.length-2){
       document.getElementById('log').innerHTML=final
     }

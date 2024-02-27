@@ -166,8 +166,8 @@ if(justtn==false){
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}}
 	toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd")).toeddd.toclose
-if(toclose=="true"){
-	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"https://cdn.vox-cdn.com/thumbor/5NX2EB-d0_CMTiuLZFFGdCkJ7ks=/0x0:288x288/288x288/filters:focal(144x144:145x145)/cdn.vox-cdn.com/uploads/chorus_asset/file/24629570/tune.png\">";
+if(toclose==true){
+	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
 }
 }
 }
