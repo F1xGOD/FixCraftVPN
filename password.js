@@ -166,7 +166,7 @@ if(justtn==false){
 	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}}
 	toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd"))
-		toclose=toclose.toeddd
+		toclose=toclose
 		console.log(toclose)
 		toclose=toclose.toclose
 if(toclose==true){
