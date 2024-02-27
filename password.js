@@ -160,10 +160,10 @@ if(justtn==false){
 }else{}}
 	if(justtn==true){
 		sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}else{
 		sessiondata.toeditt=undefined
-	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}}
 	toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"toeddd")).toeddd.toclose
 if(toclose==true){
