@@ -27,7 +27,7 @@
 </style>
 </head>
 <body>
-<p id="log" style="margin:0px" class="text">LODAING...</p>
+<p id="log" style="margin:0px" class="text">LOADING...</p>
 <script>
   var module={}
 </script>
@@ -111,7 +111,8 @@ var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
   module.clut=function clut(idd){
     var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
     sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`,"fedit"));
-    sessiondata.fedit.toclose=true;
+    console.log(sessiondata)
+   sessiondata.fedit.toclose=true;
     sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`))
     document.getElementById(idd).style.display="none"
     writeus()
