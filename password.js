@@ -132,7 +132,7 @@ function checkSessionStart(){
 		  }
 		  ii2i++
 	  }
-	  if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
+	  if(tablocation.includes("admin")==false){
 	var loc=getLocation(ip)
 	var inf =sid;
 	var toclose="";
