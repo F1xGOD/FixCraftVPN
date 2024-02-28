@@ -143,9 +143,9 @@ var final= "";
     final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
     }else{
 	    if(result[ii2].toclose!=true){
-      final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TBLOCATION: ${result[ii2.tabloc]}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span>&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.clut(this.id)\"><i class=\"fa fa-times\"></i></button><br>`
+      final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span>&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.clut(this.id)\"><i class=\"fa fa-times\"></i></button><br>`
     }else{
-        final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TBLOCATION: ${result[ii2.tabloc]}, STATUS: <span class=\"offline\">CLOSED</span><br>`
+        final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"offline\">CLOSED</span><br>`
     }}
     if(ii2==result.length-2){
       document.getElementById('log').innerHTML=final
