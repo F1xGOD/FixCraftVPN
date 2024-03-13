@@ -1,6 +1,6 @@
 # Security Policy
 
-## Supported Login Security
+## Login Security
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -8,13 +8,13 @@
 |   1.3   | :heavy_minus_sign: |
 | < 1.3   | ❌                |
 
-## Supported Firebase
+## Realtime Firebase
 
-| Version | Supported          |
-| ------- | ------------------ |
-| > 1.7   | :heavy_check_mark: |
-|   1.7   | :heavy_check_mark: |
-| < 1.7   | ❌                |
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 1.7   | :heavy_check_mark: | Firebase API    |
+|   1.7   | :heavy_check_mark: | Firebase API    |
+| < 1.7   | ❌                | MockAPI          |
 
 ## Tab Cloaking
 
