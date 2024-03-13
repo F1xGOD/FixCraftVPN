@@ -9,6 +9,6 @@
                                               
                                                            
 FixCraft® Inc. FixCraftVPN Copyright ©   
-
+Version - v1.9 😎
 By F1xGOD 💀
 </pre>
