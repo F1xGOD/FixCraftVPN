@@ -202,7 +202,7 @@ var pagecontent = ``
 
 var execute=false
 function checkREADY(){
-if(JSON.stringify(actdata)=="{}"){
+if(JSON.stringify(actdata)=="{}"||visitorId=="000"){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
