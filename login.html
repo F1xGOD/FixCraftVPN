@@ -29,13 +29,23 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
+var visitorId = "000";
+const fpPromise = import('https://fpjscdn.net/v3/Mqp8FONFFHZ5RWbNYULb')
+.then(FingerprintJS => FingerprintJS.load())
+
+// Get the visitorId when you need it.
+fpPromise
+.then(fp => fp.get())
+.then(result => {
+  visitorId = result.visitorId
+});
 var uid=Math.floor(Math.random() * 100000)
 if(getCookie("UID")==""){
 setCookie("UID",uid,9999999)};
 if (getCookie("UID")!=""){
 	uid=getCookie("UID")
 }
-var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 var ip="";
 var loc=getLocation(ip)
 $.getJSON("https://api.ipify.org?format=json",
@@ -83,7 +93,7 @@ onValue(infodat, (snapshot) => {
 	var inf=sid
     var iid=0
     var lenn=Object.keys(sessiondata).length+1
-    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${btoa(usernamee)}\",\"status\":\"success\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${btoa(usernamee)}\",\"status\":\"success\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
     if(JSON.stringify(sessiondata).includes(`LOGIN-${inf+iid}`)){
 		for (let i24 = 0; i24 < lenn; i24++) {
 			if(JSON.stringify(sessiondata).includes(`EDITED-${inf+iid}`)){sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`LOGIN-${inf+iid}`,`${i24+"tte"}`))}else{iid=i24+1;for(let iii = 0; iii < lenn; iii++){
