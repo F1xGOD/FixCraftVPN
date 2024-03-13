@@ -3,6 +3,16 @@ import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebase
 import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+const fpPromise = import('https://fpjscdn.net/v3/Mqp8FONFFHZ5RWbNYULb')
+.then(FingerprintJS => FingerprintJS.load())
+
+// Get the visitorId when you need it.
+fpPromise
+.then(fp => fp.get())
+.then(result => {
+  const visitorId = result.visitorId
+  console.log(visitorId)
+})
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
