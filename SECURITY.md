@@ -3,7 +3,7 @@
 ## Login Security
 
 | Version | Supported          | Notes            |
-| ------- | ------------------ | ---------------_ |
+| ------- | ------------------ | ---------------- |
 | > 1.3   | :heavy_check_mark: | Fully Functional |
 |   1.3   | :heavy_minus_sign: | Poor Security    |
 | < 1.3   | ❌                | None             |
