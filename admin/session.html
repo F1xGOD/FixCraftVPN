@@ -111,11 +111,11 @@ if (getCookie("UID")!=""){
 var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
   module.clut=function clut(idd){
     var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
-    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`,"fedit"));
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`,"fedit"));
     console.log(sessiondata)
-	console.log(`ONLINE-${btoa(btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`)
+	console.log(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`)
    sessiondata.fedit.toclose=true;
-    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`))
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`))
     document.getElementById(idd).style.display="none"
     writeus()
   }
