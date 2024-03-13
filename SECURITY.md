@@ -2,11 +2,11 @@
 
 ## Login Security
 
-| Version | Supported          |
-| ------- | ------------------ |
-| > 1.3   | :heavy_check_mark: |
-|   1.3   | :heavy_minus_sign: |
-| < 1.3   | ❌                |
+| Version | Supported          | Notes            |
+| ------- | ------------------ | ---------------_ |
+| > 1.3   | :heavy_check_mark: | Fully Functional |
+|   1.3   | :heavy_minus_sign: | Poor Security    |
+| < 1.3   | ❌                | None             |
 
 ## Realtime Firebase
 
