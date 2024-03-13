@@ -4,9 +4,9 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| > 1.3   | :white_check_mark: |
-|   1.3   | :white_check_mark: |
-| < 1.3   | :x:                |
+| > 1.3   | :heavy_check_mark: |
+|   1.3   | :heavy_minus_sign: |
+| < 1.3   | ❌                |
 
 ## Reporting a Vulnerability
 
