@@ -18,19 +18,19 @@
 
 ## Tab Cloaking
 
-| Version | Supported          |
-| ------- | ------------------ |
-| > 1.5   | :heavy_check_mark: |
-|   1.5   | :heavy_check_mark: |
-| < 1.5   | ❌                |
+| Version | Supported          | Notes               |
+| ------- | ------------------ | ------------------- |
+| > 1.5   | :heavy_check_mark: | Works On Every Page |
+|   1.5   | :heavy_check_mark: | Works On Every Page |
+| < 1.5   | ❌                | Works 20% Of Time |
 
 ## Proxy Browser
 
-| Version | Supported          |
-| ------- | ------------------ |
-| > 1.9   | :heavy_check_mark: |
-|   1.9   | :heavy_check_mark: |
-| < 1.9   | ❌                |
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 1.9   | :heavy_check_mark: | Works, No BARE Server Present |
+|   1.9   | :heavy_check_mark: | Works, No BARE Server Present |
+| < 1.9   | ❌                | Does Not Work At All |
 
 ## Reporting a Vulnerability
 
