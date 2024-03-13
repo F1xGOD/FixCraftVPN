@@ -16,9 +16,23 @@
 |   1.7   | :heavy_check_mark: |
 | < 1.7   | ❌                |
 
+## Tab Cloaking
+
+| Version | Supported          |
+| ------- | ------------------ |
+| > 1.5   | :heavy_check_mark: |
+|   1.5   | :heavy_check_mark: |
+| < 1.5   | ❌                |
+
+## Proxy Browser
+
+| Version | Supported          |
+| ------- | ------------------ |
+| > 1.9   | :heavy_check_mark: |
+|   1.9   | :heavy_check_mark: |
+| < 1.9   | ❌                |
+
 ## Reporting a Vulnerability
 
-Versions Below 1.3 Don't Have A Login Security!
-*1.3 Has A Weak Login System! PLEASE USE THE LASTEST VERSION!
-I Also Reccomend Creating Your Own Firebase Database And Replacing The Values.
+PLEASE USE THE LASTEST VERSION!
 
