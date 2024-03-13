@@ -198,7 +198,7 @@ if(JSON.stringify(actdata)=="{}"){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 checkSessionStart();
-if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation!="login"&&!tablocation!="login.html"){
+if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
