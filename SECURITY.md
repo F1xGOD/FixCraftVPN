@@ -28,11 +28,19 @@
 
 | Version | Supported          | Notes           |
 | ------- | ------------------ | --------------- |
-| > 1.9   | :heavy_check_mark: | Works, No BARE Server Present |
-|   1.9   | :heavy_check_mark: | Works, No BARE Server Present |
+| > 1.9   | :heavy_check_mark: | Works, Foreign BARE Server |
+|   1.9   | :heavy_check_mark: | Works, Foreign Server |
 | < 1.9   | ❌                | Does Not Work At All |
 
-## Reporting a Vulnerability
+## Session Monitor
+
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 1.8   | :heavy_check_mark: | Works Fine |
+|   1.8   | ❌                | Not Working |
+| < 1.8   | ❌                | Not Working |
+
+## Notes From The Owner
 
 PLEASE USE THE LASTEST VERSION!
 
