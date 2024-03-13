@@ -4,6 +4,7 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import "/platform.js";
+const visitorId = "000"
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
@@ -14,7 +15,7 @@ const fpPromise = import('https://fpjscdn.net/v3/Mqp8FONFFHZ5RWbNYULb')
 fpPromise
 .then(fp => fp.get())
 .then(result => {
-  const visitorId = result.visitorId
+  visitorId = result.visitorId
 })
 var ip = "";
 
