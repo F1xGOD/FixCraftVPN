@@ -209,6 +209,12 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||ip==""){
 }else{console.log("LOADED!")
 sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 checkSessionStart();
+var hwidban = actdata.hwidban
+for(var oio = 0; oio<hwidban.length; oio++){
+	if(hwidban[oio]==visitorId){
+		window.location.replace(`${host}/forbidden`)
+	}
+}
 if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
