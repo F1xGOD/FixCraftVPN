@@ -4,7 +4,8 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import "/platform.js";
-var visitorId = "000"
+var visitorId = "000";
+var sid="";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
@@ -53,7 +54,7 @@ setCookie("UID",uid,9999999)};
 if (getCookie("UID")!=""){
 	uid=getCookie("UID")
 }
-var sid = btoa(btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
@@ -202,10 +203,11 @@ var pagecontent = ``
 
 var execute=false
 function checkREADY(){
-if(JSON.stringify(actdata)=="{}"||visitorId=="000"){
+if(JSON.stringify(actdata)=="{}"||visitorId=="000"||ip==""){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
+sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 checkSessionStart();
 if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")){
 	for(var oi =0; oi<hosts.length;oi++){
