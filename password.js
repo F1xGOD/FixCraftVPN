@@ -3,6 +3,10 @@ import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebase
 import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+import "/platform.js";
+function getUserAgent(){
+    return platform.parse(navigator.userAgent);
+}
 const fpPromise = import('https://fpjscdn.net/v3/Mqp8FONFFHZ5RWbNYULb')
 .then(FingerprintJS => FingerprintJS.load())
 
@@ -11,13 +15,7 @@ fpPromise
 .then(fp => fp.get())
 .then(result => {
   const visitorId = result.visitorId
-  console.log(visitorId)
 })
-import "/platform.js";
-function getUserAgent(){
-    return platform.parse(navigator.userAgent);
-}
-
 var ip = "";
 
 $.getJSON("https://api.ipify.org?format=json",
@@ -169,10 +167,10 @@ if(justtn==false){
 }else{}}
 	if(justtn==true){
 		sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}else{
 		sessiondata.toeditt=undefined
-	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}
 	  		toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
 if(toclose==true){
