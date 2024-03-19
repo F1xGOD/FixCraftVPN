@@ -230,6 +230,7 @@ const db = getDatabase();
 var actdata = {};
 var hosts={};
 var sessiondata = {};
+var chat = {};
 var games = {};
 const infodat = ref(db, 'data');
 function readd(){
@@ -238,6 +239,7 @@ onValue(infodat, (snapshot) => {
     actdata=data.data
     games=data.games
     hosts=data.hosts
+    chat=data.chat
     sessiondata=data.session
   })};
   readd();
@@ -327,6 +329,7 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
   set(ref(db, 'data'), {
     data: towrite,
     hosts: hosts,
+    chat: chat,
     session: sessiondata,
     games: games
 
