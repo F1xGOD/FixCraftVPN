@@ -56,6 +56,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
 var games={};
+var chat = {};
 var hosts={};
 var sessiondata = {};
 const infodat = ref(db, 'data');
@@ -84,6 +85,7 @@ function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
       actdata=data.data
+	  chat=data.chat
 	hosts=data.hosts
 	games=data.games
 	  sessiondata=data.session
@@ -107,6 +109,7 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`-${inf+par
 		set(ref(db, 'data'), {
 	  data: actdata,
 	hosts: hosts,
+	chat: chat,
 	games:games,
 	  session: sessiondata
 	});}
