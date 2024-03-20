@@ -240,6 +240,7 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
+var chat = {};
 var hosts ={};
 var games = {};
 var sessiondata ={};
@@ -291,6 +292,7 @@ onValue(infodat, (snapshot) => {
 	games=data.games
 	sessiondata=data.session
 	hosts=data.hosts
+  chat=data.chat
     actdata=data.data
     originalactdata=data.data
   })};
