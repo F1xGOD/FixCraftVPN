@@ -73,12 +73,14 @@ const db = getDatabase();
 var actdata = {};
 var sessiondata = {};
 var hosts={};
+var chat ={};
 var games={};
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
     const data = snapshot.val();
 	  sessiondata=data.session
     actdata=data.data
+    chat=data.chat
     games=data.games
     hosts=data.hosts
   })
@@ -97,6 +99,7 @@ onValue(infodat, (snapshot) => {
   set(ref(db, 'data'), {
     data: actdata,
   games: games,
+  chat:chat,
 	session: sessiondata,
 	  hosts:hosts
   });
