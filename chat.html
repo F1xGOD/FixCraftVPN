@@ -159,7 +159,7 @@ onValue(infodat, (snapshot) => {
   function checkREADY22(){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-  checkREADY22(true)}, 10)
+  checkREADY22()}, 10)
 }else{console.log("LOADED!");
 var final="";
   for(var pp = 0; pp < chat.length;pp++){
