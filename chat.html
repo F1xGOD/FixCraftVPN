@@ -132,7 +132,7 @@ background-color: #111;">
 <div class="navbar navbar-expand-lg navbar-light" style="overflow:hidden;align-items:flex-end;background-color:#111;height: 590px;">
     <div id="texts" style="overflow-y: scroll;height: 590px;max-height: 555px;overflow-x: hidden;align-items:flex-end;">
     <!-- SENT BY OTHERS - <div style="display:flex;position: relative;height:max-content;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">TEXT WILL BE DISPLAYED HERE</p></div>
-         SENT BY YOU   -  <div style="margin-left:1330px;display:flex;position: relative;height:max-condtent;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">I SEND TEXT HERE</p></div> -->
+         SENT BY YOU   -  <div style="margin-left:1300px;display:flex;position: relative;height:max-condtent;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">I SEND TEXT HERE</p></div> -->
   </div>
 </div>
 <div id="sender"><input type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button class="btn" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
@@ -161,9 +161,9 @@ if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
   checkREADY23()}, 10)
 }else{console.log("LOADED!");
-var final=`<div style="margin-left:1330px;display:flex;position: relative;height:max-content;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">JUST SAMPLE MESSAGE</p></div> `;
+var final=`<div style="margin-left:1300px;display:flex;position: relative;height:max-content;margin:10px;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">JUST SAMPLE MESSAGE</p></div> `;
   for(var pp = 0; pp < chat.length;pp++){
-    final+=`<div style=\"overflow:hidden;display:flex;position: relative;height:max-content;width: max-content;background-color: #1e1e1e;border-radius: 4px;\"><p style=\"overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px\">${chat[pp].content}</p></div>`
+    final+=`<div style=\"overflow:hidden;display:flex;position: relative;height:max-content;margin:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;\"><p style=\"overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px\">${chat[pp].content}</p></div>`
   if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
   }
