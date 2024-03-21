@@ -156,11 +156,11 @@ onValue(infodat, (snapshot) => {
   chat=data.chat
   actdata=data.data
   })
-  function checkREADY22(){
+  function checkREADY23(){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-  checkREADY22()}, 10)
-}else{console.log("LOADED!");
+  checkREADY23()}, 10)
+}else{console.log("LOADED! CHAT");
 var final="";
   for(var pp = 0; pp < chat.length;pp++){
     final+=`<div style=\"display:flex;position: relative;height:max-content;width: max-content;background-color: #1e1e1e;border-radius: 4px;\"><p style=\"padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px\">${chat[pp].content}</p></div>`
@@ -171,7 +171,7 @@ var final="";
   }
   }
 }}
-checkREADY22()
+checkREADY23()
 </script>
 
 </body></html>
