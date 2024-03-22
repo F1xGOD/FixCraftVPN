@@ -167,7 +167,7 @@ var final=``;
     if(chat[pp].sender==name){
       final+=`<div style="display:flex;position: absolute;right:10px;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> `;
     }else{
-    final+=`<div style=\"overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;\"><p style=\"overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px\">${chat[pp].content}</p></div> `
+    final+=`<div><img src="/FixCraftBIGSQUARE.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">SYSTEM</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">ALERT BE CAREFUL!</p></div> </div>`
     }
     if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
