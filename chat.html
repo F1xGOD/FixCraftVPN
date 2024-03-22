@@ -193,7 +193,7 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
   }
 }};
 module.send = function(){
-  var tosend = getElementById("input").value
+  var tosend = document.getElementById("input").value
   if(tosend!=""){
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":getCurrentDate()+" - "+getCurrentTime()})}
 }
