@@ -40,6 +40,14 @@
 |   1.8   | ❌                | Not Working |
 | < 1.8   | ❌                | Not Working |
 
+## Communication Chat
+
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 2.1   | :heavy_check_mark: | Works Fine |
+|   2.1   | :heavy_check_mark: | Works Fine |
+| < 2.1   | ❌                 | Not Working |
+
 ## Notes From The Owner
 
 PLEASE USE THE LASTEST VERSION!
