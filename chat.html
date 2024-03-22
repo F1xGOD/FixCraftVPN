@@ -169,7 +169,7 @@ var name = getCookie("usernamecred")
 var final=``;
   for(var pp = 0; pp < chat.length;pp++){
     if(chat[pp].sender==name){
-      final+=`<div style="display:flex;position: absolute;right:10px;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> `;
+      final+=`<div style="display: flex;justify-content: flex-end;"><div style="display:flex;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:10px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div></div>`;
     }else{
       var uname = chat[pp].sender
       var avatar = ""
