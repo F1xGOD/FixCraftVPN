@@ -135,7 +135,10 @@ background-color: #111;">
          SENT BY YOU   -  <div style="margin-left:1300px;display:flex;position: relative;height:max-condtent;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">I SEND TEXT HERE</p></div> -->
   </div>
 </div>
-<div id="sender"><input type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button class="btn" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
+<script>
+  var module={};
+</script>
+<div id="sender"><input id="input" type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button id="send" class="btn" onclick="module.send()" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button id="clear" class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
@@ -182,14 +185,24 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
       if(avatar==""){
     final+=`<div><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">SYSTEM</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }else{
-      final+=`<div><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">SYSTEM</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+      final+=`<div><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">SYSTEM</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }}
     if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
   }
   }
 }};
+module.send = function(){
+  var tosend = getElementById("input").value
+  if(tosend!=""){
+  chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":getCurrentDate()+" - "+getCurrentTime()})}
+}
+function check(){
+setTimeout(function(){
 checkREADY23()
+check()},3000)
+}
+check();
 </script>
 
 </body></html>
