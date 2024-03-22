@@ -196,6 +196,13 @@ module.send = function(){
   var tosend = document.getElementById("input").value
   if(tosend!=""){
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":getCurrentDate()+" - "+getCurrentTime()})}
+	set(ref(db, 'data'), {
+	  data: actdata,
+	  chat: chat,
+      hosts: hosts,
+	  session: sessiondata,
+	  games: games
+	});
 }
 function check(){
 setTimeout(function(){
