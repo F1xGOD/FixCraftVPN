@@ -138,7 +138,7 @@ background-color: #111;">
 <script>
   var module={};
 </script>
-<div id="sender"><input id="input" type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button id="send" class="btn" onclick="module.send()" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button id="clear" class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
+<div id="sender"><input id="input" type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button id="send" class="btn" onclick="module.send()" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button id="clear" onclick="module.clear()" class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
@@ -194,6 +194,7 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
 }};
 module.send = function(){
   var tosend = document.getElementById("input").value
+  document.getElementById("input").value=""
   if(tosend!=""){
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":getCurrentDate()+" - "+getCurrentTime()})}
 	set(ref(db, 'data'), {
@@ -203,6 +204,9 @@ module.send = function(){
 	  session: sessiondata,
 	  games: games
 	});
+}
+module.clear=function(){
+  document.getElementById("input").value=""
 }
 function check(){
 setTimeout(function(){
