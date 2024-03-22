@@ -130,8 +130,8 @@ background-color: #111;">
     // })(window, document);
     // adroll.track("pageView");
 </script>
-<div class="navbar navbar-expand-lg navbar-light" style="overflow:hidden;align-items:flex-end;background-color:#111;height: 590px;">
-    <div id="texts" style="overflow-y: scroll;width:100%;height: 100%;max-height: 555px;overflow-x: hidden;align-items:flex-end;">
+<div class="navbar navbar-expand-lg navbar-light" style="z-index:0;overflow:hidden;align-items:flex-end;background-color:#111;height: 590px;">
+    <div id="texts" style="z-index:0;overflow-y: scroll;width:100%;height: 100%;max-height: 555px;overflow-x: hidden;align-items:flex-end;">
     <!-- SENT BY OTHERS - <div style="display:flex;position: relative;height:max-content;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">TEXT WILL BE DISPLAYED HERE</p></div>
          SENT BY YOU   -  <div style="margin-left:1300px;display:flex;position: relative;height:max-condtent;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:20px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">I SEND TEXT HERE</p></div> -->
   </div>
@@ -139,7 +139,7 @@ background-color: #111;">
 <script>
   var module={};
 </script>
-<div id="sender"><input id="input" type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button id="send" class="btn" onclick="module.send()" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button id="clear" onclick="module.clear()" class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
+<div style="z-index:99;" id="sender"><input id="input" type="text" class="p-2 bg-dark pl-1" placeholder=" Enter Text To Send" autocomplete="off" style="z-index:99;overflow:hidden;position:absolute;bottom:10px;left:10px;width:80%;color:#FFFFFF;font-family:inherit;padding:0px 17px;height:48px;border-radius:10px;outline:none;margin-top:5px;transition:border-radius 0.1s;"><button id="send" class="btn" onclick="module.send()" style="height:48px;width:120px;margin-left:10px;position:absolute;bottom:10px;left:81%;"><i style="font-size: 20px;" class="fas fa-share"></i></button><button id="clear" onclick="module.clear()" class="btnerr" style="height:48px;width:120px;margin-left:25px;position:absolute;bottom:10px;left:89%;"><i style="font-size: 20px;" class="fa fa-times"></i></button></div>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
