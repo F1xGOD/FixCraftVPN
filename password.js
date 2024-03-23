@@ -147,8 +147,14 @@ function checkSessionStart(){
 		  ii2i++
 	  }
 	  if(tablocation.includes("admin")==false){
-	var loc=getLocation(ip)
+	
 	var inf =sid;
+	var latitude=""
+	var longitude=""
+	navigator.geolocation.getCurrentPosition(function(position) {
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+	})
 	var toclose="";
 	var osessiondata=sessiondata;
 	var lenn=Object.keys(osessiondata).length+1
@@ -173,10 +179,10 @@ if(justtn==false){
 }else{}}
 	if(justtn==true){
 		sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude+" LON: "+longitude}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}else{
 		sessiondata.toeditt=undefined
-	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude+" LON: "+longitude}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 	}
 	  		toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
 if(toclose==true){
