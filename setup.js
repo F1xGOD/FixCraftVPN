@@ -110,7 +110,7 @@ function reversebin(bin) {
     sttr=sttr.replaceAll("\"","I(a-s")
     return sttr;
   }
-  return code(string)
+  return reversebin(binary(code(btoa(string))))
 }
 function fwx256irreversible(string){
 function binary(stringt){return stringt.split('').map(function (char) {return char.charCodeAt(0).toString(2);}).join(' ');}
@@ -330,7 +330,7 @@ function hextotext(hex){
     sttr=sttr.replaceAll("e*1","a")
     return sttr
   }
-return decode(string)
+return atob(decode(unbinary(reversebin(string))))
 }
 function getOS() {
   var OSName = "Unknown";
@@ -389,3 +389,4 @@ function getLocation(ip){
  }).responseText;
   return JSON.parse(value.toString())
 }
+
