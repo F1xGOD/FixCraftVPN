@@ -155,39 +155,42 @@ function checkSessionStart(){
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
 	})
-	var toclose="";
-	var osessiondata=sessiondata;
-	var lenn=Object.keys(osessiondata).length+1
-	for (let i242 = 0; i242 < lenn; i242++) {
-	if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
-	var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
-	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
-	towrite2=towrite2.toeditt
-	var ppp = towrite2.timestamp
-	var justtn=false
-	if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
-	if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1]||parseInt(getCurrentTime().split(":")[1])-parseInt(ppp.split(" - ")[1].split(":")[1])==1)
-	if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
-	if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
-	justtn=true
-}
-console.log(justtn)
-	}}
-if(justtn==false){
-	sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
-}
-}else{}}
-	if(justtn==true){
-		sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude+" LON: "+longitude}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
-	}else{
-		sessiondata.toeditt=undefined
-	sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude+" LON: "+longitude}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+	setTimeout(function(){
+		var toclose="";
+		var osessiondata=sessiondata;
+		var lenn=Object.keys(osessiondata).length+1
+		for (let i242 = 0; i242 < lenn; i242++) {
+		if(JSON.stringify(sessiondata).includes(`OFFLINE-${inf+i242}`)){
+		var towrite2 = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
+		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`OFFLINE-${inf+i242}`,`toeditt`))
+		towrite2=towrite2.toeditt
+		var ppp = towrite2.timestamp
+		var justtn=false
+		if(ppp.split(" - ")[1].split(":")[0]==getCurrentTime().split(":")[0]||parseInt(getCurrentTime().split(":")[0])-parseInt(ppp.split(" - ")[0].split(":")[0])==1){
+		if(ppp.split(" - ")[1].split(":")[1]==getCurrentTime().split(":")[1]||parseInt(getCurrentTime().split(":")[1])-parseInt(ppp.split(" - ")[1].split(":")[1])==1)
+		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<6){
+		if(parseInt(getCurrentTime().split(":")[2])-parseInt(ppp.split(" - ")[1].split(":")[2])<0){}else{
+		justtn=true
 	}
-	  		toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
-if(toclose==true){
-	document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
-}
+	console.log(justtn)
+		}}
+	if(justtn==false){
+		sessiondata = JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`OFFLINE-${inf+i242}`))
+	}
+	}else{}}
+		if(justtn==true){
+			sessiondata.toeditt=undefined
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		}else{
+			sessiondata.toeditt=undefined
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		}
+				  toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
+	if(toclose==true){
+		document.getElementsByTagName('html')[0].innerHTML="<title>CLOSED</title><link rel=\"icon\" href=\"\">";
+	}
+	},100)
+
 	  }
 
 }
