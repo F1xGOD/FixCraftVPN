@@ -9,7 +9,7 @@ var sid="";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-const fpPromise = import('https://fpjscdn.net/v3/Mqp8FONFFHZ5RWbNYULb')
+const fpPromise = import('https://fpjscdn.net/v3/oApATVbaDEX2lJM25PBW')
 .then(FingerprintJS => FingerprintJS.load())
 
 // Get the visitorId when you need it.
