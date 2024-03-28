@@ -182,7 +182,7 @@ while (ii2i < actdata.accounts.length){
 if(avatar==undefined){avatar=""}else{avatar=avatar}
     var reltime = "XX:XX:XX"
     var reltime2 = "XX/XX/XXXX"
-var datee2 = chat[pp].timestamp
+var datee2 = Date.parse(chat[pp].timestamp)
 reltime = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[1]
 reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[0]
       if(avatar==""){
