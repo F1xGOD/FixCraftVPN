@@ -413,8 +413,8 @@ while (ii2i < actdata.accounts.length){
         savess=true
     }
     if(file!=""){
-      if(avatar!=""){
-  var existingRef = refstorage(storage, `avatars/${avatar}`);
+      if(user.avatar!=""){
+  var existingRef = refstorage(storage, `avatars/${user.avatar}`);
   deleteObject(existingRef).then(() => {
   // File deleted successfully
 }).catch((error) => {
