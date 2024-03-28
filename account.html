@@ -229,10 +229,9 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const storage = getStorage();
-const storageRef = refstorage(storage, `avatars/${file.name}`);
 var actdata = {};
 var hosts={};
-var file = {};
+var file = "";
 var sessiondata = {};
 var chat = {};
 var games = {};
@@ -412,18 +411,20 @@ while (ii2i < actdata.accounts.length){
     }
     if(file!=""){
       if(avatar!=""){
-  var storageRef = refstorage(storage, `avatars/${avatar}`);
+  var existingRef = refstorage(storage, `avatars/${avatar}`);
   deleteObject(existingRef).then(() => {
   // File deleted successfully
 }).catch((error) => {
   // Uh-oh, an error occurred!
 });
+var storageRef = refstorage(storage, `avatars/${file.name}`);
 uploadBytes(storageRef, file).then((snapshot) => {
   user.avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
   user.avatar=file.name
 });
 }else{
+  var storageRef = refstorage(storage, `avatars/${file.name}`);
   uploadBytes(storageRef, file).then((snapshot) => {
   user.avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
