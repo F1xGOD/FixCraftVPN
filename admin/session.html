@@ -144,6 +144,7 @@ var accesslevel = 0
 
 var final= "";
   var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
+  if(result[0]=="TEST"&&result.length==1){document.getElementById('log').innerHTML="EMPTY!"}else{
   for(var ii2 = 0; ii2 < result.length-1; ii2++){
     if(result[ii2].status!="online"){
     final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
@@ -158,7 +159,7 @@ var final= "";
       document.getElementById('log').innerHTML=final
     }
   }}
-}
+}}
   function first(){
 setTimeout(function(){
 	checkREADY22(false)
