@@ -399,6 +399,15 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
+var avatar = user.avatar;
+if(avatar==undefined){avatar=""}else{avatar=avatar}
+
+      if(avatar==""){
+    
+      }else{
+      document.getElementById("avatar").src=`https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media`
+    }}
+
 document.getElementById("inputUsername").placeholder=atob(user.username)
 document.getElementById("inputPassword").placeholder=atob(user.password)
 document.getElementById("inputCPassword").placeholder=atob(user.password)
@@ -432,7 +441,7 @@ function dialog(){
 <div class="card-header">Profile Picture</div>
 <div class="card-body text-center">
 
-<img class="img-account-profile rounded-circle mb-2" src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt>
+<img id="avatar" class="img-account-profile rounded-circle mb-2" src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt>
 
 <div class="small font-italic text-muted mb-4">This Feature Is Not Available Yet!</div>
 
