@@ -351,14 +351,14 @@ module.avatarcheck=function avatarcheck(){
 var input = document.createElement('input');
 input.type = 'file';
 input.accept="image/*"
-input.onchange=e=>{
+input.onchange=works(event,this)
+function works(event,tis){
 file = event.target.files[0];
 if(!file.name.match(/\.(png)$/i)){
   snackbar_Fail12()
 }else{
-
-
-
+  
+  document.getElementById("avatar").src=tis.value
 }
 }
 input.click();
