@@ -423,15 +423,15 @@ while (ii2i < actdata.accounts.length){
 var storageRef = refstorage(storage, `avatars/${file.name}`);
 uploadBytes(storageRef, file).then((snapshot) => {
   actdata.accounts[id].avatar=file.name.split(".png")[0]
+  user.avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
-  console.log(actdata.accounts[id].avatar)
 });
 }else{
   var storageRef = refstorage(storage, `avatars/${file.name}`);
   uploadBytes(storageRef, file).then((snapshot) => {
   actdata.accounts[id].avatar=file.name.split(".png")[0]
+  user.avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
-  console.log(actdata.accounts[id].avatar)
 });
 } 
   savess=true
