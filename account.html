@@ -228,8 +228,11 @@ if (getCookie("UID")!=""){
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
+const storage = getStorage();
+const storageRef = refstorage(storage, `avatars/${file.name}`);
 var actdata = {};
 var hosts={};
+var file = {};
 var sessiondata = {};
 var chat = {};
 var games = {};
@@ -350,19 +353,13 @@ var input = document.createElement('input');
 input.type = 'file';
 input.accept="image/*"
 input.onchange=e=>{
-var file = event.target.files[0];
+file = event.target.files[0];
 if(!file.name.match(/\.(png)$/i)){
   snackbar_Fail12()
 }else{
-// Create a root reference
-const storage = getStorage();
 
-const storageRef = refstorage(storage, `avatars/${file.name}.png`);
 
-// 'file' comes from the Blob or File API
-uploadBytes(storageRef, file).then((snapshot) => {
-  console.log('Uploaded!');
-});
+
 }
 }
 input.click();
@@ -412,6 +409,28 @@ while (ii2i < actdata.accounts.length){
     if(document.getElementById("inputInfo").value==""||document.getElementById("inputInfo").value==userd.info){if(savess==null){savess=false}}else{
         actdata.accounts[id].details.info=document.getElementById("inputInfo").value
         savess=true
+    }
+    if(file!=""){
+      if(avatar!=""){
+  var storageRef = refstorage(storage, `avatars/${avatar}`);
+  deleteObject(existingRef).then(() => {
+  // File deleted successfully
+}).catch((error) => {
+  // Uh-oh, an error occurred!
+});
+uploadBytes(storageRef, file).then((snapshot) => {
+  user.avatar=file.name.split(".png")[0]
+  console.log('Uploaded!');
+  user.avatar=file.name
+});
+}else{
+  uploadBytes(storageRef, file).then((snapshot) => {
+  user.avatar=file.name.split(".png")[0]
+  console.log('Uploaded!');
+  user.avatar=file.name
+});
+} 
+  savess=true
     }
   if(savess==true){
   module.writeus()}else{if(reasonf!=""){snackbar_Fail(reasonf)}else{snackbar_Fail("You Didn't Make Any Changes!")}}
