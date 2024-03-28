@@ -348,20 +348,22 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
   snackbar_Successs();
 }
 module.avatarcheck=function avatarcheck(){
-  function works(event,tis){
+var input = document.createElement('input');
+input.type = 'file';
+input.accept="image/*"
+input.onchange=e=>{
 file = event.target.files[0];
 if(!file.name.match(/\.(png)$/i)){
   snackbar_Fail12()
 }else{
-  
-  document.getElementById("avatar").src=tis.value
-}
-}
-var input = document.createElement('input');
-input.type = 'file';
-input.accept="image/*"
-input.onchange=works(event,this)
+  var fr = new FileReader();
+        fr.onload = function () {
+          document.getElementById("avatar").src = fr.result;
+        }
+        fr.readAsDataURL(file);
 
+}
+}
 input.click();
 }
 
