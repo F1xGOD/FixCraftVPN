@@ -348,11 +348,7 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
   snackbar_Successs();
 }
 module.avatarcheck=function avatarcheck(){
-var input = document.createElement('input');
-input.type = 'file';
-input.accept="image/*"
-input.onchange=works(event,this)
-function works(event,tis){
+  function works(event,tis){
 file = event.target.files[0];
 if(!file.name.match(/\.(png)$/i)){
   snackbar_Fail12()
@@ -361,6 +357,11 @@ if(!file.name.match(/\.(png)$/i)){
   document.getElementById("avatar").src=tis.value
 }
 }
+var input = document.createElement('input');
+input.type = 'file';
+input.accept="image/*"
+input.onchange=works(event,this)
+
 input.click();
 }
 
