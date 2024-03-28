@@ -336,6 +336,21 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
   });
   snackbar_Successs();
 }
+module.avatarcheck()=function(){
+  var input = document.createElement('input');
+input.type = 'file';
+input.accept="image/*"
+input.onchange=e=>{
+var file = event.target.files[0];
+if(!file.name.match(/\.(jpg|jpeg|png|gif)$/i)){
+
+}else{
+
+}
+}
+input.click();
+}
+
 module.savec = function savec() {
 var ii2i= 0;
 var userd = {}
@@ -443,9 +458,9 @@ function dialog(){
 
 <img id="avatar" class="img-account-profile rounded-circle mb-2" src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt>
 
-<div class="small font-italic text-muted mb-4">This Feature Is Not Available Yet!</div>
+<div class="small font-italic text-muted mb-4">For Best Results Use Minimum 128x128!</div>
 
-<button class="btn btn-primary" type="button">COMING SOON</button>
+<button class="btn btn-primary" type="button" onclick="module.avatarcheck()">UPLOAD</button>
 </div>
 </div>
 </div>
