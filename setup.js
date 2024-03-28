@@ -390,6 +390,10 @@ function getLocation(ip){
   return JSON.parse(value.toString())
 }
 
+function getTimeZone(){
+  return Intl.DateTimeFormat().resolvedOptions().timeZone
+}
+
 function generateRandom(length) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
