@@ -182,19 +182,9 @@ while (ii2i < actdata.accounts.length){
 if(avatar==undefined){avatar=""}else{avatar=avatar}
     var reltime = "XX:XX:XX"
     var reltime2 = "XX/XX/XXXX"
-    let options = {
-    timeZone: 'Europe/London',
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-  },
-  formatter = new Intl.DateTimeFormat([], options);
-
-reltime = formatter.format(new Date()).split(", ")[1]
-reltime2 = formatter.format(new Date()).split(", ")[0]
+var datee2 = chat[pp].timestamp
+reltime = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[1]
+reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[0]
       if(avatar==""){
     final+=`<div><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }else{
@@ -209,7 +199,8 @@ module.send = function(){
   var tosend = document.getElementById("input").value
   document.getElementById("input").value=""
   if(tosend!=""){
-  chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":getCurrentDate()+" - "+getCurrentTime()+" - "+getTimeZone()})}
+  var date =new Date
+  chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":date.toString()})}
 	set(ref(db, 'data'), {
 	  data: actdata,
 	  chat: chat,
