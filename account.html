@@ -413,8 +413,9 @@ while (ii2i < actdata.accounts.length){
         savess=true
     }
     if(file!=""){
-      if(user.avatar!=""){
-  var existingRef = refstorage(storage, `avatars/${user.avatar}`);
+      if(actdata.accounts[id].avatar!=""){
+        console.log(actdata.accounts[id].avatar)
+  var existingRef = refstorage(storage, `avatars/${actdata.accounts[id].avatar}`);
   deleteObject(existingRef).then(() => {
   // File deleted successfully
 }).catch((error) => {
@@ -422,16 +423,16 @@ while (ii2i < actdata.accounts.length){
 });
 var storageRef = refstorage(storage, `avatars/${file.name}`);
 uploadBytes(storageRef, file).then((snapshot) => {
-  user.avatar=file.name.split(".png")[0]
+  actdata.accounts[id].avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
-  user.avatar=file.name
+  actdata.accounts[id].avatar=file.name
 });
 }else{
   var storageRef = refstorage(storage, `avatars/${file.name}`);
   uploadBytes(storageRef, file).then((snapshot) => {
-  user.avatar=file.name.split(".png")[0]
+  actdata.accounts[id].avatar=file.name.split(".png")[0]
   console.log('Uploaded!');
-  user.avatar=file.name
+  actdata.accounts[id].avatar=file.name
 });
 } 
   savess=true
