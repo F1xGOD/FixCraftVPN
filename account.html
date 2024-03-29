@@ -516,7 +516,10 @@ document.getElementById("inputUsername").placeholder=atob(user.username)}
 
 var udetails=user.details;
 if(sucs5){
-
+if(udetails.info!=""){
+document.getElementById("inputInfo").placeholder=udetails.info}
+document.getElementById("inputInfo").disabled=true
+document.getElementById("infoLabel").innerHTML=`Additional Info<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
 if(udetails.info!=""){
 document.getElementById("inputInfo").placeholder=udetails.info}}
@@ -529,7 +532,10 @@ document.getElementById("inputName").placeholder=udetails.aname}
 if(udetails.aname!=""){
 document.getElementById("inputName").placeholder=udetails.aname}}
 if(sucs3){
-
+if(udetails.email!=""){
+document.getElementById("inputEmailAddress").placeholder=udetails.email}
+document.getElementById("inputEmailAddress").disabled=true
+document.getElementById("emailLabel").innerHTML=`Email Address`
 }else{
 if(udetails.email!=""){
 document.getElementById("inputEmailAddress").placeholder=udetails.email}}
