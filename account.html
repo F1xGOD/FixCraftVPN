@@ -469,9 +469,13 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
       document.getElementById("avatar").src=`https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media`
     }
     var sucs=false
+    var sucs2=false
   for(var m =0; m<user.disabled.length; m++){
     if(user.disabled[m]=="usernameEdit"){
       sucs=true
+    }
+    if(user.disabled[m]=="passwordEdit"){
+      sucs2=true
     }
     if(m==user.disabled.length-1){
       if(sucs){
@@ -480,12 +484,24 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
   document.getElementById("usernameLabel").innerHTML=`Username<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
 document.getElementById("inputUsername").placeholder=atob(user.username)}
+
+  if(sucs2){
+    document.getElementById("inputPassword").placeholder=atob(user.password)
+    document.getElementById("inputCPassword").placeholder=atob(user.password)
+    document.getElementById("inputPassword").disabled=true
+    document.getElementById("inputCPassword").disabled=true
+    document.getElementById("passwordLabel").innerHTML=`Password<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
+    document.getElementById("passwordLabel2").innerHTML=`Confirm Password<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
+  }else{
+    document.getElementById("inputPassword").placeholder=atob(user.password)
+    document.getElementById("inputCPassword").placeholder=atob(user.password)
+  }
     }
+
   }
 
 
-document.getElementById("inputPassword").placeholder=atob(user.password)
-document.getElementById("inputCPassword").placeholder=atob(user.password)
+
 var udetails=user.details;
 if(udetails.info!=""){
 document.getElementById("inputInfo").placeholder=udetails.info}
@@ -539,12 +555,12 @@ function dialog(){
 <div class="row gx-3 mb-3">
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputPassword">Password</label>
+<label class="small mb-1" for="inputPassword" id="passwordLabel">Password</label>
 <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" value="">
 </div>
 
 <div class="col-md-6">
-<label class="small mb-1" for="inputCPassword">Confirm Password</label>
+<label class="small mb-1" for="inputCPassword" id="passwordLabel2">Confirm Password</label>
 <input class="form-control" id="inputCPassword" type="text" placeholder="Confirm Your New Password" value="">
 </div>
 </div>
