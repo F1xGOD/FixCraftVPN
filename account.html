@@ -462,12 +462,22 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
       }else{
       document.getElementById("avatar").src=`https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media`
     }
-if(user.username.includes("|>/|DISABLED|/<|")){
-  document.getElementById("inputUsername").placeholder=atob(user.username.split("|>/|DISABLED|/<|")[0])
+    var sucs=false
+  for(var m =0; m<user.disabled.length; m++){
+    if(user.disabled[m]=="usernameEdit"){
+      sucs=true
+    }
+    if(m==user.disabled.length-1){
+      if(sucs){
+  document.getElementById("inputUsername").placeholder=atob(user.username)
   document.getElementById("inputUsername").disabled=true
   document.getElementById("usernameLabel").innerHTML=`Username<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
 document.getElementById("inputUsername").placeholder=atob(user.username)}
+    }
+  }
+
+
 document.getElementById("inputPassword").placeholder=atob(user.password)
 document.getElementById("inputCPassword").placeholder=atob(user.password)
 var udetails=user.details;
