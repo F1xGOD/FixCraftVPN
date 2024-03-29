@@ -539,7 +539,11 @@ document.getElementById("emailLabel").innerHTML=`Email Address<i class=\"fa-duot
 }else{
 if(udetails.email!=""){
 document.getElementById("inputEmailAddress").placeholder=udetails.email}}
+  if(sucs6){
+    document.getElementById("upl").innerHTML=`UPLOAD<i class=\"fa-solid fa-lock\" style=\"margin-left:7px\"></i>`
+  }else{
 
+  }
 }
 
 }
@@ -570,7 +574,7 @@ function dialog(){
 
 <div class="small font-italic text-muted mb-4">For Best Results Use Minimum 128x128!</div>
 
-<button class="btn btn-primary" id="upl" type="button" onclick="module.avatarcheck()">UPLOAD</button>
+<button class="btn btn-primary" id="upl" type="button" style="opacity: 1;" onclick="module.avatarcheck()">UPLOAD</button>
 </div>
 </div>
 </div>
