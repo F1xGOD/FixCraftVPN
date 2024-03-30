@@ -136,6 +136,7 @@ console.log('%cThe browser console is a developer tool not intended for use!\nDO
 }
 warntheuser();
 function checkSessionStart(){
+	sessiondata=JSON.parse(JSON.stringify(sessiondata).split("\"TEST\":\"TEST\"")[0]+"\"TEST\":\"TEST\"}")
 	if(getCookie("usernamecred")!=""){
 		var uuun=btoa(getCookie("usernamecred"))
 		var user={}
