@@ -56,6 +56,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
 var games={};
+var bank={};
 var chat = {};
 var hosts={};
 var sessiondata = {};
@@ -86,6 +87,7 @@ onValue(infodat, (snapshot) => {
     var data = snapshot.val();
       actdata=data.data
 	  chat=data.chat
+	  bank=data.bank
 	hosts=data.hosts
 	games=data.games
 	  sessiondata=data.session
@@ -110,7 +112,8 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`-${inf+par
 	  data: actdata,
 	hosts: hosts,
 	chat: chat,
-	games:games,
+	bank: bank,
+	games: games,
 	  session: sessiondata
 	});}
         function checkCookie() {

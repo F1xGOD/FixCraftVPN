@@ -69,6 +69,7 @@ function requestPermission() {
 
 var actdata = {};
 var games = {};
+var bank = {};
 var chat = {};
 var hosts = {};
 var sessiondata = {};
@@ -79,6 +80,7 @@ onValue(infodat, (snapshot) => {
 	sessiondata=data.session
     actdata=data.data
 	chat=data.chat
+	bank=data.bank
 	hosts=data.hosts
 	games=data.games
   })
@@ -88,6 +90,7 @@ onValue(infodat, (snapshot) => {
 	  data: actdata,
 	  hosts: hosts,
 	  chat: chat,
+	  bank: bank,
 	  session: towrite,
       games: games
 
@@ -117,6 +120,7 @@ onValue(infodat, (snapshot) => {
 	  data: actdata,
 	  chat: chat,
       hosts: hosts,
+	  bank: bank,
 	  session: sessiondata,
 	  games: games
 	});

@@ -241,12 +241,14 @@ var file = "";
 var sessiondata = {};
 var chat = {};
 var games = {};
+var bank={};
 const infodat = ref(db, 'data');
 function readd(){
 onValue(infodat, (snapshot) => {
     var data = snapshot.val();
     actdata=data.data
     games=data.games
+    bank=data.bank
     hosts=data.hosts
     chat=data.chat
     sessiondata=data.session
@@ -347,6 +349,7 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toedittp`,`EDITED-${
     data: towrite,
     hosts: hosts,
     chat: chat,
+    bank: bank,
     session: sessiondata,
     games: games
 
