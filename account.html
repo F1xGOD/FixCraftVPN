@@ -646,7 +646,7 @@ document.getElementById(id).className="nav-link active ms-0"
 </div>
 </div>
 </div>
-<div id="planrow" class="row" style="display: flex;">
+<div id="planrow" class="row" style="display: none;">
   <div class="col-xl-4">
 
     <div class="card mb-4 mb-xl-0">
@@ -681,18 +681,18 @@ document.getElementById(id).className="nav-link active ms-0"
     <form>
 
     <div class="mb-3">
-    <label class="small mb-1" for="inputEmailAddress" id="emailLabel">Hash Address</label>
-    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter Your Hash Address" value="">
+    <label class="small mb-1" for="inputHashAddress" >Hash Address</label>
+    <input class="form-control" id="inputHashAddress" type="text" placeholder="Enter Your Hash Address" value="">
     </div><div class="row gx-3 mb-3">
     
     <div class="col-md-6">
-    <label class="small mb-1" for="inputName" id="nameLabel">Card Number</label>
-    <input class="form-control" id="inputName" type="text" placeholder="Enter Your Card Number" value="">
+    <label class="small mb-1" for="inputCard" id="cardLabel">Card Number</label>
+    <input class="form-control" id="inputCard" type="text" placeholder="Enter Your Card Number" value="">
     </div>
     
     <div class="col-md-6">
-    <label class="small mb-1" for="inputInfo" id="infoLabel">CVV</label>
-    <input class="form-control" id="inputInfo" type="text" name="innfo" placeholder="Enter Your CVV" value="">
+    <label class="small mb-1" for="inputCVV" id="CVVLabel">CVV</label>
+    <input class="form-control" id="inputCVV" type="text" placeholder="Enter Your CVV" value="">
     </div>
     </div>
     
@@ -708,18 +708,21 @@ document.getElementById(id).className="nav-link active ms-0"
     
     
     <div class="mb-3">
-    <label class="small mb-1" for="inputEmailAddress" id="emailLabel">Hash Address</label>
-    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter Your Hash Address" value="">
+    <label class="small mb-1" for="inputHashAddress2" >Hash Address</label>
+    <input class="form-control" id="inputHashAddress2" type="text" placeholder="Enter Hash Address" value="">
     </div><div class="row gx-3 mb-3">
     
     <div class="col-md-6">
-    <label class="small mb-1" for="inputName" id="nameLabel">Currency</label>
-    <input class="form-control" id="inputName" type="text" placeholder="Enter Your Card Number" value="">
+    <label class="small mb-1" for="inputCurrency">Currency</label>
+    <select name="currency" id="currency" style="border-width: 2px;display:block; float:right; width:165px">
+      <option id="fwxcoin" value="fwxcoin" style="display: block;">FWX-Coin</option>
+      <option id="dollar" value="dollar">Dollar</option>
+      </select>
     </div>
     
     <div class="col-md-6">
-    <label class="small mb-1" for="inputInfo" id="infoLabel">Amount</label>
-    <input class="form-control" id="inputInfo" type="text" name="innfo" placeholder="Enter Your CVV" value="">
+    <label class="small mb-1" for="inputAmount">Amount</label>
+    <input class="form-control" id="inputAmount" type="text" name="amount" placeholder="Enter Amount" value="">
     </div>
     </div>
     
