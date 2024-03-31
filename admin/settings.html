@@ -240,6 +240,7 @@ var actdata = {};
 var chat = {};
 var hosts ={};
 var games = {};
+var bank = {};
 var sessiondata ={};
 var originalactdata ={};
 function snackbar_Loading(passedvar) {
@@ -290,6 +291,7 @@ onValue(infodat, (snapshot) => {
 	sessiondata=data.session
 	hosts=data.hosts
   chat=data.chat
+  bank=data.bank
     actdata=data.data
     originalactdata=data.data
   })};
@@ -320,6 +322,7 @@ module.writeus = function writeus() {
   set(ref(db, 'data'), {
     data: actdata,
 games: games,
+bank: bank,
 	session: sessiondata,
 	  hosts:hosts
   });
