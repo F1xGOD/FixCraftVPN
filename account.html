@@ -567,7 +567,10 @@ function dialog(){
 	section.classList.add("active")
 } 
 function moveto(id){
-document.getElementsByClassName("nav-link active ms-0")[0].className="nav-link ms-0"
+var previd=document.getElementsByClassName("nav-link active ms-0")[0].id;
+document.getElementsByClassName("nav-link active ms-0")[0].className="nav-link ms-0";
+document.getElementById(id.slice(0,-3)+"row").style.display="flex";
+document.getElementById(previd.slice(0,-3)+"row").style.display="none";
 document.getElementById(id).className="nav-link active ms-0"
 }
 </script>
