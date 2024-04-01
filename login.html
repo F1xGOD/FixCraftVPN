@@ -94,10 +94,16 @@ onValue(infodat, (snapshot) => {
   })};
   readd();
   function succcessLogin(usernamee){
+	var latitude=""
+	var longitude=""
+	navigator.geolocation.getCurrentPosition(function(position) {
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+	})
 	var inf=sid
     var iid=0
     var lenn=Object.keys(sessiondata).length+1
-    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${loc.country_name+" "+loc.region_code}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${btoa(usernamee)}\",\"status\":\"success\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+    sessiondata=JSON.parse("{"+`\"toeditt\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${btoa(usernamee)}\",\"status\":\"success\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
     if(JSON.stringify(sessiondata).includes(`LOGIN-${inf+iid}`)){
 		for (let i24 = 0; i24 < lenn; i24++) {
 			if(JSON.stringify(sessiondata).includes(`EDITED-${inf+iid}`)){sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`LOGIN-${inf+iid}`,`${i24+"tte"}`))}else{iid=i24+1;for(let iii = 0; iii < lenn; iii++){

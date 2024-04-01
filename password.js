@@ -184,10 +184,10 @@ function checkSessionStart(){
 	}else{}}
 		if(justtn==true){
 			sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 		}else{
 			sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user"\:\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 		}
 				  toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
 	if(toclose==true){
