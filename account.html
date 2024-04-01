@@ -309,7 +309,15 @@ function snackbar_Fail(passedvar) {
                             status: "danger"
                         });
                     };
-function snackbar_Fail12() {
+function snackbar_Custom(message,timeout,dismissible,status) {
+                        SnackBar({
+                            message: message,
+							              timeout:timeout,
+							              dismissible:dismissible,
+                            status: status
+                        });
+                    };
+                    function snackbar_Fail12() {
                         SnackBar({
                             message: `Please Use PNG!`,
 							timeout:1560,
@@ -375,7 +383,45 @@ if(!file.name.match(/\.(png)$/i)){
 }
 input.click();
 }
-
+module.transfr = function transfr(){
+  for(var v =0;v<actdata.accounts.length;v++){
+    var correct1=false
+    var vaal=false
+    var correct1vv=0
+    var correct2vv=0
+    var correct2=false
+    if(actdata.accounts[v].bank.hashaddress==document.getElementById("inputHashAddress").value){
+      if(actdata.accounts[v].bank.cardnumber==document.getElementById("inputCard").value){
+        if(actdata.accounts[v].bank.cvv==document.getElementById("inputCVV").value){
+            correct1vv=v
+            correct1=true
+        }
+      }
+    }
+    if(actdata.accounts[v].bank.hashaddress==document.getElementById("inputHashAddress2").value){
+      if(actdata.accounts[v].bank.cardnumber==document.getElementById("inputCard2").value){
+        correct2=true
+        correct2vv=v
+        if(document.getElementById("inputAmount").value!=""){
+            vaal=true
+      }
+    }}
+    if(v==actdata.accounts.length-1){
+      if(vaal==true){
+      if(correct1){
+        if(correct2){
+          
+        }else{
+          snackbar_Custom("The Info You Entered In TO Account Wrong!",1000,false,"danger")
+        }
+      }else{
+        snackbar_Custom("The Info You Entered In FROM Account Wrong!",1000,false,"danger")
+      }}else{
+        snackbar_Custom("Enter An Amount!",1000,false,"danger")
+      }
+    }
+  }
+}
 module.savec = function savec() {
 var ii2i= 0;
 var userd = {}
@@ -693,7 +739,7 @@ document.getElementById(id).className="nav-link active ms-0"
 
     <div class="mb-3">
     <label class="small mb-1">Hash Address</label>
-    <input class="form-control" type="email" id="outHash" placeholder="Your Hash Address" value="" disabled="">
+    <input class="form-control" type="text" id="outHash" placeholder="Your Hash Address" value="" disabled="">
     </div><div class="row gx-3 mb-3">
     
     <div class="col-md-6">
@@ -763,7 +809,7 @@ document.getElementById(id).className="nav-link active ms-0"
     </div>
     </div>
     
-    <button class="btn btn-primary" type="button" onclick="module.savec()">Transfer</button></form></div>
+    <button class="btn btn-primary" type="button" onclick="module.transfr()">Transfer</button></form></div>
     
     
     </div>
