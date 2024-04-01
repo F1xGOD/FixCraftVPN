@@ -550,17 +550,22 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   }else{
 
   }
+  var stt = false
   if(user.bank.hashaddress==undefined){
     actdata.accounts[oid].bank.hashaddress="0x0"+getRandomInt(0,9,19)+"V2"
+    stt=true
   }
   if(user.bank.cardnumber==undefined){
     actdata.accounts[oid].bank.cardnumber=getRandomInt(1,9,16)
+    stt=true
   }
   if(user.bank.cvv==undefined){
     actdata.accounts[oid].bank.cvv=getRandomInt(1,9,1)+getRandomInt(0,9,2)
+    stt=true
   }
   if(user.bank.balance==undefined){
     actdata.accounts[oid].bank.balance=0
+    stt=true
   }
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
   document.getElementById("outCard").value=actdata.accounts[oid].bank.cardnumber
@@ -568,6 +573,18 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   document.getElementById("outBalance").value= new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(
     actdata.accounts[oid].bank.balance
   )
+  if(stt==true){
+    set(ref(db, 'data'), {
+    data: actdata,
+    hosts: hosts,
+    chat: chat,
+    bank: bank,
+    session: sessiondata,
+    games: games
+
+  });
+  }
+  
 }
 
 }
@@ -690,7 +707,7 @@ document.getElementById(id).className="nav-link active ms-0"
     </div>
     </div>
     <div class="mb-3">
-      <label class="small mb-1">Balance</label><input class="form-control" id="outBalance" type="number" placeholder="Balance" value="" disabled="">
+      <label class="small mb-1">Balance</label><input class="form-control" id="outBalance" type="text" placeholder="Balance" value="" disabled="">
       </div>
     </form>
     </div>
