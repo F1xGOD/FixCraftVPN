@@ -557,9 +557,9 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
     actdata.accounts[oid].bank.cardnumber=getRandomInt(1,9,16)
   }
   if(user.bank.cvv==undefined){
-    actdata.accounts[oid].bank.cvv=getRandomInt(1,9)+getRandomInt(0,9,2)
+    actdata.accounts[oid].bank.cvv=getRandomInt(1,9,1)+getRandomInt(0,9,2)
   }
-  if(user.bank.balance=-undefined){
+  if(user.bank.balance==undefined){
     actdata.accounts[oid].bank.balance=0
   }
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
