@@ -390,6 +390,9 @@ module.transfr = function transfr(){
     var correct1vv=0
     var correct2vv=0
     var correct2=false
+    if(document.getElementById("inputAmount").value!=""){
+            vaal=true
+      }
     if(actdata.accounts[v].bank.hashaddress==document.getElementById("inputHashAddress").value){
       if(actdata.accounts[v].bank.cardnumber==document.getElementById("inputCard").value){
         if(actdata.accounts[v].bank.cvv==document.getElementById("inputCVV").value){
@@ -402,9 +405,6 @@ module.transfr = function transfr(){
       if(actdata.accounts[v].bank.cardnumber==document.getElementById("inputCard2").value){
         correct2=true
         correct2vv=v
-        if(document.getElementById("inputAmount").value!=""){
-            vaal=true
-      }
     }}
     if(v==actdata.accounts.length-1){
       if(vaal==true){
