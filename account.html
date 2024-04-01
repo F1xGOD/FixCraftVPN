@@ -551,9 +551,13 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
 
   }
   if(user.bank.hashaddress==undefined){
-    actdata.accounts[oid].bank.hashaddress="0x0"+getRandomInt(9,19)+"V2"
+    actdata.accounts[oid].bank.hashaddress="0x0"+getRandomInt(0,9,19)+"V2"
+  }
+  if(user.bank.cardnumber==undefined){
+    actdata.accounts[oid].bank.cardnumber=getRandomInt(1,9,16)
   }
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
+  document.getElementById("outCard").value=actdata.accounts[oid].bank.cardnumber
 }
 
 }
