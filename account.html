@@ -410,7 +410,7 @@ function makeTransaction(from,to,executor,amount){
     var inf=sid
     var iid=0
     var lenn=Object.keys(bank.transactions).length+1
-    bank.transactions=JSON.parse("{"+`\"toedittp\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${executor}\",\"tfrom\":${actdata.accounts[from]},\"tto\":${actdata.accounts[to]},\"amount\":\"${amount}\",\"status\":\"edited\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(bank.transactions).slice(1,-1)+"}");
+    bank.transactions=JSON.parse("{"+`\"toedittp\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${executor}\",\"tfrom\":${"{"+JSON.stringify(actdata.accounts[from])+"}"},\"tto\":${"{"+JSON.stringify(actdata.accounts[to])+"}"},\"amount\":\"${amount}\",\"status\":\"edited\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(bank.transactions).slice(1,-1)+"}");
     if(JSON.stringify(bank.transactions).includes(`TRANSACTION-${inf+iid}`)){
 		for (let i24 = 0; i24 < lenn; i24++) {
 			if(JSON.stringify(bank.transactions).includes(`TRANSACTION-${inf+iid}`)){bank.transactions=JSON.parse(JSON.stringify(bank.transactions).replace(`TRANSACTION-${inf+iid}`,`${i24+"tte"}`))}else{iid=i24+1;for(let iii = 0; iii < lenn; iii++){
