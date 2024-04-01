@@ -402,7 +402,7 @@ module.transfr = function transfr(){
       }
     }
     if(actdata.accounts[v].bank.hashaddress==document.getElementById("inputHashAddress2").value){
-      if(actdata.accounts[v].bank.cardnumber==document.getElementById("inputCard2").value){
+      if(atob(actdata.accounts[v].username)==document.getElementById("inputCard2").value){
         correct2=true
         correct2vv=v
     }}
@@ -821,8 +821,8 @@ document.getElementById(id).className="nav-link active ms-0"
     <input class="form-control" id="inputHashAddress2" type="text" placeholder="Enter Hash Address" value="">
     </div><div class="row gx-3 mb-3">
     <div class="col-md-6">
-    <label class="small mb-1" for="inputCard2">Card Number</label>
-    <input class="form-control" id="inputCard2" type="text" placeholder="Enter Card Number" value="">
+    <label class="small mb-1" for="inputCard2">Username</label>
+    <input class="form-control" id="inputCard2" type="text" placeholder="Enter Username" value="">
     </div>
     
     <div class="col-md-6">
