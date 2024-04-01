@@ -565,7 +565,9 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
   document.getElementById("outCard").value=actdata.accounts[oid].bank.cardnumber
   document.getElementById("outCVV").value=actdata.accounts[oid].bank.cvv
-  document.getElementById("outBalance").value=actdata.accounts[oid].bank.balance
+  document.getElementById("outBalance").value= new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(
+    actdata.accounts[oid].bank.balance
+  )
 }
 
 }
