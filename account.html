@@ -423,9 +423,9 @@ module.transfr = function transfr(){
           if(document.getElementById("inputAmount").value>user.bank.balance){
             snackbar_Custom("Insufficient Funds!",1000,false,"danger")
           }else{
-            actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-document.getElementById("inputAmount").value
-            actdata.accounts[correct2vv].bank.balance=actdata.accounts[correct2vv].bank.balance+document.getElementById("inputAmount").value
-            
+            actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-parseFloat(document.getElementById("inputAmount").value)
+            actdata.accounts[correct2vv].bank.balance=actdata.accounts[correct2vv].bank.balance+parseFloat(document.getElementById("inputAmount").value)
+
             set(ref(db, 'data'), {
     data: actdata,
     hosts: hosts,
