@@ -384,12 +384,12 @@ if(!file.name.match(/\.(png)$/i)){
 input.click();
 }
 module.transfr = function transfr(){
-  for(var v =0;v<actdata.accounts.length;v++){
-    var correct1=false
+  var correct1=false
     var vaal=false
     var correct1vv=0
     var correct2vv=0
     var correct2=false
+  for(var v =0;v<actdata.accounts.length;v++){
     if(document.getElementById("inputAmount").value!=""){
             vaal=true
       }
@@ -412,10 +412,10 @@ module.transfr = function transfr(){
         if(correct2){
           
         }else{
-          snackbar_Custom("The Info You Entered In TO Account Wrong!",1000,false,"danger")
+          snackbar_Custom("The Info You Entered In TO Account Is Wrong!",1000,false,"danger")
         }
       }else{
-        snackbar_Custom("The Info You Entered In FROM Account Wrong!",1000,false,"danger")
+        snackbar_Custom("The Info You Entered In FROM Account Is Wrong!",1000,false,"danger")
       }}else{
         snackbar_Custom("Enter An Amount!",1000,false,"danger")
       }
