@@ -414,7 +414,7 @@ module.transfr = function transfr(){
             snackbar_Custom("Insufficient Funds!",1000,false,"danger")
           }else{
             if(correct1vv!=correct2vv){
-              if(parseFloat(document.getElementById("inputAmount"))<0){
+              if(parseFloat(document.getElementById("inputAmount").value)<0){
                 snackbar_Custom("Can't Be Negative",1000,false,"danger")
               }else{
             actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-parseFloat(document.getElementById("inputAmount").value)
