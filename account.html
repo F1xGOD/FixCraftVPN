@@ -384,6 +384,16 @@ if(!file.name.match(/\.(png)$/i)){
 input.click();
 }
 module.transfr = function transfr(){
+  var user={};
+  if(getCookie("usernamecred")!=""){
+		var uuun=btoa(getCookie("usernamecred"))
+		var ii2i=0
+		while (ii2i < actdata.accounts.length){
+		  if(actdata.accounts[ii2i].username==uuun){
+			  user=actdata.accounts[ii2i]
+		  }
+		  ii2i++
+	  }}
   var correct1=false
     var vaal=false
     var correct1vv=0
@@ -410,7 +420,7 @@ module.transfr = function transfr(){
       if(vaal==true){
       if(correct1){
         if(correct2){
-          
+          if(document.getElementById("inputAmount").value>user.bank.balance){}
         }else{
           snackbar_Custom("The Info You Entered In TO Account Is Wrong!",1000,false,"danger")
         }
