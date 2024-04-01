@@ -405,3 +405,9 @@ function generateRandom(length) {
   }
   return result;
 }
+function getRandomInt(max,len) {
+  var end=""
+  for(var p =0;p<len;p++){
+ end+=Math.floor(Math.random() * max);}
+  return end
+}

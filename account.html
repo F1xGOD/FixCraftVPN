@@ -455,10 +455,12 @@ if(JSON.stringify(actdata)=="{}"){
 }else{console.log("LOADED!");
 var ii2i= 0;
 var user = ""
+var oid=0
 var uname = getCookie("usernamecred");
 uname=btoa(uname)
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname){
+    oid=ii2i
 		user=actdata.accounts[ii2i]
 	}
 	ii2i++
@@ -548,6 +550,10 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   }else{
 
   }
+  if(user.hashaddress==undefined){
+    actdata[oid].hashaddress="0x0"+getRandomInt(9,19)+"V2"
+  }
+  document.getElementById("outHash").value=actdata[oid].hashaddress
 }
 
 }
@@ -656,31 +662,31 @@ document.getElementById(id).className="nav-link active ms-0"
 
     <div class="mb-3">
     <label class="small mb-1">Hash Address</label>
-    <input class="form-control" type="email" placeholder="Your Hash Address" value="" disabled="">
+    <input class="form-control" type="email" id="outHash" placeholder="Your Hash Address" value="" disabled="">
     </div><div class="row gx-3 mb-3">
     
     <div class="col-md-6">
     <label class="small mb-1">Card Number</label>
-    <input class="form-control" type="text" placeholder="Your Card Number" value="" disabled="">
+    <input class="form-control" type="text" id="outCard" placeholder="Your Card Number" value="" disabled="">
     </div>
     
     <div class="col-md-6">
     <label class="small mb-1" for="inputInfo">CVV</label>
-    <input class="form-control" type="text" name="innfo" placeholder="Your CVV" value="" disabled="">
+    <input class="form-control" type="text" id="outCVV" placeholder="Your CVV" value="" disabled="">
     </div>
     </div>
     <div class="mb-3">
-      <label class="small mb-1">Balance</label><input class="form-control" type="number" placeholder="Balance" value="" disabled="">
+      <label class="small mb-1">Balance</label><input class="form-control" id="outBalance" type="number" placeholder="Balance" value="" disabled="">
       </div>
     </form>
     </div>
     </div>
-    <div style="margin-top:25px" class="card mb-4 mb-xl-0">
+    <!-- <div style="margin-top:25px" class="card mb-4 mb-xl-0">
       <div class="card-header">Payment Plan</div>
       <div class="card-body text-center">
         <h1 style="font-size: 25px;">Free Plan</h1>
         <p style="color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:22px"><span style="color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:17px">$</span>0<span style="color:#6d6d6d;font-weight:bold;font-family:Calibri;font-size:17">/week</span></p>
-  <form></form></div></div>
+  <form></form></div></div> -->
     </div>
     <div class="col-xl-8">
     <div class="card mb-4">
