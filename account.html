@@ -384,16 +384,6 @@ if(!file.name.match(/\.(png)$/i)){
 input.click();
 }
 module.transfr = function transfr(){
-  var user={};
-  if(getCookie("usernamecred")!=""){
-		var uuun=btoa(getCookie("usernamecred"))
-		var ii2i=0
-		while (ii2i < actdata.accounts.length){
-		  if(actdata.accounts[ii2i].username==uuun){
-			  user=actdata.accounts[ii2i]
-		  }
-		  ii2i++
-	  }}
   var correct1=false
     var vaal=false
     var correct1vv=0
@@ -420,16 +410,13 @@ module.transfr = function transfr(){
       if(vaal==true){
       if(correct1){
         if(correct2){
-          if(document.getElementById("inputAmount").value>user.bank.balance){
+          if(document.getElementById("inputAmount").value>actdata.accounts[correct1vv].bank.balance){
             snackbar_Custom("Insufficient Funds!",1000,false,"danger")
           }else{
             if(correct1vv!=correct2vv){
             actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-parseFloat(document.getElementById("inputAmount").value)
             actdata.accounts[correct2vv].bank.balance=actdata.accounts[correct2vv].bank.balance+parseFloat(document.getElementById("inputAmount").value)
             snackbar_Custom(`Successfully Transfered ${new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(document.getElementById("inputAmount").value))} To ${atob(actdata.accounts[correct2vv].username)}`,1000,false,"success")
-          }else{
-              snackbar_Custom("Both Addresses Can't Be Same!",1000,false,"danger")
-            }
             set(ref(db, 'data'), {
     data: actdata,
     hosts: hosts,
@@ -439,6 +426,9 @@ module.transfr = function transfr(){
     games: games
 
   });
+          }else{
+              snackbar_Custom("Both Addresses Can't Be Same!",1000,false,"danger")
+            }
           }
         }else{
           snackbar_Custom("The Info You Entered In TO Account Is Wrong!",1000,false,"danger")
