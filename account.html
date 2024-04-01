@@ -420,7 +420,22 @@ module.transfr = function transfr(){
       if(vaal==true){
       if(correct1){
         if(correct2){
-          if(document.getElementById("inputAmount").value>user.bank.balance){}
+          if(document.getElementById("inputAmount").value>user.bank.balance){
+            snackbar_Custom("Insufficient Funds!",1000,false,"danger")
+          }else{
+            actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-document.getElementById("inputAmount").value
+            actdata.accounts[correct2vv].bank.balance=actdata.accounts[correct2vv].bank.balance+document.getElementById("inputAmount").value
+            
+            set(ref(db, 'data'), {
+    data: actdata,
+    hosts: hosts,
+    chat: chat,
+    bank: bank,
+    session: sessiondata,
+    games: games
+
+  });
+          }
         }else{
           snackbar_Custom("The Info You Entered In TO Account Is Wrong!",1000,false,"danger")
         }
