@@ -550,10 +550,10 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   }else{
 
   }
-  if(user.hashaddress==undefined){
-    actdata.accounts[oid].hashaddress="0x0"+getRandomInt(9,19)+"V2"
+  if(user.bank.hashaddress==undefined){
+    actdata.accounts[oid].bank.hashaddress="0x0"+getRandomInt(9,19)+"V2"
   }
-  document.getElementById("outHash").value=actdata.accounts[oid].hashaddress
+  document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
 }
 
 }
