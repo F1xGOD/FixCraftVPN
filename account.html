@@ -414,6 +414,9 @@ module.transfr = function transfr(){
             snackbar_Custom("Insufficient Funds!",1000,false,"danger")
           }else{
             if(correct1vv!=correct2vv){
+              if(parseFloat(document.getElementById("inputAmount"))<0){
+                snackbar_Custom("Can't Be Negative",1000,false,"danger")
+              }else{
             actdata.accounts[correct1vv].bank.balance=actdata.accounts[correct1vv].bank.balance-parseFloat(document.getElementById("inputAmount").value)
             actdata.accounts[correct2vv].bank.balance=actdata.accounts[correct2vv].bank.balance+parseFloat(document.getElementById("inputAmount").value)
             snackbar_Custom(`Successfully Transfered ${new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(document.getElementById("inputAmount").value))} To ${atob(actdata.accounts[correct2vv].username)}`,1000,false,"success")
@@ -425,7 +428,7 @@ module.transfr = function transfr(){
     session: sessiondata,
     games: games
 
-  });
+  });}
           }else{
               snackbar_Custom("Both Addresses Can't Be Same!",1000,false,"danger")
             }
