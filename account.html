@@ -551,9 +551,9 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
 
   }
   if(user.hashaddress==undefined){
-    actdata[oid].hashaddress="0x0"+getRandomInt(9,19)+"V2"
+    actdata.accounts[oid].hashaddress="0x0"+getRandomInt(9,19)+"V2"
   }
-  document.getElementById("outHash").value=actdata[oid].hashaddress
+  document.getElementById("outHash").value=actdata.accounts[oid].hashaddress
 }
 
 }
