@@ -157,11 +157,14 @@ document.getElementById("disttitle").outerHTML=document.getElementById("disttitl
 document.getElementById("saftitle").outerHTML=document.getElementById("saftitle").outerHTML+`<h4 id=\"saffe\" style=\"float:right\">${safety}</h4>`
 }}
 function refresh(){
-clearVals();
-checkREADY22()}
+if(firs==false){
+clearVals();}
+checkREADY22();
+firs=false}
+var firs=true
 function base(){
 setTimeout(function(){
-refresh();},3500)
+refresh(firs);},3500)
 }
 checkREADY22()
 base()
