@@ -466,7 +466,7 @@ return deg * (Math.PI/180)
 
       var uSv =""
       if(JSON.parse(data.toString())[0].unit=="cpm"){ 
-        uSv=JSON.parse(data.toString())[0].value*0.0057415414}else{
+        uSv=JSON.parse(data.toString())[0].value*0.005741}else{
           uSv=JSON.parse(data.toString())[0].value
         }
       done={"accuracy":accuracy,"radiation":(uSv).toString()+" µSv/h","distance":dist+" M"}
