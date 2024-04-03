@@ -157,6 +157,11 @@ document.getElementById("disttitle").outerHTML=document.getElementById("disttitl
 document.getElementById("saftitle").outerHTML=document.getElementById("saftitle").outerHTML+`<h4 id=\"saffe\" style=\"float:right\">${safety}</h4>`
 }}
 function refresh(){
+    navigator.geolocation.getCurrentPosition((position) => {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    finaldata = locationToRadiationLevel(latitude, longitude)
+})
 clearVals();
 checkREADY22();}
 function base(){
