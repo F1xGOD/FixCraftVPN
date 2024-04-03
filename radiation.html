@@ -91,11 +91,12 @@ var vale = parseFloat(finaldata.radiation.slice(0,-6))
 function checkREADY22(){
 if(JSON.stringify(finaldata)=="{}"){
   setTimeout(function(){
-  checkREADY22(true)}, 10)
+  checkREADY22()}, 10)
 }else{console.log("LOADED!");
 document.getElementById("radiation").style.backgroundColor=getColor(vale)
 document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(vale).toString())
 document.getElementById("radiation").style.width=getPrecent(vale)+"%"
 document.getElementById("radtitle").innerHTML=`Radiation<h4 style=\"float:right\">${valetxt}</h4>`}}
+checkREADY22()
 </script>
 </body></html>
