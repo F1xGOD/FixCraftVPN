@@ -92,13 +92,13 @@ navigator.geolocation.getCurrentPosition((position) => {
     let longitude = position.coords.longitude;
     finaldata = locationToRadiationLevel(latitude, longitude)
 })
-var valetxt = finaldata.radiation
-var vale = parseFloat(finaldata.radiation.slice(0,-6))
 function checkREADY22(){
 if(JSON.stringify(finaldata)=="{}"){
   setTimeout(function(){
   checkREADY22()}, 10)
 }else{console.log("LOADED!");
+var valetxt = finaldata.radiation
+var vale = parseFloat(finaldata.radiation.slice(0,-6))
 document.getElementById("radiation").style.backgroundColor=getColor(vale)
 document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(vale).toString())
 document.getElementById("radiation").style.width=getPrecent(vale)+"%"
