@@ -93,7 +93,7 @@ function getColor(mSv){
 function getColorpr(prc) {
   var value=prc/100
   var hue = ((1 - value) * 120).toString(10);
-  return ["hsl(", hue, ",100%,50%)"].join("");
+  return ["hsl(", 120-hue, ",100%,50%)"].join("");
 }
 function getPrecent(mSv){
     var value =(mSv/25)
@@ -123,7 +123,7 @@ document.getElementById("radtitle").outerHTML=document.getElementById("radtitle"
 
 document.getElementById("accuracy").style.backgroundColor=getColorpr(valacc)
 document.getElementById("accuracy").setAttribute("aria-valuenow",valacc.toString())
-document.getElementById("accuracy").style.width=getPrecent(valacc)+"%"
+document.getElementById("accuracy").style.width=valacc+"%"
 document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 style=\"float:right\">${valacctxt}</h4>`
 
 
