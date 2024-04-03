@@ -461,6 +461,12 @@ return deg * (Math.PI/180)
       if(JSON.parse(data.toString()).length==0){break;}
   };
   var done=""
+  if(JSON.stringify(JSON.parse(data.toString())).includes("unit=\"usv\"")){
+    data= $.ajax({ 
+      url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&unit=usv&api_key=hDVmvNRtirxPmVvy73Nz`, 
+      async: false
+    }).responseText;
+  }
       var dist=getDistance(lat,lon,JSON.parse(data.toString())[0].latitude,JSON.parse(data.toString())[0].longitude)
       var accuracy=(100-Math.abs(Math.tan(10/2)*dist/200))+"%"
 
