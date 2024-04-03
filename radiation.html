@@ -124,7 +124,7 @@ document.getElementById("radtitle").outerHTML=document.getElementById("radtitle"
 document.getElementById("accuracy").style.backgroundColor=getColorpr(valacc)
 document.getElementById("accuracy").setAttribute("aria-valuenow",valacc.toString())
 document.getElementById("accuracy").style.width=valacc+"%"
-document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 style=\"float:right\">${valacctxt}</h4>`
+document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 style=\"float:right\">${valacctxt.toPrecision(7)}</h4>`
 
 
 }}
