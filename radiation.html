@@ -102,7 +102,7 @@ var vale = parseFloat(finaldata.radiation.slice(0,-6))
 document.getElementById("radiation").style.backgroundColor=getColor(vale)
 document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(vale).toString())
 document.getElementById("radiation").style.width=getPrecent(vale)+"%"
-document.getElementById("radtitle").innerHTML=`Radiation<h4 style=\"float:right\">${valetxt}</h4>`}}
+document.getElementById("radtitle").outerHTML=document.getElementById("radtitle").outerHTML+`<h4 style=\"float:right\">${valetxt}</h4>`}}
 checkREADY22()
 </script>
 </body></html>
