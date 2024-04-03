@@ -109,8 +109,8 @@ if(JSON.stringify(finaldata)=="{}"){
 }else{console.log("LOADED!");
 var valradtxt = finaldata.radiation
 var valrad = parseFloat(finaldata.radiation.slice(0,-6))
-var valacctxt = finaldata.radiation
-var valrad = parseFloat(finaldata.radiation.slice(0,-6))
+var valacctxt = finaldata.accuracy
+var valacc = parseFloat(finaldata.accuracy.slice(0,-2))
 document.getElementById("radiation").style.backgroundColor=getColor(valrad)
 document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(valrad).toString())
 document.getElementById("radiation").style.width=getPrecent(valrad)+"%"
