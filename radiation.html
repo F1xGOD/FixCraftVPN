@@ -114,6 +114,12 @@ navigator.geolocation.getCurrentPosition((position) => {
     let longitude = position.coords.longitude;
     finaldata = locationToRadiationLevel(latitude, longitude)
 })
+function clearVals(){
+    document.getElementById("radd").outerHTML=""
+    document.getElementById("accu").outerHTML=""
+    document.getElementById("disst").outerHTML=""
+    document.getElementById("saffe").outerHTML=""
+}
 function checkREADY22(){
 if(JSON.stringify(finaldata)=="{}"){
   setTimeout(function(){
@@ -127,12 +133,12 @@ var dist = parseFloat(finaldata.distance.slice(0,-2))
 document.getElementById("radiation").style.backgroundColor=getColor(valrad)
 document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(valrad).toString())
 document.getElementById("radiation").style.width=getPrecent(valrad)+"%"
-document.getElementById("radtitle").outerHTML=document.getElementById("radtitle").outerHTML+`<h4 style=\"float:right\">${valradtxt}</h4>`
+document.getElementById("radtitle").outerHTML=document.getElementById("radtitle").outerHTML+`<h4 id=\"radd\" style=\"float:right\">${valradtxt}</h4>`
 
 document.getElementById("accuracy").style.backgroundColor=getColorpr(valacc)
 document.getElementById("accuracy").setAttribute("aria-valuenow",valacc.toString())
 document.getElementById("accuracy").style.width=valacc+"%"
-document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 style=\"float:right\">${valacc.toPrecision(7)+" %"}</h4>`
+document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 id=\"accu\" style=\"float:right\">${valacc.toPrecision(7)+" %"}</h4>`
 var safety = "???"
 if(valrad<0.42||valrad==0.42){safety="Very Safe"}
 if(valrad>0.42&&valrad<0.51){safety="Safe"}
@@ -147,8 +153,8 @@ if(valrad>4.17&&valrad<10.12){safety="Cancer Risk!"}
 if(valrad==10.12){safety="Cancer Risk!"}
 if(valrad>10.12&&valrad<25.12){safety="Poisoning!"}
 if(valrad==25.12){safety="Poisoning!"}
-document.getElementById("disttitle").outerHTML=document.getElementById("disttitle").outerHTML+`<h4 style=\"float:right\">${dist.toPrecision(7)+" Meters"}</h4>`
-document.getElementById("saftitle").outerHTML=document.getElementById("saftitle").outerHTML+`<h4 style=\"float:right\">${safety}</h4>`
+document.getElementById("disttitle").outerHTML=document.getElementById("disttitle").outerHTML+`<h4 id=\"disst\" style=\"float:right\">${dist.toPrecision(7)+" Meters"}</h4>`
+document.getElementById("saftitle").outerHTML=document.getElementById("saftitle").outerHTML+`<h4 id=\"saffe\" style=\"float:right\">${safety}</h4>`
 }}
 checkREADY22()
 </script>
