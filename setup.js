@@ -411,3 +411,61 @@ function getRandomInt(min, max, len) {
  end+=Math.floor(Math.random() * (max - min) + min);}
   return end
 }
+function getDistanceFromLatLonInMeters(lat1, lon1, lat2, lon2) {
+  function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(parseFloat(lat2)-parseFloat(lat1));  // deg2rad below
+  var dLon = deg2rad(parseFloat(lon2)-parseFloat(lon1)); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return d*1000;
+}
+
+function locationToRadiationLevel(lat, lon) {
+  function getDistance(lat1, lon1, lat2, lon2) {
+var R = 6371; // Radius of the earth in km
+var dLat = deg2rad(parseFloat(lat2)-parseFloat(lat1));  // deg2rad below
+var dLon = deg2rad(parseFloat(lon2)-parseFloat(lon1)); 
+var a = 
+  Math.sin(dLat/2) * Math.sin(dLat/2) +
+  Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+  Math.sin(dLon/2) * Math.sin(dLon/2)
+  ; 
+var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+var d = R * c; // Distance in km
+return d*1000;
+}
+
+function deg2rad(deg) {
+return deg * (Math.PI/180)
+};
+  var tries=100
+    var data= $.ajax({ 
+  url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&api_key=hDVmvNRtirxPmVvy73Nz`, 
+  async: false
+}).responseText;
+  
+  while(JSON.parse(data.toString()).length==0){
+      tries=tries*10
+      data= $.ajax({ 
+  url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&api_key=hDVmvNRtirxPmVvy73Nz`, 
+  async: false
+}).responseText;
+      if(JSON.parse(data.toString()).length==0){break;}
+  };
+  var done=""
+      var dist=getDistance(lat,lon,JSON.parse(data.toString())[0].latitude,JSON.parse(data.toString())[0].longitude)
+      var accuracy=(100-Math.abs(Math.tan(10/2)*dist/200))+"%"
+      done={"accuracy":accuracy,"radiation":(JSON.parse(data.toString())[0].value*0.005741542).toString()+" µSv/h","distance":dist+" M"}
+  return done
+}
+
+
+
