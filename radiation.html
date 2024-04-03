@@ -156,6 +156,14 @@ if(valrad==25.12){safety="Poisoning!"}
 document.getElementById("disttitle").outerHTML=document.getElementById("disttitle").outerHTML+`<h4 id=\"disst\" style=\"float:right\">${dist.toPrecision(7)+" Meters"}</h4>`
 document.getElementById("saftitle").outerHTML=document.getElementById("saftitle").outerHTML+`<h4 id=\"saffe\" style=\"float:right\">${safety}</h4>`
 }}
+function refresh(){
+clearVals();
+checkREADY22()}
+function base(){
+setTimeout(function(){
+refresh();},3500)
+}
 checkREADY22()
+base()
 </script>
 </body></html>
