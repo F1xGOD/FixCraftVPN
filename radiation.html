@@ -54,7 +54,7 @@
             <div class="col-md-6 grid-margin stretch-card"> -->
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Radiation</h4>
+                        <h4 id="radtitle" style="display:inline-block" class="card-title">Radiation</h4>
                         <!-- <p class="card-description">Simple striped bootstrap progress bars</p> -->
                         <div class="template-demo">
                             <div class="progress progress-md">
@@ -80,6 +80,22 @@ function getPrecent(mSv){
     value=value*100
     return value
 }
-document.getElementById("radiation").style
+var finaldata={}
+navigator.geolocation.getCurrentPosition((position) => {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    finaldata = locationToRadiationLevel(latitude, longitude)
+})
+var valetxt = finaldata.radiation
+var vale = parseFloat(finaldata.radiation.slice(0,-6))
+function checkREADY22(){
+if(JSON.stringify(finaldata)=="{}"){
+  setTimeout(function(){
+  checkREADY22(true)}, 10)
+}else{console.log("LOADED!");
+document.getElementById("radiation").style.backgroundColor=getColor(vale)
+document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(vale).toString())
+document.getElementById("radiation").style.width=getPrecent(vale)+"%"
+document.getElementById("radtitle").innerHTML=`Radiation<h4 style=\"float:right\">${valetxt}</h4>`}}
 </script>
 </body></html>
