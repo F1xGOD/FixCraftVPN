@@ -92,7 +92,7 @@
 </div> -->
 <script>
 function getColor(mSv){
-    var value=(mSv/5)
+    var value=(mSv/2)
     if(value>1){var hue=((1-1)*120).toString(10);}else{
     var hue=((1-value)*120).toString(10);}
     return ["hsl(",hue,",100%,50%)"].join("");
@@ -103,7 +103,7 @@ function getColorpr(prc) {
   return ["hsl(", 120-hue, ",100%,50%)"].join("");
 }
 function getPrecent(mSv){
-    var value =(mSv/5)
+    var value =(mSv/2)
     if(value>1){value=1}
     value=value*100
     return value
