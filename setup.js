@@ -463,7 +463,13 @@ return deg * (Math.PI/180)
   var done=""
       var dist=getDistance(lat,lon,JSON.parse(data.toString())[0].latitude,JSON.parse(data.toString())[0].longitude)
       var accuracy=(100-Math.abs(Math.tan(10/2)*dist/200))+"%"
-      done={"accuracy":accuracy,"radiation":(JSON.parse(data.toString())[0].value*0.0057415414).toString()+" µSv/h","distance":dist+" M"}
+
+      var uSv =""
+      if(JSON.parse(data.toString())[0].unit=="cpm"){ 
+        uSv=JSON.parse(data.toString())[0].value*0.0057415414}else{
+          uSv=JSON.parse(data.toString())[0].value
+        }
+      done={"accuracy":accuracy,"radiation":(uSv).toString()+" µSv/h","distance":dist+" M"}
   return done
 }
 
