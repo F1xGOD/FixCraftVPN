@@ -59,12 +59,22 @@
         <div class="row container d-flex justify-content-center">
             <div class="col-md-6 grid-margin stretch-card"> -->
                 <div class="card">
+                <div class="card-body">
+                    <h4 id="radtitle" style="display:inline-block" class="card-title">Radiation</h4><h4 style="float:right">0.1377969936 µSv/h</h4>
+                    <!-- <p class="card-description">Simple striped bootstrap progress bars</p> -->
+                    <div class="template-demo">
+                        <div class="progress progress-md">
+                            <div id="radiation" class="progress-bar progress-bar" role="progressbar" aria-valuenow="0" style="width: 0.01%; background-color: hsl(0,100%,50%);" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div></div>
+                <div class="card">
                     <div class="card-body">
-                        <h4 id="radtitle" style="display:inline-block" class="card-title">Radiation</h4>
+                        <h4 id="acctitle" style="display:inline-block" class="card-title">Accuracy</h4>
                         <!-- <p class="card-description">Simple striped bootstrap progress bars</p> -->
                         <div class="template-demo">
                             <div class="progress progress-md">
-                                <div id="radiation" class="progress-bar progress-bar" role="progressbar" aria-valuenow="0" style="width: 0.01%; background-color: hsl(0,100%,50%);" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="accuracy" class="progress-bar progress-bar" role="progressbar" aria-valuenow="0" style="width: 0.01%; background-color: hsl(0,100%,50%);" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -97,12 +107,22 @@ if(JSON.stringify(finaldata)=="{}"){
   setTimeout(function(){
   checkREADY22()}, 10)
 }else{console.log("LOADED!");
-var valetxt = finaldata.radiation
-var vale = parseFloat(finaldata.radiation.slice(0,-6))
-document.getElementById("radiation").style.backgroundColor=getColor(vale)
-document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(vale).toString())
-document.getElementById("radiation").style.width=getPrecent(vale)+"%"
-document.getElementById("radtitle").outerHTML=document.getElementById("radtitle").outerHTML+`<h4 style=\"float:right\">${valetxt}</h4>`}}
+var valradtxt = finaldata.radiation
+var valrad = parseFloat(finaldata.radiation.slice(0,-6))
+var valacctxt = finaldata.radiation
+var valrad = parseFloat(finaldata.radiation.slice(0,-6))
+document.getElementById("radiation").style.backgroundColor=getColor(valrad)
+document.getElementById("radiation").setAttribute("aria-valuenow",getPrecent(valrad).toString())
+document.getElementById("radiation").style.width=getPrecent(valrad)+"%"
+document.getElementById("radtitle").outerHTML=document.getElementById("radtitle").outerHTML+`<h4 style=\"float:right\">${valradtxt}</h4>`
+
+document.getElementById("accuracy").style.backgroundColor=getColor(valacc)
+document.getElementById("accuracy").setAttribute("aria-valuenow",getPrecent(valacc).toString())
+document.getElementById("accuracy").style.width=getPrecent(valacc)+"%"
+document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 style=\"float:right\">${valacctxt}</h4>`
+
+
+}}
 checkREADY22()
 </script>
 </body></html>
