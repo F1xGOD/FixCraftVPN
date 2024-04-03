@@ -141,9 +141,9 @@ document.getElementById("accuracy").style.width=valacc+"%"
 document.getElementById("acctitle").outerHTML=document.getElementById("acctitle").outerHTML+`<h4 id=\"accu\" style=\"float:right\">${valacc.toPrecision(7)+" %"}</h4>`
 var safety = "???"
 if(valrad<0.42||valrad==0.42){safety="Very Safe"}
-if(valrad>0.42&&valrad<0.51){safety="Safe"}
-if(valrad==0.51){safety="Safe"}
-if(valrad>0.51&&valrad<0.93){safety="Unsafe"}
+if(valrad>0.42&&valrad<0.50){safety="Safe"}
+if(valrad==0.50){safety="Safe"}
+if(valrad>0.50&&valrad<0.93){safety="Unsafe"}
 if(valrad==0.93){safety="Unsafe"}
 if(valrad>0.93&&valrad<2.3){safety="Dangerous"}
 if(valrad==2.3){safety="Dangerous"}
