@@ -446,8 +446,14 @@ return d*1000;
 function deg2rad(deg) {
 return deg * (Math.PI/180)
 };
+var data=""
+data= $.ajax({ 
+  url: `https://api.safecast.org/en-US/measurements?distance=1000&user_id=6209&format=json&latitude=${lat}&longitude=${lon}&api_key=hDVmvNRtirxPmVvy73Nz`, 
+  async: false
+}).responseText;
+if(JSON.parse(data.toString()).length==0){
   var tries=100
-    var data= $.ajax({ 
+    data= $.ajax({ 
   url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&api_key=hDVmvNRtirxPmVvy73Nz`, 
   async: false
 }).responseText;
@@ -459,14 +465,11 @@ return deg * (Math.PI/180)
   async: false
 }).responseText;
       if(JSON.parse(data.toString()).length==0){break;}
-  };
-  var done=""
-  if(JSON.stringify(JSON.parse(data.toString())).includes("\"unit\":\"usv\"")){
-    data= $.ajax({ 
-      url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&unit=usv&api_key=hDVmvNRtirxPmVvy73Nz`, 
-      async: false
-    }).responseText;
+  };}else{
+     
   }
+  var done=""
+
       var dist=getDistance(lat,lon,JSON.parse(data.toString())[0].latitude,JSON.parse(data.toString())[0].longitude)
       var accuracy=(100-Math.abs(Math.tan(10/2)*dist/200))+"%"
 
