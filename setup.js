@@ -482,5 +482,11 @@ if(JSON.parse(data.toString()).length==0){
   return done
 }
 
+function average(list){
+  for (let item of list){
+  avg = (item / list.length) * list.length}
+  return avg
+}
+
 
 
