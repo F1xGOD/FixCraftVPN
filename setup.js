@@ -427,7 +427,10 @@ function getDistanceFromLatLonInMeters(lat1, lon1, lat2, lon2) {
   var d = R * c; // Distance in km
   return d*1000;
 }
-
+function average(list){
+  var fun = array => array.reduce((a, b) => a + b) / array.length
+    return fun(list);
+  }
 function locationToRadiationLevel(lat, lon) {
   function getDistance(lat1, lon1, lat2, lon2) {
 var R = 6371; // Radius of the earth in km
@@ -478,12 +481,15 @@ if(JSON.parse(data.toString()).length==0){
         uSv=JSON.parse(data.toString())[0].value*0.00834}else{
           uSv=JSON.parse(data.toString())[0].value
         }
+        var list =JSON.parse(data.toString())
+        var llust = []
+for (var q =0;q<list.length;q++){
+    llust=llust.concat(list[q].value)
+    if(q==list.length-1){
+    uSv=average(llust.concat(uSv))
+}}
       done={"accuracy":accuracy,"radiation":(uSv).toString()+" µSv/h","distance":dist+" M"}
   return done
-}
-
-function average(array){
-  return array => array.reduce((a, b) => a + b) / array.length;
 }
 
 
