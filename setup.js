@@ -461,7 +461,7 @@ return deg * (Math.PI/180)
       if(JSON.parse(data.toString()).length==0){break;}
   };
   var done=""
-  if(JSON.stringify(JSON.parse(data.toString())).includes("unit=\"usv\"")){
+  if(JSON.stringify(JSON.parse(data.toString())).includes("\"unit\"=\"usv\"")){
     data= $.ajax({ 
       url: `https://api.safecast.org/en-US/measurements?distance=${tries}&format=json&latitude=${lat}&longitude=${lon}&unit=usv&api_key=hDVmvNRtirxPmVvy73Nz`, 
       async: false
