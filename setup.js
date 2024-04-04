@@ -481,10 +481,10 @@ if(JSON.parse(data.toString()).length==0){
         uSv=JSON.parse(data.toString())[0].value*0.00834}else{
           uSv=JSON.parse(data.toString())[0].value
         }
-        var list =JSON.parse(data.toString())
+        var list =JSON.parse(g.toString())
         var llust = []
 for (var q =0;q<list.length;q++){
-    llust=llust.concat(list[q].value)
+    llust=llust.concat(list[q].value*0.00834)
     if(q==list.length-1){
     uSv=average(llust.concat(uSv))
 }}
