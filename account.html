@@ -682,7 +682,16 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
       worth+=actdata.accounts[zx].bank.balance
     }
     if(zx==actdata.accounts[zx].bank.balance-1){
-      bank.networth=worth
+      bank.networth=worth;
+      set(ref(db, 'data'), {
+    data: actdata,
+    hosts: hosts,
+    chat: chat,
+    bank: bank,
+    session: sessiondata,
+    games: games
+
+  });
     }
   }
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
