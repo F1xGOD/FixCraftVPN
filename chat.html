@@ -147,6 +147,7 @@ const db = getDatabase();
 var actdata = {};
 var chat = {};
 var hosts ={};
+var n=bank={};
 var games = {};
 var sessiondata ={};
 const infodat = ref(db, 'data');
@@ -156,6 +157,7 @@ onValue(infodat, (snapshot) => {
 	sessiondata=data.session
 	hosts=data.hosts
   chat=data.chat
+  bank=data.bank
   actdata=data.data
   })
   function checkREADY23(){
@@ -205,6 +207,7 @@ module.send = function(){
 	  data: actdata,
 	  chat: chat,
       hosts: hosts,
+      bank: bank,
 	  session: sessiondata,
 	  games: games
 	});
