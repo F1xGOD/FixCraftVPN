@@ -203,6 +203,7 @@ module.send = function(){
   if(tosend!=""){
   var date =new Date
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":date.toString()})}
+  checkREADY23()
 	set(ref(db, 'data'), {
 	  data: actdata,
 	  chat: chat,
