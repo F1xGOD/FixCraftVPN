@@ -676,6 +676,15 @@ document.getElementById("inputEmailAddress").placeholder=udetails.email}}
     actdata.accounts[oid].bank.balance=0
     stt=true
   }
+  for(var zx=0;zx<actdata.accounts;zx++){
+    var worth=0
+    if(actdata.accounts[zx].bank.balance!=0||actdata.accounts[zx].bank.balance!=undefined){
+      worth+=actdata.accounts[zx].bank.balance
+    }
+    if(zx==actdata.accounts[zx].bank.balance-1){
+      bank.networth=worth
+    }
+  }
   document.getElementById("outHash").value=actdata.accounts[oid].bank.hashaddress
   document.getElementById("outCard").value=actdata.accounts[oid].bank.cardnumber
   document.getElementById("outCVV").value=actdata.accounts[oid].bank.cvv
