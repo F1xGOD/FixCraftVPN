@@ -226,13 +226,13 @@ function checkREADY(){
 if(JSON.stringify(actdata)=="{}"||visitorId=="000"||ip==""){
   setTimeout(function(){
   checkREADY()}, 100)
-}else{console.log("LOADED!")
-sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
-await setDoc(doc(db2, "cities", "LA"), {
+}else{console.log("LOADED!");
+await setDoc(doc(db2, "accounts", "IUS"), {
 	name: "Los Angeles",
 	state: "CA",
 	country: "USA"
   });
+sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 checkSessionStart();
 var hwidban = actdata.hwidban
 for(var oio = 0; oio<hwidban.length; oio++){
