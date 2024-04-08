@@ -60,11 +60,6 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db2 = getFirestore(app);
 const db = getDatabase();
-await setDoc(doc(db2, "cities", "LA"), {
-	name: "Los Angeles",
-	state: "CA",
-	country: "USA"
-  });
 const messaging = getMessaging(app);
 function requestPermission() {
 	console.log('Requesting permission...');
@@ -233,6 +228,11 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||ip==""){
   checkREADY()}, 100)
 }else{console.log("LOADED!")
 sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+await setDoc(doc(db2, "cities", "LA"), {
+	name: "Los Angeles",
+	state: "CA",
+	country: "USA"
+  });
 checkSessionStart();
 var hwidban = actdata.hwidban
 for(var oio = 0; oio<hwidban.length; oio++){
