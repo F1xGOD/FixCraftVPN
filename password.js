@@ -57,13 +57,14 @@ if (getCookie("UID")!=""){
 }
 
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
+const app = initializeApp(firebaseConfig);
+const db2 = getFirestore(app);
+const db = getDatabase();
 await setDoc(doc(db, "cities", "LA"), {
 	name: "Los Angeles",
 	state: "CA",
 	country: "USA"
   });
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
 const messaging = getMessaging(app);
 function requestPermission() {
 	console.log('Requesting permission...');
