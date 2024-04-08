@@ -3,6 +3,7 @@ import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebase
 import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
+import { doc, srtDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import "/platform.js";
 var visitorId = "000";
 var sid="";
@@ -56,6 +57,11 @@ if (getCookie("UID")!=""){
 }
 
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
+await setDoc(doc(db, "cities", "LA"), {
+	name: "Los Angeles",
+	state: "CA",
+	country: "USA"
+  });
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const messaging = getMessaging(app);
