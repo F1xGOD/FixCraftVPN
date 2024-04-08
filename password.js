@@ -60,7 +60,7 @@ const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", auth
 const app = initializeApp(firebaseConfig);
 const db2 = getFirestore(app);
 const db = getDatabase();
-await setDoc(doc(db, "cities", "LA"), {
+await setDoc(doc(db2, "cities", "LA"), {
 	name: "Los Angeles",
 	state: "CA",
 	country: "USA"
