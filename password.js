@@ -10,15 +10,7 @@ var sid="";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-const fpPromise = import('https://fpjscdn.net/v3/0bNqjTsGV7XoKFry3y3A')
-.then(FingerprintJS => FingerprintJS.load())
 
-// Get the visitorId when you need it.
-fpPromise
-.then(fp => fp.get())
-.then(result => {
-  visitorId = result.visitorId
-})
 var ip = "";
 
 $.getJSON("https://api.ipify.org?format=json",
