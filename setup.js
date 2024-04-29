@@ -384,7 +384,7 @@ return timestamp
 }
 function getLocation(ip){
   var value= $.ajax({ 
-    url: `https://ipapi.co/${ip}/json`, 
+    url: `https://api.iplocation.net/?ip=${ip}`, 
     async: false
  }).responseText;
   return JSON.parse(value.toString())
