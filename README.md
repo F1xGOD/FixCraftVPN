@@ -18,7 +18,7 @@ By F1xGOD 💀
 ### Last updated March 12, 2024
 
 This privacy notice for FixCraft Inc. (doing business as FixCraft) ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
-Visit our website at https://fixcraft.org, or any website of ours that links to this privacy notice
+Visit our website at https://www.fixcraft.org, or any website of ours that links to this privacy notice
 Engage with us in other related ways, including any sales, marketing, or events
 Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at admin@fixcraft.org.
 
@@ -200,7 +200,7 @@ We may update this privacy notice from time to time. The updated version will be
 
 11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
 
-If you have questions or comments about this notice, you may email us at admin@fixcraft.org or contact us by post at:
+If you have questions or comments about this notice, you may email us at admin@www.fixcraft.org or contact us by post at:
 
 FixCraft Inc.
 UK Freston Rd 150
@@ -222,9 +222,9 @@ AGREEMENT TO OUR LEGAL TERMS
 
 We are FixCraft Inc. doing business as FixCraft ("Company," "we," "us," "our"), a company registered in the United Kingdom at 150 Freston Road, London, UK, London, London SW3. Our VAT number is SIGMA000.
 
-We operate the website https://fixcraft.org (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+We operate the website https://www.fixcraft.org (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
 
-You can contact us by phone at +12484345508, email at admin@fixcraft.org, or by mail to 150 Freston Road, London, UK, London, London SW3, United Kingdom.
+You can contact us by phone at +12484345508, email at admin@www.fixcraft.org, or by mail to 150 Freston Road, London, UK, London, London SW3, United Kingdom.
 
 These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and FixCraft Inc., concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
@@ -287,7 +287,7 @@ solely for your personal, non-commercial use or internal business purpose.
 
 Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
 
-If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: admin@fixcraft.org. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
+If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: admin@www.fixcraft.org. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
 
 We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.
 
@@ -384,7 +384,7 @@ We reserve the right, but not the obligation, to: (1) monitor the Services for v
 
 10. PRIVACY POLICY
 
-We care about data privacy and security. Please review our Privacy Policy: https://fixcraft.org/privacy-policy. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in Ukraine and United States. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in Ukraine and United States, then through your continued use of the Services, you are transferring your data to Ukraine and United States, and you expressly consent to have your data transferred to and processed in Ukraine and United States. Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children’s Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Services as quickly as is reasonably practical.
+We care about data privacy and security. Please review our Privacy Policy: https://www.fixcraft.org/privacy-policy. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in Ukraine and United States. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in Ukraine and United States, then through your continued use of the Services, you are transferring your data to Ukraine and United States, and you expressly consent to have your data transferred to and processed in Ukraine and United States. Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children’s Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Services as quickly as is reasonably practical.
 
 11. TERM AND TERMINATION
 
@@ -465,4 +465,4 @@ FixCraft Inc.
 London, London SW3
 United Kingdom
 Phone: +12484345508 
-Email: admin@fixcraft.org
+Email: admin@www.fixcraft.org
