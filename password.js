@@ -142,7 +142,7 @@ link.href = window.ico;
     }
     window.ico=link.href
     link.href = 'https://vpn.fixcraft.org/IMAGES/blank64.png';
-    document.title=" "
+    document.title="‎   "
   }
 });
   window.addEventListener('beforeunload', function(e) {
