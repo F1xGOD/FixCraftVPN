@@ -120,9 +120,16 @@ onValue(infodat, (snapshot) => {
 	});
   }
 
-  window.addEventListener("pagehide", function() {
-
-  });
+document.addEventListener("visibilitychange", (event) => {
+  if (document.visibilityState == "visible") {
+    document.getElementsByTagName("html")[0].style.display="block"
+    document.title=window.titl
+  } else {
+    document.getElementsByTagName("html")[0].style.display="none"
+    window.titl=document.title
+    document.title="???"
+  }
+});
   window.addEventListener('beforeunload', function(e) {
 	if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
   writeus2(sid)}
