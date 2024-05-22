@@ -124,10 +124,25 @@ document.addEventListener("visibilitychange", (event) => {
   if (document.visibilityState == "visible") {
     document.getElementsByTagName("html")[0].style.display="block"
     document.title=window.titl
+    var link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+}
+link.href = window.ico;
   } else {
     document.getElementsByTagName("html")[0].style.display="none"
     window.titl=document.title
-    document.title="???"
+    var link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+    }
+    window.ico=link.href
+    link.href = 'https://vpn.fixcraft.org/IMAGES/blank64.png';
+    document.title=""
   }
 });
   window.addEventListener('beforeunload', function(e) {
