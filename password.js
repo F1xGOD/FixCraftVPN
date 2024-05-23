@@ -146,9 +146,13 @@ link.href = window.ico;
   }
 });
   window.addEventListener('beforeunload', function(e) {
-	if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
-  writeus2(sid)}
+	  e.returnValue = "You have unsaved work";
+	
   });
+window.addEventListener('unload', function (){
+    if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
+  writeus2(sid)}
+}
 function warntheuser(){
 console.clear();
 console.log('%cWARNING!', 'color: #ff0000; font-size: 36px; font-weight: bold');
