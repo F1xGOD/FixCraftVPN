@@ -352,6 +352,8 @@ if(window.location.href.includes("?")){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
+console.log(getCookie("usernamecred")+getCookie("passwordcred"))
+console.log(actdata.status)
 if(actdata.status != "secure"){if (actdata.status == "newuserhide"){
 	if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){if(getCookie("canlogintosite")!="truesigma"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}else{execute=true}}else{execute=true}
 			      if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
