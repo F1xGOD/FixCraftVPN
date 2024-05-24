@@ -8,17 +8,19 @@
 
 <title>fixcraft-vpn.onrender.com | 523: Origin is Unreachable</title>
 <meta charset="UTF-8" />
+<script src="/host.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" id="cf_styles-css" href="main.css" />
 <script>
+document.title=document.title.replace("fixcraft-vpn.onrender.com",host)
 var url = window.location.href
 if (url.includes("?spoof=")){
   url = url.split("?spoof=")[1]
-  url = url.split("fixcraft-vpn.onrender.com")[1]
-  window.history.pushState(url,"fixcraft-vpn.onrender.com",url)
+  url = url.split(host)[1]
+  window.history.pushState(url,host,url)
 }
 function setCookie2(cname,cvalue,exdays) {
           const d = new Date();
@@ -28,7 +30,7 @@ function setCookie2(cname,cvalue,exdays) {
         }
 function setCookie() {
           setCookie2("canlogintosite","truesigma",1)
-          window.location.href = "https://fixcraft-vpn.onrender.com/login";
+          window.location.href = `https://${host}/login`;
         }
 </script>
 </head>
@@ -88,7 +90,10 @@ function setCookie() {
     <span class="cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
     
   </div>
-  <span class="md:block w-full truncate">fixcraft-vpn.onrender.com</span>
+  <span id="hstt" class="md:block w-full truncate">fixcraft-vpn.onrender.com</span>
+  <script>
+    documnet.getElementById("hstt").innerHTML=documnet.getElementById("hstt").innerHTML.replace("fixcraft-vpn.onrender.com",host)
+  </script>
   <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
     
     Host
