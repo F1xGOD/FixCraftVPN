@@ -347,17 +347,17 @@ if(window.location.href.includes("?")){
 				  }
 }
 }else{}}else{shd=true}
-      if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true&&tablocation!="login"&&tablocation!="login.html"){window.location.replace(`${host}/login`)}
+      
 	 setTimeout(function(){
 	if(tablocation.includes(".html")){
 	tablocation = tablocation.replace(".html","")
 }
-console.log(getCookie("usernamecred")+getCookie("passwordcred"))
-console.log(actdata.status)
+
 if(actdata.status != "secure"){if (actdata.status == "newuserhide"){
 	if(getCookie("usernamecred")=="" && getCookie("passwordcred")==""){if(getCookie("canlogintosite")!="truesigma"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}else{execute=true}}else{execute=true}}else{execute=true}
 			      if(actdata.status == "allhide"){window.location.replace(`${host}/block/block?spoof=${currentUrl}`)}
 			      }else{execute=true}
+				  if((getCookie("passwordcred") == "" || getCookie("usernamecred") == "")&&shd==true&&tablocation!="login"&&tablocation!="login.html"){window.location.replace(`${host}/login`)}
 
 if(execute==true){
 var maintain = actdata.undermaintenance
