@@ -5,7 +5,7 @@ import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebase
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import "/platform.js";
-var visitorId = "000";
+var visitorId = "010";
 var sid="";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
@@ -142,7 +142,7 @@ link.href = window.ico;
     }
     window.ico=link.href
     link.href = 'https://vpn.fixcraft.org/IMAGES/blank64.png';
-    document.title="‎   "
+    document.title="‎"
   }
 });
   window.addEventListener('beforeunload', function(e) {
