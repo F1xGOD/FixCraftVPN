@@ -179,23 +179,18 @@ function checkSessionStart(){
 		longitude = position.coords.longitude;
 		document.getElementsByTagName("html")[0].style.display="block"
 	})
-	function getNavGeo() {
 		var rels=""
   navigator.permissions.query({ name: "geolocation" }).then((result) => {
     if (result.state === "granted") {
-      resl="yes" // Do your awesome stuff.
+     	console.log("FINE")
     } else if (result.state !== "granted") {
-    resl="no"  // Don't do anything or something.
+    window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
+    window.location.href=`${host}/forbidden`}
     } 
   });
-return resl
-}
-        if(getNavGeo()=="no"){
-	window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
-	window.location.href=`${host}/forbidden`}
-	if(tablocation=="login"||tablocation=="login.html"){
-	document.getElementsByTagName("html")[0].style.display="block"
-	}
+
+
+	
 
 	setTimeout(function(){
 		var toclose="";
