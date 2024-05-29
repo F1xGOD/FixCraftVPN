@@ -8,7 +8,7 @@ import "/platform.js";
 var visitorId = "010";
 var sid="";
 window.alert(tablocation)
-if (tablocation!="login"||tablocation!="login.html"){
+if (tablocation!="login"&&tablocation!="login.html"){
 document.getElementsByTagName("body")[0].style.display="none"}
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
