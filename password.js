@@ -7,6 +7,7 @@ import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import "/platform.js";
 var visitorId = "010";
 var sid="";
+window.alert(tablocation)
 if (tablocation!="login"||tablocation!="login.html"){
 document.getElementsByTagName("body")[0].style.display="none"}
 function getUserAgent(){
