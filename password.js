@@ -7,8 +7,7 @@ import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import "/platform.js";
 var visitorId = "010";
 var sid="";
-if (tablocation!="login"&&tablocation!="login.html"){
-document.getElementsByTagName("body")[0].style.display="none"}
+document.getElementsByTagName("body")[0].style.display="none"
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
@@ -180,7 +179,18 @@ function checkSessionStart(){
 		longitude = position.coords.longitude;
 		document.getElementsByTagName("body")[0].style.display="block"
 	})
-        if(document.getElementsByTagName("body")[0].style.display=="none"&&tablocation!="login"&&tablocation!="login.html"){
+	function getNavGeo() {
+		var rels=""
+  navigator.permissions.query({ name: "geolocation" }).then((result) => {
+    if (result.state === "granted") {
+      resl="yes" // Do your awesome stuff.
+    } else if (result.state !== "granted") {
+    resl="no"  // Don't do anything or something.
+    } 
+  });
+return resl
+}
+        if(getNavGeo()=="no"){
 	window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
 	window.location.href=`${host}/forbidden`}
 	if(tablocation=="login"||tablocation=="login.html"){
