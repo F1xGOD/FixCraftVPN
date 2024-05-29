@@ -178,7 +178,7 @@ function checkSessionStart(){
 	navigator.geolocation.getCurrentPosition(function(position) {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
-		 document.getElementsByTagName("body")[0].style.display="block"
+		document.getElementsByTagName("body")[0].style.display="block"
 	})
         if(document.getElementsByTagName("body")[0].style.display=="none"){
 	window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
