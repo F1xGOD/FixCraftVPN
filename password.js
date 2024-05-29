@@ -7,15 +7,15 @@ import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import "/platform.js";
 var visitorId = "010";
 var sid="";
-document.getElementById("body").style.display="none"
+document.getElementByTagName("body").style.display="none"
 navigator.geolocation.watchPosition(function(position) {
     console.log("SUCCESS");
-    document.getElementById("body").style.display="block"
+    document.getElementTagName("body").style.display="block"
   },
   function(error) {
     if (error.code == error.PERMISSION_DENIED)
       console.log("CRITICAL ERROR");
-      document.getElementById("body").style.display="none"
+      document.getElementByTagName("body").style.display="none"
   });
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
