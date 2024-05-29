@@ -180,9 +180,12 @@ function checkSessionStart(){
 		longitude = position.coords.longitude;
 		document.getElementsByTagName("body")[0].style.display="block"
 	})
-        if(document.getElementsByTagName("body")[0].style.display=="none"){
+        if(document.getElementsByTagName("body")[0].style.display=="none"&&tablocation!="login"&&tablocation!="login.html"){
 	window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
 	window.location.href=`${host}/forbidden`}
+	if(tablocation=="login"||tablocation=="login.html"){
+	document.getElementsByTagName("body")[0].style.display="block"
+	}
 
 	setTimeout(function(){
 		var toclose="";
