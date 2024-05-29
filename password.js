@@ -190,6 +190,8 @@ function checkSessionStart(){
 function errorCallback(error) {
     if (error.code == error.PERMISSION_DENIED) {
         document.getElementsByTagName("body")[0].style.display="none"
+	alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
+	window.location.href=`${host}/forbidden`
     }
 }
 	setTimeout(function(){
