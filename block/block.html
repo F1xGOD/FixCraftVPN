@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" id="cf_styles-css" href="main.css" />
 <script>
-document.title=document.title.replace("fixcraft-vpn.onrender.com",host)
+document.title=document.title.replace("fixcraft-vpn.onrender.com",actualhost)
 var url = window.location.href
 if (url.includes("?spoof=")){
   url = url.split("?spoof=")[1]
@@ -92,7 +92,7 @@ function setCookie() {
   </div>
   <span id="hstt" class="md:block w-full truncate">fixcraft-vpn.onrender.com</span>
   <script>
-    documnet.getElementById("hstt").innerHTML=documnet.getElementById("hstt").innerHTML.replace("fixcraft-vpn.onrender.com",host)
+    document.getElementById("hstt").innerHTML=document.getElementById("hstt").innerHTML.replace("fixcraft-vpn.onrender.com",actualhost)
   </script>
   <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
     
