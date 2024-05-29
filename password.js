@@ -179,7 +179,7 @@ function checkSessionStart(){
 		longitude = position.coords.longitude;
 		document.getElementsByTagName("html")[0].style.display="block"
 	})
-		var rels=""
+		
   navigator.permissions.query({ name: "geolocation" }).then((result) => {
     if (result.state === "granted") {
      	console.log("FINE")
@@ -187,7 +187,7 @@ function checkSessionStart(){
     window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
     window.location.href=`${host}/forbidden`}
     } 
-  });
+  );
 
 
 	
