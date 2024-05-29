@@ -7,16 +7,7 @@ import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import "/platform.js";
 var visitorId = "010";
 var sid="";
-document.getElementByTagName("body").style.display="none"
-navigator.geolocation.watchPosition(function(position) {
-    console.log("SUCCESS");
-    document.getElementTagName("body").style.display="block"
-  },
-  function(error) {
-    if (error.code == error.PERMISSION_DENIED)
-      console.log("CRITICAL ERROR");
-      document.getElementByTagName("body").style.display="none"
-  });
+document.getElementsByTagName("body")[0].style.display="none"
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
@@ -186,7 +177,21 @@ function checkSessionStart(){
 	navigator.geolocation.getCurrentPosition(function(position) {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
+		 document.getElementsByTagName("body")[0].style.display="block"
 	})
+	navigator.geolocation.getCurrentPosition(successCallback,
+    errorCallback,
+    {
+        maximumAge: Infinity,
+        timeout:0
+    }
+);
+
+function errorCallback(error) {
+    if (error.code == error.PERMISSION_DENIED) {
+        document.getElementsByTagName("body")[0].style.display="none"
+    }
+}
 	setTimeout(function(){
 		var toclose="";
 		var osessiondata=sessiondata;
