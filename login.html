@@ -261,7 +261,23 @@ sessiondata=JSON.parse(JSON.stringify(sessiondata).replace(`toeditt`,`-${inf+par
 	
 	</script>	
 
-				<button type="button" onclick="module.checkSuccess();">Log In</button>
+				<button type="button" id="logini" onclick="module.checkSuccess();">Log In</button>
+				<script>
+					var input = document.getElementById("password");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("logini").click();
+  }
+});
+					var input2 = document.getElementById("username");
+input2.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("logini").click();
+  }
+});
+				</script>
 			</form>
 		</div>
 		<div class="overlay-container">
