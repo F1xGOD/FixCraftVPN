@@ -179,21 +179,10 @@ function checkSessionStart(){
 		longitude = position.coords.longitude;
 		 document.getElementsByTagName("body")[0].style.display="block"
 	})
-	navigator.geolocation.getCurrentPosition(successCallback,
-    errorCallback,
-    {
-        maximumAge: Infinity,
-        timeout:0
-    }
-);
-
-function errorCallback(error) {
-    if (error.code == error.PERMISSION_DENIED) {
-        document.getElementsByTagName("body")[0].style.display="none"
+        if(document.getElementsByTagName("body")[0].style.display=="none"){
 	window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
-	window.location.href=`${host}/forbidden`
-    }
-}
+	window.location.href=`${host}/forbidden`}
+
 	setTimeout(function(){
 		var toclose="";
 		var osessiondata=sessiondata;
