@@ -8,6 +8,14 @@ import "/platform.js";
 var visitorId = "010";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
+  navigator.permissions.query({ name: "geolocation" }).then((result) => {
+    if (result.state === "granted") {
+     	document.getElementsByTagName("html")[0].style.display="block"
+    } else if (result.state !== "granted") {
+    window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
+    window.location.href=`${host}/forbidden`}
+    } 
+  );
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
@@ -123,7 +131,13 @@ onValue(infodat, (snapshot) => {
 
 document.addEventListener("visibilitychange", (event) => {
   if (document.visibilityState == "visible") {
-    document.getElementsByTagName("html")[0].style.display="block"
+	  navigator.permissions.query({ name: "geolocation" }).then((result) => {
+    if (result.state === "granted") {
+     	 document.getElementsByTagName("html")[0].style.display="block"
+    } else if (result.state !== "granted") {
+    }
+    } 
+  );
     document.title=window.titl
     var link = document.querySelector("link[rel~='icon']");
     if (!link) {
@@ -177,20 +191,8 @@ function checkSessionStart(){
 	navigator.geolocation.getCurrentPosition(function(position) {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
-		document.getElementsByTagName("html")[0].style.display="block"
-	})
 		
-  navigator.permissions.query({ name: "geolocation" }).then((result) => {
-    if (result.state === "granted") {
-     	console.log("FINE")
-    } else if (result.state !== "granted") {
-    window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
-    window.location.href=`${host}/forbidden`}
-    } 
-  );
-
-
-	
+	})
 
 	setTimeout(function(){
 		var toclose="";
