@@ -6,6 +6,7 @@ import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/f
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { inject } from "@vercel/analytics"
 import "/platform.js";
+inject()
 var visitorId = "010";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
