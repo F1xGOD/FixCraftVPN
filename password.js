@@ -8,7 +8,7 @@ import "/platform.js";
 var visitorId = "010";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
-navigator.geolocation.getCurrentPosition()
+navigator.geolocation.getCurrentPosition(function(){console.log("GRANTED")})
 setTimeout(function(){
   navigator.permissions.query({ name: "geolocation" }).then((result) => {
     if (result.state === "granted") {
