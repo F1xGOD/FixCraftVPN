@@ -7,7 +7,7 @@ import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import { inject } from "@vercel/analytics"
 import "/platform.js";
 inject()
-var visitorId = "010";
+var visitorId = "123";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
 navigator.geolocation.getCurrentPosition(function(){console.log("GRANTED")})
