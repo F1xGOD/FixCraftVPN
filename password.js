@@ -4,9 +4,7 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { inject } from "@vercel/analytics"
 import "/platform.js";
-inject()
 var visitorId = "123";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
