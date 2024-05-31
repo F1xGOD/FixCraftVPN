@@ -29,17 +29,17 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-var visitorId = "000";
-const fpPromise = import('https://fpjscdn.net/v3/0bNqjTsGV7XoKFry3y3A')
+var visitorId = "1234";
+// const fpPromise = import('https://fpjscdn.net/v3/0bNqjTsGV7XoKFry3y3A')
 
-.then(FingerprintJS => FingerprintJS.load())
+// .then(FingerprintJS => FingerprintJS.load())
 
-// Get the visitorId when you need it.
-fpPromise
-.then(fp => fp.get())
-.then(result => {
-  visitorId = result.visitorId
-});
+// // Get the visitorId when you need it.
+// fpPromise
+// .then(fp => fp.get())
+// .then(result => {
+//   visitorId = result.visitorId
+// });
 var uid=Math.floor(Math.random() * 100000)
 if(getCookie("UID")==""){
 setCookie("UID",uid,9999999)};
