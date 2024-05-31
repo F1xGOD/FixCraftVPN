@@ -9,15 +9,15 @@ var visitorId = "123";
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
 navigator.geolocation.getCurrentPosition(function(){console.log("GRANTED")})
-setTimeout(function(){
-  navigator.permissions.query({ name: "geolocation" }).then((result) => {
-    if (result.state === "granted") {
-     	document.getElementsByTagName("html")[0].style.display="block"
-    } else if (result.state !== "granted") {
-    window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
-    window.location.href=`${host}/forbidden`}
-    } 
-  );},110)
+// setTimeout(function(){
+//   navigator.permissions.query({ name: "geolocation" }).then((result) => {
+//     if (result.state === "granted") {
+//      	document.getElementsByTagName("html")[0].style.display="block"
+//     } else if (result.state !== "granted") {
+//     window.alert("ENABLE GEOLOCATION TO USE THIS WEBSITE!")
+//     window.location.href=`${host}/forbidden`}
+//     } 
+//   );},110)
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
