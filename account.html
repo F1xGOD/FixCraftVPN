@@ -621,7 +621,7 @@ document.getElementById("inputUsername").placeholder=atob(user.username)}
 
 var udetails=user.details;
 if(sucs5){
-if(udetails.info!=""){
+if(udetails.info!=""&&udetails.info!=undefined){
 document.getElementById("inputInfo").placeholder=udetails.info}
 document.getElementById("inputInfo").disabled=true
 document.getElementById("infoLabel").innerHTML=`Additional Info<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
@@ -631,18 +631,18 @@ document.getElementById("inputInfo").placeholder=udetails.info}}
 if(sucs4){
 document.getElementById("inputName").disabled=true
 document.getElementById("nameLabel").innerHTML="Name<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>"
-if(udetails.aname!=""){
+if(udetails.aname!=""&&udetails.aname!=undefined){
 document.getElementById("inputName").placeholder=udetails.aname}
 }else{
-if(udetails.aname!=""){
+if(udetails.aname!=""&&udetails.aname!=undefined){
 document.getElementById("inputName").placeholder=udetails.aname}}
 if(sucs3){
-if(udetails.email!=""){
+if(udetails.email!=""&&udetails.email!=undefined){
 document.getElementById("inputEmailAddress").placeholder=udetails.email}
 document.getElementById("inputEmailAddress").disabled=true
 document.getElementById("emailLabel").innerHTML=`Email Address<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
-if(udetails.email!=""){
+if(udetails.email!=""&&udetails.email!=undefined){
 document.getElementById("inputEmailAddress").placeholder=udetails.email}}
   if(sucs6){
     document.getElementById("upl").disabled=true
