@@ -279,13 +279,8 @@ for(var oio = 0; oio<hwidban.length; oio++){
 		window.location.replace(`${host}/forbidden`)
 	}
 }
-      			var link = document.querySelector("link[rel~='icon']");
-if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
-}
-if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")&&link.href!="/IMAGES/blank64.png"){
+
+if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")&&document.title!="‎"){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
@@ -298,7 +293,7 @@ if (!link) {
     link.rel = 'icon';
     document.head.appendChild(link);
 }
-if(link.href!="/IMAGES/blank64.png"){
+if(link.href!="/IMAGES/blank64.png"&&document.title!="‎"){
 link.href = hosts[oi].content.value;}
 		}
 	}
