@@ -522,7 +522,7 @@ while (ii2i < actdata.accounts.length){
         savess=true
     }
     if(file!=""){
-      if(actdata.accounts[id].avatar!=""){
+      if(actdata.accounts[id].avatar!=""&&actdata.accounts[id].avatar!=undefined){
         var avatr = actdata.accounts[id].avatar
         actdata.accounts[id].avatar=file.name.split(".png")[0]
   user.avatar=file.name.split(".png")[0]
@@ -626,7 +626,7 @@ document.getElementById("inputInfo").placeholder=udetails.info}
 document.getElementById("inputInfo").disabled=true
 document.getElementById("infoLabel").innerHTML=`Additional Info<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
-if(udetails.info!=""){
+if(udetails.info!=""&&udetails.info!=undefined){
 document.getElementById("inputInfo").placeholder=udetails.info}}
 if(sucs4){
 document.getElementById("inputName").disabled=true
