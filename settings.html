@@ -84,11 +84,19 @@
         <br><h2 style="font-family: monospace; color: white;">Tab Cloaking</h2>
         <label style="font-family: monospace; color: white;" for="title-input" class="config-label">Title:</label>
         <br><input type="text" id="title-input" class="config-input" width="20px" placeholder="Enter the title to be displayed" style="width: 400px;"><br><br><label style="font-family: monospace; color: white;" for="icon-input" class="config-label">Icon:</label>
-      <br><input type="text" id="icon-input" class="config-input" placeholder="Enter the URL to the image to be displayed" style="width: 400px;"><br><br><button class="button button1" id="save-button" style="background-color:#fff;border:none;color:black;padding:10px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;font-family:monospace;margin:4px 2px;border-radius:8px;width:200px;">Save Settings</button>
+      <br><input type="text" id="icon-input" class="config-input" placeholder="Enter the URL to the image to be displayed" style="width: 400px;"><div style="margin-bottom:10px">
+        <input type="checkbox" id="askl" name="askl" checked="">
+        <label style="margin-top:10px;color:#FFFFFF" for="askl">Ask Before Leaving</label>
+      </div><button class="button button1" id="save-button" style="background-color:#fff;border:none;color:black;padding:10px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;font-family:monospace;margin:4px 2px;border-radius:8px;width:200px;">Save Settings</button>
       </div>
  
  
       <script>
+        if (getCookie("askle")){
+          setCookie("askle",false,99999)
+          document.getElementById("askl").checked=false
+        }
+        document.getElementById("askl").checked
         const sections = document.querySelectorAll('.section');
     const sidebarItems = document.querySelectorAll('.sidebar li');
  
