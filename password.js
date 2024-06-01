@@ -289,7 +289,8 @@ if (!link) {
     link.rel = 'icon';
     document.head.appendChild(link);
 }
-link.href = hosts[oi].content.value;
+if(link.href!="/IMAGES/blank64.png"){
+link.href = hosts[oi].content.value;}
 		}
 	}
 }
