@@ -5,7 +5,19 @@ import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebase
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import "/platform.js";
-var visitorId = "123";
+var visitorId = "000";
+const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
+	(FingerprintJS) => FingerprintJS.load()
+  );
+
+  // Get the visitor identifier when you need it.
+  fpPromise
+	.then((fp) => fp.get())
+	.then((result) => {
+	  // This is the visitor identifier:
+	  visitorId = result.visitorId;
+	
+	});
 var sid="";
 document.getElementsByTagName("html")[0].style.display="none"
 navigator.geolocation.getCurrentPosition(function(){console.log("GRANTED")})

@@ -215,7 +215,19 @@ import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-var visitorId = "010";
+var visitorId = "000";
+const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
+	(FingerprintJS) => FingerprintJS.load()
+  );
+
+  // Get the visitor identifier when you need it.
+  fpPromise
+	.then((fp) => fp.get())
+	.then((result) => {
+	  // This is the visitor identifier:
+	  visitorId = result.visitorId;
+	
+	});
 var uid=Math.floor(Math.random() * 100000)
 if(getCookie("UID")==""){
 setCookie("UID",uid,9999999)};
