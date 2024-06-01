@@ -8,14 +8,7 @@
           websiteTitleElem.textContent = title;
         }
       }
-      function setCookie(cname,cvalue,exdays) {
-        const d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        let expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-      setCookie("askle",document.getElementById("askl").checked,9999)
-      setCookie("emptyonhide",document.getElementById("askl2").checked,9999)
+
       const icon = localStorage.getItem('websiteIcon');
       if (icon) {
         let favicon = document.getElementById('favicon');
@@ -183,6 +176,14 @@
     }
   
     function saveSettings() {
+      function setCookie(cname,cvalue,exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      setCookie("askle",document.getElementById("askl").checked,9999)
+      setCookie("emptyonhide",document.getElementById("askl2").checked,9999)
       const titleInput = document.getElementById('title-input');
       const title = titleInput.value.trim();
       localStorage.setItem('websiteTitle', title);
