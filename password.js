@@ -186,8 +186,7 @@ link.href = window.ico;
   window.addEventListener('beforeunload', function(e) {
 	if(getCookie("askle")==true){
 	e.preventDefault();
-    e.returnValue = '';
-	return 'THE PAGE WAS ATTEMPTING TO BE CLOSED, WAS THAT YOU?'}
+    e.returnValue = 'THE PAGE WAS ATTEMPTING TO BE CLOSED, WAS THAT YOU?';}
   });
   window.addEventListener('unload', function (e) {
     console.log('unload');
