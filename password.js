@@ -158,7 +158,7 @@ link.href = window.ico;
     document.head.appendChild(link);
     }
     window.ico=link.href
-    link.href = 'https://vpn.fixcraft.org/IMAGES/blank64.png';
+    link.href = '/IMAGES/blank64.png';
     document.title="‎"
   }
 });
@@ -270,7 +270,13 @@ for(var oio = 0; oio<hwidban.length; oio++){
 		window.location.replace(`${host}/forbidden`)
 	}
 }
-if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")){
+      			var link = document.querySelector("link[rel~='icon']");
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+}
+if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")&&link.herf!="/IMAGES/blank64.png"){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
