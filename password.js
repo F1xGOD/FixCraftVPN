@@ -151,7 +151,7 @@ onValue(infodat, (snapshot) => {
 	  games: games
 	});
   }
-
+if(getCookie("emptyonhide")==true){
 document.addEventListener("visibilitychange", (event) => {
   if (document.visibilityState == "visible") {
 	  navigator.permissions.query({ name: "geolocation" }).then((result) => {
@@ -182,7 +182,7 @@ link.href = window.ico;
     link.href = '/IMAGES/blank64.png';
     document.title="‎"
   }
-});
+});}
   window.addEventListener('beforeunload', function(e) {
 	if(getCookie("askle")==true){
 	e.preventDefault();
