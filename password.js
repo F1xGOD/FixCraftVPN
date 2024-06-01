@@ -184,7 +184,7 @@ link.href = window.ico;
   }
 });}
   window.addEventListener('beforeunload', function(e) {
-	if(getCookie("askle")==true){
+	if(getCookie("askle")=='true'){
 	e.preventDefault();
     e.returnValue = 'THE PAGE WAS ATTEMPTING TO BE CLOSED, WAS THAT YOU?';}
   });
