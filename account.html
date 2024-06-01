@@ -378,6 +378,7 @@ if(!file.name.match(/\.(png)$/i)){
 }
 }
 input.click();
+window.isavatarset=true
 }
 function makeTransaction(from,to,executor,amount){
   var towrite = actdata
@@ -573,7 +574,8 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
       if(avatar==""){
     
       }else{
-      document.getElementById("avatar").src=`https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media`
+	      if(window.isavatarset!=true){
+      document.getElementById("avatar").src=`https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media`}
     }
     var sucs=false
     var sucs2=false
