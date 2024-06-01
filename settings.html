@@ -94,8 +94,9 @@
       <script>
         if (getCookie("askle")==""){
           setCookie("askle",false,99999)
-          document.getElementById("askl").checked=false
         }
+        document.getElementById("askl").checked=getCookie("askle")
+
         
         const sections = document.querySelectorAll('.section');
     const sidebarItems = document.querySelectorAll('.sidebar li');
