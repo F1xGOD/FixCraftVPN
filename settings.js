@@ -188,7 +188,8 @@
       const title = titleInput.value.trim();
       localStorage.setItem('websiteTitle', title);
       console.log('Title saved:', title);
-      document.title=title
+      if (title!=""){
+      document.title=title}
       const iconInput = document.getElementById('icon-input');
       const icon = iconInput.value.trim();
       localStorage.setItem('websiteIcon', icon);
@@ -199,7 +200,8 @@
       link.rel = 'icon';
       document.head.appendChild(link);
   }
-  link.href = icon;
+  if (icon!=""){
+  link.href = icon;}
     }  
   
     function handleToggleBeta() {
