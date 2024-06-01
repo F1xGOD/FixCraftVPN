@@ -184,10 +184,17 @@ link.href = window.ico;
   }
 });
   window.addEventListener('beforeunload', function(e) {
-	      if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
-  writeus2(sid)}
-	
+	e.preventDefault();
+    e.returnValue = '';
+	return 'THE PAGE WAS ATTEMPTING TO BE CLOSED, WAS THAt YOU?'
   });
+  window.addEventListener('unload', function (e) {
+    console.log('unload');
+	if(tablocation!="admin/session"&&tablocation!="admin/session.html"){
+		writeus2(sid)}
+		  
+    
+});
 
 function warntheuser(){
 console.clear();
