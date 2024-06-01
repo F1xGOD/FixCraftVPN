@@ -536,11 +536,13 @@ while (ii2i < actdata.accounts.length){
 var storageRef = refstorage(storage, `avatars/${file.name}`);
 uploadBytes(storageRef, file).then((snapshot) => {
   console.log('Uploaded!');
+actdata.accounts[id].avatar=file.name
 });
 }else{
   var storageRef = refstorage(storage, `avatars/${file.name}`);
   uploadBytes(storageRef, file).then((snapshot) => {
   console.log('Uploaded!');
+	  actdata.accounts[id].avatar=file.name
 });
 } 
   savess=true
