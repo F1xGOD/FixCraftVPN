@@ -207,7 +207,6 @@ input22.addEventListener("keypress", function(event) {
 });
 module.send = function(){
   var tosend = document.getElementById("input").value
-
   if(tosend!=""){
   var date =new Date
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":date.toString()})}
@@ -220,6 +219,7 @@ module.send = function(){
 	  session: sessiondata,
 	  games: games
 	});
+  document.getElementById("input").value=""
 }
 module.clear=function(){
   document.getElementById("input").value=""
