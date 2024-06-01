@@ -188,15 +188,18 @@
       const title = titleInput.value.trim();
       localStorage.setItem('websiteTitle', title);
       console.log('Title saved:', title);
-  
+      document.title=title
       const iconInput = document.getElementById('icon-input');
       const icon = iconInput.value.trim();
       localStorage.setItem('websiteIcon', icon);
       console.log('Icon saved:', icon);
-  
-      setTimeout(function () {
-        location.reload();
-      }, 100);
+      var link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+  }
+  link.href = icon;
     }  
   
     function handleToggleBeta() {

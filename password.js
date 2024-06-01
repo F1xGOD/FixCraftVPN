@@ -151,7 +151,7 @@ onValue(infodat, (snapshot) => {
 	  games: games
 	});
   }
-if(getCookie("emptyonhide")==true){
+if(getCookie("emptyonhide")=='true'){
 document.addEventListener("visibilitychange", (event) => {
   if (document.visibilityState == "visible") {
 	  navigator.permissions.query({ name: "geolocation" }).then((result) => {
