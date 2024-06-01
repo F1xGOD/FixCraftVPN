@@ -93,9 +93,12 @@
  
       <script>
         if (getCookie("askle")==""){
-          setCookie("askle",false,99999)
+          setCookie("askle",'false',99999)
         }
-        document.getElementById("askl").checked=getCookie("askle")
+        if (getCookie("askle") == 'true'){
+        document.getElementById("askl").checked=true}
+        if (getCookie("askle") == 'false'){
+        document.getElementById("askl").checked=false}
 
         
         const sections = document.querySelectorAll('.section');
