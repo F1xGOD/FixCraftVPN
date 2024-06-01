@@ -21,7 +21,16 @@ setTimeout(function(){
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
 }
-
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
+if (inIframe()) {
+	throw new Error("IFRAMED!");
+}
 var ip = "";
 
 $.getJSON("https://api.ipify.org?format=json",
