@@ -96,7 +96,7 @@
           setCookie("askle",false,99999)
           document.getElementById("askl").checked=false
         }
-        document.getElementById("askl").checked
+        
         const sections = document.querySelectorAll('.section');
     const sidebarItems = document.querySelectorAll('.sidebar li');
  
@@ -187,7 +187,7 @@
         const consoleStyle = 'background: #333; color: #fff; padding: 5px; font-weight: bold;';
         //console.log('%c Enter ' + command + ' to access the Easter Egg!', consoleStyle);
         window.addEventListener('keydown', (event) => {
-          if (event.key === 'F12') {
+          if (event.key === 'F8') {
             const inputCommand = prompt('Please enter the Easter Egg command:');
             if (inputCommand === command) {
               immortalize('sodium');

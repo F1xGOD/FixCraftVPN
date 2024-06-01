@@ -12,6 +12,7 @@
       const icon = localStorage.getItem('websiteIcon');
       if (icon) {
         let favicon = document.getElementById('favicon');
+        setCookie("askle",document.getElementById("askl").checked,9999)
         if (!favicon) {
           favicon = document.createElement("link");
           favicon.id = "favicon"
