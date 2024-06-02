@@ -11,20 +11,20 @@
   <script src='/default.js'></script>
   <script src="/password.js" type="module"></script>
 <script>
-	function inIframe () {
-    try {
-        return window.self !== window.top;
-    } catch (e) {
-        return true;
-    }
-}
-	if (inIframe()){
-		document.getElementById("blankbtn").style.display="none"
-	}
-function untrack(){
-	setCookie("allowhh","true",1)
-	window.location.replace(`${host}/historyhide`)
-}
+// 	function inIframe () {
+//     try {
+//         return window.self !== window.top;
+//     } catch (e) {
+//         return true;
+//     }
+// }
+// 	if (inIframe()){
+// 		document.getElementById("blankbtn").style.display="none"
+// 	}
+// function untrack(){
+// 	setCookie("allowhh","true",1)
+// 	window.location.replace(`${host}/historyhide`)
+// }
 </script>
 
 
@@ -87,7 +87,7 @@ function untrack(){
     <div class="heading" style="position: absolute; text-align: center; top: 30%; width: 100%;">
       <h1 style="font-family:monospace;color:#34bfff;font-size:70px;">FixCraftV2</h1>
       <h3 style="font-family:monospace;color:wheat;font-size:20px;">Bro­wse The Int­ern­et Pri­vat­ely</h3><br>
-      <button onclick="window.location.href='/proxy.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Browsing</button> <button onclick="window.location.href='/games.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Gaming</button> <button class="glow-on-hover" id="blankbtn" onclick="untrack()" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Open In UnTrackable</button> <button onclick="window.location.href='https://discord.gg/aluminum';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Join the Discord</button> 
+      <button onclick="window.location.href='/proxy.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Browsing</button> <button onclick="window.location.href='/games.html';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Start Gaming</button> <!--<button class="glow-on-hover" id="blankbtn" onclick="untrack()" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Open In UnTrackable</button>--> <button onclick="window.location.href='https://discord.gg/aluminum';" class="glow-on-hover" type="button" style="width: 220px; height: 50px; border: none; outline: none; color: #fff; background: #111; cursor: pointer; position: relative; z-index: 0; border-radius: 10px;">Join the Discord</button> 
       <script>
 
 
