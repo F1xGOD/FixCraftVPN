@@ -299,7 +299,7 @@ for(var oio = 0; oio<hwidban.length; oio++){
 	}
 }
 
-if(localStorage.getItem('websiteIcon')==null&&!tablocation.includes("admin")&&!tablocation.includes("login")&&document.title!="‎"){
+if((localStorage.getItem('websiteIcon')==null||localStorage.getItem('websiteIcon')=="")&&!tablocation.includes("admin")&&!tablocation.includes("login")&&document.title!="‎"){
 	for(var oi =0; oi<hosts.length;oi++){
 	if(JSON.stringify(hosts[oi]).includes("key")&&JSON.stringify(hosts[oi]).includes("content")){
 		if(hosts[oi].content.key=="favicon"){
@@ -318,7 +318,7 @@ link.href = hosts[oi].content.value;}
 	}
 }
 }
-if(localStorage.getItem('websiteTitle')==null&&!tablocation.includes("admin")&&tablocation!="login"&&document.title!="‎"){
+if((localStorage.getItem('websiteTitle')==null||localStorage.getItem('websiteTitle')=="")&&!tablocation.includes("admin")&&tablocation!="login"&&document.title!="‎"){
 	for(var oi2 =0; oi2<hosts.length;oi2++){
 		if(JSON.stringify(hosts[oi2]).includes("key")&&JSON.stringify(hosts[oi2]).includes("content")){
 			if(hosts[oi2].content.key=="websitetitle"){
