@@ -1,0 +1,1 @@
+var defjson = {"favicon":"/FixCraft.png","title":"FixCraftV2"}
