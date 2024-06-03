@@ -138,6 +138,7 @@ if(JSON.stringify(actdata)=="{}"){
 }else{console.log("LOADED!");
 var uname = getCookie("usernamecred");
 var uname2 = btoa(uname)
+var ii2i=0
 while (ii2i < actdata.accounts.length){
 	if(actdata.accounts[ii2i].username==uname2){
 		role=actdata.accounts[ii2i].role
@@ -145,7 +146,6 @@ while (ii2i < actdata.accounts.length){
 	ii2i++
 }
 document.getElementById("log").innerHTML="INITIALIZING..."
-alert("U:"+uname2+" R:"+role)
 if(role=="admin"||role=="moderator"||role=="debugger"){
 var ii2i= 0;
 var role = ""
