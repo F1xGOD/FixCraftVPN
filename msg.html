@@ -53,6 +53,20 @@ function subscribeUser() {
 }
 subscribeUser();
 //4
+var BASE64_MARKER = ';base64,';
+
+function urlB64ToUint8Array(dataURI) {
+  var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+  var base64 = dataURI.substring(base64Index);
+  var raw = window.atob(base64);
+  var rawLength = raw.length;
+  var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+  for(i = 0; i < rawLength; i++) {
+    array[i] = raw.charCodeAt(i);
+  }
+  return array;
+}
 const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
 swRegistration.pushManager.subscribe({
   userVisibleOnly: true,
