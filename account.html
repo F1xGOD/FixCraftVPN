@@ -590,11 +590,8 @@ while (ii2i < actdata.accounts.length){
 	ii2i++
 }
 if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))!=0){
-	console.log(Object.values(bank.transactions)[0].tto.username)
-	console.log(uname)
-	console.log(Object.values(bank.transactions))
 		
-	for(var pl = 0;Object.values(bank.transactions).length<pl;pl++){
+	for(var pl = 0;Object.values(bank.transactions).length>pl;pl++){
 		if(Object.values(bank.transactions)[pl]!="TEST"){
 		if (Object.values(bank.transactions)[pl].tto.username == uname) {
 			alert(Object.values(bank.transactions)[pl].tfrom.username)
