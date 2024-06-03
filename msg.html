@@ -5,8 +5,8 @@
   </head>
   <body>
     <script>
-      const applicationServerPublicKey = "BNrF4yPlFYPwHB9WchJbrDzzewE1PWJqu-W-_NwbrqOfDi04mSIKUKJzJ2j7Ugvn90NfzTj7ozVWEavSMhaYXTA"
-      if ('serviceWorker' in navigator && 'PushManager' in window) {
+//1
+if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.log('Service Worker and Push are supported');
 
   navigator.serviceWorker.register('msgsw.js')
@@ -22,15 +22,16 @@
   console.warn('Push messaging is not supported');
   pushButton.textContent = 'Push Not Supported';
 }
+const applicationServerPublicKey = "BNrF4yPlFYPwHB9WchJbrDzzewE1PWJqu-W-_NwbrqOfDi04mSIKUKJzJ2j7Ugvn90NfzTj7ozVWEavSMhaYXTA"
+//2
+navigator.serviceWorker.register('msgsw.js')
+.then(function(swReg) {
+  console.log('Service Worker is registered', swReg);
 
-
-function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
-
-alert(JSON.stringify(subscription))
-}
-        
-        function subscribeUser() {
+  swRegistration = swReg;
+})
+//3
+function subscribeUser() {
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
@@ -50,53 +51,27 @@ alert(JSON.stringify(subscription))
     updateBtn();
   });
 }
-        const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+subscribeUser();
+//4
+const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
 swRegistration.pushManager.subscribe({
   userVisibleOnly: true,
   applicationServerKey: applicationServerKey
 })
-      swRegistration.pushManager.subscribe({
+swRegistration.pushManager.subscribe({
+  userVisibleOnly: true,
+  applicationServerKey: applicationServerKey
+})
+ 
+//5
+swRegistration.pushManager.subscribe({
   userVisibleOnly: true,
   applicationServerKey: applicationServerKey
 })
 .then(function(subscription) {
-  console.log('User is subscribed.');
-
-  updateSubscriptionOnServer(subscription);
-
-  isSubscribed = true;
-
-  updateBtn();
-
+  alert(JSON.stringify(subscription));
 })
-.catch(function(err) {
-  console.log('Failed to subscribe the user: ', err);
-  updateBtn();
-});
-  event.waitUntil(self.registration.showNotification(title, options));
 
-      var isSubscribed=true
-    if (isSubscribed) {
-      // TODO: Unsubscribe user
-    } else {
-      subscribeUser();
-    }
-  
-
-  // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
-
-    updateSubscriptionOnServer(subscription);
-
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
-    }
-  })
-    
     </script>
   </body>
 </html>
