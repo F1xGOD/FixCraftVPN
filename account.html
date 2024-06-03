@@ -621,7 +621,9 @@ if(avatar==undefined){avatar=""}else{avatar=avatar}
   document.getElementById("inputUsername").disabled=true
   document.getElementById("usernameLabel").innerHTML=`Username<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
-document.getElementById("inputUsername").placeholder=atob(user.username)}
+document.getElementById("inputUsername").placeholder=atob(user.username);
+document.getElementById("inputUsername").disabled=false
+  document.getElementById("usernameLabel").innerHTML=`Username`}
 
   if(sucs2){
     document.getElementById("inputPassword").placeholder=atob(user.password)
@@ -633,6 +635,10 @@ document.getElementById("inputUsername").placeholder=atob(user.username)}
   }else{
     document.getElementById("inputPassword").placeholder=atob(user.password)
     document.getElementById("inputCPassword").placeholder=atob(user.password)
+    document.getElementById("inputPassword").disabled=false
+    document.getElementById("inputCPassword").disabled=false
+    document.getElementById("passwordLabel").innerHTML=`Password`
+    document.getElementById("passwordLabel2").innerHTML=`Confirm Password`
   }
     
 
@@ -644,7 +650,9 @@ document.getElementById("inputInfo").disabled=true
 document.getElementById("infoLabel").innerHTML=`Additional Info<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
 if(udetails.info!=""&&udetails.info!=undefined){
-document.getElementById("inputInfo").placeholder=udetails.info}}
+document.getElementById("inputInfo").placeholder=udetails.info}
+document.getElementById("inputInfo").disabled=false
+document.getElementById("infoLabel").innerHTML=`Additional Info`}
 if(sucs4){
 document.getElementById("inputName").disabled=true
 document.getElementById("nameLabel").innerHTML="Name<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>"
@@ -652,7 +660,10 @@ if(udetails.aname!=""&&udetails.aname!=undefined){
 document.getElementById("inputName").placeholder=udetails.aname}
 }else{
 if(udetails.aname!=""&&udetails.aname!=undefined){
-document.getElementById("inputName").placeholder=udetails.aname}}
+document.getElementById("inputName").placeholder=udetails.aname}
+document.getElementById("inputName").disabled=false
+document.getElementById("nameLabel").innerHTML="Name"
+}
 if(sucs3){
 if(udetails.email!=""&&udetails.email!=undefined){
 document.getElementById("inputEmailAddress").placeholder=udetails.email}
@@ -660,12 +671,16 @@ document.getElementById("inputEmailAddress").disabled=true
 document.getElementById("emailLabel").innerHTML=`Email Address<i class=\"fa-duotone fa-lock\" style=\"margin-left:7px\"></i>`
 }else{
 if(udetails.email!=""&&udetails.email!=undefined){
-document.getElementById("inputEmailAddress").placeholder=udetails.email}}
+document.getElementById("inputEmailAddress").placeholder=udetails.email}
+document.getElementById("inputEmailAddress").disabled=false
+document.getElementById("emailLabel").innerHTML=`Email Address`
+}
   if(sucs6){
     document.getElementById("upl").disabled=true
     document.getElementById("upl").innerHTML=`UPLOAD<i class=\"fa-solid fa-lock\" style=\"margin-left:7px\"></i>`
   }else{
-
+document.getElementById("upl").disabled=false
+    document.getElementById("upl").innerHTML=`UPLOAD`
   }
   var stt = false
   if(user.bank.hashaddress==undefined){
