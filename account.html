@@ -589,7 +589,7 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&fistt==false){
+if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))!=0){
 	alert("s1")
 	for(var pl = 0;Object.values(bank.transactions).length<pl;pl++){
 		if (Object.values(bank.transactions)[pl].tto.username == uname) {
