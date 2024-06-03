@@ -6,7 +6,7 @@ import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/f
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import "/platform.js";
 var visitorId = "000";
-const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
+const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
 
