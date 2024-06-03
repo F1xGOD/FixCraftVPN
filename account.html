@@ -297,6 +297,14 @@ function validateEmail(email){
   if (em == null){result=false}else{result=true}
   return result
 };
+function snackbar_Trs(p1,a) {
+                        SnackBar({
+                            message: `${p1} Transfered ${a} To You!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
 function snackbar_Successs() {
                         SnackBar({
                             message: `Saved Successfully!`,
@@ -581,8 +589,16 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))){alert("T@")}
-alert(Number(actdata.accounts[oid].bank.balance).toString()+"  "+Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,"")).toString())
+if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&firstt!=true){
+	for(var pl = 0;Object.values(bank.transactions).length<pl;pl++){
+		if (Object.values(bank.transactions)[pl].tto.username == uname) {
+			if(parseInt(getCurrentTime().split(":")[2])-parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[2])<5&&&&parseInt(getCurrentTime().split(":")[1])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[1])&&parseInt(getCurrentTime().split(":")[0])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[0])){
+			namm=Object.values(bank.transactions)[pl]
+			amm=Object.values(bank.transactions)[pl]}
+		}
+	}
+	snackbar_Trs(atob(Object.values(bank.transactions)[pl].tfrom.username),Object.values(bank.transactions)[pl].amount)
+}
 var avatar = user.avatar;
 if(avatar==undefined){avatar=""}else{avatar=avatar}
 
