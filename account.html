@@ -589,7 +589,7 @@ while (ii2i < actdata.accounts.length){
 	}
 	ii2i++
 }
-if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&firstt!=true){
+if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&fistt!=true){
 	for(var pl = 0;Object.values(bank.transactions).length<pl;pl++){
 		if (Object.values(bank.transactions)[pl].tto.username == uname) {
 			if(parseInt(getCurrentTime().split(":")[2])-parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[2])<5&&parseInt(getCurrentTime().split(":")[1])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[1])&&parseInt(getCurrentTime().split(":")[0])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[0])){
@@ -597,7 +597,7 @@ if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("o
 			amm=Object.values(bank.transactions)[pl]}
 		}
 	}
-	snackbar_Trs(atob(Object.values(bank.transactions)[pl].tfrom.username),Object.values(bank.transactions)[pl].amount)
+	snackbar_Trs(atob(Object.values(bank.transactions)[pl].tfrom.username),new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(Object.values(bank.transactions)[pl].amount)))
 }
 var avatar = user.avatar;
 if(avatar==undefined){avatar=""}else{avatar=avatar}
