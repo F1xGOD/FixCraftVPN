@@ -297,14 +297,7 @@ function validateEmail(email){
   if (em == null){result=false}else{result=true}
   return result
 };
-function snackbar_Trs(p1,a) {
-                        SnackBar({
-                            message: `${p1} Transfered ${a} To You!`,
-							timeout:1560,
-							dismissible:false,
-                            status: "success"
-                        });
-                    };
+
 function snackbar_Successs() {
                         SnackBar({
                             message: `Saved Successfully!`,
@@ -600,6 +593,14 @@ if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("o
 		}}
 	}
   if(showo){
+    function snackbar_Trs(p1,a) {
+                        SnackBar({
+                            message: `Recieved ${a} From ${p1}!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
     snackbar_Trs(atob(Object.values(bank.transactions)[pl].tfrom.username),(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(Object.values(bank.transactions)[pl].amount))))
   }
 	}
