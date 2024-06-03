@@ -33,9 +33,58 @@
     badge: '/FixCraft.png'
   };
 
+function updateSubscriptionOnServer(subscription) {
+  // TODO: Send subscription to application server
+
+alert(JSON.stringify(subscription))
+}
+        
+        function subscribeUser() {
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  })
+  .then(function(subscription) {
+    console.log('User is subscribed.');
+
+    updateSubscriptionOnServer(subscription);
+
+    isSubscribed = true;
+
+    updateBtn();
+  })
+  .catch(function(error) {
+    console.error('Failed to subscribe the user: ', error);
+    updateBtn();
+  });
+}
+        const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+swRegistration.pushManager.subscribe({
+  userVisibleOnly: true,
+  applicationServerKey: applicationServerKey
+})
+      swRegistration.pushManager.subscribe({
+  userVisibleOnly: true,
+  applicationServerKey: applicationServerKey
+})
+.then(function(subscription) {
+  console.log('User is subscribed.');
+
+  updateSubscriptionOnServer(subscription);
+
+  isSubscribed = true;
+
+  updateBtn();
+
+})
+.catch(function(err) {
+  console.log('Failed to subscribe the user: ', err);
+  updateBtn();
+});
   event.waitUntil(self.registration.showNotification(title, options));
 });
-      pushButton.disabled = true;
+      var isSubscribed=true
     if (isSubscribed) {
       // TODO: Unsubscribe user
     } else {
