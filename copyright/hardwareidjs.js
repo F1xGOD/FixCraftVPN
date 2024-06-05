@@ -8,6 +8,37 @@
  */
 
 function getHWID(){
+function geth2(){
+    var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+    var canvas=""
+    const performanceKeys = [];
+    for (var value in performance) {
+      performanceKeys.push(value);
+    }
+    canvas+=performanceKeys.sort().map((p) => '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/' + p + '">' + p + "</a>").join("<br>");
+
+
+    var gl = canvas
+    var fff = gl.getParameter(gl.RENDERER)+gl.getParameter(gl.VENDOR)+getUnmaskedInfo(gl).vendor+getUnmaskedInfo(gl).renderer
+    
+
+
+    function getUnmaskedInfo(gl) {
+      var unMaskedInfo = {
+        renderer: '',
+        vendor: ''
+      };
+
+      var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+      if (dbgRenderInfo != null) {
+        unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+        unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+      }
+
+      return unMaskedInfo;
+    }
+    return fff
+}
 ;(function() {
     'use strict';
   
@@ -1362,4 +1393,4 @@ function getHWID(){
     return result;
 };
 
-return sha256(usera)}
+return geth2()}
