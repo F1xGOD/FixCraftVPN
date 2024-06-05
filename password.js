@@ -483,7 +483,7 @@ if(tablocation != "login"){
 				setCookie("tries","",999);
 				window.location.replace(`${host}/login`)
 			}
-			if (tablocation=="account"||"account.html"){
+			if (tablocation=="account"||tablocation=="account.html"){
 			var oid=0
 			if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))!=0){
 				var showo=false
