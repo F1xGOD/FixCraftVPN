@@ -16,10 +16,10 @@ function getHWID(){
 	  yo= result.visitorId;
 	});
   function rpt(){
-    return setTimeout(function(){
+   
     if(yo=="!"){
       rpt()
-    }else{return yo}},10)
+    }else{return yo}}
   }
   return rpt()
     
