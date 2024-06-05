@@ -352,6 +352,7 @@ module.writeus = function writeus() {
 		  }
 		  ii2i++
 	  }}
+    var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
     var inf=sid
     var iid=0
     var lenn=Object.keys(sessiondata).length+1
@@ -573,7 +574,6 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||hwid=="000x000"||ip==""){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
-var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 var ii2i= 0;
 var user = ""
 var oid=0
