@@ -293,7 +293,7 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||hwid=="000x000"||ip==""){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!");
-sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"--"+hwid
 checkSessionStart();
 var hwidban = actdata.hwidban
 for(var oio = 0; oio<hwidban.length; oio++){
