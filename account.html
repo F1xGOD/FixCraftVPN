@@ -352,7 +352,7 @@ module.writeus = function writeus() {
 		  }
 		  ii2i++
 	  }}
-    var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"--"+hwid
+    var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"|--|"+hwid+"|"
     var inf=sid
     var iid=0
     var lenn=Object.keys(sessiondata).length+1
