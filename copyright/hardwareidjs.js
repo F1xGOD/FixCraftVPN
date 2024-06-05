@@ -15,9 +15,7 @@ document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
     for (var value in performance) {
       performanceKeys.push(value);
     }
-    document.write("<br>");
-    document.write(performanceKeys.sort().map((p) => '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/' + p + '">' + p + "</a>").join("<br>"));
-    document.write("<br>");
+    document.write(performanceKeys.sort().map((p) => p);
 
     document.write("<br><br><br>");
 
@@ -25,10 +23,10 @@ document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
     canvas = document.getElementById("glcanvas");
     var gl = canvas.getContext("experimental-webgl");
 
-    document.write(gl.getParameter(gl.RENDERER) + "<br>");
-    document.write(gl.getParameter(gl.VENDOR) + "<br>");
-    document.write(getUnmaskedInfo(gl).vendor + "<br>");
-    document.write(getUnmaskedInfo(gl).renderer + "<br>");
+    // gl.getParameter(gl.RENDERER)
+    // gl.getParameter(gl.VENDOR);
+    // getUnmaskedInfo(gl).vendor
+    // getUnmaskedInfo(gl).renderer
 
 
     function getUnmaskedInfo(gl) {
