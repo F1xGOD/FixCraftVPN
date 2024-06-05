@@ -17,7 +17,12 @@ function getHWID(){
 	});
   var yo="!"
   yo=prom.then((result)=>{yo=result})
-  while (yo=="!"){}
+  function rpt(){
+    setTimeout(function(){
+    if(yo=="!"){
+      rpt()
+    }else{}},10)
+  }
     return yo
   }
   function getinf(){
