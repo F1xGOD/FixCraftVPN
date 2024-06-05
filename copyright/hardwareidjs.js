@@ -8,26 +8,28 @@
  */
 
 function getHWID(){
-document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
+  function getinf(){
+    infg=""
+document.write("<canvas style=\"display:none\" id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
  var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 
     const performanceKeys = [];
     for (var value in performance) {
       performanceKeys.push(value);
     }
-    document.write(performanceKeys.sort().map((p) => p));
+    infg+=performanceKeys.sort().map((p) => p);
 
-    document.write("<br><br><br>");
 
     var canvas;
     canvas = document.getElementById("glcanvas");
     var gl = canvas.getContext("experimental-webgl");
 
-    // gl.getParameter(gl.RENDERER)
-    // gl.getParameter(gl.VENDOR);
-    // getUnmaskedInfo(gl).vendor
-    // getUnmaskedInfo(gl).renderer
+    infg+=gl.getParameter(gl.RENDERER)
+    infg+=gl.getParameter(gl.VENDOR)
+    infg+=getUnmaskedInfo(gl).vendor
+    infg+=getUnmaskedInfo(gl).renderer
 
+    canvas.remove();
 
     function getUnmaskedInfo(gl) {
       var unMaskedInfo = {
@@ -43,7 +45,8 @@ document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
 
       return unMaskedInfo;
     }
-
+    return infg
+  }
 ;(function() {
     'use strict';
   
@@ -1398,4 +1401,4 @@ document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
     return result;
 };
 
-return sha256(usera)}
+return getinf()}
