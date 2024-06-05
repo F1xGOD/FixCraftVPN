@@ -14,7 +14,7 @@ function getHWID(){
   return new Promise((resolve) => {Yn.load().then((fp) => fp.get())
 	.then((result) => {
 	  resolve(result.visitorId);
-	});})
+	});}).toString()
 
     
   }
