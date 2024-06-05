@@ -19,12 +19,10 @@ function getHWID(){
     setTimeout(function(){
     if(yo=="!"){
       rpt()
-    }else{}},100)
+    }else{return yo}},100)
   }
-  rpt()
-
-
-    return yo
+  return rpt()
+    
   }
   function getinf(){
     infg=""
