@@ -287,7 +287,7 @@ if (getCookie("UID")!=""){
 	uid=getCookie("UID")
 }
 var loc=getLocation(ip)
-var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
+
 function setCookie(cname,cvalue,exdays) {
           const d = new Date();
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -573,6 +573,7 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||hwid=="000x000"||ip==""){
   setTimeout(function(){
   checkREADY22(true)}, 10)
 }else{console.log("LOADED!");
+var sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))
 var ii2i= 0;
 var user = ""
 var oid=0
