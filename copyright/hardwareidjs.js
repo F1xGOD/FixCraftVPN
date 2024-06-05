@@ -19,7 +19,7 @@ function geth2(){
 
 
     var gl = canvas
-    var fff = gl.getParameter(gl.RENDERER)+gl.getParameter(gl.VENDOR)+getUnmaskedInfo(gl).vendor+getUnmaskedInfo(gl).renderer
+    var fff = gl.RENDERER+gl.VENDOR+getUnmaskedInfo(gl).vendor+getUnmaskedInfo(gl).renderer
     
 
 
