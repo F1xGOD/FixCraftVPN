@@ -19,7 +19,7 @@ function getHWID(){
     setTimeout(function(){
     if(yo=="!"){
       rpt()
-    }else{}},10)
+    }else{}},100)
   }
   rpt()
 
