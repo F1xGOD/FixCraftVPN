@@ -483,6 +483,7 @@ if(tablocation != "login"){
 				setCookie("tries","",999);
 				window.location.replace(`${host}/login`)
 			}
+			if (tablocation=="account"||"account.html"){
 			var oid=0
 			if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))!=0){
 				var showo=false
@@ -507,7 +508,35 @@ if(tablocation != "login"){
 							};
 			snackbar_Trs(atob(Object.values(bank.transactions)[ioop].tfrom.username),(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(Object.values(bank.transactions)[ioop].amount))))
 		  }
+			}}else{
+				bal=user.bank.balance
+				pbal=getCookie("temp/balance")
+				if(Number(bal)!=Number(pbal.replace(/[^0-9.-]+/g,""))&&Number(pbal.replace(/[^0-9.-]+/g,""))!=0){
+					var showo=false
+				var ioop=0
+				for(var pl = 0;Object.values(bank.transactions).length>pl;pl++){
+					if(Object.values(bank.transactions)[pl]!="TEST"){
+					if (Object.values(bank.transactions)[pl].tto.username == uname) {
+						if(parseInt(getCurrentTime().split(":")[2])-parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[2])<6&&parseInt(getCurrentTime().split(":")[1])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[1])&&parseInt(getCurrentTime().split(":")[0])==parseInt(Object.values(bank.transactions)[pl].timestamp.split(":")[0])){
+					showo=true
+					ioop=pl
 			}
+					}}
+				}
+			  if(showo){
+				function snackbar_Trs(p1,a) {
+									SnackBar({
+										message: `Recieved ${a} From ${p1}!`,
+										timeout:1560,
+										dismissible:false,
+										status: "success"
+									});
+								};
+				snackbar_Trs(atob(Object.values(bank.transactions)[ioop].tfrom.username),(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(Object.values(bank.transactions)[ioop].amount))))
+			  }
+				}
+			};
+			setCookie("temp/balance",user.bank.balance,1)
 		  }else{
 			  let triess = getCookie("tries");
 	  		  Object.freeze(triess);
