@@ -511,8 +511,8 @@ if(tablocation != "login"){
 			snackbar_Trs(atob(Object.values(bank.transactions)[ioop].tfrom.username),(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(parseFloat(Object.values(bank.transactions)[ioop].amount))))
 		  }
 			}}else{
-				bal=user.bank.balance
-				pbal=getCookie("temp/balance")
+				var bal=user.bank.balance
+				var pbal=getCookie("temp/balance")
 				if(Number(bal)!=Number(pbal.replace(/[^0-9.-]+/g,""))&&Number(pbal.replace(/[^0-9.-]+/g,""))!=0){
 					var showo=false
 				var ioop=0
