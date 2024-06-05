@@ -1408,4 +1408,4 @@ function getHWID(){
     return result;
 };
 
-return v4f().then((result)=>{var g=result})}
+return v4f().then((result)=>{var g=result; return g;})}
