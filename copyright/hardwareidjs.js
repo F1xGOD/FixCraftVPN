@@ -1409,3 +1409,8 @@ function getHWID(){
 };
 var r = v4f().then((result)=>{var g=sha256(sha256(result)+sha256(usera)+sha256(getinf())); return g;})
 return r}
+
+if (typeof module !== "undefined")
+  {
+      module.exports = getHWID;
+  }
