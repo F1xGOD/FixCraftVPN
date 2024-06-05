@@ -15,7 +15,7 @@ function getHWID(){
 	.then((result) => {
 	  return result.visitorId;
 	});
-    return prom.resolve()
+    return prom.resolve
   }
   function getinf(){
     infg=""
