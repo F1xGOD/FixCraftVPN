@@ -9,24 +9,26 @@
 
 function getHWID(){
 
-    var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+ var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 
     const performanceKeys = [];
     for (var value in performance) {
       performanceKeys.push(value);
     }
-    canvas+=performanceKeys.sort().map((p) => '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/' + p + '">' + p + "</a>").join("<br>");
+    document.write("<br>");
+    document.write(performanceKeys.sort().map((p) => '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/' + p + '">' + p + "</a>").join("<br>"));
+    document.write("<br>");
 
-    c=document.createElement("di")
-    c.id="glcanvas"
+    document.write("<br><br><br>");
+
     var canvas;
     canvas = document.getElementById("glcanvas");
     var gl = canvas.getContext("experimental-webgl");
 
-    document.write(gl.getParameter(gl.RENDERER));
-    document.write(gl.getParameter(gl.VENDOR));
-    document.write(getUnmaskedInfo(gl).vendor);
-    document.write(getUnmaskedInfo(gl).renderer);
+    document.write(gl.getParameter(gl.RENDERER) + "<br>");
+    document.write(gl.getParameter(gl.VENDOR) + "<br>");
+    document.write(getUnmaskedInfo(gl).vendor + "<br>");
+    document.write(getUnmaskedInfo(gl).renderer + "<br>");
 
 
     function getUnmaskedInfo(gl) {
