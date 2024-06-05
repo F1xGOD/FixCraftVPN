@@ -14,7 +14,7 @@ function getHWID(){
 (fp) => fp.get()
 	.then((result) => {
 	  // This is the visitor identifier:
-	  visitorId = result.visitorId;
+	  visitorId = result;
     return visitorId
 	});
   }
