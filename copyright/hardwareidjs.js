@@ -23,6 +23,7 @@ function getHWID(){
       rpt()
     }else{}},10)
   }
+  rpt()
     return yo
   }
   function getinf(){
