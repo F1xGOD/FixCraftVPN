@@ -208,11 +208,11 @@ section.active .modal-box {
 <script>
     const module = {};
 </script>
-<script src="/copyright/hardwareidjs.js"></script>
 <script type="module">
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getStorage, ref as refstorage, uploadBytes, deleteObject } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getHWID } from "/copyright/hardwareidjs.js";
 import "/platform.js";
 function getUserAgent(){
     return platform.parse(navigator.userAgent);
