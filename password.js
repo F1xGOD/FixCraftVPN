@@ -464,10 +464,12 @@ if(tablocation != "login"){
 			var ii2 = 0;
 			var uname = username;
 			var sts = "";
+			var user = "";
 			uname=btoa(uname)
 			while (ii2 < actdata.accounts.length){
 			if(actdata.accounts[ii2].username==uname){
 			sts=actdata.accounts[ii2].status
+			user=actdata.accounts[ii2]
 			}
 			ii2++
 			}
