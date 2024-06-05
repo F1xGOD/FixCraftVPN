@@ -17,8 +17,8 @@ function getHWID(){
 	});
   prom.then(
     function(value) { res=value})
+    return res
   }
-  return res
   function getinf(){
     infg=""
 
