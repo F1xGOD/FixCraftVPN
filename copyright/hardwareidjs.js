@@ -8,7 +8,7 @@
  */
 
 function getHWID(){
-
+document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
  var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 
     const performanceKeys = [];
