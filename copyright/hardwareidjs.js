@@ -1401,4 +1401,4 @@ document.write("<canvas style=\"display:none\" id=\"glcanvas\" width=\"0\" heigh
     return result;
 };
 
-return getinf()}
+return sha256(sha256(getinf())+sha256(usera))}
