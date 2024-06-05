@@ -15,7 +15,7 @@ document.write("<canvas id=\"glcanvas\" width=\"0\" height=\"0\"></canvas>")
     for (var value in performance) {
       performanceKeys.push(value);
     }
-    document.write(performanceKeys.sort().map((p) => p);
+    document.write(performanceKeys.sort().map((p) => p));
 
     document.write("<br><br><br>");
 
