@@ -4,8 +4,11 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getHWID } from "/copyright/hardwareidjs.js"
 import "/platform.js";
 var visitorId = "000";
+var hwid="000x000"
+getHWID().then((result)=>{hwid=result})
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
@@ -249,10 +252,10 @@ function checkSessionStart(){
 	}else{}}
 		if(justtn==true){
 			sessiondata.toeditt=undefined
-			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+			sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${ppp.split(" - ")[0]}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"HWID\":\"${hwid}\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 		}else{
 			sessiondata.toeditt=undefined
-		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
+		sessiondata=JSON.parse("{"+`\"ONLINE-${sid.toString()}\":{\"ip\":\"${ip}\",\"OSinfo\":\"${getUserAgent().description}\",\"timestamp\":\"${getCurrentTime()}\",\"location\":\"${"LAT: "+latitude.toString()+" LON: "+longitude.toString()}\",\"date\":\"${getCurrentDate()}\",\"user\":\"${user.username}\",\"status\":\"online\",\"tabloc\":\"${tablocation}\",\"uid\":\"${uid}\",\"toclose\":false,\"HWID\":\"${hwid}\",\"visitorId\":\"${visitorId}\"},`+JSON.stringify(sessiondata).slice(1,-1)+"}");
 		}
 				  toclose=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${sid.toString()}`,"fedit")).fedit.toclose
 	if(toclose==true){
@@ -286,7 +289,7 @@ var pagecontent = ``
 
 var execute=false
 function checkREADY(){
-if(JSON.stringify(actdata)=="{}"||visitorId=="000"||ip==""){
+if(JSON.stringify(actdata)=="{}"||visitorId=="000"||hwid=="000x000"||ip==""){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!");
