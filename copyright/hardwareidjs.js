@@ -18,7 +18,8 @@ function getHWID(){
   function rpt(){
 
     if(yo=="!"){
-      rpt()
+      setTimeout(function(){
+      rpt()},10)
     }else{return yo}
   }
   return rpt()
