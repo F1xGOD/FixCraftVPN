@@ -15,7 +15,10 @@ function getHWID(){
 	.then((result) => {
 	  return result.visitorId;
 	});
-    return prom.resolve
+  var yo="!"
+  yo=prom.then((result)=>{yo=result})
+  while (yo=="!"){}
+    return yo
   }
   function getinf(){
     infg=""
