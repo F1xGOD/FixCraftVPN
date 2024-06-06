@@ -8,7 +8,7 @@ import { getHWID } from "/copyright/hardwareidjs.js"
 import "/platform.js";
 var visitorId = "000";
 var hwid="000x000"
-getHWID().then((result)=>{hwid=result})
+hwid=getHWID()
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
