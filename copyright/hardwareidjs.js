@@ -1411,6 +1411,9 @@ function ghtw(){
   return r}
   function giKh(){
   ghtw().then((result)=>{window.exphwid=result})
+  function rep(){
+    if(window.exphwid==undefined){setTimeout(function(){rep()},40)}else{}}
+    rep()
     return window.exphwid
 }
 
