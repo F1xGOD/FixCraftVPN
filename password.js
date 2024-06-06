@@ -297,7 +297,7 @@ sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"|--|"
 checkSessionStart();
 var hwidban = actdata.hwidban
 for(var oio = 0; oio<hwidban.length; oio++){
-	if(hwidban[oio]==visitorId){
+	if(hwidban[oio]==hwid){
 		window.location.replace(`${host}/forbidden`)
 	}
 }
