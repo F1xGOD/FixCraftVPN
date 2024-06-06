@@ -222,6 +222,7 @@ var hwid="000x000"
 hwid=getHWID()
 console.log(hwid)
 console.log(getHWID())
+alert(hwid)
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
