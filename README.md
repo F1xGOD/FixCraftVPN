@@ -9,7 +9,7 @@
                                               
                                                            
 FixCraft® Inc. FixCraftVPN Copyright ©   
-Version - v2.2 😎 MAY 31 2024
+Version - v2.3 😎 JUN 19 2024
 By F1xGOD 💀
 </pre>
 
