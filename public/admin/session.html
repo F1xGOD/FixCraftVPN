@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SESSION VIEWER</title>
+  <script src="/host.js"></script>
+  <script src="/jquery.js"></script>
+  <script src="/setup.js"></script>
+  <script src="/password.js" type="module"></script>
+  <link rel="stylesheet" href="/snackbar.css">
+  <script src="/snackbar.js"></script>
+  <link rel="stylesheet" href="/snackbar.css">
+  <script src="/snackbar.js"></script>
+<link rel="icon" href="/admin.png">
+<link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-462d1fe84b879d730fe2180b0e0354e0.css?vsn=d">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+<style>
+  p.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+  button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+  span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.offline { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.online { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
+span.success { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
+  span.background { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
+</style>
+</head>
+<body>
+<p id="log" style="margin:0px" class="text">LOADING...</p>
+<script>
+  var module={}
+</script>
+<script type="module">
+var ii2i= 0;
+var role = ""
+import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import "/platform.js";
+function getUserAgent(){
+    return platform.parse(navigator.userAgent);
+}
+
+var ip = "";
+
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+			ip=data.ip})
+const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
+const app = initializeApp(firebaseConfig);
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+	  let c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
+
+function setCookie(cname,cvalue,exdays) {
+	const d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+const db = getDatabase();
+var actdata = {};
+var sessiondata = {};
+var hosts={};
+var chat ={};
+var bank={};
+var games={};
+const infodat = ref(db, 'data');
+onValue(infodat, (snapshot) => {
+    const data = snapshot.val();
+	  sessiondata=data.session
+    actdata=data.data
+    chat=data.chat
+    bank=data.bank
+    games=data.games
+    hosts=data.hosts
+  })
+var uname = getCookie("usernamecred");
+uname=btoa(uname)
+  function snackbar_Successs() {
+                        SnackBar({
+                            message: `Saved Successfully!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
+  
+  function writeus() {
+  const db = getDatabase();
+  set(ref(db, 'data'), {
+    data: actdata,
+    bank:bank,
+  games: games,
+  chat:chat,
+	session: sessiondata,
+	  hosts:hosts
+  });
+  snackbar_Successs();
+}
+var uid=Math.floor(Math.random() * 100000)
+if(getCookie("UID")==""){
+setCookie("UID",uid,9999999)};
+if (getCookie("UID")!=""){
+	uid=getCookie("UID")
+}
+  module.clut=function clut(idd){
+    var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`,"fedit"));
+    console.log(sessiondata)
+	console.log(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`)
+   sessiondata.fedit.toclose=true;
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`))
+    document.getElementById(idd).style.display="none"
+    writeus()
+  }
+  module.clerr=function clerr(){
+    sessiondata={"TEST":"TEST"}
+    writeus()
+  }
+  function checkREADY22(fistt){
+if(JSON.stringify(actdata)=="{}"){
+  setTimeout(function(){
+  checkREADY22(true)}, 10)
+}else{console.log("LOADED!");
+var uname = getCookie("usernamecred");
+var uname2 = btoa(uname)
+var ii2i=0
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname2){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+document.getElementById("log").innerHTML="INITIALIZING..."
+if(role=="admin"||role=="moderator"||role=="debugger"){
+var ii2i= 0;
+var role = ""
+uname=btoa(uname)
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		role=actdata.accounts[ii2i].role
+	}
+	ii2i++
+}
+var accesslevel = 0
+
+var final= "";
+  var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
+  if(result[0]=="TEST"&&result.length==1){document.getElementById('log').innerHTML="EMPTY!"}else{
+  for(var ii2 = 0; ii2 < result.length-1; ii2++){
+    if(result[ii2].status!="online"){
+    final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span><br>`
+    }else{
+	    if(result[ii2].toclose!=true){
+      final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"${result[ii2].status}\">${result[ii2].status.charAt(0).toUpperCase()+result[ii2].status.slice(1)}</span>&nbsp;&nbsp;&nbsp;<button id=\"${ii2}\" class=\"btn\" onclick=\"module.clut(this.id)\"><i class=\"fa fa-times\"></i></button><br>`
+    }else{
+        final+=`USER: ${atob(result[ii2].user)}, IP: ${result[ii2].ip}, LOCATION: ${result[ii2].location}, DATE: ${result[ii2].date+"  "+result[ii2].timestamp} OSInfo: ${result[ii2].OSinfo}, TABLOCATION: ${result[ii2].tabloc}, STATUS: <span class=\"offline\">CLOSED</span><br>`
+    }}
+    if(ii2==result.length-2){
+      final+=`CLEAR ALL&nbsp;&nbsp;&nbsp;<button class=\"btn\" onclick=\"module.clerr(this.id)\"><i class=\"fa fa-times\"></i></button>`
+      document.getElementById('log').innerHTML=final
+    }
+  }}
+     }else{window.location.href=`${host}/forbidden`}}}
+  function first(){
+setTimeout(function(){
+	checkREADY22(false)
+	first()
+},3500)}
+checkREADY22(false)
+first()
+</script>
+</body>
+</html>

@@ -1,36 +1,12 @@
-"use strict";
-/**
- * @type {HTMLFormElement}
- */
-const form = document.getElementById("uv-form");
-/**
- * @type {HTMLInputElement}
- */
-const address = document.getElementById("uv-address");
-/**
- * @type {HTMLInputElement}
- */
-const searchEngine = document.getElementById("uv-search-engine");
-/**
- * @type {HTMLParagraphElement}
- */
-const error = document.getElementById("uv-error");
-/**
- * @type {HTMLPreElement}
- */
-const errorCode = document.getElementById("uv-error-code");
-
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  try {
-    await registerSW();
-  } catch (err) {
-    error.textContent = "Failed to register service worker.";
-    errorCode.textContent = err.toString();
-    throw err;
-  }
-
-  const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-});
+(async() => {
+  await import('./server.mjs').then(e=>e.default({
+    cookie: false, // Cookie Authentication
+    primaryProxy: 'ultraviolet', // Main Proxy on Enter
+    googleBlock: true, // Block Google's Bots
+    cors: true, // Allow Cross-Origin Requests
+    config: {
+      port: 10000, // Port to host site on (Default: 8080)
+      gamePort: 3000, // Port for games (Default: 3000) (NOT IMPLEMENTED)
+    }
+  }));
+})();
