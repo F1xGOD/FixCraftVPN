@@ -1,8 +1,3 @@
-app.engine('html', require('ejs').renderFile);    
-
-app.get('/', function(req, res){
-  res.render("index.html");
-})
 (async() => {
   await import('./server.mjs').then(e=>e.default({
     cookie: false, // Cookie Authentication
