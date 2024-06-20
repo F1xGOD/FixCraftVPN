@@ -6,8 +6,8 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { getHWID } from "./public/copyright/hardwareidjs.js"
-import "./public/platform.js";
+import { getHWID } from "https://vpn.fixcraft.org/copyright/hardwareidjs.js"
+import "https://vpn.fixcraft.org/platform.js";
 
 
 var defaults = {
