@@ -15,7 +15,7 @@ export function Serve(path, config, cors) {
     if (req) {
       var url = path+req.url.split('?')[0].split('#')[0]
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {url+='index.html'}
-      try {readFileSync(url)} catch {/*if (config['404']) return config['404'](req, res)*/;return res.end('Not Found')}
+      try {readFileSync(url)} catch {try {readFileSync(url+".html")} catch {/*if (config['404']) return config['404'](req, res)*/;return res.end('Not Found')}}
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {if (config.index) return config.index(req, res, readFileSync(url), type)}
       return res.writeHead(200, {'content-type':type, 'access-control-allow-origin':cors?'*':request.headers['host']}).end(readFileSync(url))
     } else {
