@@ -25,7 +25,7 @@ export function Serve(path, config, cors) {
       var url = path+req.url.split('?')[0].split('#')[0]
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {url+='index.html'}
       var success = false;
-      try {readFileSync(url);success=true} catch {try {readFileSync(url+=".html");success=true} catch { return res.end('Not Found') }}
+      try {readFileSync(url);if(url.includes(".html")){success=true}} catch {try {readFileSync(url+=".html");success=true} catch { return res.end('Not Found') }}
       if(success==true){
         var visitorId = "000";
 var hwid="000x000"
