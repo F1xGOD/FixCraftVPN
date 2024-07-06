@@ -491,7 +491,7 @@ if(tablocation != "login"){
 			if (tablocation=="account"||tablocation=="account.html"){
 			var oid=0
 			if(Number(actdata.accounts[oid].bank.balance)!=Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))&&Number(document.getElementById("outBalance").value.replace(/[^0-9.-]+/g,""))!=0){
-				var showo=false
+				var showo=false 
 			var ioop=0
 			for(var pl = 0;Object.values(bank.transactions).length>pl;pl++){
 				if(Object.values(bank.transactions)[pl]!="TEST"){
