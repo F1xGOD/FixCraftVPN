@@ -13,6 +13,11 @@ Version - v2.3 😎 JUN 19 2024
 By F1xGOD 💀
 </pre>
 
+![GitHub issues](https://img.shields.io/github/issues/F1xGOD/FixCraftVPN)
+![GitHub stars](https://img.shields.io/github/stars/F1xGOD/FixCraftVPN)
+![GitHub forks](https://img.shields.io/github/forks/F1xGOD/FixCraftVPN)
+[![Discord](https://img.shields.io/discord/1130897522051788821?color=7289da&label=Discord&logo=discord&logoColor=ffffff)](https://discord.gg/3eRHYkjgk8)
+
 ## PRIVACY POLICY
 
 ### Last updated March 12, 2024
