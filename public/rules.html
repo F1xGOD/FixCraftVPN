@@ -1,66 +1,207 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <title>RULES OF THE INTERNET</title>
+        
+        <style type="text/css">
+            html {height: 100%;}
+            .collapsible {cursor: pointer;width: 100%;border: none;text-align: left;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+              .ccontent {display: none;overflow: hidden;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+              div.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20; }
+              a.text { text-decoration:underline; color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+              span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+              span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
+              span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
+              span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
+              .parent {
+            text-align: left;
+          }
+          .child {
+            display: inline-block;
+            vertical-align: middle;
+          }
+              button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+              button.selffbtn { background-color: rgb(61, 212, 10); border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+            button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 9px; font-size: 13px; border-radius: 4px; }
+            button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
+              @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+          
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+          }
+          section {
+            overflow: scroll;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+          }
+          button.df {
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            padding: 14px 22px;
+            border: none;
+            background: #4070f4;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+          button.cnffr {
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            padding: 14px 22px;
+            border: none;
+            background: #4070f4;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+          button.canc {
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            padding: 14px 22px;
+            border: none;
+            background: #CF142B;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+          button.df:hover {
+            background-color: #265df2;
+          }
+          button.cnffr:hover {
+            background-color: #265df2;
+          }
+          button.canc:hover {
+            background-color: #e60019;
+          }
+          button.show-modal,
+          .modal-box {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+          section.active .show-modal {
+            display: none;
+          }
+          .overlay {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+          }
+          section.active .overlay {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          .modal-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 380px;
+            width: 100%;
+            padding: 30px 20px;
+            border-radius: 24px;
+            background-color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%) scale(1.2);
+          }
+          
+          section.active .modal-box {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+          }
+          
+          .modal-box h2 {
+            margin-top: 1px;
+            margin-bottom:10px;
+            font-size: 25px;
+            font-weight: 500;
+            color: #333;
+          }
+          .modal-box h3 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            align-self: center;
+          }
+          .modal-box .buttons {
+            margin-top: 25px;
+          }
+          .modal-box button {
+            font-size: 14px;
+            padding: 6px 12px;
+            margin: 0 10px;
+          }
+          </style>
     </head>
     <body>
-        Rule 0: Don't fuck with cats.
-Rule 1: You don't talk about /b/.
-Rule 2: You DON'T talk about /b/.
-Rule 3: We are Anonymous. 
-Rule 4: We are legion. 
-Rule 5: We do not forgive, we do not forget. 
-Rule 6: Anonymous can be a horrible, senseless, uncaring monster. 
-Rule 7: Anonymous is still able to deliver. 
-Rule 8: There are no real rules about posting. 
-Rule 9: There are no real rules about moderation either — enjoy your ban. 
-Rule 10: /b/ is not your personal army. 
-Rule 11: No matter how much you love debating, keep in mind that no one on the internet debates. Instead they mock your intelligence as well as your parents. 
-Rule 12: Anything you say can and will be used against you. 
-Rule 13: Anything you say can and will be turned into something else. 
-Rule 14: Do not argue with trolls—it means they win. 
-Rule 15: The harder you try, the harder you will fail. 
-Rule 16: If you fail in epic proportions, it may just become a winning failure. 
-Rule 17: Every win fails eventually. 
-Rule 18: Everything that can be labelled can be hated. 
-Rule 19: The more you hate it, the stronger it gets. 
-Rule 20: Nothing is to be taken seriously.
-Rules 21–24: Original content is original only for a few seconds before it's no longer original. Copypasta is made to ruin every last bit of originality. Copypasta is made to ruin every last bit of originality. Every post is always a repost of a repost. 
-Rule 29: On the internet men are men, women are also men, and kids are undercover FBI agents. 
-Rule 30: Girls do not exist on the internet. 
-Rule 31: Tits or GTFO—the choice is yours. 
-Rule 32: You must have pictures to prove your statements/Anything can be explained with a picture. 
-Rule 33: Lurk more—it's never enough. 
-Rule 34: If it exists, there is porn of it. No exceptions.
-Rule 35: If there is no porn of it, porn will be made of it.
-Rule 36: No matter how fucked up it is, there is always worse than what you just saw.
-Rule 37: You cannot divide by zero (just because the calculator says so).
-Rule 38: No real limits of any kind apply here—not even the sky. 
-Rule 39: CAPS LOCK IS CRUISE CONTROL FOR COOL. 
-Rule 40: EVEN WITH CRUISE CONTROL YOU STILL HAVE TO STEER 
-Rule 41: Desu isn't funny. Seriously guys. It's worse than Chuck Norris jokes.note  
-Rule 42: Nothing Is Sacred. 
-Rule 43: The more beautiful and pure a thing is—the more satisfying it is to corrupt it.
-Rule 44: If it exists, there is a version of it for your fandom... and it has a wiki and possibly a tabletop version with a theme song performed by a Vocaloid.
-Rule 45: When one sees a lion, one must get in the car. 
-Rule 46: The internet is SERIOUS FUCKING BUSINESS. 
-Rule 47: The pool is always closed. 
-Rule 48: The only good hentai is Yuri, that's how the internet works. Only exception may be Vanilla. note 
-Rule 49: No matter what it is, it is somebody's fetish.
-Rule 50: A Crossover, no matter how improbable, will eventually happen in Fan Art, Fan Fiction, or official release material, often through fanfiction of it.
-Rule 61: Chuck Norris is the exception, no exceptions.
-Rule 62: It has been cracked and pirated. You can find anything if you look long enough.
-Rule 63: For every given male character, there is a female version of that character (and vice-versa). And there is always porn of that character.
+Rule 0: Don't fuck with cats.<br>
+Rule 1: You don't talk about /b/.<br>
+Rule 2: You DON'T talk about /b/.<br>
+Rule 3: We are Anonymous.<br> 
+Rule 4: We are legion.<br> 
+Rule 5: We do not forgive, we do not forget.<br> 
+Rule 6: Anonymous can be a horrible, senseless, uncaring monster.<br> 
+Rule 7: Anonymous is still able to deliver.<br> 
+Rule 8: There are no real rules about posting.<br> 
+Rule 9: There are no real rules about moderation either — enjoy your ban.<br> 
+Rule 10: /b/ is not your personal army.<br> 
+Rule 11: No matter how much you love debating, keep in mind that no one on the internet debates. Instead they mock your intelligence as well as your parents.<br> 
+Rule 12: Anything you say can and will be used against you.<br> 
+Rule 13: Anything you say can and will be turned into something else.<br> 
+Rule 14: Do not argue with trolls—it means they win.<br> 
+Rule 15: The harder you try, the harder you will fail.<br> 
+Rule 16: If you fail in epic proportions, it may just become a winning failure.<br> 
+Rule 17: Every win fails eventually.<br> 
+Rule 18: Everything that can be labelled can be hated.<br> 
+Rule 19: The more you hate it, the stronger it gets.<br> 
+Rule 20: Nothing is to be taken seriously.<br>
+Rules 21–24: Original content is original only for a few seconds before it's no longer original. Copypasta is made to ruin every last bit of originality. Copypasta is made to ruin every last bit of originality. Every post is always a repost of a repost.<br> 
+Rule 29: On the internet men are men, women are also men, and kids are undercover FBI agents.<br> 
+Rule 30: Girls do not exist on the internet.<br> 
+Rule 31: Tits or GTFO—the choice is yours.<br> 
+Rule 32: You must have pictures to prove your statements/Anything can be explained with a picture.<br> 
+Rule 33: Lurk more—it's never enough.<br> 
+Rule 34: If it exists, there is porn of it. No exceptions.<br>
+Rule 35: If there is no porn of it, porn will be made of it.<br>
+Rule 36: No matter how fucked up it is, there is always worse than what you just saw.<br>
+Rule 37: You cannot divide by zero (just because the calculator says so).<br>
+Rule 38: No real limits of any kind apply here—not even the sky.<br> 
+Rule 39: CAPS LOCK IS CRUISE CONTROL FOR COOL.<br> 
+Rule 40: EVEN WITH CRUISE CONTROL YOU STILL HAVE TO STEER.<br>
+Rule 41: Desu isn't funny. Seriously guys. It's worse than Chuck Norris jokes.<br>
+Rule 42: Nothing Is Sacred.<br> 
+Rule 43: The more beautiful and pure a thing is—the more satisfying it is to corrupt it.<br>
+Rule 44: If it exists, there is a version of it for your fandom... and it has a wiki and possibly a tabletop version with a theme song performed by a Vocaloid.<br>
+Rule 45: When one sees a lion, one must get in the car.<br> 
+Rule 46: The internet is SERIOUS FUCKING BUSINESS.<br> 
+Rule 47: The pool is always closed.<br> 
+Rule 48: The only good hentai is Yuri, that's how the internet works. Only exception may be Vanilla.<br>
+Rule 49: No matter what it is, it is somebody's fetish.<br>
+Rule 50: A Crossover, no matter how improbable, will eventually happen in Fan Art, Fan Fiction, or official release material, often through fanfiction of it.<br>
+Rule 61: Chuck Norris is the exception, no exceptions.<br>
+Rule 62: It has been cracked and pirated. You can find anything if you look long enough.<br>
+Rule 63: For every given male character, there is a female version of that character (and vice-versa). And there is always porn of that character.<br>
 Rule 64: If it exists, it has “LOOOOORRRREE!” 
-Rule 65: If it doesn't, there will be.
-Rule 66: The longer the LORE around something is, the weirder it gets.
-Rule 67: If it has lore, it also has lore from alternate timelines, especially if the main lore is copyrighted by a big power hungry corporation.
-Rule 67/2: 90% of fanfiction is the stuff of nightmares.
-Rule 68: Everything has a fandom, everything.
+Rule 65: If it doesn't, there will be.<br>
+Rule 66: The longer the LORE around something is, the weirder it gets.<br>
+Rule 67: If it has lore, it also has lore from alternate timelines, especially if the main lore is copyrighted by a big power hungry corporation.<br>
+Rule 67/2: 90% of fanfiction is the stuff of nightmares.<br>
+Rule 68: Everything has a fandom, everything.<br>
 Rule 69: Nice!
-Rule 70: Do not talk about the 100M GET failure. 
-Rule 72: If a song exists, there's a Megalovania version of it.
-Rule 77: The Internet makes you stupid.
-Rule 78: If something is popular, there's brainrot of it, if there's none, it's coming soon
+Rule 70: Do not talk about the 100M GET failure.<br> 
+Rule 72: If a song exists, there's a Megalovania version of it.<br>
+Rule 77: The Internet makes you stupid.<br>
+Rule 78: If something is popular, there's brainrot of it, if there's none, it's coming soon.<br>
     </body>
 </html>
