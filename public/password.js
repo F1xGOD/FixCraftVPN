@@ -297,6 +297,7 @@ sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"|--|"
 checkSessionStart();
 var hwidban = actdata.hwidban
 for(var oio = 0; oio<hwidban.length; oio++){
+	if(hwidban[oio]!="NONE"){
 	if(hwidban[oio].hwid==hwid&&hwidban[oio].type=="soft"){
 		window.location.replace(`${host}/forbidden`)
 	}else if(hwidban[oio].hwid==hwid&&hwidban[oio].type=="hard"){
@@ -310,7 +311,7 @@ for(var oio = 0; oio<hwidban.length; oio++){
     		document.head.appendChild(link);
 	}
 	link.href = 'https://x0.at/KdHZ.png';
-	}
+	}}
 }
 
 if((localStorage.getItem('websiteIcon')==null||localStorage.getItem('websiteIcon')=="")&&!tablocation.includes("admin")&&!tablocation.includes("login")&&document.title!="‎"){
