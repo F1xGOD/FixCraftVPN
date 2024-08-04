@@ -1,6 +1,6 @@
 import mime from 'mime'
 import { readFileSync } from 'fs'
-import { getHWID } from "/copyright/hardwareidjs.js"
+import { getHWID } from "./public/copyright/hardwareidjs.js"
 
 var defaults = {
   indexfile: true,
