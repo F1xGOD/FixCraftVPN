@@ -76,6 +76,6 @@ async function config(config) {
 
   const port = process.env.PORT || (configuration.port || 8080)
   
-  server.listen(port, console.log('http://localhost:'+port));
+  server.listen(80, console.log('http://localhost:'+port));
 }
 export default config
