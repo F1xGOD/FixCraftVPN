@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script>
+            var url = window.location.href
+if (url.includes("?access=")){
+  url = url.split("?access=")[1]
+  url = url.split(host)[1]
+  window.history.pushState(url,host,url)
+}
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
