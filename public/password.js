@@ -4,6 +4,7 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { readFileSync } from 'fs';
 import { getHWID } from "/copyright/hardwareidjs.js"
 import "/platform.js";
 var visitorId = "000";
