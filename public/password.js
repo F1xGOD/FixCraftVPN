@@ -4,17 +4,18 @@ import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/10.8
 import { getMessaging as getMessagingSw } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-sw.js";
 import { doc, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { readFileSync } from 'fs';
 import { getHWID } from "/copyright/hardwareidjs.js"
 import "/platform.js";
 var visitorId = "000";
 var hwid="000x000"
-const hwidban = JSON.parse(readFileSync('ban.json'));
+var hwidban= {}
+fetch('/ban.json').then((response) => response.json())
+.then((json) => hwidban = json);
 getHWID().then((result)=>{hwid=result})
 function checkREADY2(){
-	if(hwid=="000x000"){
+	if(hwid=="000x000"||hwidban=={}){
 	  setTimeout(function(){
-	  checkREADY2()}, 100)
+	  checkREADY2()}, 10)
 	}else{console.log("HW");
 		for(var oio = 0; oio<hwidban.length; oio++){
 			if(hwidban[oio]!="NONE"){
@@ -34,6 +35,7 @@ function checkREADY2(){
 			}}
 		}
 	}}
+checkREADY2()
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
