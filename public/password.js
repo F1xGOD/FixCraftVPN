@@ -74,7 +74,7 @@ if (inIframe()) {
 }
 var ip = "";
 
-$.getJSON("https://api.ipify.org?format=json",
+$.getJSON("https://vpn.fixcraft.org/api/ip",
         function (data) {
 			ip=data.ip
 	if(data.ip=="166.109.22.41"){
