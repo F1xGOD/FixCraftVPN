@@ -1,13 +1,17 @@
 import Server from './bare-server-node/Server.js';
 import { readFileSync } from 'fs';
-import http from 'http';
+import https from 'https';
 import Serve from './serve.mjs'
 import fetch from 'node-fetch'
 
 //var configuration = JSON.parse(readFileSync('./config.json'))
 
 const bare =  new Server('/bare/', '');
-var server = http.createServer();  
+const options = {
+  key: readFileSync('./certs/private.key'), // replace it with your key path
+  cert: readFileSync('./certs/certificate.crt'), // replace it with your certificate path
+}
+var server = https.createServer(options)
 
 async function config(config) {
 
@@ -76,6 +80,6 @@ async function config(config) {
 
   const port = process.env.PORT || (configuration.port || 8080)
   
-  server.listen(80, console.log('http://localhost:'+port));
+  server.listen(443, console.log('https://localhost:'+443));
 }
 export default config

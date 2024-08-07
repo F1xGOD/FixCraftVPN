@@ -4,13 +4,15 @@
 <script src="settings.js" defer></script><!-- Posthog--><script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_pm81y7KNu1904rnTdFuACZton2NsuS5J1NWBJ1MLOcM',{api_host:'/sf'})
-</script><script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-2K6NBJ2Z24');
-</script><meta charset="UTF-8">
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T4Q75ZKL');</script>
+  <!-- End Google Tag Manager -->
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-462d1fe84b879d730fe2180b0e0354e0.css?vsn=d">
@@ -82,6 +84,10 @@ gtag('config', 'G-2K6NBJ2Z24');
 <body style="margin: 0;
 padding: 0;
 background-color: #111;">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4Q75ZKL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="index.html">
         <img src="/FixCraft.png" alt="our logo" style="width: 100%; height: 100%; object-fit: contain;">
@@ -147,6 +153,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var actdata = {};
 var chat = {};
+var scrl = false;
 var hosts ={};
 var bank={};
 var games = {};
@@ -154,6 +161,13 @@ var sessiondata ={};
 const infodat = ref(db, 'data');
 onValue(infodat, (snapshot) => {
   var data = snapshot.val();
+  console.log(chat)
+  if(JSON.stringify(chat)!="{}"&&chat!=data.chat&&((590 + Math.round(document.getElementById("texts").scrollTop))>=document.getElementById("texts").scrollHeight)){
+scrl=true
+// while(((590 + Math.round(document.getElementById("texts").scrollTop))>=document.getElementById("texts").scrollHeight)==false){
+// pageScroll()}
+  }
+
 	games=data.games
 	sessiondata=data.session
 	hosts=data.hosts
@@ -161,10 +175,10 @@ onValue(infodat, (snapshot) => {
   bank=data.bank
   actdata=data.data
   })
-  function checkREADY23(){
+  function checkREADY23(firs){
 if(JSON.stringify(actdata)=="{}"){
   setTimeout(function(){
-  checkREADY23()}, 10)
+  checkREADY23(true)}, 10)
 }else{console.log("LOADED!");
 var name = getCookie("usernamecred")
 var final=``;
@@ -195,8 +209,18 @@ reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")
     }}
     if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
+    if(scrl){
+    scrl=false
+    document.getElementById("texts").scrollBy(0,1000);}
   }
   }
+  if (firs==true){
+    document.getElementById("texts").scrollBy(0,100000000000)}
+  if(scrl){
+    scrl=false
+    document.getElementById("texts").scrollBy(0,1000);}
+  
+
 }};
 document.getElementById("input").value=""
 					var input22 = document.getElementById("input");
@@ -211,7 +235,39 @@ module.send = function(){
   if(tosend!=""){
   var date =new Date
   chat=chat.concat({"content":tosend,"sender":getCookie("usernamecred"),"timestamp":date.toString()})}
-  checkREADY23()
+  checkREADY23(false)
+  var name = getCookie("usernamecred")
+var final=``;
+  for(var pp = 0; pp < chat.length;pp++){
+    if(chat[pp].sender==name){
+      final+=`<div style="display: flex;justify-content: flex-end;"><div style="display:flex;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: dodgerblue;border-radius: 4px; margin-right:10px;"><p style="padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div></div>`;
+    }else{
+      var uname = chat[pp].sender
+      var avatar = ""
+      uname=btoa(uname)
+      var ii2i=0;
+while (ii2i < actdata.accounts.length){
+	if(actdata.accounts[ii2i].username==uname){
+		avatar=actdata.accounts[ii2i].avatar
+	}
+	ii2i++
+}
+if(avatar==undefined){avatar=""}else{avatar=avatar}
+    var reltime = "XX:XX:XX"
+    var reltime2 = "XX/XX/XXXX"
+var datee2 = new Date(Date.parse(chat[pp].timestamp))
+reltime = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[1]
+reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[0]
+      if(avatar==""){
+    final+=`<div><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+    }else{
+      final+=`<div><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+    }}
+    if(pp==chat.length-1){
+    document.getElementById("texts").innerHTML=final
+    document.getElementById("texts").scrollBy(0,1000);
+  }
+  }
 	set(ref(db, 'data'), {
 	  data: actdata,
 	  chat: chat,
@@ -225,11 +281,11 @@ module.send = function(){
 module.clear=function(){
   document.getElementById("input").value=""
 }
-checkREADY23()
+checkREADY23(true)
 function check(){
 setTimeout(function(){
-checkREADY23()
-check()},3000)
+checkREADY23(false)
+check()},2000)
 }
 check();
 </script>
