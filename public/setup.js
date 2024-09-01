@@ -492,5 +492,72 @@ for (var q =0;q<list.length;q++){
   return done
 }
 
+class basefwx{
+  static pb512encode(string, code) {
+    function mdcode(string) {
+      let st = String(string);
+      let binaryvals = Array.from(st, char => char.charCodeAt(0)).map(byte => byte.toString(2));
+      let end = "";
+      for (let bb of binaryvals) {
+        end += String(parseInt(bb,2)).length + String(parseInt(bb,2));
+      }
+      return String(end);
+    }
+  
+    function mainenc(string) {
+      return String(BigInt(mdcode(string)) - BigInt(mdcode(code))).replace("-", "0");
+    }
+  
+    return mainenc(string);
+  };
+  static pb512decode(string, code) {
+    function mcode(strin) {
+      let end = strin;
+      let eand = Array.from(end);
+      let finish = "";
+      let ht = 0;
+      let len = 0;
+      let oht = 0;
+      for (let een of eand) {
+        ht += 1;
+        if (een !== "") {
+          if (ht === 1) {
+            len = parseInt(een);
+            finish += String.fromCharCode(parseInt(end.slice(ht, len + ht)));
+            oht = ht;
+          }
+          if (ht !== 1 && len + oht + 1 === ht) {
+            len = parseInt(een);
+            finish += String.fromCharCode(parseInt(end.slice(ht, len + ht)));
+            oht = ht;
+          }
+        }
+      }
+      return finish;
+    }
+  
+    function mdcode(string) {
+      let st = String(string);
+      let binaryvals = Array.from(st, char => char.charCodeAt(0)).map(byte => byte.toString(2));
+      let end = "";
+      for (let bb of binaryvals) {
+        end += String(String(parseInt(bb,2)).length + String(parseInt(bb, 2)));
+      }
+      return String(end);
+    }
+  
+    function maindc(string) {
+      let result = "";
+      let string2 = string;
+      if (string2[0] === "0") {
+        string2 = "-" + string2.slice(0,1);
+      }
+      result = mcode(String(BigInt(string2) + BigInt(mdcode(code))));
+      return result;
+    }
+  
+    return maindc(string);
+  };}
+
 
 
