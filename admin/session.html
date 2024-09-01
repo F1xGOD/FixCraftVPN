@@ -44,7 +44,7 @@ function getUserAgent(){
 
 var ip = "";
 
-$.getJSON("https://api.ipify.org?format=json",
+$.getJSON("https://vpn.fixcraft.org/api/ip",
         function (data) {
 			ip=data.ip})
 const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
@@ -119,11 +119,11 @@ if (getCookie("UID")!=""){
 }
   module.clut=function clut(idd){
     var result = Object.keys(sessiondata).map((key) => sessiondata[key]);
-    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`,"fedit"));
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))+"|--|"+result[idd].HWID+"|"}`,"fedit"));
     console.log(sessiondata)
-	console.log(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`)
+	console.log(`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))+"|--|"+result[idd].HWID+"|"}`)
    sessiondata.fedit.toclose=true;
-    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))}`))
+    sessiondata=JSON.parse(JSON.stringify(sessiondata).replaceAll("fedit",`ONLINE-${btoa(result[idd].visitorId+btoa(result[idd].ip)+btoa(result[idd].OSinfo)+btoa(result[idd].uid))+"|--|"+result[idd].HWID+"|"}`))
     document.getElementById(idd).style.display="none"
     writeus()
   }

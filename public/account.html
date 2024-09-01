@@ -539,6 +539,40 @@ while (ii2i < actdata.accounts.length){
     }
     if(document.getElementById("inputEmailAddress").value==""||document.getElementById("inputEmailAddress").value==userd.email){if(savess==null){savess=false}}else{
         if(validateEmail(document.getElementById("inputEmailAddress").value)==true){
+          function snackbar_Successsfgd() {
+                        SnackBar({
+                            message: `Please Check Your Email!`,
+							timeout:1560,
+							dismissible:false,
+                            status: "success"
+                        });
+                    };
+                    function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+console.log("https://vpn.fixcraft.org/verification?apiKey=aGaOgllhcVxHfCPv&mail="+btoa(basefwx.pb512encode(`${document.getElementById("inputEmailAddress").value}/\\${atob(actdata.accounts[id].username)}/\\${atob(actdata.accounts[id].password)}`,"JDHYU&SAJIH"))+"&key="+btoa(rand))
+var rand = makeid(8)
+                    var gh="https://vpn.fixcraft.org/verification?apiKey=aGaOgllhcVxHfCPv&mail="+btoa(basefwx.pb512encode(`${document.getElementById("inputEmailAddress").value}/\\${atob(actdata.accounts[id].username)}/\\${atob(actdata.accounts[id].password)}`,"JDHYU&SAJIH"))+"&key="+btoa(rand)
+                    $.ajax({
+url:  gh,
+type: "GET",
+success: function (data) {
+    let x = JSON.stringify(data);
+    console.log(x);
+    snackbar_Successsfgd()
+},
+error: function (error) {
+    console.log(`Error ${error}`);
+}
+});
         actdata.accounts[id].details.email=document.getElementById("inputEmailAddress").value
         savess=true
     }else{savess==false; reasonf="The Email You Entered Is Invalid!"}

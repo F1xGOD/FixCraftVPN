@@ -11,30 +11,20 @@ var hwid="000x000"
 var hwidban= {}
 // fetch('/ban.json').then((response) => response.json()).then((json) => hwidban = json);
 getHWID().then((result)=>{hwid=result})
-// function checkREADY2(){
-// 	if(hwid=="000x000"||hwidban=={}){
-// 	  setTimeout(function(){
-// 	  checkREADY2()}, 5)
-// 	}else{console.log("HW");
-// 		for(var oio = 0; oio<hwidban.length; oio++){
-// 			if(hwidban[oio]!="NONE"){
-// 			if(hwidban[oio].hwid==hwid&&hwidban[oio].type=="soft"){
-// 				var newContent2='<title>Ban</title> <link rel="icon" href="https://x0.at/KdHZ.png"> <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> <style>   html, body { padding: 0; margin: 0; width: 100%; height: 100%; }   * {box-sizing: border-box;}   body { text-align: center; padding: 0; background: #d6433b; color: #fff; font-family: Open Sans; }   h1 { font-size: 50px; font-weight: 100; text-align: center;}   body { font-family: Open Sans; font-weight: 100; font-size: 20px; color: #fff; text-align: center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center;}   article { display: block; width: 700px; padding: 50px; margin: 0 auto; }   a { color: #fff; font-weight: bold;}   a:hover { text-decoration: none; }   svg { width: 75px; margin-top: 1em; } </style> <article>     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.24 202.24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Capa_1" data-name="Capa 1"><path class="cls-1" d="M101.12,0A101.12,101.12,0,1,0,202.24,101.12,101.12,101.12,0,0,0,101.12,0ZM159,148.76H43.28a11.57,11.57,0,0,1-10-17.34L91.09,31.16a11.57,11.57,0,0,1,20.06,0L169,131.43a11.57,11.57,0,0,1-10,17.34Z"/><path class="cls-1" d="M101.12,36.93h0L43.27,137.21H159L101.13,36.94Zm0,88.7a7.71,7.71,0,1,1,7.71-7.71A7.71,7.71,0,0,1,101.12,125.63Zm7.71-50.13a7.56,7.56,0,0,1-.11,1.3l-3.8,22.49a3.86,3.86,0,0,1-7.61,0l-3.8-22.49a8,8,0,0,1-.11-1.3,7.71,7.71,0,1,1,15.43,0Z"/></g></g></svg>     <h1>Sorry, You Have Been Banned!</h1>     <div>  <p>Enjoy your ban! And think again about what you did.</p>     <p>&mdash; The FixCraft Team</p>     </div> </article>';
-				
-// 				ReplaceContent(newContent2);
-// 				var link = document.querySelector("link[rel~='icon']");
-// 				if (!link) {
-// 						link = document.createElement('link');
-// 						link.rel = 'icon';
-// 						document.head.appendChild(link);
-// 				}
-// 				link.href = 'https://x0.at/KdHZ.png';
-// 			}else if(hwidban[oio].hwid==hwid&&hwidban[oio].type=="hard"){
-// 				window.location.replace(`${host}/forbidden`)
-// 			}}
-// 		}
-// 	}}
-// checkREADY2()
+function checkREADY2(){
+	if(hwid=="000x000"){
+	  setTimeout(function(){
+	  checkREADY2()}, 5)
+	}else{
+		if(getCookie("hwid")!=hwid&&getCookie("hwid")!=""){
+			setCookie("target",true,9999)
+			window.location.href=`${host}/req`
+		}
+		setCookie("hwid",hwid,9999999999)
+	}}
+
+	checkREADY2()
+checkREADY2()
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
@@ -77,9 +67,10 @@ var ip = "";
 $.getJSON("https://vpn.fixcraft.org/api/ip",
         function (data) {
 			ip=data.ip
-	if(data.ip=="166.109.22.41"){
-	window.location.replace(`${host}/killswitch`)
-}});
+// 	if(data.ip=="166.109.22.41"){
+// 	window.location.replace(`${host}/killswitch`)
+// }
+});
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -215,7 +206,7 @@ link.href = window.ico;
   window.addEventListener('beforeunload', function(e) {
 	if(getCookie("askle")=='true'){
 	e.preventDefault();
-    e.returnValue = 'THE PAGE WAS ATTEMPTING TO BE CLOSED, WAS THAT YOU?';}
+    e.returnValue = 'THE PAGE WAS ATTEMPTING TO CLOSE, WAS THAT YOU?';}
   });
   window.addEventListener('unload', function (e) {
     console.log('unload');
@@ -319,6 +310,46 @@ if(JSON.stringify(actdata)=="{}"||visitorId=="000"||hwid=="000x000"||ip==""){
   setTimeout(function(){
   checkREADY()}, 100)
 }else{console.log("LOADED!");
+	if (getCookie("verify")!=""){
+		var verif = JSON.parse(getCookie("verify"))
+			
+			var uuun=btoa(getCookie("usernamecred"))
+			var user={}
+			var is=0
+			var ii2i=0
+			while (ii2i < actdata.accounts.length){
+			  if(actdata.accounts[ii2i].username==uuun){
+				  user=actdata.accounts[ii2i]
+				  is=ii2i
+			  }
+			  ii2i++
+		  }
+		  
+			if(verif.email==user.details.email&&verif.name==getCookie("usernamecred")&&verif.password==getCookie("passwordcred")&&user.details.verification==undefined){
+				setCookie("verify","",99)
+				actdata.accounts[is].details.verification=verif
+				function snackbar_Successsfg() {
+					SnackBar({
+						message: `Verified!`,
+						timeout:1560,
+						dismissible:false,
+						status: "success"
+					});
+				};
+				snackbar_Successsfg()
+				set(ref(db, 'data'), {
+					data: actdata,
+					chat: chat,
+					hosts: hosts,
+					bank: bank,
+					session: sessiondata,
+					games: games
+				  });
+			}else{
+				setCookie("verify","",99)
+				alert("An Error Ocurred!")
+			}
+	}
 sid = btoa(visitorId+btoa(ip)+btoa(getUserAgent().description)+btoa(uid))+"|--|"+hwid+"|"
 checkSessionStart();
 var hwidban = actdata.hwidban

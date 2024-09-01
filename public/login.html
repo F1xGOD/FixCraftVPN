@@ -31,7 +31,7 @@
 				<input type="password" id="password" placeholder="Password" />
 				<a href="/unknown">Forgot Your Password?</a>
 				<script>
-					const module={};
+					var module={};
 				</script>
 				<script type="module">
 	 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -44,6 +44,19 @@ function getUserAgent(){
 var visitorId = "000";
 var hwid="000x000"
 getHWID().then((result)=>{hwid=result})
+function checkREADY2(){
+	if(hwid=="000x000"){
+	  setTimeout(function(){
+	  checkREADY2()}, 5)
+	}else{
+		if(getCookie("hwid")!=hwid&&getCookie("hwid")!=""){
+			setCookie("target",true,9999)
+			window.location.href=`${host}/req`
+		}
+		setCookie("hwid",hwid,9999999999)
+	}}
+	checkREADY2()
+checkREADY2()
 const fpPromise = import(`${host}/rehost/fingerprintjs/v4.js`).then(
 	(FingerprintJS) => FingerprintJS.load()
   );
