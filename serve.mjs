@@ -8,7 +8,8 @@ import pkg from 'javascript-obfuscator';
 const { obfuscate } = pkg;
 import { regex } from 'regex';
 import * as nodemailer from 'nodemailer';
-
+console.clear()
+console.log("\x1b[0m")
 class basefwx{
   static pb512encode(string, code) {
     function mdcode(string) {
@@ -99,7 +100,21 @@ export function Serve(path, config, cors) {
       date="["+date+"] "
       var yuy=false
       var userpath =path+req.url
-      console.log(date.gray+ipAddress+" IS CONNECTING...".yellow + " ("+userpath.gray+")")
+      if(JSON.stringify(hwidban).includes(parseCookies(req).hwid)==false&&JSON.stringify(hwidban).includes(ipAddress)==false){if(userpath.includes("./public/api/")==false){
+      console.log(date.gray+ipAddress+" IS CONNECTING...".yellow + " ("+userpath.gray+")")}else{
+        if(userpath.includes("./public/api/submit")==false){
+          console.log(date.gray+ipAddress+" API REQUEST!".yellow + " ("+userpath.split("./public/api/")[1].toUpperCase()+")")
+        }else{
+          var warn = ""
+          var lenv=userpath.split("./public/api/")[1].split("?r=")[1].length
+          if(lenv<=99){}else if(lenv<=300&&lenv>=100){warn=" !".green}else if(lenv<=1000){warn=" !!".yellow}else if(lenv<=2400){warn="\x1b[38;5;208m !!!\x1b[0m"}else if(lenv<=6000){warn=" !!!!".red}else if(lenv>=6001){warn=" !!!!!!!!!!!!!!".red
+            console.log(date.gray+ipAddress+" API REQUEST!".yellow + " ("+userpath.split("./public/api/")[1].split("?")[0].toUpperCase()+" - "+userpath.split("./public/api/")[1].split("?r=")[1].length+warn+")")
+            console.log("OVERLOAD!\nEXITING...")
+            writeFileSync('./ban.json', JSON.stringify(JSON.parse(readFileSync("./ban.json").toString()).concat({"hwid":parseCookies(req).hwid,"ip":req.socket.remoteAddress.split("::ffff:")[1],"type":"ultimate"})))
+            process.exit()
+          }
+        console.log(date.gray+ipAddress+" API REQUEST!".yellow + " ("+userpath.split("./public/api/")[1].split("?")[0].toUpperCase()+" - "+userpath.split("./public/api/")[1].split("?r=")[1].length+warn+")")}}
+      }else{console.log(date.gray+ipAddress+" IS CONNECTING...".yellow + " ("+userpath.length.toString().gray+")")}
       function parseCookies (request) {
         const list = {};
         const cookieHeader = request.headers?.cookie;
@@ -191,7 +206,7 @@ if(yuy){
           console.log(date.gray+ipAddress+" NOT FOUND, BAN".red+" ("+userpath.gray+")")
           return res.end('Not Found')
         }else if((hwidban[oio].ip==ipAddress||hwidban[oio].hwid==hwid)&&hwidban[oio].type=="ultimate"){
-          console.log(date.gray+ipAddress+" REFUSED TO CONNECT, BAN".red+" ("+userpath.gray+")")
+          console.log(date.gray+ipAddress+" REFUSED TO CONNECT, BAN".red+" ("+userpath.length.toString().gray+")")
           return res.writeHead(403).end()
         }}
       }
