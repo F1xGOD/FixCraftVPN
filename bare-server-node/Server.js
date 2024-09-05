@@ -88,6 +88,7 @@ export default class Server {
 
 			try{
 				await call(this, request, socket, head);
+				
 			}catch(error){
 				this.error(error);
 				socket.end();
