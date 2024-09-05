@@ -80,6 +80,6 @@ async function config(config) {
 
   const port = process.env.PORT || (configuration.port || 8080)
   
-  server.listen(443, console.log('https://localhost:'+443));
+  server.listen(443, function(){console.log('https://localhost:'+443);process.stdout.write('\u001B[2J\u001B[0;0f')});
 }
 export default config
