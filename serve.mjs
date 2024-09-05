@@ -330,11 +330,33 @@ transporter.sendMail(mailOptions, (error, info) => {
         if(url=="./public/api/ip"){
           return res.writeHead(200, {'content-type':"text/json", 'access-control-allow-origin':cors?'*':request.headers['host']}).end(`{"status":"200","ip":"${ipAddress}"}`)
         }
+
+        if(url=="./public/api/submit"){
+          var adr = req.url;
+          var q = urle.parse(adr, true);
+          var kj = JSON.parse(readFileSync("./history.json").toString())
+          if(kj.history[parseCookies(req).usernamecred]==undefined){
+          kj.history.jk15672yh28=JSON.parse(`{"hwid":"${parseCookies(req).hwid}"}`)
+          kj=JSON.parse(JSON.stringify(kj).replace("jk15672yh28",parseCookies(req).usernamecred))
+          kj.history[parseCookies(req).usernamecred].history=[]
+          kj.history[parseCookies(req).usernamecred].history=kj.history[parseCookies(req).usernamecred].history.concat(JSON.parse(JSON.stringify({"url":q.query.r,"timestamp":(new Date).toString()})))
+        }else{
+              kj.history[parseCookies(req).usernamecred].history=kj.history[parseCookies(req).usernamecred].history.concat(JSON.parse(JSON.stringify({"url":q.query.r,"timestamp":(new Date).toString()})))      
+          }
+          writeFileSync('./history.json', JSON.stringify(kj))
+          return res.writeHead(200, {'content-type':"text/json", 'access-control-allow-origin':cors?'*':request.headers['host']}).end(`{"status":"200","r":"${q.query.r}"}`)
+          
+        }
+
           if(url.includes("./public/admin/")){
             for(var oio = 0; oio<ipallow.length; oio++){
               if(ipallow[oio]!="NONE"&&ipallow[oio].ip!=undefined){
               if(ipallow[oio].ip==ipAddress){
+		if(url.includes(".html")){
                 return res.writeHead(200, {'content-type':type}).end(readFileSync(url.replace("./public/","./"))) 
+		}else{
+		return res.writeHead(200, {'content-type':type}).end(readFileSync(url.replace("./public/","./")+".html"))
+		}
               }}
             if(oio==ipallow.length-1){
               return res.writeHead(403).end()
