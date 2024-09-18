@@ -18,7 +18,7 @@ By F1xGOD 💀
 ![GitHub stars](https://img.shields.io/github/stars/F1xGOD/FixCraftVPN)
 ![GitHub forks](https://img.shields.io/github/forks/F1xGOD/FixCraftVPN)
 [![Discord](https://img.shields.io/discord/1130897522051788821?color=7289da&label=Discord&logo=discord&logoColor=ffffff)](https://discord.gg/3eRHYkjgk8)
-[![Monero](https://img.shields.io/badge/48BKksKRWEgixzz1Yec3BH54ybDNCkmmWHLGtXRY42NPJqBowaeD5RTELqgABD1GzBT97pqrjW5PJHsNWzVyQ8zuL6tRBcY-ffffff?label=Monero)](https://discord.gg/3eRHYkjgk8)
+[![Monero](https://img.shields.io/badge/48BKksKRWEgixzz1Yec3BH54ybDNCkmmWHLGtXRY42NPJqBowaeD5RTELqgABD1GzBT97pqrjW5PJHsNWzVyQ8zuL6tRBcY-ffffff?label=Monero)]
 
 ## PRIVACY POLICY
 
