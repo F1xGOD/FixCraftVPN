@@ -19,8 +19,9 @@ function checkREADY2(){
 		if(getCookie("hwid")!=hwid&&getCookie("hwid")!=""){
 			getHWID().then((result)=>{
 			if(result!=hwid){}else if(result!=getCookie("hwid")){
-			setCookie("target",true,9999)
-			window.location.href=`${host}/req`
+			// setCookie("target",true,9999)
+			// window.location.href=`${host}/req`
+			setCookie("hwid",hwid,999999999)
 			}
 			})
 			
