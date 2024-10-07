@@ -203,9 +203,9 @@ var datee2 = new Date(Date.parse(chat[pp].timestamp))
 reltime = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[1]
 reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[0]
       if(avatar==""){
-    final+=`<div><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+    final+=`<div style="max-width: 1000px;resize: both;"><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="max-width: 1000px;resize: both;display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="max-width: 1000px;resize: both;overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="max-width: 1000px;resize: both;overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }else{
-      final+=`<div><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+      final+=`<div style="max-width: 1000px;resize: both;"><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="max-width: 1000px;resize: both;display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="max-width: 1000px;resize: both;overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="max-width: 1000px;resize: both;overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }}
     if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
@@ -230,7 +230,39 @@ input22.addEventListener("keypress", function(event) {
     document.getElementById("send").click();
   }
 });
-module.send = function(){
+module.send = function(){if(document.getElementById("input").value.slice(0,7)=="ask-ai?"&&document.getElementById("input").value.length>7){
+  var tosend = document.getElementById("input").value
+  if(tosend!=""){
+    document.getElementById("texts").innerHTML+=`<div id="toremove"><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2FSYSTEM.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">NOW</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">LOADING...</p></div> </div>`
+    document.getElementById("texts").scrollBy(0,1000);
+    var date =new Date
+  document.getElementById("input").value=""
+  var achat=chat
+  chat=chat.concat({"content":"ASKING AI: "+tosend.slice(7),"sender":getCookie("usernamecred"),"timestamp":date.toString()})  
+  achat=achat.concat({"content":"ASKING AI: "+tosend.slice(7),"sender":getCookie("usernamecred"),"timestamp":date.toString()})
+  fetch("https://api.fixcraft.org/v1/ai?api_key=aGaOgllhcVxHfCPv&request="+encodeURIComponent(tosend.slice(7))).then(reslt => {
+   reslt.json().then(rlt =>{
+      achat=achat.concat({"content":rlt.response,"sender":"SYSTEM","timestamp":date.toString()})
+      chat=chat.concat({"content":rlt.response,"sender":"SYSTEM","timestamp":date.toString()})
+      document.getElementById("toremove").remove()
+      document.getElementById("texts").scrollBy(0,1000);
+
+	set(ref(db, 'data'), {
+	  data: actdata,
+	  chat: chat,
+    hosts: hosts,
+    bank: bank,
+	  session: sessiondata,
+	  games: games
+	});
+  document.getElementById("input").value=""
+
+    })
+})
+  
+}
+
+}else{
   var tosend = document.getElementById("input").value
   if(tosend!=""){
   var date =new Date
@@ -259,9 +291,9 @@ var datee2 = new Date(Date.parse(chat[pp].timestamp))
 reltime = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[1]
 reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")[0]
       if(avatar==""){
-    final+=`<div><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+    final+=`<div style="max-width: 1000px;resize: both;"><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="max-width: 1000px;resize: both;display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:5px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }else{
-      final+=`<div><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
+      final+=`<div style="max-width: 1000px;resize: both;"><img src="https://firebasestorage.googleapis.com/v0/b/fixcraft-vpn.appspot.com/o/avatars%2F${avatar}.png?alt=media" alt="Avatar" style="width:20px;border-radius: 50%;"><p style="max-width: 1000px;resize: both;display:inline-block;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:13px;margin-bottom:0px;margin-top:0px;margin-right:0px;margin-left:7px;padding:0px">${chat[pp].sender+" "+reltime+" - "+reltime2}</p><div style="overflow:hidden;display:flex;position: relative;height:max-content;margin-bottom:10px;margin-top:10px;width: max-content;background-color: #1e1e1e;border-radius: 4px;"><p style="overflow:hidden;padding:3px;margin:10px;margin-top:7px;text-align:center;color:#ffffff;font-weight:bold;font-family:Calibri;font-size:17px">${chat[pp].content}</p></div> </div>`
     }}
     if(pp==chat.length-1){
     document.getElementById("texts").innerHTML=final
@@ -276,7 +308,7 @@ reltime2 = datee2.toLocaleString("en-US", {timeZone: getTimeZone()}).split(", ")
 	  session: sessiondata,
 	  games: games
 	});
-  document.getElementById("input").value=""
+  document.getElementById("input").value=""}
 }
 module.clear=function(){
   document.getElementById("input").value=""
