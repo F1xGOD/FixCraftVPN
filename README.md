@@ -14,11 +14,12 @@ By F1xGOD 💀
 Donate Crypto (Monero) - 48BKksKRWEgixzz1Yec3BH54ybDNCkmmWHLGtXRY42NPJqBowaeD5RTELqgABD1GzBT97pqrjW5PJHsNWzVyQ8zuL6tRBcY
 </pre>
 
-![GitHub license](https://img.shields.io/github/license/F1xGOD/FixCraftVPN)
+![GitHub license](https://img.shields.io/github/license/F1xGOD/FixCraftVPN?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/F1xGOD/FixCraftVPN?label=Issues)
 ![GitHub stars](https://img.shields.io/github/stars/F1xGOD/FixCraftVPN)
 ![GitHub forks](https://img.shields.io/github/forks/F1xGOD/FixCraftVPN)
 [![Discord](https://img.shields.io/discord/1130897522051788821?color=7289da&label=Discord&logo=discord&logoColor=ffffff)](https://discord.gg/3eRHYkjgk8)
+[![Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DF1xGOD%26type%3Dpatrons)](https://patreon.com/F1xGOD)
 
 ## PRIVACY POLICY
 
@@ -207,7 +208,7 @@ We may update this privacy notice from time to time. The updated version will be
 
 11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
 
-If you have questions or comments about this notice, you may email us at admin@www.fixcraft.org or contact us by post at:
+If you have questions or comments about this notice, you may email us at admin@fixcraft.org or contact us by post at:
 
 FixCraft Inc.
 UK Freston Rd 150
@@ -231,7 +232,7 @@ We are FixCraft Inc. doing business as FixCraft ("Company," "we," "us," "our"), 
 
 We operate the website https://www.fixcraft.org (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
 
-You can contact us by phone at +12484345508, email at admin@www.fixcraft.org, or by mail to 150 Freston Road, London, UK, London, London SW3, United Kingdom.
+You can contact us by phone at +12484345508, email at admin@fixcraft.org, or by mail to 150 Freston Road, London, UK, London, London SW3, United Kingdom.
 
 These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and FixCraft Inc., concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
@@ -294,7 +295,7 @@ solely for your personal, non-commercial use or internal business purpose.
 
 Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
 
-If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: admin@www.fixcraft.org. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
+If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: admin@fixcraft.org. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
 
 We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.
 
@@ -468,8 +469,7 @@ These Legal Terms and any policies or operating rules posted by us on the Servic
 In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:
 
 FixCraft Inc.
-150 Freston Road, London, UK
-London, London SW3
-United Kingdom
-Phone: +12484345508 
-Email: admin@www.fixcraft.org
+California Los Angeles
+United States
+Phone: NONE
+Email: admin@fixcraft.org
