@@ -48,6 +48,30 @@
 |   2.1   | :heavy_check_mark: | Works Fine |
 | < 2.1   | ❌                 | Not Working |
 
+## Special Settings & Bug Fixes
+
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 2.2   | :heavy_check_mark: | Works Fine |
+|   2.2   | :heavy_check_mark: | Works Fine |
+| < 2.2   | ❌                 | Not Working |
+
+## Node.JS Instead Of Static Page & Local Bare Server
+
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 2.3   | :heavy_check_mark: | Works Fine |
+|   2.3   | :heavy_check_mark: | Works Fine |
+| < 2.3   | ❌                 | Not Working |
+
+## AI API Integration & Bug Fixes & Node.JS Upgrade
+
+| Version | Supported          | Notes           |
+| ------- | ------------------ | --------------- |
+| > 2.4   | :heavy_check_mark: | Works Fine |
+|   2.4   | :heavy_check_mark: | Works Fine |
+| < 2.4   | ❌                 | Not Working |
+
 ## Notes From The Owner
 
 PLEASE USE THE LASTEST VERSION!
