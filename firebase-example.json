@@ -1,0 +1,286 @@
+{
+  "data": {
+    "bank": {
+      "networth": 0,
+      "transactions": {
+        "NONE": "NONE"
+      }
+    },
+    "chat": [
+      {
+        "content": "Chat",
+        "sender": "SYSTEM",
+        "timestamp": "Tue Sep 11 2001 8:00:00 AM GMT-0700 (Pacific Daylight Time)"
+      }
+    ],
+    "data": {
+      "accounts": [
+        {
+          "admname": "system",
+          "avatar": "SYSTEM",
+          "bank": {
+            "status": "active"
+          },
+          "details": {
+            "aname": "SYSTEM",
+            "email": "",
+            "info": "Owner"
+          },
+          "disabled": [
+            "NONE"
+          ],
+          "job": "owner",
+          "password": "UEFTU1dPUkQ=",
+          "role": "admin",
+          "status": "active",
+          "username": "U1lTVEVN"
+        }
+      ],
+      "deletedaccounts": [
+        {
+          "bank": {
+            "status": "active"
+          },
+          "deactreason": "",
+          "details": {
+            "aname": "",
+            "email": "",
+            "info": ""
+          },
+          "disabled": [
+            "NONE"
+          ],
+          "job": "none",
+          "password": "ZXhhbXBsZQ==",
+          "reason": "DELETED - NO REASON!",
+          "role": "user",
+          "status": "active",
+          "username": "ZXhhbXBsZQ=="
+        }
+      ],
+      "discord": {
+        "db": {
+          "tester": {
+            "balance": 1,
+            "warnings": {
+              "swear": 1
+            }
+          }
+        },
+        "external": [
+          {
+            "AnyDesk": {
+              "address": "1979290111"
+            },
+            "HOME-IP": "192.168.1.69",
+            "MAC": "4c:49:6c:6c:24:92",
+            "name": "MSI",
+            "system": "Windows",
+            "user": {
+              "p-address": {
+                "address": "3900 San Fernando Rd, Glendale, CA 91204",
+                "lat": "34.1281251",
+                "lon": "-118.2585572"
+              },
+              "passport": {
+                "name": "Veronika Kutko"
+              },
+              "username": "Veroha"
+            }
+          }
+        ],
+        "hwidban": [
+          "NONE"
+        ],
+        "status": "newuserhide",
+        "tries": "11",
+        "undermaintenance": [
+          {
+            "location": "test",
+            "reason": "Not Loading"
+          }
+        ]
+      },
+      "games": [
+        {
+          "id": "1v1lol",
+          "image": "/IMAGES/1v1lol.png",
+          "title": "1v1 LOL",
+          "url": "https://vpn.fixcraft.org/games/1v1lol"
+        },
+        {
+          "id": "minecraft",
+          "image": "/IMAGES/minecraft.png",
+          "title": "Minecraft",
+          "url": "https://vpn.fixcraft.org/mc"
+        },
+        {
+          "id": "drivemad",
+          "image": "/IMAGES/drivemad.png",
+          "title": "Drive Mad",
+          "url": "https://vpn.fixcraft.org/games/drivemad"
+        },
+        {
+          "id": "backrooms",
+          "image": "/IMAGES/backrooms.png",
+          "title": "Backrooms",
+          "url": "https://vpn.fixcraft.org/games/backrooms"
+        },
+        {
+          "id": "discord",
+          "image": "/IMAGES/discord.png",
+          "title": "Discord",
+          "url": "https://vpn.fixcraft.org/games/discord"
+        },
+        {
+          "id": "pixelgunsurvival",
+          "image": "/IMAGES/pixelgun.png",
+          "title": "Pixel Gun Survival",
+          "url": "https://vpn.fixcraft.org/games/pixelgunsurvival"
+        },
+        {
+          "id": "subwaysurfers",
+          "image": "/IMAGES/subwaysurf.png",
+          "title": "Subway Surfers",
+          "url": "https://vpn.fixcraft.org/games/subwaysurfers"
+        },
+        {
+          "id": "dogeminer",
+          "image": "/IMAGES/dogecoin.png",
+          "title": "Dodge Miner",
+          "url": "https://vpn.fixcraft.org/games/dodgecoinminer"
+        },
+        {
+          "id": "basketballstars",
+          "image": "/IMAGES/basketballstars.png",
+          "title": "Basketball Stars",
+          "url": "https://vpn.fixcraft.org/games/basketballstars"
+        },
+        {
+          "id": "bitlife",
+          "image": "/IMAGES/bitlife.png",
+          "title": "BitLife",
+          "url": "https://vpn.fixcraft.org/games/bitlife"
+        },
+        {
+          "id": "motox3m",
+          "image": "/IMAGES/moto3xm.png",
+          "title": "Moto X3M",
+          "url": "https://vpn.fixcraft.org/games/moto-x3m"
+        },
+        {
+          "id": "fridaynightfunkin",
+          "image": "/IMAGES/fridaynightfunkin.png",
+          "title": "Friday Night Funkin",
+          "url": "https://vpn.fixcraft.org/games/fridaynightfunkin"
+        },
+        {
+          "id": "bobtherobber2",
+          "image": "/IMAGES/bobtherob.png",
+          "title": "Bob The Robber 2",
+          "url": "https://vpn.fixcraft.org/games/bobtherobber2"
+        },
+        {
+          "id": "geometrydash",
+          "image": "/IMAGES/gdash.png",
+          "title": "Geometry Dash",
+          "url": "https://vpn.fixcraft.org/games/geometrydash"
+        }
+      ],
+      "hosts": [
+        {
+          "uvconfig": {
+            "bare": "https://vpn.fixcraft.org/bare",
+            "bundle": "/uv/uv.bundle.js",
+            "client": "/uv/uv.client.js",
+            "config": "/uv/uv.config.js",
+            "decodeUrl": "UVD",
+            "encodeUrl": "UVE",
+            "handler": "/uv/uv.handler.js",
+            "prefix": "/uv/service/",
+            "sw": "/uv/uv.sw.js"
+          }
+        },
+        {
+          "content": {
+            "key": "favicon",
+            "value": "/FixCraft.png"
+          }
+        },
+        {
+          "content": {
+            "key": "websitetitle",
+            "value": "FixCraftV2"
+          }
+        },
+        [
+          {
+            "key": "navbar"
+          },
+          {
+            "href": "/",
+            "image": "fa-solid fa-house",
+            "name": " Home "
+          },
+          {
+            "href": "proxy",
+            "image": "fa-solid fa-server",
+            "name": " Proxy"
+          },
+          {
+            "href": "chat",
+            "image": "fas fa-comment-alt",
+            "name": " Chat"
+          },
+          {
+            "href": "games",
+            "image": "fa-solid fa-gamepad",
+            "name": " Games"
+          },
+          {
+            "href": "settings",
+            "image": "fa-solid fa-gear",
+            "name": " Settings"
+          },
+          {
+            "href": "googleincognito",
+            "image": "fa-solid fa-user-secret",
+            "name": " Incognito"
+          },
+          {
+            "href": "account",
+            "image": "fa-solid fa-user",
+            "name": "Account"
+          },
+          {
+            "href": "about",
+            "image": "fa-solid fa-question",
+            "name": "About"
+          }
+        ],
+        {
+          "TOKEN": "JKMSO*SALIO"
+        }
+      ],
+      "session": {
+        "TEST": "TEST"
+      }
+    }
+  },
+  "licence": [
+    {
+      "hash": "28328928328426927724724728026528328328727928226824724729731003109310531102472472732563106310826827029924392598420465457513075761572283899956602109927327327426255247872304867030990007",
+      "licence": {
+        "name": "U1lTVEVN",
+        "tkn": "ePl4HwNaH7qjoGmV5S",
+        "valid_due": 0
+      }
+    }
+  ],
+  "server": {
+    "execute": ""
+  },
+  "system": {
+    "token": "I8jlDFcG5tvjSkdhR"
+  }
+}
