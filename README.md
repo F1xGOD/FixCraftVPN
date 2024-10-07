@@ -9,7 +9,7 @@
                                               
                                                            
 FixCraft® Inc. FixCraftVPN Copyright ©   
-Version - v2.3 😎 JUN 19 2024
+Version - v2.4 😎 Oct 7 2024
 By F1xGOD 💀
 Donate Crypto (Monero) - 48BKksKRWEgixzz1Yec3BH54ybDNCkmmWHLGtXRY42NPJqBowaeD5RTELqgABD1GzBT97pqrjW5PJHsNWzVyQ8zuL6tRBcY
 </pre>
