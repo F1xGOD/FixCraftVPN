@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REMOTE CONSOLE</title>
+        <script src="/host.js"></script>
+        <script src="/jquery.js"></script>
+        <script src="/setup.js"></script>
+        <script src="/password.js" type="module"></script>
+        <link rel="stylesheet" href="/snackbar.css">
+        <script src="/snackbar.js"></script>
+      <link rel="icon" href="/admin.png">
+      <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-462d1fe84b879d730fe2180b0e0354e0.css?vsn=d">
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+      <style type="text/css">
+        html {height: 100%;}
+        .collapsible {cursor: pointer;width: 100%;border: none;text-align: left;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+          .ccontent {display: none;overflow: hidden;color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+          div.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20; }
+          a.text { text-decoration:underline; color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20;}
+          span.text { color:#4C4C4C;font-weight:bold;font-family:Calibri;font-size:20 }
+          span.deactivated { color:#FF0000;font-weight:bold;font-family:Calibri;font-size:20 }
+          span.active { color:#36cc00;font-weight:bold;font-family:Calibri;font-size:20 }
+          span.suspended { color:#fc9a08;font-weight:bold;font-family:Calibri;font-size:20 }
+          .parent {
+        text-align: left;
+      }
+      .child {
+        display: inline-block;
+        vertical-align: middle;
+      }
+          button.btn { background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+          button.selffbtn { background-color: rgb(61, 212, 10); border: none; color: white; cursor: pointer; padding: 3px 5px; font-size: 13px; border-radius: 4px; }
+        button.btnerr { background-color: rgb(240, 11, 11); border: none; color: white; cursor: pointer; padding: 3px 9px; font-size: 13px; border-radius: 4px; }
+        button.save{ background-color: DodgerBlue; border: none; color: white; cursor: pointer; padding: 5px; border-radius: 4px; font-weight:bold;font-family:Calibri;font-size:20 }
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      section {
+        overflow: scroll;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+      }
+      button.df {
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        padding: 14px 22px;
+        border: none;
+        background: #4070f4;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button.cnffr {
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        padding: 14px 22px;
+        border: none;
+        background: #4070f4;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button.canc {
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        padding: 14px 22px;
+        border: none;
+        background: #CF142B;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button.df:hover {
+        background-color: #265df2;
+      }
+      button.cnffr:hover {
+        background-color: #265df2;
+      }
+      button.canc:hover {
+        background-color: #e60019;
+      }
+      button.show-modal,
+      .modal-box {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      section.active .show-modal {
+        display: none;
+      }
+      .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+      }
+      section.active .overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modal-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 380px;
+        width: 100%;
+        padding: 30px 20px;
+        border-radius: 24px;
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      
+      section.active .modal-box {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .modal-box h2 {
+        margin-top: 1px;
+        margin-bottom:10px;
+        font-size: 25px;
+        font-weight: 500;
+        color: #333;
+      }
+      .modal-box h3 {
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        align-self: center;
+      }
+      .modal-box .buttons {
+        margin-top: 25px;
+      }
+      .modal-box button {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 0 10px;
+      }
+      </style>
+    </head>
+    <body>
+        <script>
+        const module={}
+        </script>
+        <script type="module">
+            import { initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+const firebaseConfig = { apiKey: "AIzaSyAQ89agVS02dwVK9-yWwpZOvMkQWLiKcEM", authDomain: "fixcraft-vpn.firebaseapp.com", databaseURL: "https://fixcraft-vpn-default-rtdb.firebaseio.com", projectId: "fixcraft-vpn", storageBucket: "fixcraft-vpn.appspot.com", messagingSenderId: "811886239981", appId: "1:811886239981:web:9e43da7b31be5f7fb1ace4", measurementId: "G-CTR9TEET9E" };
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+// var execute ={}
+// const infodat = ref(db, 'server');
+// onValue(infodat, (snapshot) => {
+//     var data = snapshot.val();
+// 	execute=data.execute
+//   });
+// function checkREADY22(){
+// if(JSON.stringify(execute)=="{}"){
+//   setTimeout(function(){
+//   checkREADY22()}, 10)
+// }else{console.log("LOADED!");
+//  }
+// }
+
+// checkREADY22()
+module.writeus = function writeus(ps) { const db = getDatabase(); set(ref(db, 'server'), { execute: ps});}
+        </script>
+        <input style="border-width: 2px;display:block; float:center" type="text" id="cmd" name="cmd">
+        <script>
+            input=document.getElementById("cmd")
+            input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    module.writeus(input.value)
+    input.value=""
+  }})
+        </script>
+    </body>
+</html>
