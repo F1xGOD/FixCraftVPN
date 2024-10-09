@@ -7,10 +7,17 @@ import fetch from 'node-fetch'
 //var configuration = JSON.parse(readFileSync('./config.json'))
 
 const bare =  new Server('/bare/', '');
-const options = {
-  key: readFileSync('./certs/private.key'), // replace it with your key path
-  cert: readFileSync('./certs/certificate.crt'), // replace it with your certificate path
-}
+var options = {}
+if (process.env.test==="true"){
+  options = {
+    key: readFileSync('./certs2/private.key'),
+    cert: readFileSync('./certs2/certificate.crt'),
+  }
+}else{
+options = {
+  key: readFileSync('./certs/private.key'),
+  cert: readFileSync('./certs/certificate.crt'),
+}}
 var server = https.createServer(options)
 
 async function config(config) {
