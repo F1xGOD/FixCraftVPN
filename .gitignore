@@ -9,3 +9,4 @@ history.json
 /.idea/workspace.xml
 
 /.idea/jsLibraryMappings.xml
+db/users.json
