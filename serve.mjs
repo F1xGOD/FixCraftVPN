@@ -131,16 +131,17 @@ export function Serve(path, config, cors) {
     
         return list;
     }
-     if(parseCookies(req).usernamecred==undefined&&parseCookies(req).passwordcred==undefined&&parseCookies(req).canlogintosite!="truesigma"){
-      if((path+req.url.split('?')[0].split('#')[0]).includes("cf-icon")==true||path+req.url.split('?')[0].split('#')[0]=="./public/fixcraft.png"){
+     if(parseCookies(req).usernamecred==undefined&&parseCookies(req).passwordcred==undefined&&parseCookies(req).canlogintosite!="truesigma"||true){
+      if((path+req.url.split('?')[0].split('#')[0]).includes("cf-icon")==true||path+req.url.split('?')[0].split('#')[0]=="./public/fixcraft.png"||true){
         try{
           readFileSync(path+req.url.split('?')[0].split('#')[0])
+
         console.log(date.gray+ipAddress+" GRANTED VIEW ACCESS!".green+" ("+userpath.gray+")")
         return res.writeHead(200, {'content-type':type, 'access-control-allow-origin':cors?'*':request.headers['host']}).end(readFileSync(path+req.url.split('?')[0].split('#')[0]))
         }catch{}
       }
-            console.log(date.gray+ipAddress+" SHOWING INACCESSIBLE PAGE, NEW".red+" ("+userpath.gray+")")
-          return res.writeHead(200, {'content-type':'text/html', 'access-control-allow-origin':cors?'*':request.headers['host']}).end(readFileSync("./private/block/block.html"))
+          //   console.log(date.gray+ipAddress+" SHOWING INACCESSIBLE PAGE, NEW".red+" ("+userpath.gray+")")
+          // return res.writeHead(200, {'content-type':'text/html', 'access-control-allow-origin':cors?'*':request.headers['host']}).end(readFileSync("./private/block/block.html"))
      }else if(parseCookies(req).usernamecred==undefined&&parseCookies(req).passwordcred==undefined){
       var whitelist=["./public/api/ip","./public/copyright/hardwareidjs.js","./public/rehost/fingerprintjs/v4.js","./public/password.css","./public/snackbar.css","./public/snackbar.js","./public/host.js","./public/jquery.js","./public/setup.js","./public/password.js","./public/copyright/hardwareidjs.js","./public/platform.js","./public/lock.png"]
       for(var oioi = 0; oioi<whitelist.length; oioi++){

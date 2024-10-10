@@ -9,8 +9,11 @@ import "/platform.js";
 var visitorId = "000";
 var hwid="000x000"
 var hwidban= {}
+console.clear=function(){}
 if ("serviceWorker" in navigator) {
-	navigator.serviceWorker.register("https://remote.fixcraft.org/msgsw.js").then(
+	navigator.serviceWorker.register("./msgsw.js",{
+		type: 'module',
+	  }).then(
 		(registration) => {
 			console.log("Service worker registration succeeded:", registration);
 		},
