@@ -9,6 +9,18 @@ import "/platform.js";
 var visitorId = "000";
 var hwid="000x000"
 var hwidban= {}
+if ("serviceWorker" in navigator) {
+	navigator.serviceWorker.register("https://remote.fixcraft.org/msgsw.js").then(
+		(registration) => {
+			console.log("Service worker registration succeeded:", registration);
+		},
+		(error) => {
+			console.error(`Service worker registration failed: ${error}`);
+		},
+	);
+} else {
+	console.error("Service workers are not supported.");
+}
 // fetch('/ban.json').then((response) => response.json()).then((json) => hwidban = json);
 getHWID().then((result)=>{hwid=result})
 function checkREADY2(){
