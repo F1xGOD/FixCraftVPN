@@ -387,7 +387,7 @@ transporter.sendMail(mailOptions, (error, info) => {
 //   }catch{}
 // }
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {url+='index.html'}
-      try {readFileSync(url)} catch {try {readFileSync(url+=".html")} catch {if(url.includes("./public/mc/1.8.8")){readFileSync("./public/mc/1.8.8/index.html")}
+      try {readFileSync(url)} catch {try {readFileSync(url+=".html")} catch {if(url == ("./public/mc/1.8.8")){return res.writeHead(200, {'content-type':'text/html', 'access-control-allow-origin':cors?'*':request.headers['host']}).end(readFileSync("./public/mc/1.8.8/index.html"))}
         console.log(date.gray+ipAddress+" TRIED TO ACCESS NON-EXISTENT RESOURCE!".red+" ("+userpath.gray+")")
         return res.end('Not Found') }}
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {if (config.index) return config.index(req, res, readFileSync(url), type)}
