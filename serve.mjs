@@ -96,7 +96,7 @@ export function Serve(path, config, cors) {
       hwidban = JSON.parse(readFileSync('./ban.json'));
       ipallow = JSON.parse(readFileSync('./op.json'));
       ipAddress=ipAddress.replace("::ffff:","")
-      var date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
+      var date = new Date().toISOString().replace(/T/, ' ').replace(/[.].+/, '')
       date="["+date+"] "
       var yuy=false
       var userpath =path+req.url
@@ -387,7 +387,7 @@ transporter.sendMail(mailOptions, (error, info) => {
 //   }catch{}
 // }
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {url+='index.html'}
-      try {readFileSync(url)} catch {try {readFileSync(url+=".html")} catch { 
+      try {readFileSync(url)} catch {try {readFileSync(url+=".html")} catch {if(url.includes("./public/mc/1.8.8")){readFileSync("./public/mc/1.8.8/index.html")}
         console.log(date.gray+ipAddress+" TRIED TO ACCESS NON-EXISTENT RESOURCE!".red+" ("+userpath.gray+")")
         return res.end('Not Found') }}
       if (req.url.split('?')[0].split('#')[0]=='/'&&config.indexfile==true) {if (config.index) return config.index(req, res, readFileSync(url), type)}
