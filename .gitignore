@@ -7,7 +7,5 @@ history.json
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
 /.idea/workspace.xml
-
 /.idea/jsLibraryMappings.xml
-db/users.json
 db/users.json
