@@ -18,7 +18,7 @@ const bare =  new Server('/bare/', '');
 //   key: readFileSync('./certs/private.key'),
 //   cert: readFileSync('./certs/certificate.crt'),
 // }}
-var server = http.createServer(options)
+var server = http.createServer()
 
 async function config(config) {
 
