@@ -1,24 +1,24 @@
 import Server from './bare-server-node/Server.js';
 import { readFileSync } from 'fs';
-import https from 'https';
+import http from 'http';
 import Serve from './serve.mjs'
 import fetch from 'node-fetch'
 
 //var configuration = JSON.parse(readFileSync('./config.json'))
 
 const bare =  new Server('/bare/', '');
-var options = {}
-if (process.env.test==="true"){
-  options = {
-    key: readFileSync('./certs2/private.key'),
-    cert: readFileSync('./certs2/certificate.crt'),
-  }
-}else{
-options = {
-  key: readFileSync('./certs/private.key'),
-  cert: readFileSync('./certs/certificate.crt'),
-}}
-var server = https.createServer(options)
+// var options = {}
+// if (process.env.test==="true"){
+//   options = {
+//     key: readFileSync('./certs2/private.key'),
+//     cert: readFileSync('./certs2/certificate.crt'),
+//   }
+// }else{
+// options = {
+//   key: readFileSync('./certs/private.key'),
+//   cert: readFileSync('./certs/certificate.crt'),
+// }}
+var server = http.createServer(options)
 
 async function config(config) {
 
@@ -88,6 +88,6 @@ async function config(config) {
 
   const port = process.env.PORT || (configuration.port || 8080)
   
-  server.listen(443, function(){console.log('https://localhost:'+443);process.stdout.write('\u001B[2J\u001B[0;0f')});
+  server.listen(10000, function(){console.log('https://localhost:'+443);process.stdout.write('\u001B[2J\u001B[0;0f')});
 }
 export default config
