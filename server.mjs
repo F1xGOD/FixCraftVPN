@@ -1,6 +1,6 @@
 import Server from './bare-server-node/Server.js';
 import { readFileSync } from 'fs';
-import https from 'https';
+import http from 'http';
 import Serve from './serve.mjs'
 import fetch from 'node-fetch'
 
@@ -18,7 +18,7 @@ options = {
   key: readFileSync('./certs/private.key'),
   cert: readFileSync('./certs/certificate.crt'),
 }}
-var server = https.createServer(options)
+var server = http.createServer()
 
 async function config(config) {
 
