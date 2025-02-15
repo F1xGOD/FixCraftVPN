@@ -92,7 +92,7 @@ color:#69707a;
     padding-left: 0;
     padding-right: 0;
     margin-left: 1rem;
-    margin-right: 1rem;};
+    margin-right: 1rem;}
 section {
   position: fixed;
   height: 100%;
@@ -1044,6 +1044,12 @@ function clearCache() {
 			setCookie("usernamecred","",999999);
 			setCookie("tries","",999999);
 			setCookie("canlogintosite","",999999);
+            localStorage.clear();
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                });
+            });
 			clearCache();
             window.location.href=host+"/login"
 		}
