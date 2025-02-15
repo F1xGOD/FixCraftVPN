@@ -10,20 +10,23 @@ var visitorId = "000";
 var hwid="000x000"
 var hwidban= {}
 console.clear=function(){}
-if ("serviceWorker" in navigator) {
-	navigator.serviceWorker.register("./msgsw.js",{
-		type: 'module',
-	  }).then(
-		(registration) => {
-			console.log("Service worker registration succeeded:", registration);
-		},
-		(error) => {
-			console.error(`Service worker registration failed: ${error}`);
-		},
-	);
-} else {
-	console.error("Service workers are not supported.");
+// Register service worker and pass username
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('./msgsw.js', { type: 'module' })
+		.then((registration) => {
+			console.log('Service Worker registered:', registration);
+
+			// Pass the username to the service worker
+			const username = getCookie('usernamecred');
+			navigator.serviceWorker.ready.then((sw) => {
+				sw.active.postMessage({ type: 'SET_USERNAME', username });
+			});
+		})
+		.catch(console.error);
 }
+
+
+
 // fetch('/ban.json').then((response) => response.json()).then((json) => hwidban = json);
 getHWID().then((result)=>{hwid=result})
 function checkREADY2(){
@@ -34,8 +37,8 @@ function checkREADY2(){
 		if(getCookie("hwid")!=hwid&&getCookie("hwid")!=""){
 			getHWID().then((result)=>{
 			if(result!=hwid){}else if(result!=getCookie("hwid")){
-			// setCookie("target",true,9999)
-			// window.location.href=`${host}/req`
+			setCookie("target",true,9999)
+			window.location.href=`${host}/req`
 			setCookie("hwid",hwid,999999999)
 			}
 			})
