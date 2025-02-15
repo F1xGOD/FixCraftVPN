@@ -5,9 +5,9 @@ import fetch from 'node-fetch'
 
 const options = {
 
-    key: readFileSync('./certs/private.key'), // replace it with your key path
+    key: readFileSync('./certs/privkey2.pem'), // replace it with your key path
   
-    cert: readFileSync('./certs/certificate.crt'), // replace it with your certificate path
+    cert: readFileSync('./certs/fullchain2.pem'), // replace it with your certificate path
   
   }
   
