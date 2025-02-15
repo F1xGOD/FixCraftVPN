@@ -1,7 +1,7 @@
 import mime from 'mime'
 import { readFileSync } from 'fs';
 import { writeFileSync } from 'fs';
-import { get } from 'http';
+import { get } from 'https';
 import * as urle from 'url'
 import 'colors';
 import pkg from 'javascript-obfuscator';
@@ -131,8 +131,8 @@ export function Serve(path, config, cors) {
     
         return list;
     }
-     if(parseCookies(req).usernamecred==undefined&&parseCookies(req).passwordcred==undefined&&parseCookies(req).canlogintosite!="truesigma"||true){
-      if((path+req.url.split('?')[0].split('#')[0]).includes("cf-icon")==true||path+req.url.split('?')[0].split('#')[0]=="./public/fixcraft.png"||true){
+     if(parseCookies(req).usernamecred==undefined&&parseCookies(req).passwordcred==undefined&&parseCookies(req).canlogintosite!="truesigma"){
+      if((path+req.url.split('?')[0].split('#')[0]).includes("cf-icon")==true||path+req.url.split('?')[0].split('#')[0]=="./public/fixcraft.png"){
         try{
           readFileSync(path+req.url.split('?')[0].split('#')[0])
 

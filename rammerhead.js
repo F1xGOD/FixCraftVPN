@@ -1,6 +1,6 @@
-import http from 'http';
+
 import https from 'https'
-var server = http.Server();
+var server = https.Server();
 
 server.on("request", (req, res) => {
   var url = new URL('https://r.911911911.info/newsession')

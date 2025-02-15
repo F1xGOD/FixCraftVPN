@@ -240,7 +240,7 @@ module.send = function(){if(document.getElementById("input").value.slice(0,7)=="
   var achat=chat
   chat=chat.concat({"content":"ASKING AI: "+tosend.slice(7),"sender":getCookie("usernamecred"),"timestamp":date.toString()})  
   achat=achat.concat({"content":"ASKING AI: "+tosend.slice(7),"sender":getCookie("usernamecred"),"timestamp":date.toString()})
-  fetch("https://api.fixcraft.org/v1/ai?api_key=aGaOgllhcVxHfCPv&request="+encodeURIComponent(tosend.slice(7))).then(reslt => {
+  fetch("https://api.fixcraft.org/v1/ai?api_key=d95b625ef1daebff8211b98d0e3cd7ff&request="+encodeURIComponent(tosend.slice(7))).then(reslt => {
    reslt.json().then(rlt =>{
       achat=achat.concat({"content":rlt.response,"sender":"SYSTEM","timestamp":date.toString()})
       chat=chat.concat({"content":rlt.response,"sender":"SYSTEM","timestamp":date.toString()})
