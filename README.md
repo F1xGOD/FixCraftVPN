@@ -15,7 +15,7 @@ Donate Crypto (Monero)
 48BKksKRWEgixzz1Yec3BH54ybDNCkmmWHLGtXRY42NPJqBowaeD5RTELqgABD1GzBT97pqrjW5PJHsNWzVyQ8zuL6tRBcY
 </pre>
 READ DOCUMENTATION!!!
-[Documentation](https://fixcraft.org/vpn/documentation)
+[Documentation](https://www.fixcraft.org/vpn/documentation)
 
 ![GitHub license](https://img.shields.io/github/license/F1xGOD/FixCraftVPN?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/F1xGOD/FixCraftVPN?label=Issues)
