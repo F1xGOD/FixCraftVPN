@@ -21,7 +21,7 @@
         $('.btn2').click(function(){
           $('.popup_box').css("display", "none");
           $('.click').css("display", "none");
-          var audio = new Audio('https://fixcraftvpn.onrender.com/AUDIO/nostalgia.mp3');
+          var audio = new Audio(`${host}/AUDIO/nostalgia.mp3`);
           audio.play();
           var element = document.getElementById("empty");
           document.getElementById("body").style.background = "linear-gradient(90deg,#000000,#000000)";
