@@ -1,7 +1,7 @@
 # 🛑 FixCraftVPN is Obsoleted and Archived
 
 > [!WARNING]
-> **FixCraftVPN is decrapted, discontinued and archived.**  
+> **FixCraftVPN is discontinued and archived.**  
 > Major security flaws identified:
 > - Public Firebase Security Rules  
 > - Weak web logic  
