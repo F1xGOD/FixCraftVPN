@@ -1,6 +1,6 @@
 # 🛑 FixCraftVPN is Obsoleted and Archived
 
-> [!WARNING]
+> [!CAUTION]
 > **FixCraftVPN is discontinued and archived.**  
 > Major security flaws identified:
 > - Public Firebase Security Rules  
@@ -11,7 +11,7 @@
 > - Revoke/rotate any keys or tokens  
 > - Change passwords and enable 2FA  
 
-**Status:** No further updates, patches, or security fixes will be released. Moving to: [Iridium](https://github.com/F1xGOD/Iridium)
+**Status:** No further updates, patches, or security fixes will be released. Moving to: [Iridium](https://github.com/F1xGOD/IridiumOS)
 
 <pre>
  ALL RIGHTS RESERVED
